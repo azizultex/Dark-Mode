@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.3
+ * Version: 1.4
  */
 
 // No thank you
@@ -238,7 +238,7 @@ class Dark_Mode {
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
 
 			// Register the dark mode stylesheet
-			wp_register_style('dark_mode', $css_url, array(), '1.3');
+			wp_register_style('dark_mode', $css_url, array(), '1.4');
 
 			// Enqueue the stylesheet
 			wp_enqueue_style('dark_mode');
