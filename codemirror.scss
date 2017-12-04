@@ -1,0 +1,195 @@
+/*
+* Name:       dark-mode
+* codemirror theme for dark-mode (original wordpress version edited for dark colors)
+* sass --watch codemirror.scss:codemirror.css --style nested
+*/
+
+/* ----------------------------------------------------------------------------------- */
+
+//colors
+$color_log_cabin_approx: #232323;
+$black: #000;
+$color_mountain_mist_approx: #999;
+$white: #ffffff;
+$color_pastel_green_approx: #7e7;
+$color_violet_eggplant_approx: #9c27b0;
+$color_shuttle_gray_approx: #5c6370;
+$color_gallery_approx: #ededed;
+$color_new_york_pink_approx: #e47978;
+$color_sunglo_approx: #e06c75;
+$color_whiskey_approx: #d19a66;
+$color_dodger_blue_approx: #2c96ff;
+$color_moody_blue_approx: #6e59ff;
+$color_malachite_approx: #25c749;
+$color_electric_violet_approx: #7c27ff;
+$color_cornflower_blue_approx: #6969ff;
+$color_salem_approx: #085;
+$color_leather_approx: #946f4a;
+$color_selective_yellow_approx: #ffb300;
+$color_buddha_gold_approx: #c39200;
+$color_purple_mountains_majesty_approx: #9878b9;
+$color_carnation_approx: #ff5454;
+$color_melrose_approx: #c5aefb;
+$color_gurkha_approx: #997;
+$color_japanese_laurel_approx: #170;
+$color_dark_blue_approx: #00c;
+$color_pizazz_30_approx: rgba(255, 150, 0, .3);
+$color_malibu_6_approx: rgba(109,189,255,0.06);
+$color_dove_gray_46_approx: rgba(114,114,114,0.46);
+$color_fuscous_gray_40_approx: rgba(85,85,85,0.40);
+
+.test {
+	color.CodeMirror: ;
+}
+.CodeMirror-linenumber {
+	background-color: $color_log_cabin_approx !important;
+}
+.CodeMirror-linenumbers {
+	background-color: $color_log_cabin_approx !important;
+}
+.CodeMirror-guttermarker {
+	color: $black;
+}
+.CodeMirror-guttermarker-subtle {
+	color: $color_mountain_mist_approx;
+}
+.CodeMirror-cursor {
+	border-left: 1px solid $white !important;
+}
+.cm-animate-fat-cursor {
+	background-color: $color_pastel_green_approx;
+}
+.cm-s-default {
+	.cm-header {
+		color: $color_violet_eggplant_approx !important;
+	}
+	.cm-quote {
+		color: $color_shuttle_gray_approx;
+	}
+	.cm-keyword {
+		color: $color_dodger_blue_approx !important;
+	}
+	.cm-atom {
+		color: $color_moody_blue_approx !important;
+	}
+	.cm-number {
+		color: $color_malachite_approx !important;
+	}
+	.cm-def {
+		color: $color_electric_violet_approx !important;
+	}
+	.cm-variable-2 {
+		color: $color_cornflower_blue_approx !important;
+	}
+	.cm-type {
+		color: $color_salem_approx;
+	}
+	.cm-variable-3 {
+		color: $color_salem_approx;
+	}
+	.cm-comment {
+		color: $color_leather_approx !important;
+	}
+	.cm-string {
+		color: $color_selective_yellow_approx !important;
+	}
+	.cm-string-2 {
+		color: $color_buddha_gold_approx !important;
+	}
+	.cm-qualifier {
+		color: $color_purple_mountains_majesty_approx !important;
+	}
+	.cm-meta {
+		color: $color_carnation_approx !important;
+	}
+	.cm-builtin {
+		color: $color_melrose_approx !important;
+	}
+	.cm-bracket {
+		color: $color_gurkha_approx;
+	}
+	.cm-tag {
+		color: $color_japanese_laurel_approx;
+	}
+	.cm-attribute {
+		color: $color_dark_blue_approx;
+	}
+	.cm-hr {
+		color: $color_mountain_mist_approx;
+	}
+	.cm-link {
+		color: $color_moody_blue_approx !important;
+	}
+	.cm-error {
+		color: $color_dark_blue_approx !important;
+	}
+}
+.cm-operator {
+	color: $color_gallery_approx !important;
+}
+.cm-variable {
+	color: $color_new_york_pink_approx !important;
+}
+.cm-negative {
+	color: $color_sunglo_approx;
+}
+.cm-positive {
+	color: $color_sunglo_approx;
+}
+.cm-header {
+	color: $color_whiskey_approx;
+}
+.cm-strong {
+	color: $color_whiskey_approx;
+}
+.cm-invalidchar {
+	color: $color_dark_blue_approx !important;
+}
+.CodeMirror-matchingtag {
+	background: $color_pizazz_30_approx;
+}
+.CodeMirror-activeline-background {
+	background: $color_malibu_6_approx !important;
+}
+.CodeMirror-activeline-gutter {
+	background: $color_malibu_6_approx !important;
+}
+.CodeMirror-gutter {
+	background: $color_log_cabin_approx !important;
+}
+.CodeMirror-selected {
+	background: $color_dove_gray_46_approx;
+}
+.CodeMirror-line::selection {
+	background: $color_fuscous_gray_40_approx !important;
+}
+.CodeMirror-line {
+	> span::selection {
+		background: $color_fuscous_gray_40_approx !important;
+	}
+	> span {
+		> span::selection {
+			background: $color_fuscous_gray_40_approx !important;
+		}
+		> span::-moz-selection {
+			background: $color_fuscous_gray_40_approx !important;
+		}
+	}
+	> span::-moz-selection {
+		background: $color_fuscous_gray_40_approx !important;
+	}
+}
+.CodeMirror-line::-moz-selection {
+	background: $color_fuscous_gray_40_approx !important;
+}
+.cm-fat-cursor .CodeMirror-cursor {
+	background: $color_pastel_green_approx;
+}
+.CodeMirror-wrap pre {
+	background-color: $color_log_cabin_approx !important;
+}
+.CodeMirror-focused .CodeMirror-selected {
+	background: $color_dove_gray_46_approx !important;
+}
+: rebeccapurple; {
+}
