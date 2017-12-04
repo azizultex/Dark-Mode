@@ -126,7 +126,16 @@ class Dark_Mode {
 
 			// Enqueue the stylesheet for loading
 			wp_enqueue_style('dark_mode');
-
+			
+			// Load style sheet only on pages affected by codemirror
+			global $pagenow;
+			
+			if ('plugin-editor.php' == $pagenow || 'widgets.php' == $pagenow || 'theme-editor.php' == $pagenow || 'customize.php' == $pagenow) {
+				
+			// change styles set by codemirror default css to dark-mode color scheme for wp code editors
+			wp_enqueue_style('dark_mode_codemirror', plugin_dir_url( __FILE__ ) . 'codemirror.min.css', array(), '1.2');	
+				
+			}
 		}
 
 	}
