@@ -21,3 +21,4 @@ Thank you to the list of people below for helping with the project. Should you b
 | Andrea Fercia       | afercia                |
 | Tim Hengeveld       | hedgefield             |
 | megane9988          | megane9988             |
+| Christian Herrmann  | presskopp              |

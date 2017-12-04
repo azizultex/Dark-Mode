@@ -1,9 +1,9 @@
 === Dark Mode ===
-Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988
+Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp
 Tags: accessibility, admin, dashboard, profile, style
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 1.2
+Tested up to: 4.9
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,13 +21,13 @@ For information on the progress of this plugin, [please refer to the Trac ticket
 
 = Plugin Developers =
 
-As some plugins make use of custom stylesheets, you can use the `doing_dark_mode` action hook to include a custom stylesheet that supports Dark Mode for your plugins interface. Alternatively you can use the `dark_mode_css` filter hook to change the Dark Mode stylesheet for your own. 
+As some plugins make use of custom stylesheets, you can use the `doing_dark_mode` action hook to include a custom stylesheet that supports Dark Mode for your plugins interface when it's turned on. Alternatively you can use the `dark_mode_css` filter hook to change the Dark Mode stylesheet for your own version if you'd prefer.
 
 == Installation ==
 
-1. Unzip and upload the plugin package into the plugins directory.
+1. Upload the package to the `wp-content/plugins` directory.
 2. Login to the dashboard and activate the plugin.
-3. Go to your profile and enable the Dark Mode setting.
+3. Go to your profile and enable Dark Mode.
 
 == Frequently Asked Questions ==
 
@@ -37,20 +37,38 @@ The goal is to have this plugin merged into the WordPress Core. For more informa
 
 = What does this plugin do? =
 
-It adds an option for users to enable a 'dark mode' which will turn the admin dashboard darker so it's nicer to use at night time.
+It adds an option for users to enable a 'Dark Mode' which will turn the admin dashboard darker so it's nicer to use at night time.
 
 = Can I contribute to this plugin? =
 
-Yes! You can follow the Trac ticket for updates and get involved on GitHub with suggestions, feedback and code contributions!
+Yes! You can follow the Trac ticket for updates and get involved on GitHub with suggestions, feedback and code contributions.
+
+= How can I remove the feedback link? =
+
+The Feedback link will take a user to the GitHub repository and will only be shown when Dark Mode is currently on. To completely remove it for every user, put `define('DARK_MODE_FEEDBACK', false)` in your `wp-config.php` file.
 
 == Screenshots ==
 
-1. The dashboard without Dark Mode turned off.
+1. The dashboard with Dark Mode turned off.
 2. The dashboard with Dark Mode turned on.
 3. Dark Mode with an admin colour scheme.
 4. The setting in a user's profile to turn Dark Mode on.
 
 == Changelog ==
+
+= 1.4 =
+
+* Updated the stylesheet to now include new Customiser styles.
+* Further updates to the readme.txt file to address typos and updates.
+* Moved the toolbar links to the right and added feedback to a drop down.
+* Fixed an issue with Dark Mode being automatically turned on or off.
+
+= 1.3 =
+
+* Added link to GitHub repository for people to provide feedback.
+* Added the ability to schedule Dark Mode to come on between certain times.
+* Improved the implementation of certain core functions for better control.
+* Updated the styles to include more areas that were previously unstyled.
 
 = 1.2 =
 
