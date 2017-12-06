@@ -144,7 +144,7 @@ class Dark_Mode {
 
 				// Get the time ranges from the user meta but add one day to the end time
 				$user_dm_start = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
-				$user_dm_end = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) . ' +1 day' ) );
+				$user_dm_end = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
 
 				// Get the current time
 				$current_time = date_i18n ( 'H:i' );
@@ -154,13 +154,25 @@ class Dark_Mode {
 				 * end time and that the current time is between the two time
 				 * frames so it can be enabled.
 				 */
-				if ( ( $user_dm_start > $user_dm_end ) && ( $current_time >= $user_dm_start || $current_time <= $user_dm_end ) ) {
+				if ( ( $user_dm_start > $user_dm_end ) && ( ( $current_time >= $user_dm_start ) || ($current_time <= $user_dm_end ) ) ) {
 
 					// Dark Mode is automatically on
 					return true;
 
+				} else {
+					
+					if ( ( $user_dm_start <= $user_dm_end ) && ( ( $current_time >= $user_dm_start ) && ($current_time <= $user_dm_end ) ) ) {
+						
+						return true;
+						
+					} else {
+					
+					return false; // not in timeframe or start time equals end time
+					
+					}
+					
 				}
-
+				
 			} else {
 
 				// Dark Mode is always turned on
@@ -169,11 +181,6 @@ class Dark_Mode {
 			}
 
 		}
-
-		// Dark Mode isn't being used
-		return false;
-
-	}
 
 	/**
 	 * Checks if the user is using automatic Dark Mode.
