@@ -144,7 +144,7 @@ class Dark_Mode {
 
 				// Get the time ranges from the user meta but add one day to the end time
 				$user_dm_start = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
-				$user_dm_end = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) . ' +1 day' ) );
+				$user_dm_end = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
 
 				// Get the current time
 				$current_time = date_i18n ( 'H:i' );
@@ -159,14 +159,26 @@ class Dark_Mode {
 					// Dark Mode is automatically on
 					return true;
 
+				} else {
+					
+					if ( $user_dm_start < $user_dm_end && $current_time >= $user_dm_start && $current_time <= $user_dm_end ) {
+						
+						// Dark Mode is automatically on
+						return true;
+						
+					} else {
+				
+						// we are not in time frame
+						return false;
+				
+					}
+					
 				}
-
-			} else {
-
+		
+			}
+			
 				// Dark Mode is always turned on
 				return true;
-
-			}
 
 		}
 
@@ -226,7 +238,7 @@ class Dark_Mode {
 		$user_id = get_current_user_id();
 
 		// Is the current user using Dark Mode?
-		if ( false !== self::is_using_dark_mode( $user_id ) ) {
+		if ( false !== self::is_using_dark_mode( $user_id, true ) ) { 
 
 			/**
 			 * Hook for when Dark Mode is running.
