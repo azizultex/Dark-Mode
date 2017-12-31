@@ -161,7 +161,7 @@ class Dark_Mode {
 				$auto_end = date_i18n( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
 
 				// Get the current time
-				$current_time = date_i18n( 'H:i' );
+				$current_time = current_time( 'H:i' );
 				
 				// Check the current time is between the start and end time
 				if ( $current_time >= $auto_start || $current_time <= $auto_end ) {
