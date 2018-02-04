@@ -1786,5 +1786,19 @@ body {
 
 	}
 
-}
+	.wp-switch-editor {
+		background: $dark-silver;
+		color: $white;
+		border-color: $dark-grey;
+		&:active {
+			background-color: $dark-grey;
+		}
+	}
+	.html-active .switch-html, .tmce-active .switch-tmce {
+		background: $dark-grey;
+		color: $white;
+		border-color: $ultra-grey;
+		border-bottom-color: $dark-grey;
+	}
 
+}
