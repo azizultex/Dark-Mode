@@ -216,7 +216,7 @@ class Dark_Mode {
 	 *
 	 * @since 1.0
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public static function load_dark_mode_css() {
 
@@ -224,37 +224,38 @@ class Dark_Mode {
 		$user_id = get_current_user_id();
 
 		// Is the current user using Dark Mode?
-		if ( false !== self::is_using_dark_mode( $user_id, true ) ) {
-
-			/**
-			 * Hook for when Dark Mode is running.
-			 *
-			 * This hook is run at the start of Dark Mode initialising
-			 * the stylesheet but before it is enqueued.
-			 *
-			 * @since 1.0
-			 */
-			do_action( 'doing_dark_mode' );
-
-			/**
-			 * Filters the Dark Mode stylesheet URL.
-			 *
-			 * @since 1.1
-			 *
-			 * @param string $css_url Default CSS file path for Dark Mode.
-			 *
-			 * @return string $css_url
-			 */
-			$css_url = apply_filters( 'dark_mode_css', plugins_url( '/', __FILE__ ) . '/darkmode.css' );
-
-			// Register the dark mode stylesheet.
-			wp_register_style( 'dark_mode', $css_url, array(), self::$version );
-
-			// Enqueue the stylesheet.
-			wp_enqueue_style( 'dark_mode' );
-
+		if ( true !== self::is_using_dark_mode( $user_id, true ) ) {
+			return false;
 		}
 
+		/**
+		 * Hook for when Dark Mode is running.
+		 *
+		 * This hook is run at the start of Dark Mode initialising
+		 * the stylesheet but before it is enqueued.
+		 *
+		 * @since 1.0
+		 */
+		do_action( 'doing_dark_mode' );
+
+		/**
+		 * Filters the Dark Mode stylesheet URL.
+		 *
+		 * @since 1.1
+		 *
+		 * @param string $css_url Default CSS file path for Dark Mode.
+		 *
+		 * @return string $css_url
+		 */
+		$css_url = apply_filters( 'dark_mode_css', plugins_url( '/', __FILE__ ) . '/darkmode.css' );
+
+		// Register the dark mode stylesheet.
+		wp_register_style( 'dark_mode', $css_url, array(), self::$version );
+
+		// Enqueue the stylesheet.
+		wp_enqueue_style( 'dark_mode' );
+
+		return true;
 	}
 
 	/**
