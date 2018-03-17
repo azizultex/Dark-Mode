@@ -92,7 +92,7 @@ class Dark_Mode {
 	public static function add_plugin_links( $links, $file ) {
 
 		// Check Dark Mode is the next plugin.
-		if ( 'dark-mode/dark-mode.php' == $file ) {
+		if ( 'dark-mode/dark-mode.php' === $file ) {
 
 			// Create the two links.
 			$settings_link = '<a href="' . admin_url( 'profile.php#dark-mode' ) . '">' . esc_html__( 'Settings', 'dark-mode' ) . '</a>';
