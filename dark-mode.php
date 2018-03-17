@@ -13,7 +13,7 @@
 // No thank you
 if ( ! defined( 'ABSPATH' ) ) die();
 
-new Dark_Mode;
+add_action( 'plugins_loaded', array( 'Dark_Mode', 'init' ) );
 
 class Dark_Mode {
 
@@ -27,7 +27,7 @@ class Dark_Mode {
 	public static $version = '1.8.3';
 
 	/**
-	 * Function which hooks into WordPress Core.
+	 * Leave empty to get the chance to create tests.
 	 * 
 	 * @since 1.0
 	 * @since 1.1 Changed admin_enqueue_scripts hook to 99 to override admin colour scheme styles.
@@ -36,7 +36,15 @@ class Dark_Mode {
 	 * 
 	 * @return void
 	 */
-	public function __construct() {
+	public function __construct() {}
+
+	/**
+     * Function which hooks into WordPress Core.
+	 * Load all resources in the WP environment.
+     *
+     * @since 1.8.4
+	 */
+	public function init() {
 
 		add_action( 'plugins_loaded', array( __CLASS__, 'load_text_domain' ), 10, 0 );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 99, 0 );
@@ -45,7 +53,6 @@ class Dark_Mode {
 		add_action( 'edit_user_profile_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
 
 		add_filter('plugin_action_links', array( __CLASS__, 'add_plugin_links' ), 10, 2);
-
 	}
 
 	/**
