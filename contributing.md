@@ -23,3 +23,4 @@ Thank you to the list of people below for helping with the project. Should you b
 | megane9988          | megane9988             |
 | Christian Herrmann  | presskopp              |
 | Will Radford        | willrad                |
+| Frank Bültge        | Bueltge                |
