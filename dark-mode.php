@@ -195,10 +195,10 @@ class Dark_Mode {
 	 *
 	 * @return boolean
 	 */
-	private static function is_dark_mode_auto( $user_id = false ) {
+	private static function is_dark_mode_auto( $user_id = 'off' ) {
 
 		// Have we been given a user ID.
-		if ( false === $user_id ) {
+		if ( 'off' === $user_id ) {
 
 			// Get the current user id.
 			$user_id = get_current_user_id();
@@ -206,14 +206,10 @@ class Dark_Mode {
 		}
 
 		// Has automatic Dark Mode been turned on.
-		if ( 'on' == get_user_meta( $user_id, 'dark_mode_auto', true ) ) {
-
+		if ( 'on' === get_user_meta( $user_id, 'dark_mode_auto', true ) ) {
 			return true;
-
 		} else {
-
 			return false;
-
 		}
 
 	}
