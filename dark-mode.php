@@ -191,7 +191,7 @@ class Dark_Mode {
 	 * @since 1.5 Access was changed to private.
 	 * @since 1.6 Changed default value of user id to false.
 	 *
-	 * @param string $user_id User ID
+	 * @param string $user_id User ID.
 	 *
 	 * @return boolean
 	 */
@@ -199,10 +199,8 @@ class Dark_Mode {
 
 		// Have we been given a user ID.
 		if ( 'off' === $user_id ) {
-
 			// Get the current user id.
 			$user_id = get_current_user_id();
-
 		}
 
 		// Has automatic Dark Mode been turned on.
