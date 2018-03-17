@@ -132,7 +132,7 @@ class Dark_Mode {
 		}
 
 		// Check if the user is using Dark Mode.
-		if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
+		if ( 'on' === get_user_meta( $user_id, 'dark_mode', true ) ) {
 
 			// Should we check for auto mode.
 			if ( true === self::is_dark_mode_auto( $user_id ) && true === $check_auto ) {
