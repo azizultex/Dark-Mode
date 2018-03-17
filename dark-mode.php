@@ -138,8 +138,14 @@ class Dark_Mode {
 			if ( true === self::is_dark_mode_auto( $user_id ) && true === $check_auto ) {
 
 				// Get the time frames for auto mode.
-				$auto_start = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
-				$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
+				$auto_start = date_i18n(
+					'Y-m-d H:i:s',
+					strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) )
+				);
+				$auto_end   = date_i18n(
+					'Y-m-d H:i:s',
+					strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) )
+				);
 
 				/**
 				 * Check if the end time is smaller then the start time
@@ -149,7 +155,10 @@ class Dark_Mode {
 				 */
 				if ( $auto_start > $auto_end ) {
 
-					$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( '+1 day', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) ) );
+					$auto_end = date_i18n(
+						'Y-m-d H:i:s',
+						strtotime( '+1 day', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) )
+					);
 
 				}
 
@@ -160,11 +169,9 @@ class Dark_Mode {
 				if ( $current_time >= $auto_start && $current_time <= $auto_end ) {
 					return true;
 				}
-
 			} else {
 				return true;
 			}
-
 		}
 
 		return false;
