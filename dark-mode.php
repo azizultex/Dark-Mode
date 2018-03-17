@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.8.3
+ * Version: 1.8.4
  */
 
 // No thank you
@@ -24,7 +24,7 @@ class Dark_Mode {
 	 * 
 	 * @var string
 	 */
-	public static $version = '1.8.3';
+	public static $version = '1.8.4';
 
 	/**
 	 * Leave empty to get the chance to create tests.
