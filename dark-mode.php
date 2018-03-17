@@ -95,8 +95,8 @@ class Dark_Mode {
 		if ( 'dark-mode/dark-mode.php' == $file ) {
 
 			// Create the two links.
-			$settings_link = '<a href="' . admin_url( 'profile.php#dark-mode' ) . '">' . __( 'Settings', 'dark-mode' ) . '</a>';
-			$feedback_link = '<a href="https://github.com/danieltj27/Dark-Mode/issues" target="_blank">' . __( 'Feedback', 'dark-mode' ) . '</a>';
+			$settings_link = '<a href="' . admin_url( 'profile.php#dark-mode' ) . '">' . esc_html__( 'Settings', 'dark-mode' ) . '</a>';
+			$feedback_link = '<a href="https://github.com/danieltj27/Dark-Mode/issues" target="_blank">' . esc_html__( 'Feedback', 'dark-mode' ) . '</a>';
 
 			// Add the links to the array.
 			array_unshift( $links, $settings_link );
