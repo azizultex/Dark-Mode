@@ -132,49 +132,50 @@ class Dark_Mode {
 		}
 
 		// Check if the user is using Dark Mode.
-		if ( 'on' === get_user_meta( $user_id, 'dark_mode', true ) ) {
-
-			// Should we check for auto mode.
-			if ( true === self::is_dark_mode_auto( $user_id ) && true === $check_auto ) {
-
-				// Get the time frames for auto mode.
-				$auto_start = date_i18n(
-					'Y-m-d H:i:s',
-					strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) )
-				);
-				$auto_end   = date_i18n(
-					'Y-m-d H:i:s',
-					strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) )
-				);
-
-				/**
-				 * Check if the end time is smaller then the start time
-				 * because if the start time is 8pm and the end time is
-				 * 6am, without adding 1 day to the end date, the time frame
-				 * will actually be 8pm to 6am on the same day which is backwards.
-				 */
-				if ( $auto_start > $auto_end ) {
-
-					$auto_end = date_i18n(
-						'Y-m-d H:i:s',
-						strtotime( '+1 day', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) )
-					);
-
-				}
-
-				// Get the current time.
-				$current_time = date_i18n( 'Y-m-d H:i:s' );
-
-				// Check the current time is between the start and end time.
-				if ( $current_time >= $auto_start && $current_time <= $auto_end ) {
-					return true;
-				}
-			} else {
-				return true;
-			}
+		if ( 'on' !== get_user_meta( $user_id, 'dark_mode', true ) ) {
+			return false;
 		}
 
-		return false;
+		// Should we check for auto mode.
+		if ( true === self::is_dark_mode_auto( $user_id ) && true === $check_auto ) {
+
+			// Get the time frames for auto mode.
+			$auto_start = date_i18n(
+				'Y-m-d H:i:s',
+				strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) )
+			);
+			$auto_end   = date_i18n(
+				'Y-m-d H:i:s',
+				strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) )
+			);
+
+			/**
+			 * Check if the end time is smaller then the start time
+			 * because if the start time is 8pm and the end time is
+			 * 6am, without adding 1 day to the end date, the time frame
+			 * will actually be 8pm to 6am on the same day which is backwards.
+			 */
+			if ( $auto_start > $auto_end ) {
+
+				$auto_end = date_i18n(
+					'Y-m-d H:i:s',
+					strtotime( '+1 day', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) )
+				);
+
+			}
+
+			// Get the current time.
+			$current_time = date_i18n( 'Y-m-d H:i:s' );
+
+			// Check the current time is between the start and end time.
+			if ( $current_time >= $auto_start && $current_time <= $auto_end ) {
+				return true;
+			}
+		} else {
+			return true;
+		}
+
+		return true;
 	}
 
 	/**
