@@ -234,7 +234,7 @@ class Dark_Mode {
 			 * 
 			 * @return string $css_url
 			 */
-			$css_url = apply_filters( 'dark_mode_css', plugins_url( 'dark-mode', 'dark-mode' ) . '/darkmode.css' );
+			$css_url = apply_filters( 'dark_mode_css', plugins_url( '/', __FILE__ ) . '/darkmode.css' );
 
 			// Register the dark mode stylesheet
 			wp_register_style( 'dark_mode', $css_url, array(), self::$version );
