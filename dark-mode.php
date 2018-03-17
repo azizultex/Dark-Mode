@@ -282,13 +282,13 @@ class Dark_Mode {
 				<td>
 					<p>
 						<label for="dark_mode">
-							<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode', true ) ) : ?> checked="checked"<?php endif; ?> />
+							<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"<?php if ( 'on' === get_user_meta( $profileuser->data->ID, 'dark_mode', true ) ) : ?> checked="checked"<?php endif; ?> />
 							<?php _e( 'Enable Dark Mode on the admin dashboard', 'dark-mode' ); ?>
 						</label>
 					</p>
 					<p>
 						<label for="dark_mode_auto">
-							<input type="checkbox" id="dark_mode_auto" name="dark_mode_auto" class="dark_mode_auto"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode_auto', true ) ) : ?> checked="checked"<?php endif; ?> />
+							<input type="checkbox" id="dark_mode_auto" name="dark_mode_auto" class="dark_mode_auto"<?php if ( 'on' === get_user_meta( $profileuser->data->ID, 'dark_mode_auto', true ) ) : ?> checked="checked"<?php endif; ?> />
 							<?php _e( 'Automatically enable Dark Mode over night between these times:', 'dark-mode' ); ?>
 						</label>
 					</p>
