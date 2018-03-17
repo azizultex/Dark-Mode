@@ -338,17 +338,16 @@ class Dark_Mode {
 		if ( wp_verify_nonce( $dark_mode_nonce, 'dark_mode_nonce' ) ) {
 
 			// Set the value of the users choices.
-			$dark_mode_core = isset ( $_POST['dark_mode'] ) ? 'on' : 'off';
-			$dark_mode_auto = isset ( $_POST['dark_mode_auto'] ) ? 'on' : 'off';
+			$dark_mode_core  = isset ( $_POST['dark_mode'] ) ? 'on' : 'off';
+			$dark_mode_auto  = isset ( $_POST['dark_mode_auto'] ) ? 'on' : 'off';
 			$dark_mode_start = isset ( $_POST['dark_mode_start'] ) ? sanitize_text_field( $_POST['dark_mode_start'] ) : '';
-			$dark_mode_end = isset ( $_POST['dark_mode_end'] ) ? sanitize_text_field( $_POST['dark_mode_end'] ) : '';
+			$dark_mode_end   = isset ( $_POST['dark_mode_end'] ) ? sanitize_text_field( $_POST['dark_mode_end'] ) : '';
 
 			// Update the users meta data with the new values.
 			update_user_meta( $user_id, 'dark_mode', $dark_mode_core );
 			update_user_meta( $user_id, 'dark_mode_auto', $dark_mode_auto );
 			update_user_meta( $user_id, 'dark_mode_start', $dark_mode_start );
 			update_user_meta( $user_id, 'dark_mode_end', $dark_mode_end );
-
 		}
 
 	}
