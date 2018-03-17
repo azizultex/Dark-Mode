@@ -10,10 +10,10 @@
  * Version: 1.8.4
  */
 
-// No thank you
+// No thank you.
 if ( ! defined( 'ABSPATH' ) ) {
 	die();
-}
+};
 
 add_action( 'plugins_loaded', array( 'Dark_Mode', 'init' ) );
 
@@ -38,14 +38,13 @@ class Dark_Mode {
 	 *
 	 * @return void
 	 */
-	public function __construct() {
-	}
+	public function __construct() {}
 
 	/**
-	 * Function which hooks into WordPress Core.
+     * Function which hooks into WordPress Core.
 	 * Load all resources in the WP environment.
-	 *
-	 * @since 1.8.4
+     *
+     * @since 1.8.4
 	 */
 	public function init() {
 
@@ -55,7 +54,7 @@ class Dark_Mode {
 		add_action( 'personal_options_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
 		add_action( 'edit_user_profile_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
 
-		add_filter( 'plugin_action_links', array( __CLASS__, 'add_plugin_links' ), 10, 2 );
+		add_filter('plugin_action_links', array( __CLASS__, 'add_plugin_links' ), 10, 2);
 	}
 
 	/**
@@ -76,8 +75,8 @@ class Dark_Mode {
 	 *
 	 * @since 1.8
 	 *
-	 * @param array $links The list of plugin links.
-	 * @param string $file The current plugin.
+	 * @param array  $links The list of plugin links.
+	 * @param string $file  The current plugin.
 	 *
 	 * @return array $links
 	 */
@@ -87,8 +86,8 @@ class Dark_Mode {
 		if ( 'dark-mode/dark-mode.php' == $file ) {
 
 			// Create the two links
-			$settings_link = '<a href="' . admin_url( 'profile.php#dark-mode' ) . '">' . __( 'Settings', 'dark-mode' ) . '</a>';
-			$feedback_link = '<a href="https://github.com/danieltj27/Dark-Mode/issues" target="_blank">' . __( 'Feedback', 'dark-mode' ) . '</a>';
+			$settings_link = '<a href="' . admin_url( 'profile.php#dark-mode' ) . '">' . __('Settings', 'dark-mode') . '</a>';
+			$feedback_link = '<a href="https://github.com/danieltj27/Dark-Mode/issues" target="_blank">' . __('Feedback', 'dark-mode') . '</a>';
 
 			// Add the links to the array
 			array_unshift( $links, $settings_link );
@@ -111,7 +110,7 @@ class Dark_Mode {
 	 * @since 1.0
 	 * @since 1.6 Major rewrite to properly address automatic Dark Mode.
 	 *
-	 * @param string $user_id User ID of given person.
+	 * @param string  $user_id    User ID of given person.
 	 * @param boolean $check_auto Check for auto mode or not.
 	 *
 	 * @return boolean
@@ -133,7 +132,7 @@ class Dark_Mode {
 
 				// Get the time frames for auto mode
 				$auto_start = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
-				$auto_end   = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
+				$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
 
 				/**
 				 * Check if the end time is smaller then the start time
@@ -275,39 +274,32 @@ class Dark_Mode {
 
 		?>
 
-        <tr class="dark-mode user-dark-mode-option" id="dark-mode">
-            <th scope="row"><?php _e( 'Dark Mode', 'dark-mode' ); ?></th>
-            <td>
-                <p>
-                    <label for="dark_mode">
-                        <input type="checkbox" id="dark_mode" name="dark_mode"
-                               class="dark_mode"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode', true ) ) : ?> checked="checked"<?php endif; ?> />
-						<?php _e( 'Enable Dark Mode on the admin dashboard', 'dark-mode' ); ?>
-                    </label>
-                </p>
-                <p>
-                    <label for="dark_mode_auto">
-                        <input type="checkbox" id="dark_mode_auto" name="dark_mode_auto"
-                               class="dark_mode_auto"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode_auto', true ) ) : ?> checked="checked"<?php endif; ?> />
-						<?php _e( 'Automatically enable Dark Mode over night between these times:', 'dark-mode' ); ?>
-                    </label>
-                </p>
-                <p>
-                    <label>
-						<?php _ex( 'From', 'Time frame starting at', 'dark-mode' ); ?> <input type="time"
-                                                                                              name="dark_mode_start"
-                                                                                              id="dark_mode_start"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start' ) ) : ?> placeholder="00:00" value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ); ?>"<?php endif; ?> />
-                    </label>
-                    <label>
-						<?php _ex( 'To', 'Time frame ending at', 'dark-mode' ); ?> <input type="time"
-                                                                                          name="dark_mode_end"
-                                                                                          id="dark_mode_end"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end' ) ) : ?> placeholder="00:00" value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ); ?>"<?php endif; ?> />
-                    </label>
-                </p>
-                <input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce"
-                       value="<?php echo $dark_mode_nonce; ?>"/>
-            </td>
-        </tr>
+			<tr class="dark-mode user-dark-mode-option" id="dark-mode">
+				<th scope="row"><?php _e('Dark Mode', 'dark-mode'); ?></th>
+				<td>
+					<p>
+						<label for="dark_mode">
+							<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode', true ) ) : ?> checked="checked"<?php endif; ?> />
+							<?php _e('Enable Dark Mode on the admin dashboard', 'dark-mode'); ?>
+						</label>
+					</p>
+					<p>
+						<label for="dark_mode_auto">
+							<input type="checkbox" id="dark_mode_auto" name="dark_mode_auto" class="dark_mode_auto"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode_auto', true ) ) : ?> checked="checked"<?php endif; ?> />
+							<?php _e('Automatically enable Dark Mode over night between these times:', 'dark-mode'); ?>
+						</label>
+					</p>
+					<p>
+						<label>
+							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start' ) ) : ?> placeholder="00:00" value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ); ?>"<?php endif; ?> />
+						</label>
+						<label>
+							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end' ) ) : ?> placeholder="00:00" value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ); ?>"<?php endif; ?> />
+						</label>
+					</p>
+					<input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce" value="<?php echo $dark_mode_nonce; ?>" />
+				</td>
+			</tr>
 		<?php
 
 	}
@@ -332,10 +324,10 @@ class Dark_Mode {
 		if ( wp_verify_nonce( $dark_mode_nonce, 'dark_mode_nonce' ) ) {
 
 			// Set the value of the users choices
-			$dark_mode_core  = isset ( $_POST['dark_mode'] ) ? 'on' : 'off';
-			$dark_mode_auto  = isset ( $_POST['dark_mode_auto'] ) ? 'on' : 'off';
+			$dark_mode_core = isset ( $_POST['dark_mode'] ) ? 'on' : 'off';
+			$dark_mode_auto = isset ( $_POST['dark_mode_auto'] ) ? 'on' : 'off';
 			$dark_mode_start = isset ( $_POST['dark_mode_start'] ) ? sanitize_text_field( $_POST['dark_mode_start'] ) : '';
-			$dark_mode_end   = isset ( $_POST['dark_mode_end'] ) ? sanitize_text_field( $_POST['dark_mode_end'] ) : '';
+			$dark_mode_end = isset ( $_POST['dark_mode_end'] ) ? sanitize_text_field( $_POST['dark_mode_end'] ) : '';
 
 			// Update the users meta data with the new values
 			update_user_meta( $user_id, 'dark_mode', $dark_mode_core );
