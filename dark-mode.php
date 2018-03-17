@@ -208,10 +208,9 @@ class Dark_Mode {
 		// Has automatic Dark Mode been turned on.
 		if ( 'on' === get_user_meta( $user_id, 'dark_mode_auto', true ) ) {
 			return true;
-		} else {
-			return false;
 		}
 
+		return false;
 	}
 
 	/**
