@@ -72,8 +72,11 @@ class Dark_Mode {
 	 */
 	public static function load_text_domain() {
 
-		load_plugin_textdomain( 'dark-mode', false, untrailingslashit( dirname( __FILE__ ) ) . '/languages' );
-
+		load_plugin_textdomain(
+			'dark-mode',
+			false,
+			untrailingslashit( dirname( __FILE__ ) ) . '/languages'
+		);
 	}
 
 	/**
