@@ -157,7 +157,7 @@ class Dark_Mode {
 
 		?>
 		<tr class="dark-mode user-dark-mode-option" id="dark-mode">
-			<th scope="row"><?php esc_html_e( 'Dark Mode', 'dark-mode' ); ?></th>
+			<th scope="row"><?php echo esc_html_x( 'Dark Mode', 'Option name', 'dark-mode' ); ?></th>
 			<td>
 				<p>
 					<label for="dark_mode">
