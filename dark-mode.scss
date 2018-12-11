@@ -432,12 +432,18 @@ body:not(.gutenberg-editor-page) {
 
 		}
 
+		#contextual-help-back {
+
+			background-color: $heavy-grey;
+			border-color: $ultra-grey;
+
+		}
+
 		#wpwrap,
-		#contextual-help-back,
 		#plugin-information-content,
 		.notification-dialog {
 
-			background-color: $base-grey;
+			background-color: $dark-grey;
 			border-color: $ultra-grey;
 
 		}
@@ -540,7 +546,7 @@ body:not(.gutenberg-editor-page) {
 
 			.active a {
 
-				background-color: $base-grey;
+				background-color: $heavy-grey;
 				border-color: $dark-grey;
 				color: $light-grey;
 
