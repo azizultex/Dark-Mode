@@ -473,6 +473,22 @@ body:not(.gutenberg-editor-page) {
 
 		}
 
+		#widgets-right {
+
+			.widgets-holder-wrap {
+
+				background-color: $dark-grey;
+
+				.widgets-sortables {
+
+					background-color: $dark-grey;
+
+				}
+
+			}
+
+		}
+
 		#widgets-left,
 		#widgets-right {
 
