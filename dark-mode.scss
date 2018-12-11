@@ -121,6 +121,12 @@ body:not(.gutenberg-editor-page) {
 
 				}
 
+				.network_active {
+
+					color: $light-grey;
+
+				}
+
 				tr.active+tr.inactive td,
 				tr.active+tr.inactive th,
 				tr.active.plugin-update-tr+tr.inactive td,
