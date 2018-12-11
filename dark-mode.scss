@@ -602,7 +602,9 @@ body:not(.gutenberg-editor-page) {
 
 		}
 
-		.card {
+		.card,
+		.postbox,
+		.stuffbox {
 
 			table,
 			thead,
