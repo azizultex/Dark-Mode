@@ -98,11 +98,11 @@ body:not(.gutenberg-editor-page) {
 
 					tr {
 
-						background-color: $dark-grey;
+						background-color: $base-grey;
 
 						&:nth-child(odd) {
 
-							background-color: $base-grey;
+							background-color: $striped-grey;
 
 						}
 
