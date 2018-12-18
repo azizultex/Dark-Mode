@@ -677,7 +677,9 @@ body:not(.gutenberg-editor-page) {
 		.filter-drawer,
 		.wp-filter .favorites-form,
 		.filter-group,
-		.filtered-by .tag {
+		.filtered-by .tag,
+		ul.cat-checklist,
+		#bulk-titles {
 
 			background-color: $dark-grey;
 			border-color: $ultra-grey;
