@@ -450,7 +450,7 @@ body:not(.gutenberg-editor-page) {
 
 		.widgets-holder-wrap {
 
-			background-color: $base-grey;
+			background-color: $clear;
 			border-color: $clear;
 
 			.sidebar-name {
@@ -473,7 +473,7 @@ body:not(.gutenberg-editor-page) {
 
 			.widgets-sortables {
 
-				background-color: $base-grey;
+				background-color: $clear;
 
 			}
 
@@ -488,7 +488,7 @@ body:not(.gutenberg-editor-page) {
 
 					&:hover {
 
-						border-color: $dark-grey;
+						border-color: $dark-silver;
 
 					}
 
@@ -534,7 +534,35 @@ body:not(.gutenberg-editor-page) {
 
 						}
 
+						.widgets-chooser-button {
+
+							color: $white;
+
+						}
+
 					}
+
+				}
+
+			}
+
+		}
+
+		#widgets-right {
+
+			.widgets-holder-wrap {
+
+				background-color: $dark-grey;
+
+				.widgets-sortables {
+
+					background-color: $dark-grey;
+
+				}
+
+				.widget-top {
+
+					border-color: $ultra-grey;
 
 				}
 
@@ -775,7 +803,6 @@ body:not(.gutenberg-editor-page) {
 		.menu-item-handle,
 		.popular-tags,
 		.stuffbox,
-		.widget-inside,
 		.widget-top,
 		p.popular-tags,
 		.postbox .hndle,
@@ -811,14 +838,26 @@ body:not(.gutenberg-editor-page) {
 
 		}
 
+		.widget-inside {
+
+			background: $dark-grey;
+			border-color: $ultra-grey;
+
+		}
+
 		.menu-item-handle,
-		.widget .widget-top,
-		.widget-inside,
 		.manage-menus,
 		#menu-management {
 
 			background: $ultra-grey;
 			border-color: $dark-grey;
+
+		}
+
+		.widget .widget-top {
+
+			background-color: $base-grey;
+			border-color: $heavy-grey;
 
 		}
 
