@@ -103,35 +103,43 @@ class Dark_Mode {
 	 */
 	public static function load_dark_mode_css() {
 		// Has the user enabled Dark Mode?
-		if ( false !== self::is_using_dark_mode() ) {
-			$user_id = get_current_user_id();
-
-			/**
-			 * Fires just before the stylesheet is included.
-			 *
-			 * @since 1.0
-			 * @since 2.1 Added `$user_id` integer.
-			 *
-			 * @param int $user_id The current user id.
-			 */
-			do_action( 'doing_dark_mode', $user_id );
-
-			/**
-			 * Filters the Dark Mode stylesheet URL.
-			 *
-			 * @since 1.1
-			 * @since 2.1 Removed second parameter from `plugins_url()`.
-			 * @since 3.0 Changed CSS file to include hyphen in name.
-			 *
-			 * @param string $css_url Default CSS file path for Dark Mode.
-			 *
-			 * @return string $css_url
-			 */
-			$css_url = apply_filters( 'dark_mode_css', plugins_url( 'dark-mode' ) . '/dark-mode.css' );
-
-			// Enqueue the stylesheet.
-			wp_enqueue_style( 'dark_mode', $css_url, array(), self::PLUGIN_VERSION );
+		if ( ! self::is_using_dark_mode() ) {
+			return;
 		}
+
+		// @todo Disabled for now if the new block editor is active (since WP 5.0).
+		$screen = get_current_screen();
+		if ( method_exists( $screen, 'is_block_editor' ) && $screen->is_block_editor() ) {
+			return;
+		}
+
+		$user_id = get_current_user_id();
+
+		/**
+		 * Fires just before the stylesheet is included.
+		 *
+		 * @since 1.0
+		 * @since 2.1 Added `$user_id` integer.
+		 *
+		 * @param int $user_id The current user id.
+		 */
+		do_action( 'doing_dark_mode', $user_id );
+
+		/**
+		 * Filters the Dark Mode stylesheet URL.
+		 *
+		 * @since 1.1
+		 * @since 2.1 Removed second parameter from `plugins_url()`.
+		 * @since 3.0 Changed CSS file to include hyphen in name.
+		 *
+		 * @param string $css_url Default CSS file path for Dark Mode.
+		 *
+		 * @return string $css_url
+		 */
+		$css_url = apply_filters( 'dark_mode_css', plugins_url( 'dark-mode' ) . '/dark-mode.css' );
+
+		// Enqueue the stylesheet.
+		wp_enqueue_style( 'dark_mode', $css_url, array(), self::PLUGIN_VERSION );
 	}
 
 	/**
