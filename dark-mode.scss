@@ -712,11 +712,16 @@ body:not(.gutenberg-editor-page) {
 
 		.plugin-card,
 		.plugin-card-bottom,
-		#nav-menu-header,
 		#menu-management .menu-edit,
 		.wp-editor-container {
 
 			border-color: $ultra-grey;
+
+		}
+
+		#nav-menu-header {
+
+			border-color: $clear;
 
 		}
 
@@ -765,8 +770,8 @@ body:not(.gutenberg-editor-page) {
 		&.js .control-section.open .accordion-section-title,
 		&.js .control-section:hover .accordion-section-title {
 
-			background-color: $ultra-grey;
-			border-color: $base-grey;
+			background-color: $base-grey;
+			border-color: $ultra-grey;
 			color: $light-grey;
 
 		}
@@ -811,7 +816,7 @@ body:not(.gutenberg-editor-page) {
 		.stuffbox .hndle,
 		.widgets-chooser ul {
 
-			border-color: $base-grey;
+			border-color: $dark-grey;
 
 		}
 
@@ -847,11 +852,18 @@ body:not(.gutenberg-editor-page) {
 
 		}
 
-		.menu-item-handle,
-		.manage-menus,
 		#menu-management {
 
 			background: $ultra-grey;
+			border-color: $dark-grey;
+
+		}
+
+		.menu-item-handle,
+		.manage-menus,
+		#menu-management .menu-edit {
+
+			background-color: $base-grey;
 			border-color: $dark-grey;
 
 		}
@@ -865,10 +877,11 @@ body:not(.gutenberg-editor-page) {
 
 		.menu-item-bar .menu-item-handle {
 
-			&,
+			border-color: $ultra-grey;
+
 			&:hover {
 
-				border-color: $base-grey;
+				border-color: $dark-silver;
 
 			}
 
@@ -1285,7 +1298,7 @@ body:not(.gutenberg-editor-page) {
 		#customize-outer-theme-controls .customize-info .customize-section-description {
 
 			background-color: $base-grey;
-			border-color: $ultra-grey;
+			border-color: $dark-grey;
 			color: $light-grey;
 
 		}
