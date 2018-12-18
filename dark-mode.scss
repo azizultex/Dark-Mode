@@ -1996,13 +1996,25 @@ body:not(.gutenberg-editor-page) {
 
 		}
 
+		&-menubar,
 		&-panel {
 
-			background: $dark-grey;
+			background-color: $dark-grey;
 
 			&.mce-menu {
 
 				border-color: $ultra-grey;
+
+			}
+
+			.mce-menubtn button {
+
+				&,
+				& span {
+
+					color: $light-grey;
+
+				}
 
 			}
 
@@ -2031,7 +2043,44 @@ body:not(.gutenberg-editor-page) {
 
 				}
 
+				&.mce-disabled {
+
+					background-color: $clear;
+					color: $dark-silver;
+
+					.mce-ico,
+					.mce-text {
+
+						color: $dark-silver;
+
+					}
+
+					&.mce-active,
+					&.mce-selected,
+					&:focus,
+					&:hover {
+
+						background-color: $ultra-grey;
+
+						.mce-ico,
+						.mce-text {
+
+							color: $dark-silver;
+
+						}
+
+					}
+
+				}
+
 			}
+
+		}
+
+		&-menubar {
+
+			background-color: $base-grey;
+			border-color: $clear;
 
 		}
 
