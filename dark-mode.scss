@@ -153,6 +153,18 @@ body:not(.gutenberg-editor-page) {
 
 				}
 
+				thead tr,
+				tfoot tr {
+
+					td,
+					th {
+
+						border-color: $heavy-grey;
+
+					}
+
+				}
+
 			}
 
 			&.updates-table {
