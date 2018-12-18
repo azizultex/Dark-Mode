@@ -2351,6 +2351,11 @@ body:not(.gutenberg-editor-page) {
 
 	}
 
+	hr {
+		border-color: $base-grey;
+		border-top-color: $ultra-grey;
+	}
+
 	::-webkit-input-placeholder,
 	::-moz-placeholder,
 	:-ms-input-placeholder,
@@ -2383,10 +2388,3 @@ body:not(.gutenberg-editor-page) {
 	}
 
 }
-
-input.readonly, input[readonly], textarea.readonly, textarea[readonly] {
-
-	background-color: $dark-grey;
-
-}
-
