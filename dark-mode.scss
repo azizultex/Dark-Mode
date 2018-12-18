@@ -1580,11 +1580,11 @@ body:not(.gutenberg-editor-page) {
 			background: $ultra-grey;
 			border-color: $white;
 			border-left-color: $ultra-grey;
-			
+
 			.setting span {
 
 				color: $light-grey;
-				
+
 			}
 
 			h2 {
@@ -1769,7 +1769,7 @@ body:not(.gutenberg-editor-page) {
 		}
 
 		.wp-core-ui {
-			
+
 			.attachment-preview {
 
 				background: $heavy-grey;
@@ -1789,7 +1789,7 @@ body:not(.gutenberg-editor-page) {
 				box-shadow: inset 0 0 2px 3px $dark-silver, inset 0 0 0 7px $light-blue;
 
 			}
-			
+
 		}
 
 		.embed-url {
@@ -2371,20 +2371,20 @@ body:not(.gutenberg-editor-page) {
 
 		&.readonly,
 		&.disabled {
-		
+
 			background-color: $dark-grey;
 			color: $light-grey;
 			opacity: 0.75;
-		
+
 		}
 
 		&[readonly],
 		&[disabled] {
-		
+
 			background-color: $dark-grey;
 			color: $light-grey;
 			opacity: 0.75;
-		
+
 		}
 
 	}
