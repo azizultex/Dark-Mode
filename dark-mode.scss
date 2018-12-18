@@ -910,7 +910,7 @@ body:not(.gutenberg-editor-page) {
 		.wrap h2.nav-tab-wrapper,
 		h1.nav-tab-wrapper {
 
-			border-color: $light-grey;
+			border-color: $dark-silver;
 
 		}
 
@@ -923,7 +923,7 @@ body:not(.gutenberg-editor-page) {
 			&:focus,
 			&:hover {
 
-				background-color: $ultra-grey;
+				background-color: $black;
 
 			}
 
@@ -936,9 +936,10 @@ body:not(.gutenberg-editor-page) {
 		.about-wrap h2 .nav-tab-active,
 		.media-modal-content {
 
-			background-color: $light-grey;
-			border-color: $light-grey;
-			color: $ultra-grey;
+			background-color: $ultra-grey;
+			border-color: $dark-silver;
+			border-bottom-color: $ultra-grey;
+			color: $light-grey;
 
 		}
 
