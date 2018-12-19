@@ -46,6 +46,7 @@ class Dark_Mode {
 	 * Load the plugin text domain.
 	 *
 	 * @since 1.0
+	 * @since 3.2 Admin bar toggle.
 	 *
 	 * @return void
 	 */
@@ -239,9 +240,9 @@ class Dark_Mode {
 	/**
 	 * Add the switcher toolbar node.
 	 *
-	 * @since X
+	 * @since 3.2
 	 *
-	 * @param  \WP_Admin_Bar $admin_bar
+	 * @param \WP_Admin_Bar $admin_bar
 	 *
 	 * @return void
 	 */
