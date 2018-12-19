@@ -82,9 +82,10 @@ class Dark_Mode {
 		 * Filters when Dark Mode is on.
 		 *
 		 * @since 2.0
+		 * @since 3.2 Removed `not_using_dark_mode` filter and pass the enabled status through the first parameter.
 		 *
-		 * @param boolean          Defaults to true.
-		 * @param int     $user_id The current user id.
+		 * @param boolean $is_using_dark_mode Has the user enabled Dark Mode?
+		 * @param int     $user_id            The current user id.
 		 */
 		$cache[ $user_id ] = apply_filters( 'is_using_dark_mode', $is_using_dark_mode, $user_id );
 
