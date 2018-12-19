@@ -23,6 +23,7 @@ class Dark_Mode {
 	 * @since 1.3 Added hook for the Feedback link in the toolbar.
 	 * @since 1.8 Added filter for the plugin table links and removed admin toolbar hook.
 	 * @since 3.1 Added the admin body class filter.
+	 * @since 3.2 Added the admin bar toggle node.
 	 *
 	 * @return void
 	 */
