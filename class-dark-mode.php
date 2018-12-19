@@ -59,15 +59,21 @@ class Dark_Mode {
 	 * @since 1.0
 	 * @since 1.6 Major rewrite to properly address automatic Dark Mode.
 	 * @since 2.0 Removed the automatic checks and added filters.
-	 * @since 3.2 Removed `not_using_dark_mode` filter.
+	 * @since 3.2 Removed `not_using_dark_mode` filter and implemented static cache.
 	 *
 	 * @param int $user_id The user id to check.
 	 *
 	 * @return boolean
 	 */
 	public static function is_using_dark_mode( $user_id = 0 ) {
+		static $cache = array();
+
 		if ( 0 === $user_id ) {
 			$user_id = get_current_user_id();
+		}
+
+		if ( isset( $cache[ $user_id ] ) ) {
+			return $cache[ $user_id ];
 		}
 
 		$is_using_dark_mode = ( 'on' === get_user_meta( $user_id, 'dark_mode', true ) );
@@ -80,7 +86,9 @@ class Dark_Mode {
 		 * @param boolean          Defaults to true.
 		 * @param int     $user_id The current user id.
 		 */
-		return = apply_filters( 'is_using_dark_mode', $is_using_dark_mode, $user_id );
+		$cache[ $user_id ] = apply_filters( 'is_using_dark_mode', $is_using_dark_mode, $user_id );
+
+		return $cache[ $user_id ];
 	}
 
 	/**
