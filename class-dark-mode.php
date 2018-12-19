@@ -35,6 +35,8 @@ class Dark_Mode {
 
 		add_filter( 'plugin_action_links', array( __CLASS__, 'add_plugin_links' ), 10, 2 );
 		add_filter( 'admin_body_class', array( __CLASS__, 'add_body_class' ), 10, 1 );
+
+		add_action( 'admin_bar_menu', array( __CLASS__, 'admin_bar_menu' ), 11 );
 	}
 
 	/**
@@ -218,6 +220,34 @@ class Dark_Mode {
 			 */
 			do_action( 'after_dark_mode_saved', $option, $user_id );
 		}
+	}
+
+	/**
+	 * Add the switcher toolbar node.
+	 *
+	 * @since X
+	 *
+	 * @param  \WP_Admin_Bar $admin_bar
+	 *
+	 * @return void
+	 */
+	public static function admin_bar_menu( $admin_bar ) {
+		if ( self::is_using_dark_mode() ) {
+			$title = __( 'Disable Dark Mode', 'dark-mode' );
+			$link  = add_query_arg( 'dark_mode', 0 );
+		} else {
+			$title = __( 'Enable Dark Mode', 'dark-mode' );
+			$link  = add_query_arg( 'dark_mode', 1 );
+		}
+
+		$link = add_query_arg( 'dark_mode_nonce', wp_create_nonce( 'dark_mode_nonce' ), $link );
+
+		$admin_bar->add_node( array(
+			'id'     => 'dark-mode',
+			'parent' => 'user-actions',
+			'title'  => $title,
+			'href'   => $link,
+		) );
 	}
 
 	/**
