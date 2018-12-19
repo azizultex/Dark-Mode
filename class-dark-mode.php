@@ -27,7 +27,7 @@ class Dark_Mode {
 	 * @return void
 	 */
 	public function __construct() {
-		add_action( 'plugins_loaded', array( __CLASS__, 'load_text_domain' ), 10, 0 );
+		add_action( 'plugins_loaded', array( __CLASS__, 'plugins_loaded' ), 10, 0 );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 99, 0 );
 		add_action( 'personal_options', array( __CLASS__, 'add_profile_fields' ), 10, 1 );
 		add_action( 'personal_options_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
@@ -40,13 +40,25 @@ class Dark_Mode {
 	}
 
 	/**
+	 * Run when all plugins are loaded.
 	 * Load the plugin text domain.
 	 *
 	 * @since 1.0
 	 *
 	 * @return void
 	 */
-	public static function load_text_domain() {
+	public static function plugins_loaded() {
+
+		// Admin bar toggle.
+		if ( ! empty( $_GET['dark_mode_nonce'] ) ) {
+			$_POST['dark_mode_nonce'] = $_GET['dark_mode_nonce'];
+			$_POST['dark_mode']       = $_GET['dark_mode'];
+
+			self::save_profile_fields( get_current_user_id() );
+
+			wp_safe_redirect( remove_query_arg( array( 'dark_mode', 'dark_mode_nonce' ) ) );
+		}
+
 		load_plugin_textdomain( 'dark-mode', false, untrailingslashit( dirname( __FILE__ ) ) . '/languages' );
 	}
 
