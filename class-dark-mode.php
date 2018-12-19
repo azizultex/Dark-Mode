@@ -36,7 +36,9 @@ class Dark_Mode {
 		add_filter( 'plugin_action_links', array( __CLASS__, 'add_plugin_links' ), 10, 2 );
 		add_filter( 'admin_body_class', array( __CLASS__, 'add_body_class' ), 10, 1 );
 
-		add_action( 'admin_bar_menu', array( __CLASS__, 'admin_bar_menu' ), 11 );
+		if ( is_admin() ) {
+			add_action( 'admin_bar_menu', array( __CLASS__, 'admin_bar_menu' ), 11 );
+		}
 	}
 
 	/**
