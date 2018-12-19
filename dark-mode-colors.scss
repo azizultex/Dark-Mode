@@ -3,12 +3,14 @@
  *
  * The colours below are loosely based on the WordPress branding colours.
  * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
+ * https://codepen.io/hugobaeta/pen/RNOzoV
  */
 $white:           #ffffff;
 $black:           #000000;
-$blue:            #0073aa;
-$medium-blue:     #00a0d2;
 $clear:           transparent;
+
+$blue:            #0073aa; // WordPress blue
+$medium-blue:     #00a0d2; // Medium blue
 
 $accent-red:      #dc3232;
 $accent-orange:   #f56e28;
@@ -17,20 +19,20 @@ $accent-green:    #46b450;
 $accent-blue:     $blue;
 $accent-purple:   #826eb4;
 
-$base-grey:       #23282d;
-$light-grey:      #d0d4d8;
-$heavy-grey:      #37444c;
-$dark-grey:       #32373c;
+$ultra-grey:      #191f25; // Dark grey 900
 $deep-grey:       #202529;
-$ultra-grey:      #191f25;
+$base-grey:       #23282d; // Dark grey 800
+$dark-grey:       #32373c; // Dark grey 700
+$heavy-grey:      #37444c;
+$light-grey:      #ccd0d4; // Light Grey 700
 
-$light-silver:    #bbc8d4;
 $dark-silver:     #50626f;
+$light-silver:    #bbc8d4;
 
+$ultra-blue:      #1f3f58;
+$dark-blue:       #2c5f88;
 $base-blue:       #2e74aa;
 $light-blue:      #4092d2;
-$dark-blue:       #2c5f88;
-$ultra-blue:      #1f3f58;
 $bright-blue:     #30ceff;
 
 $editor-lavender: #c678dd;
