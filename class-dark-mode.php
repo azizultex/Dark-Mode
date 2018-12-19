@@ -170,7 +170,7 @@ class Dark_Mode {
 			<td>
 				<p>
 					<label for="dark_mode">
-						<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"
+						<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode" value="1"
 						<?php checked( get_user_meta( $user->data->ID, 'dark_mode', true ), 'on', true ); ?> />
 						<?php esc_html_e( 'Enable Dark Mode in the dashboard', 'dark-mode' ); ?>
 					</label>
@@ -207,7 +207,7 @@ class Dark_Mode {
 	public static function save_profile_fields( $user_id ) {
 		if ( wp_verify_nonce( sanitize_key( $_POST['dark_mode_nonce'] ), 'dark_mode_nonce' ) ) {
 			// Set the option value.
-			$option = isset( $_POST['dark_mode'] ) ? 'on' : 'off';
+			$option = ! empty( $_POST['dark_mode'] ) ? 'on' : 'off';
 
 			/**
 			 * Filter the user's Dark Mode choice.
