@@ -239,7 +239,8 @@ body:not(.gutenberg-editor-page) {
 		.notice,
 		.error,
 		.updated,
-		.update-nag {
+		.update-nag,
+		#update-nag {
 
 			background-color: $ultra-grey;
 
