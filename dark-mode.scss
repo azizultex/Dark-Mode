@@ -2403,7 +2403,24 @@ body:not(.gutenberg-editor-page) {
 		color: $white;
 		opacity: 1;
 
-	}
+  }
+  
+  select {
+
+    &:focus {
+
+      color: $white;
+      
+    }
+
+    &:-moz-focusring {
+
+      color: transparent;
+      text-shadow: 0 0 0 $white;
+
+    }
+
+  }
 
 	a,
 	.button-link {
