@@ -17,7 +17,7 @@ It's really easy to get started with contributing to the Dark Mode plugin. You'l
 Pull down the latest files from the repository and then `cd` into the plugin directory at `/wp-content/plugins/dark-mode`. From there, run the following command to start auto compiling your CSS changes.
 
 ```
-sass --watch darkmode.scss:darkmode.css --style compressed
+sass --watch dark-mode.scss:dark-mode.css --style compressed
 ```
 
 When you're done, push your changes into a forked version of the repository and submit a pull request on GitHub.
