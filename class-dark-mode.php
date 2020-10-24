@@ -95,6 +95,7 @@ class Dark_Mode {
 	 * @return void
 	 */
 	public static function load_dark_mode_css() {
+
 		// Has the user enabled Dark Mode?
 		if ( false !== self::is_using_dark_mode() ) {
 			$user_id = get_current_user_id();
@@ -120,11 +121,19 @@ class Dark_Mode {
 			 *
 			 * @return string $css_url
 			 */
-			$css_url = apply_filters( 'dark_mode_css', plugin_dir_url( __FILE__ ) . 'dark-mode.css' );
+			$css_url = apply_filters( 'dark_mode_css', DARK_MODE_URL . '/assets/css/dark-mode.css' );
+			$js_url = apply_filters( 'dark_mode_js', DARK_MODE_URL . '/assets/js/admin.js' );
 
-			// Enqueue the stylesheet.
-			$ver = get_plugin_data( dirname( __FILE__ ) . '/dark-mode.php' )['Version'];
-			wp_enqueue_style( 'dark_mode', $css_url, array(), $ver );
+			wp_enqueue_style( 'dark-mode', $css_url, false, DARK_MODE_VERSION );
+			wp_enqueue_script('dark-mode', $js_url, false, DARK_MODE_VERSION, true);
+
+			if(class_exists('RankMath')){
+				wp_enqueue_style( 'dark-mode-rank-math', DARK_MODE_URL.'/assets/css/rankmath.css', false, DARK_MODE_VERSION );
+			}
+
+			wp_localize_script('dark-mode', 'darkmode', [
+			        'plugin_url' => DARK_MODE_URL,
+            ]);
 		}
 	}
 
