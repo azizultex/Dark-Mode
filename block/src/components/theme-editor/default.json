@@ -1,0 +1,16 @@
+{
+	"theme": "iceberg",
+	"isDefault": true,
+	"colors": {
+		"background": "#edebe8",
+		"text": "#1E1E1E",
+		"accent": "#105d72"
+	},
+	"typography": {
+		"font": "ibm-plex-mono",
+		"font-size": "0.9rem",
+		"line-height": 2.25,
+		"line-width": "40rem",
+		"spacing": "1.5rem"
+	}
+}

@@ -1,0 +1,13 @@
+#components-iceberg-shortcut-pinned-button {
+	.components-button {
+		padding: 0 6px;
+
+		svg {
+			margin-right: 0;
+		}
+	}
+
+	.is-iceberg & {
+		display: none;
+	}
+}

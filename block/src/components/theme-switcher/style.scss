@@ -1,0 +1,151 @@
+// Move content to the right while editing the theme.
+.block-editor-writing-flow {
+	transition: padding 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+	padding-top: 1rem;
+}
+
+.block-editor-writing-flow.is-editing-theme {
+	transition: padding 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
+	@media (min-width: 782px) {
+		padding-left: 260px;
+	}
+
+	@media (min-width: 1400px) {
+		padding-left: 0;
+	}
+}
+
+.components-menu-item__button.is-checked {
+	pointer-events: none;
+}
+
+// Theme switcher visibility
+.components-iceberg-theme-switcher__trigger {
+	visibility: hidden;
+	height: 42px;
+	padding-right: 10px;
+}
+
+&.has-theme-switcher {
+	.components-iceberg-theme-switcher__trigger {
+		visibility: visible;
+	}
+}
+
+// Down caret
+.components-iceberg-theme-switcher__trigger svg {
+	height: 18px;
+	width: 18px;
+	margin-left: -5px;
+	color: var(--iceberg--color--accent) !important;
+}
+
+.components-iceberg-theme-switcher__trigger:hover svg {
+	color: var(--iceberg--color--accent--light) !important;
+}
+
+
+// Remove conflicting fill from the checkmark icon
+.components-button .components-iceberg-icon-checkmark,
+.components-button .components-iceberg-icon-color {
+	fill: none;
+}
+
+.components-base-control--is-colors {
+	padding: 0 !important;
+}
+
+.components-iceberg-theme-switcher__typography-panel {
+	padding: 22px 24px 12px !important;
+}
+
+.components-iceberg-theme-switcher__content {
+	margin-top: 8px;
+
+	.components-iceberg-menu-title .components-base-control__field {
+		margin-bottom: 15px;
+		padding-left: 0 !important;
+	}
+
+	.components-iceberg-menu-title.is-colors .components-base-control__field {
+		margin-bottom: 10px;
+	}
+
+	.components-iceberg-menu-title.has-padding .components-base-control__field {
+		padding-left: 11px !important;
+	}
+
+	.components-range-control__number {
+		display: none;
+	}
+
+	.components-range-control .components-base-control__label {
+		margin-bottom: -1px;
+	}
+
+	select {
+		background: var(--iceberg--color--background--light) url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E) no-repeat right 9px top 55%;
+		border-color: var(--iceberg--color--text--darker) !important;
+		color: var(--iceberg--color--text);
+		width: auto;
+		display: block;
+		font-size: 13px !important;
+		border-radius: 2px;
+		min-height: 36px;
+		background-size: 13px 13px;
+		padding: 0 33px 0 10px;
+
+		&:focus {
+			border-color: var(--iceberg--color--accent) !important;
+			color: var(--iceberg--color--accent);
+			box-shadow: 0 0 0 1px var(--iceberg--color--accent) !important;
+		}
+	}
+
+	.components-select-control__input {
+		margin: 2px 0 23px;
+	}
+
+	.components-menu-group + .components-menu-group {
+		border-top-width: 1px;
+		border-top-style: solid;
+	}
+}
+
+.components-iceberg-theme-switcher__close {
+	display: none;
+}
+
+.components-iceberg-theme-switcher__apply-defaults {
+	margin-bottom: 0;
+}
+
+.components-iceberg-theme-switcher__palette {
+	border-radius: 100%;
+	display: block;
+	height: 22px;
+	width: 22px;
+	margin-right: 10px;
+	position: relative;
+
+	&::after {
+		content: "";
+		box-shadow: inset 0 0 0 2px var(--iceberg--color--text);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		border-radius: 100%;
+	}
+}
+
+// Back to visibility
+.components-iceberg-back-to {
+	display: none;
+}
+&.has-back-to {
+	.components-iceberg-back-to {
+		display: inline-flex;
+	}
+}
