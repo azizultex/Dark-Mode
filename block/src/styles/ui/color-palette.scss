@@ -1,0 +1,54 @@
+.iceberg-components-color-palette {
+	position: relative;
+
+	.components-color-palette__item-wrapper {
+		display: block;
+		width: 100%;
+	}
+
+	.components-circular-option-picker__option {
+		box-shadow: none !important;
+		display: block;
+		border-radius: 2px;
+		height: auto;
+		justify-content: flex-start;
+		line-height: 25px;
+		min-height: 42px;
+		padding: 8px 12px 8px 42px !important;
+		width: 100%;
+		text-align: left;
+
+		&:hover,
+		&:focus {
+			&,
+			span {
+				color: var(--iceberg--color--accent);
+			}
+		}
+
+		&:focus {
+			background-size: none;
+		}
+
+		span {
+			color: var(--iceberg--color--text);
+
+			&:hover,
+			&:focus {
+				color: var(--iceberg--color--accent);
+			}
+		}
+
+		&::after {
+			background: currentColor;
+			border: 2px solid var(--iceberg--color--text);
+			width: 22px;
+			height: 22px;
+			position: absolute;
+			top: 10px;
+			left: 12px;
+			border-radius: 50%;
+			box-shadow: none !important;
+		}
+	}
+}

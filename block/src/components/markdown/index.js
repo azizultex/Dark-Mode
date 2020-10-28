@@ -18,7 +18,7 @@ import { registerFormatType } from '@wordpress/rich-text';
 /**
  * Block constants
  */
-const name = 'iceberg/markdown';
+const name = 'wp-mark-down-editor/markdown';
 
 export const settings = {
 	name,

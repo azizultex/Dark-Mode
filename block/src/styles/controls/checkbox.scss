@@ -1,0 +1,90 @@
+div {
+	input[type="checkbox"] {
+		width: 20px;
+		height: 20px;
+		border-width: 1px;
+		background: var(--iceberg--color--background--light) !important;
+		border-color: var(--iceberg--color--text) !important;
+		box-shadow: none;
+
+		&:checked {
+			background: var(--iceberg--color--accent) !important;
+			border-color: var(--iceberg--color--accent) !important;
+
+			&:focus {
+				box-shadow: 0 0 0 2px var(--iceberg--color--background--light), 0 0 0 3px var(--iceberg--color--text) !important;
+			}
+		}
+
+		&:focus {
+			border-color: var(--iceberg--color--accent) !important;
+			box-shadow: 0 0 0 1px var(--iceberg--color--accent) !important;
+		}
+	}
+
+	.components-checkbox-control__label {
+		color: var(--iceberg--color--text) !important;
+		padding: 15px 0 15px 5px;
+	}
+
+	svg.components-checkbox-control__checked {
+		fill: var(--iceberg--color--background--light) !important;
+		height: 19px;
+		left: 0;
+		left: 1px;
+		top: 0;
+		width: 19px;
+	}
+
+	.components-checkbox-ui-control__input-container {
+
+		input[type="checkbox"] {
+			background: none !important;
+			border-width: 0;
+
+			&:checked {
+				background: var(--iceberg--color--background--light) !important;
+
+				+ svg {
+					fill: var(--iceberg--color--accent) !important;
+				}
+			}
+
+			&:focus {
+				box-shadow: none;
+
+				+ svg {
+					fill: var(--iceberg--color--accent) !important;
+				}
+			}
+		}
+
+		svg {
+			width: 24px;
+			height: 24px;
+			left: -1px;
+		}
+
+		svg.components-checkbox-control__checked {
+			fill: var(--iceberg--color--text) !important;
+			top: -2px;
+		}
+
+		svg.components-checkbox-control__checked--closed {
+			top: 0;
+		}
+	}
+
+}
+
+// Supporting core.
+&:not(.is-gutenberg) {
+
+	.is-iceberg div svg.components-checkbox-control__checked {
+		fill: var(--iceberg--color--background--light);
+		height: 21px;
+		left: -1px;
+		top: 0;
+		width: 21px;
+	}
+}

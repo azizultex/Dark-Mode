@@ -25,13 +25,12 @@ class ShortcutButton extends Component {
         const {isActive, onToggle, isEnabled} = this.props;
 
         const icon = (
-            <SVG fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <SVG xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                 focusable="false" width="1.63em" height="1em"
+                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 158">
                 <Path
-                    clipRule="evenodd"
-                    d="m8.14003 3h3.15457c-2.00451 2.0977-.9186 4.00235.1611 5.89622.6354 1.11458 1.2687 2.22538 1.2687 3.36968 0 1.6928-.438 2.7871-1.1827 3.4936h.2451c.6674 0 1.2132.5422 1.2132 1.2405h-7v-11.76074c0-1.23153.9629-2.23926 2.14003-2.23926zm-.23846 7.969v-2.21176c0-.81235-1.15748-.81138-1.15748.00097v3.44009c.64572 0 1.15748-.5534 1.15748-1.2293zm4.18903 1.2293c0 2.7272-1.1329 3.5543-3.03154 4.0786v-8.09921h1.35034c.1689.32009.3414.62743.5085.92514.624 1.11177 1.1727 2.08927 1.1727 3.09547zm-4.21659-7.83648c.31909-.33619.83813-.3369 1.15748-.00097 0-.81236-1.15748-.81139-1.15748.00097z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                />
+                    d="M238.371 157.892H18.395C8.431 157.892 0 149.462 0 139.497V18.395C0 8.431 8.431 0 18.395 0h219.21C247.569 0 256 8.431 256 18.395v121.102c0 9.964-7.665 18.395-17.629 18.395zM18.395 12.263c-3.066 0-6.132 3.066-6.132 6.132v121.102c0 3.832 3.066 6.132 6.132 6.132h219.21c3.832 0 6.132-3.066 6.132-6.132V18.395c0-3.832-3.066-6.132-6.132-6.132H18.395zM36.79 121.102V36.79h24.527l24.527 30.66l24.527-30.66h24.527v84.312h-24.527V72.814l-24.527 30.66l-24.527-30.66v48.288H36.79zm154.06 0l-36.79-40.623h24.527V36.79h24.527v42.923h24.527l-36.79 41.389z"
+                    fill="#000"/>
             </SVG>
         );
 
@@ -40,7 +39,7 @@ class ShortcutButton extends Component {
                 <Fragment>
                     <Button
                         icon={icon}
-                        label={__('Switch to Iceberg', 'iceberg')}
+                        label={__('Switch to MarkDown', 'iceberg')}
                         shortcut={displayShortcut.secondary('i')}
                         onClick={() => {
                             onToggle();
@@ -49,20 +48,33 @@ class ShortcutButton extends Component {
                 </Fragment>
             );
         };
-
         //edit-post-header-toolbar edit-post-header-toolbar__block-toolbar
-        const moreMenuButton = document.querySelector('.edit-post-header-toolbar');
+        const moreMenuButton = document.querySelector(
+            '.edit-post-header-toolbar'
+        );
 
-        if (isEnabled && !isActive && !document.getElementById('components-iceberg-shortcut-pinned-button')) {
+        if (
+            isEnabled &&
+            !isActive &&
+            !document.getElementById(
+                'components-iceberg-shortcut-pinned-button'
+            )
+        ) {
             moreMenuButton.insertAdjacentHTML(
                 'beforeend',
                 '<div id="components-iceberg-shortcut-pinned-button"></div>'
             );
 
-            render(<ShortcutPinnedButton/>, document.getElementById('components-iceberg-shortcut-pinned-button'));
-
+            render(
+                <ShortcutPinnedButton/>,
+                document.getElementById(
+                    'components-iceberg-shortcut-pinned-button'
+                )
+            );
         } else if (isActive || !isEnabled) {
-            const icebergButton = document.getElementById('components-iceberg-shortcut-pinned-button');
+            const icebergButton = document.getElementById(
+                'components-iceberg-shortcut-pinned-button'
+            );
 
             if (icebergButton) {
                 icebergButton.remove();

@@ -1,0 +1,19 @@
+// Form element
+.components-base-control__label {
+	margin-bottom: 3px;
+}
+
+.components-modal__frame textarea,
+.components-modal__frame input[type="text"],
+.components-popover textarea,
+.components-popover input[type="text"] {
+	background-color: var(--iceberg--color--background--light) !important;
+	border-color: var(--iceberg--color--text--dark) !important;
+	border-radius: 5px;
+	color: var(--iceberg--color--text) !important;
+
+	&:focus {
+		border-color: var(--iceberg--color--accent) !important;
+		box-shadow: 0 0 0 0.5px var(--iceberg--color--accent) !important;
+	}
+}

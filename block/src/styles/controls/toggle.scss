@@ -1,0 +1,38 @@
+.components-form-toggle {
+
+	.components-form-toggle__track {
+		background-color: transparent !important;
+		border-color: var(--iceberg--color--text) !important;
+	}
+
+	&.is-checked .components-form-toggle__track {
+		background-color: var(--iceberg--color--accent) !important;
+		border-color: var(--iceberg--color--accent) !important;
+	}
+
+	.components-form-toggle__thumb {
+		background-color: var(--iceberg--color--text) !important;
+		border-color: var(--iceberg--color--text) !important;
+	}
+
+	&.is-checked .components-form-toggle__thumb {
+		background-color: var(--iceberg--color--background) !important;
+		border-color: var(--iceberg--color--background) !important;
+	}
+
+	.components-form-toggle__off {
+		color: var(--iceberg--color--text) !important;
+	}
+	.components-form-toggle__on {
+		border-color: var(--iceberg--color--accent) !important;
+	}
+
+	&.is-checked .components-form-toggle__on {
+		border-color: var(--iceberg--color--background) !important;
+		filter: none;
+	}
+
+	.components-form-toggle__input:focus + .components-form-toggle__track {
+		box-shadow: 0 0 0 2px var(--iceberg--color--background--light), 0 0 0 3px var(--iceberg--color--text) !important;
+	}
+}

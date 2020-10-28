@@ -1,0 +1,13 @@
+.components-drop-zone {
+	border-color: var(--iceberg--color--accent);
+	border: none;
+	border-radius: 0;
+
+	&.is-dragging-over-element {
+		background-color: var(--iceberg--color--accent--light);
+	}
+}
+
+.components-drop-zone__content-text {
+	font-size: 13px;
+}

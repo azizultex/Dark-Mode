@@ -163,7 +163,7 @@ const ui = {
 	shortcuts: [
 		{
 			keyCombination: displayShortcutList.secondary( 'i' ),
-			description: __( 'Exit Iceberg', 'iceberg' ),
+			description: __( 'Exit MarkDown', 'iceberg' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryShift( '+' ),

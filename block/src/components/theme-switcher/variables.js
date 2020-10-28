@@ -19,7 +19,7 @@ export function assignVariables( settings ) {
 	link.rel = 'stylesheet';
 	const cssVariables = [];
 
-	const styleElement = document.getElementById( 'iceberg-style-inline-css' );
+	const styleElement = document.getElementById( 'wp-mark-down-editor-style-inline-css' );
 	const colors =
 		typeof settings.colors !== 'undefined' ? settings.colors : {};
 	const typography =

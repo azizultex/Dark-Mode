@@ -14,13 +14,13 @@ import { TextControl, Button, Spinner, Notice } from '@wordpress/components';
 
 const enhance = compose(
 	withState( {
-		licenseKey: window.icebergSettings.license.key,
+		licenseKey: window.WPMD_Settings.license.key,
 		action: 'activate',
 		isLoading: false,
 	} ),
 	withDispatch( ( dispatch, props ) => {
 		const { licenseKey, action, setState } = props;
-		const { license } = window.icebergSettings;
+		const { license } = window.WPMD_Settings;
 
 		if (
 			licenseKey === null &&
@@ -50,7 +50,7 @@ const LicenseActivation = createHigherOrderComponent( ( FilteredComponent ) => {
 			action,
 			isLoading,
 		} = props;
-		const { license } = window.icebergSettings;
+		const { license } = window.WPMD_Settings;
 
 		if (
 			typeof licenseKey !== 'undefined' &&

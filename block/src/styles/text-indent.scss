@@ -1,0 +1,4 @@
+// Text indent option, scoped with .is-iceberg
+&.has-text-indent p:not(.iceberg-markdown-comments) {
+	text-indent: var(--iceberg--typography--text-indent, 25px);
+}

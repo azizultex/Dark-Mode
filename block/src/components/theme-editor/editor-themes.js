@@ -1,4 +1,4 @@
-/*global icebergSettings*/
+/*global WPMD_Settings*/
 
 /**
  * External dependencies
@@ -13,8 +13,8 @@ import EditorThemesData from './themes';
 let EditorThemes = EditorThemesData;
 let customThemes = {};
 
-if ( icebergSettings.customThemes ) {
-	map( reverse( icebergSettings.customThemes ), ( custom, key ) => {
+if ( WPMD_Settings.customThemes ) {
+	map( reverse( WPMD_Settings.customThemes ), ( custom, key ) => {
 		customThemes = assign(
 			{ [ 'theme-support-' + key ]: custom },
 			customThemes

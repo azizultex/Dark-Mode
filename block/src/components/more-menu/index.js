@@ -1,4 +1,4 @@
-/*global icebergSettings*/
+/*global WPMD_Settings*/
 
 /**
  * External dependencies
@@ -158,7 +158,7 @@ class MoreMenu extends Component {
 											toggleEditorMode();
 										} }
 									>
-										{ __( 'Exit Iceberg', 'iceberg' ) }
+										{ __( 'Exit MarkDown', 'iceberg' ) }
 									</MenuItem>
 								</MenuGroup>
 								<MenuGroup>
@@ -245,7 +245,7 @@ class MoreMenu extends Component {
 
 	render() {
 		const { isSettingsOpen } = this.state;
-		const { license } = window.icebergSettings;
+		const { license } = window.WPMD_Settings;
 
 		let isValid = true;
 		let label = '';

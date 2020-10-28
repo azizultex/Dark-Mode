@@ -1,4 +1,4 @@
-/*global icebergSettings*/
+/*global WPMD_Settings*/
 
 /**
  * Internal dependencies
@@ -13,7 +13,7 @@ import { select, dispatch } from '@wordpress/data';
 
 export default function createIcebergStore() {
 	const { isFeatureActive } = select( 'core/edit-post' );
-	const settingsNonce = icebergSettings.icebergSettingsNonce;
+	const settingsNonce = WPMD_Settings.WPMD_SettingsNonce;
 	apiFetch.use( apiFetch.createNonceMiddleware( settingsNonce ) );
 
 	let storeChanged = () => {};
@@ -55,7 +55,7 @@ export default function createIcebergStore() {
 
 			if (
 				[ 'demo.useiceberg.com', 'useiceberg.com' ].includes(
-					icebergSettings.siteurl.host
+					WPMD_Settings.siteurl.host
 				)
 			) {
 				settings.icebergThemeSettings.theme = 'mustard-seed';
@@ -149,10 +149,10 @@ export default function createIcebergStore() {
 							action: 'activate',
 							licenseKey: '',
 						} ) );
-						window.icebergSettings.license = {};
+						window.WPMD_Settings.license = {};
 					} else {
 						setState( () => ( { action: 'deactivate' } ) );
-						window.icebergSettings.license = obj;
+						window.WPMD_Settings.license = obj;
 					}
 				}
 

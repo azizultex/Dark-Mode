@@ -1,0 +1,24 @@
+a {
+	box-shadow: none !important;
+	color: var(--iceberg--color--accent) !important;
+
+	&:hover {
+		color: var(--iceberg--color--accent--light) !important;
+	}
+
+	&:focus,
+	&:focus .media-icon img,
+	.wp-person &:focus .gravatar {
+		color: var(--iceberg--color--accent--dark);
+		box-shadow: 0 0 0 1px var(--iceberg--color--accent--light), 0 0 2px 1px var(--iceberg--color--accent--light);
+		outline: 1px solid transparent;
+	}
+}
+
+.block-editor-rich-text__editable a {
+	color: var(--iceberg--color--accent);
+	text-decoration: underline;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
