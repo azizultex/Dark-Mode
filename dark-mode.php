@@ -9,38 +9,14 @@
  * Version: 3.3.2
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	die();
-}
+defined( 'ABSPATH' ) || exit();
 
-define('DARK_MODE_VERSION', '3.3.2');
-define('DARK_MODE_FILE', __FILE__);
-define('DARK_MODE_PATH', plugin_dir_path(__FILE__));
-define('DARK_MODE_URL', plugin_dir_url(__FILE__));
-
-
-/**
- * Initialize the plugin tracker
- *
- * @return void
- */
-function appsero_init_tracker_dark_mode() {
-
-	if ( ! class_exists( 'Appsero\Client' ) ) {
-		require_once __DIR__ . '/appsero/src/Client.php';
-	}
-
-	$client = new Appsero\Client( 'abf3e1be-dc75-4d7e-af65-595a8039cad7', 'Dark Mode', __FILE__ );
-
-	// Active insights
-	$client->insights()->init();
-
-}
-
-appsero_init_tracker_dark_mode();
+define( 'DARK_MODE_VERSION', '3.3.2' );
+define( 'DARK_MODE_FILE', __FILE__ );
+define( 'DARK_MODE_PATH', plugin_dir_path( __FILE__ ) );
+define( 'DARK_MODE_URL', plugin_dir_url( __FILE__ ) );
 
 /** block editor color scheme */
-include DARK_MODE_PATH.'/block/plugin.php';
+//include DARK_MODE_PATH . '/wp-markdown/plugin.php';
 
-require 'class-dark-mode.php';
-$dark_mode = new Dark_Mode();
+require DARK_MODE_PATH.'/includes/class-dark-mode.php';

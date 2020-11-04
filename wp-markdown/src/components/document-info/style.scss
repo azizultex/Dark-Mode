@@ -1,0 +1,31 @@
+.components-markdown-document-info {
+	background: var(--iceberg--color--background--light);
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	width: 100%;
+
+	.components-markdown-document-info__content {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		height: 26px;
+		padding: 0 15px;
+
+		.components-base-control {
+			font-size: 12px;
+			margin: 0 10px;
+			color: var(--iceberg--color--text--dark);
+
+			.components-base-control__field {
+				margin: 0;
+				padding: 0;
+			}
+
+			span {
+				margin-right: 3px;
+				margin-left: 2px;
+			}
+		}
+	}
+}

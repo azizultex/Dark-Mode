@@ -1,0 +1,144 @@
+@mixin transitionDelay {
+	@for $i from 1 through 15 {
+		&:nth-child(#{$i})::after {
+			transition-delay: #{$i * 0.5 * 50}ms;
+		}
+	}
+}
+
+@mixin transitionDelayButton {
+	@for $i from 1 through 15 {
+		&:nth-child(#{$i}) .components-button {
+			transition-delay: #{$i * 0.5 * 50}ms;
+		}
+	}
+}
+
+.components-markdown-table-of-contents {
+	left: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 0;
+}
+
+.components-markdown-table-of-contents__list {
+	left: 0;
+	margin: 0;
+	max-width: 35px;
+	position: absolute;
+	top: 0;
+	transition: 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
+	li {
+		height: 20px;
+		margin-bottom: 10px;
+		position: relative;
+
+		@include transitionDelay();
+
+		@include transitionDelayButton();
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&::after {
+			border-bottom: 2px solid var(--iceberg--color--accent);
+			content: "";
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: calc(50% + 3px);
+			transition: width 300ms cubic-bezier(0.215, 0.61, 0.355, 1), opacity 100ms linear;
+		}
+
+		&.is-selected .components-button {
+			color: var(--iceberg--color--accent);
+		}
+
+		&.is-selected::after {
+			border-color: var(--iceberg--color--accent);
+		}
+	}
+
+	.components-button {
+		display: block;
+		font-size: 12px;
+		height: 28px;
+		opacity: 0;
+		overflow: hidden;
+		padding-left: 24px;
+		text-align: left;
+		transform: translateX(-2.5%);
+		transition: padding 100ms cubic-bezier(0.215, 0.61, 0.355, 1), opacity 200ms cubic-bezier(0.215, 0.61, 0.355, 1) 175ms, transform 300ms cubic-bezier(0.215, 0.61, 0.355, 1) 100ms;
+		white-space: nowrap;
+		width: 100%;
+		padding-right: 0;
+		color: var(--iceberg--color--accent--light) !important;
+
+		&:hover {
+			color: var(--iceberg--color--accent) !important;
+		}
+
+		&:not([aria-disabled="true"]):active {
+			color: var(--iceberg--color--accent--dark) !important;
+		}
+	}
+
+	.components-markdown-heading-level--1::after {
+		width: 2.488em;
+	}
+
+	.components-markdown-heading-level--2::after {
+		width: 2.1em;
+	}
+
+	.components-markdown-heading-level--3::after {
+		width: 1.728em;
+	}
+
+	.components-markdown-heading-level--4::after {
+		width: 1.44em;
+	}
+
+	.components-markdown-heading-level--5::after {
+		width: 1.2em;
+	}
+
+	.components-markdown-heading-level--6::after {
+		width: 0.8em;
+	}
+}
+
+// Disable when theme editing is open
+&.is-editing-theme .components-markdown-table-of-contents {
+	pointer-events: none;
+	z-index: -1;
+
+	li::after {
+		width: 0;
+	}
+}
+
+// Active/visible animation.
+&:not(.is-editing-theme) {
+	.components-markdown-table-of-contents__list {
+
+		&:hover {
+			max-width: 200px;
+
+			.components-button {
+				background: var(--iceberg--color--background);
+				transform: translateX(0%);
+				opacity: 1;
+				text-overflow: ellipsis;
+			}
+
+			li::after {
+				width: 0.7em;
+			}
+		}
+
+	}
+}

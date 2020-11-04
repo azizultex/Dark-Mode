@@ -1,0 +1,169 @@
+// Hide unnecessary controls at the top left.
+.components-button {
+	&.edit-post-fullscreen-mode-close,
+	&.editor-history__undo,
+	&.editor-history__redo,
+	&.editor-post-preview,
+	&.block-editor-post-preview__button-toggle {
+		display: none !important;
+	}
+}
+
+// Hide header toolbar components.
+.edit-post-header-toolbar,
+.edit-post-header__toolbar {
+
+	.components-dropdown:not(.components-markdown-theme-switcher__dropdown):not(.components-circular-option-picker__dropdown-link-action):not(.components-color-palette__item-wrapper),
+	> div:not(#iceberg-theme-switcher) {
+		&:last-of-type {
+			display: none !important;
+		}
+	}
+
+	.edit-post-fullscreen-mode-close__toolbar {
+		display: none !important;
+	}
+}
+
+// Hide the core table of contents.
+.edit-post-header__toolbar .table-of-contents {
+	display: none !important;
+}
+
+// Hide post publish panel.
+.edit-post-layout__toggle-publish-panel,
+.editor-post-publish-panel {
+	display: none;
+}
+
+.block-editor-inserter + .components-dropdown {
+	display: none !important;
+}
+
+// Hide pinned plugins
+.edit-post-header__settings {
+	.editor-post-preview__dropdown,
+	.edit-post-pinned-plugins,
+	.interface-pinned-items {
+		display: none !important;
+	}
+
+	// Hide more menu
+	.edit-post-more-menu {
+		display: none !important;
+	}
+}
+
+// Hide gear button
+.editor-post-publish-button__button + .components-button {
+	display: none !important;
+}
+
+.edit-post-header__settings {
+	> div {
+		&:nth-last-child(2) {
+			display: none !important;
+		}
+	}
+}
+
+// Hide elements
+.edit-post-sidebar,
+.editor-post-permalink,
+.edit-post-layout__footer,
+.block-editor-editor-skeleton__sidebar,
+.block-editor-editor-skeleton__footer,
+.edit-post-layout__metaboxes,
+.editorskit-component-help-tips {
+	display: none !important;
+}
+
+// Hide inserter + buttons
+.block-editor-inserter,
+.block-editor-block-list__insertion-point,
+.block-editor-block-list__insertion-point-inserter,
+.block-editor-block-list__empty-block-inserter {
+	display: none !important;
+}
+
+.block-list-appender {
+	.block-editor-inserter {
+		display: none !important;
+	}
+}
+
+.edit-post-visual-editor {
+	> .popover-slot {
+		opacity: 0 !important;
+	}
+}
+
+.block-editor-rich-text__inline-format-toolbar {
+	display: none !important;
+}
+
+.block-editor-block-list__insertion-point-popover {
+	opacity: 0 !important;
+}
+
+.block-editor-block-list__block[data-type="core/paragraph"].is-selected::before {
+	display: none;
+}
+
+// Hide block toolbar
+.block-editor-block-contextual-toolbar,
+.block-editor-block-contextual-toolbar-wrapper {
+	display: none !important;
+}
+
+// Hide mover
+.block-editor-block-mover {
+	display: none !important;
+}
+
+// Temp hide editor notices.
+.components-editor-notices__dismissible {
+	display: none;
+}
+
+// Temp hide block inserter (maybe for good)
+.edit-post-header__toolbar .block-editor-inserter {
+	display: none;
+}
+
+// Hide components button when publish panel is open
+.block-editor-editor-skeleton__publish:focus-within,
+.block-editor-editor-skeleton__publish:focus,
+.block-editor-editor-skeleton__sidebar:focus-within,
+.block-editor-editor-skeleton__sidebar:focus {
+	.edit-post-layout__toggle-publish-panel,
+	.edit-post-layout__toogle-sidebar-panel {
+		display: none;
+	}
+}
+
+.editor-post-publish-panel {
+	padding-bottom: 40px;
+}
+
+// Hide block menus and options
+.blocks-gallery-item::before,
+.blocks-gallery-item::after,
+.block-library-gallery-item__move-menu,
+.block-library-gallery-item__inline-menu {
+	display: none !important;
+}
+
+// Hide G8 sidebar inserter
+.interface-interface-skeleton__left-sidebar {
+	display: none;
+}
+
+// Hide possible open popovers
+.table-of-contents__popover,
+.block-editor-inserter__popover,
+.edit-post-more-menu__content,
+.block-editor-block-list__breadcrumb,
+.block-editor-block-navigation__popover {
+	display: none;
+}
