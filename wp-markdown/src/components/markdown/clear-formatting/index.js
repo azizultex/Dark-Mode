@@ -20,14 +20,14 @@ import { removeFormat, registerFormatType } from '@wordpress/rich-text';
 /**
  * Block constants
  */
-const name = 'iceberg/clear-formatting';
-const title = __( 'Clear formatting', 'iceberg' );
+const name = 'markdown/clear-formatting';
+const title = __( 'Clear formatting', 'dark-mode' );
 
 export const settings = {
 	name,
 	title,
 	tagName: 'span',
-	className: 'iceberg-clear-format',
+	className: 'markdown-clear-format',
 	edit( { value, onChange } ) {
 		const onToggle = () => {
 			const activeFormats = getActiveFormats( value );

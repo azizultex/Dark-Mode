@@ -5,180 +5,180 @@ import { __ } from '@wordpress/i18n';
 import { displayShortcutList } from '@wordpress/keycodes';
 
 const headings = {
-	title: __( 'Headings', 'iceberg' ),
+	title: __( 'Headings', 'dark-mode' ),
 	panel: true,
 	initialOpen: false,
 	shortcuts: [
 		{
 			keyCombination: [ '#' ],
-			description: __( 'Heading 1', 'iceberg' ),
+			description: __( 'Heading 1', 'dark-mode' ),
 		},
 		{
 			keyCombination: [ '#', '#' ],
-			description: __( 'Heading 2', 'iceberg' ),
+			description: __( 'Heading 2', 'dark-mode' ),
 		},
 		{
 			keyCombination: [ '#', '#', '#' ],
-			description: __( 'Heading 3', 'iceberg' ),
+			description: __( 'Heading 3', 'dark-mode' ),
 		},
 		{
 			keyCombination: [ '#', '#', '#', '#' ],
-			description: __( 'Heading 4', 'iceberg' ),
+			description: __( 'Heading 4', 'dark-mode' ),
 		},
 		{
 			keyCombination: [ '#', '#', '#', '#', '#' ],
-			description: __( 'Heading 5', 'iceberg' ),
+			description: __( 'Heading 5', 'dark-mode' ),
 		},
 	],
 };
 
 const markdown = {
-	title: __( 'Markdown', 'iceberg' ),
+	title: __( 'Markdown', 'dark-mode' ),
 	panel: true,
 	initialOpen: true,
 	shortcuts: [
 		{
 			keyCombination: [ '*bold*' ],
-			description: __( 'Bold', 'iceberg' ),
+			description: __( 'Bold', 'dark-mode' ),
 		},
 		{
 			keyCombination: [ '_italic_' ],
-			description: __( 'Italic', 'iceberg' ),
+			description: __( 'Italic', 'dark-mode' ),
 		},
 		{
 			keyCombination: [ '**bold & italic**' ],
-			description: __( 'Bold & italic', 'iceberg' ),
+			description: __( 'Bold & italic', 'dark-mode' ),
 		},
 		{
 			keyCombination: [ '~strikethrough~' ],
-			description: __( 'Strikethrough', 'iceberg' ),
+			description: __( 'Strikethrough', 'dark-mode' ),
 		},
 		{
 			keyCombination: [ ':mark:' ],
-			description: __( 'Mark', 'iceberg' ),
+			description: __( 'Mark', 'dark-mode' ),
 		},
 		{
 			keyCombination: [ '`code`' ],
-			description: __( 'Code', 'iceberg' ),
+			description: __( 'Code', 'dark-mode' ),
 		},
 		{
-			keyCombination: [ '`', '`', '`', __( 'space', 'iceberg' ) ],
-			description: __( 'Code block', 'iceberg' ),
+			keyCombination: [ '`', '`', '`', __( 'space', 'dark-mode' ) ],
+			description: __( 'Code block', 'dark-mode' ),
 		},
 		{
-			keyCombination: [ '-', '-', '-', __( 'space', 'iceberg' ) ],
-			description: __( 'Divider', 'iceberg' ),
+			keyCombination: [ '-', '-', '-', __( 'space', 'dark-mode' ) ],
+			description: __( 'Divider', 'dark-mode' ),
 		},
 		{
-			keyCombination: [ '>', __( 'space', 'iceberg' ) ],
-			description: __( 'Blockquote', 'iceberg' ),
+			keyCombination: [ '>', __( 'space', 'dark-mode' ) ],
+			description: __( 'Blockquote', 'dark-mode' ),
 		},
 		{
-			keyCombination: [ '1.', __( 'space', 'iceberg' ) ],
-			description: __( 'Numbered list', 'iceberg' ),
+			keyCombination: [ '1.', __( 'space', 'dark-mode' ) ],
+			description: __( 'Numbered list', 'dark-mode' ),
 		},
 		{
-			keyCombination: [ '*', __( 'space', 'iceberg' ) ],
-			description: __( 'Ordered list', 'iceberg' ),
+			keyCombination: [ '*', __( 'space', 'dark-mode' ) ],
+			description: __( 'Ordered list', 'dark-mode' ),
 		},
 		{
-			keyCombination: [ '+', '+', __( 'space', 'iceberg' ) ],
-			description: __( 'Comment', 'iceberg' ),
+			keyCombination: [ '+', '+', __( 'space', 'dark-mode' ) ],
+			description: __( 'Comment', 'dark-mode' ),
 		},
 		{
-			keyCombination: [ ':keyword', __( 'enter', 'iceberg' ) ],
-			description: __( 'Emoji', 'iceberg' ),
+			keyCombination: [ ':keyword', __( 'enter', 'dark-mode' ) ],
+			description: __( 'Emoji', 'dark-mode' ),
 		},
 	],
 };
 
 const formatting = {
-	title: __( 'Formatting', 'iceberg' ),
+	title: __( 'Formatting', 'dark-mode' ),
 	panel: true,
 	initialOpen: false,
 	shortcuts: [
 		{
 			keyCombination: displayShortcutList.primaryAlt( '1' ),
-			description: __( 'Convert to H1', 'iceberg' ),
+			description: __( 'Convert to H1', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryAlt( '2' ),
-			description: __( 'Convert to H2', 'iceberg' ),
+			description: __( 'Convert to H2', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryAlt( '3' ),
-			description: __( 'Convert to H3', 'iceberg' ),
+			description: __( 'Convert to H3', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryAlt( '4' ),
-			description: __( 'Convert to H4', 'iceberg' ),
+			description: __( 'Convert to H4', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryAlt( '5' ),
-			description: __( 'Convert to H5', 'iceberg' ),
+			description: __( 'Convert to H5', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryAlt( '7' ),
-			description: __( 'Convert to P', 'iceberg' ),
+			description: __( 'Convert to P', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryAlt( '8' ),
-			description: __( 'Convert to list', 'iceberg' ),
+			description: __( 'Convert to list', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryShift( '9' ),
-			description: __( 'Convert list type', 'iceberg' ),
+			description: __( 'Convert list type', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primary( 'm' ),
-			description: __( 'Indent list', 'iceberg' ),
+			description: __( 'Indent list', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryShift( 'm' ),
-			description: __( 'Outdent list', 'iceberg' ),
+			description: __( 'Outdent list', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primary( 'k' ),
-			description: __( 'Insert link', 'iceberg' ),
+			description: __( 'Insert link', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryShift( 'k' ),
-			description: __( 'Remove link', 'iceberg' ),
+			description: __( 'Remove link', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.ctrl( 'space' ),
-			description: __( 'Clear formatting', 'iceberg' ),
+			description: __( 'Clear formatting', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.access( 'z' ),
-			description: __( 'Remove block', 'iceberg' ),
+			description: __( 'Remove block', 'dark-mode' ),
 		},
 	],
 };
 
 const ui = {
-	title: __( 'Interface', 'iceberg' ),
+	title: __( 'Interface', 'dark-mode' ),
 	panel: true,
 	initialOpen: false,
 	shortcuts: [
 		{
 			keyCombination: displayShortcutList.secondary( 'i' ),
-			description: __( 'Exit Markdown', 'iceberg' ),
+			description: __( 'Exit Markdown', 'dark-mode' ),
 		},
 		{
 			keyCombination: displayShortcutList.primaryShift( '+' ),
-			description: __( 'Add new {type}', 'iceberg' ),
+			description: __( 'Add new {type}', 'dark-mode' ),
 			override: true,
 			single: true,
 		},
 		{
 			keyCombination: displayShortcutList.secondary( 'p' ),
-			description: __( 'All {type}', 'iceberg' ),
+			description: __( 'All {type}', 'dark-mode' ),
 			override: true,
 		},
 		{
 			keyCombination: displayShortcutList.access( 'h' ),
-			description: __( 'Display shortcuts', 'iceberg' ),
+			description: __( 'Display shortcuts', 'dark-mode' ),
 		},
 	],
 };

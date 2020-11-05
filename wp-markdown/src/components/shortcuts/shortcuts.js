@@ -127,7 +127,7 @@ class RegisterShortcuts extends Component {
 
 		window.location.href = addQueryArgs( 'post-new.php', {
 			post_type: postType,
-			is_iceberg: 1,
+			is_markdown: 1,
 		} );
 
 		event.preventDefault();

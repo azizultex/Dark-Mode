@@ -137,7 +137,7 @@ class MediaToolbar extends Component {
 		return (
 			<Fragment>
 				<Popover
-					className="component-iceberg-contextual-toolbar"
+					className="component-markdown-contextual-toolbar"
 					position="top center"
 					focusOnMount="container"
 					anchorRef={ anchorRef }
@@ -151,17 +151,17 @@ class MediaToolbar extends Component {
 						<DropdownMenu
 							className="components-markdown-more-menu__trigger"
 							icon="admin-generic"
-							label={ __( 'Image options', 'iceberg' ) }
+							label={ __( 'Image options', 'dark-mode' ) }
 							popoverProps={ POPOVER_PROPS }
 							toggleProps={ TOGGLE_PROPS }
 						>
 							{ () => (
 								<Fragment>
 									<TextareaControl
-										label={ __( 'Alt text', 'iceberg' ) }
+										label={ __( 'Alt text', 'dark-mode' ) }
 										placeholder={ __(
 											'Write a brief description of this image for readers with visual impairments',
-											'iceberg'
+											'dark-mode'
 										) }
 										value={ alt }
 										onChange={ this.updateAlt }
@@ -178,10 +178,10 @@ class MediaToolbar extends Component {
 										imageSizeOptions={ this.getImageSizeOptions() }
 									/>
 									<TextControl
-										label={ __( 'Link', 'iceberg' ) }
+										label={ __( 'Link', 'dark-mode' ) }
 										placeholder={ __(
 											'https://',
-											'iceberg'
+											'dark-mode'
 										) }
 										value={ href }
 										onChange={ this.updateLink }
@@ -215,7 +215,7 @@ export default compose( [
 			imageSizes,
 			mediaUpload,
 			isActive: select( 'core/edit-post' ).isFeatureActive(
-				'icebergWritingMode'
+				'markdownWritingMode'
 			),
 		};
 	} ),

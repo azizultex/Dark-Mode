@@ -3,32 +3,32 @@ div {
 		width: 20px;
 		height: 20px;
 		border-width: 1px;
-		background: var(--iceberg--color--background--light) !important;
-		border-color: var(--iceberg--color--text) !important;
+		background: var(--markdown--color--background--light) !important;
+		border-color: var(--markdown--color--text) !important;
 		box-shadow: none;
 
 		&:checked {
-			background: var(--iceberg--color--accent) !important;
-			border-color: var(--iceberg--color--accent) !important;
+			background: var(--markdown--color--accent) !important;
+			border-color: var(--markdown--color--accent) !important;
 
 			&:focus {
-				box-shadow: 0 0 0 2px var(--iceberg--color--background--light), 0 0 0 3px var(--iceberg--color--text) !important;
+				box-shadow: 0 0 0 2px var(--markdown--color--background--light), 0 0 0 3px var(--markdown--color--text) !important;
 			}
 		}
 
 		&:focus {
-			border-color: var(--iceberg--color--accent) !important;
-			box-shadow: 0 0 0 1px var(--iceberg--color--accent) !important;
+			border-color: var(--markdown--color--accent) !important;
+			box-shadow: 0 0 0 1px var(--markdown--color--accent) !important;
 		}
 	}
 
 	.components-checkbox-control__label {
-		color: var(--iceberg--color--text) !important;
+		color: var(--markdown--color--text) !important;
 		padding: 15px 0 15px 5px;
 	}
 
 	svg.components-checkbox-control__checked {
-		fill: var(--iceberg--color--background--light) !important;
+		fill: var(--markdown--color--background--light) !important;
 		height: 19px;
 		left: 0;
 		left: 1px;
@@ -43,10 +43,10 @@ div {
 			border-width: 0;
 
 			&:checked {
-				background: var(--iceberg--color--background--light) !important;
+				background: var(--markdown--color--background--light) !important;
 
 				+ svg {
-					fill: var(--iceberg--color--accent) !important;
+					fill: var(--markdown--color--accent) !important;
 				}
 			}
 
@@ -54,7 +54,7 @@ div {
 				box-shadow: none;
 
 				+ svg {
-					fill: var(--iceberg--color--accent) !important;
+					fill: var(--markdown--color--accent) !important;
 				}
 			}
 		}
@@ -66,7 +66,7 @@ div {
 		}
 
 		svg.components-checkbox-control__checked {
-			fill: var(--iceberg--color--text) !important;
+			fill: var(--markdown--color--text) !important;
 			top: -2px;
 		}
 
@@ -80,8 +80,8 @@ div {
 // Supporting core.
 &:not(.is-gutenberg) {
 
-	.is-iceberg div svg.components-checkbox-control__checked {
-		fill: var(--iceberg--color--background--light);
+	.is-markdown div svg.components-checkbox-control__checked {
+		fill: var(--markdown--color--background--light);
 		height: 21px;
 		left: -1px;
 		top: 0;

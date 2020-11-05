@@ -13,17 +13,17 @@
 	}
 
 	.components-menu-item__info {
-		color: var(--iceberg--color--text);
+		color: var(--markdown--color--text);
 		opacity: 0.65;
 		padding-right: 20px;
 	}
 }
 
 .components-markdown-more-menu__trigger .components-button.components-dropdown-menu__toggle {
-	color: var(--iceberg--color--accent);
+	color: var(--markdown--color--accent);
 
 	&:hover {
-		color: var(--iceberg--color--accent--light);
+		color: var(--markdown--color--accent--light);
 	}
 }
 

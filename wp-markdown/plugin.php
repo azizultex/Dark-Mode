@@ -18,13 +18,15 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 		private static $instance = null;
 
 		public function __construct() {
+
+			$this->includes();
+
 			global $pagenow;
 			if ( is_admin() && ( $pagenow === 'post.php' || $pagenow === 'post-new.php' ) ) {
 
-				add_action( 'enqueue_block_assets', [$this, 'editor_scripts'] );
-				add_action( 'enqueue_block_assets', [$this, 'editor_styles'] );
+				add_action( 'enqueue_block_assets', [ $this, 'editor_scripts' ] );
+				add_action( 'enqueue_block_assets', [ $this, 'editor_styles' ] );
 			}
-
 
 			// Filters.
 			add_filter( 'write_your_story', array( $this, 'write_your_story' ), 10, 2 );
@@ -32,6 +34,10 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 
 			add_filter( 'post_row_actions', array( $this, 'add_edit_links' ), 15, 2 );
 			add_filter( 'page_row_actions', array( $this, 'add_edit_links' ), 15, 2 );
+		}
+
+		public function includes() {
+			include WP_MARKDOWN_PATH . '/includes/class-settings.php';
 		}
 
 		public function editor_scripts() {
@@ -47,7 +53,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 
 			wp_enqueue_script(
 				'wp-markdown-script',
-				WP_MARKDOWN_URL. '/build/index.js',
+				WP_MARKDOWN_URL . '/build/index.js',
 				array_merge( $dependencies, [ 'wp-api', 'wp-compose' ] ),
 				$version
 			);
@@ -65,7 +71,8 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 					'customThemes'       => ( false !== $iceberg_theme ) ? $iceberg_theme : '',
 					'license'            => get_option( 'iceberg_license_active' ),
 					'isGutenberg'        => defined( 'GUTENBERG_VERSION' ) || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'gutenberg/gutenberg.php' ) ) ? true : false,
-					'isEditWPMD'         => isset( $_GET['is_markdown'] ) ? sanitize_text_field( $_GET['is_markdown'] ) : false
+					'isEditWPMD'         => isset( $_GET['is_markdown'] ) ? sanitize_text_field( $_GET['is_markdown'] ) : false,
+					'is_pro'             => false,
 				)
 			);
 
@@ -75,7 +82,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 
 			wp_enqueue_style(
 				'wp-markdown-style',
-				WP_MARKDOWN_URL. '/build/index.css',
+				WP_MARKDOWN_URL . '/build/index.css',
 				[],
 				filemtime( WP_MARKDOWN_PATH . '/build/index.css' )
 			);
@@ -93,7 +100,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 		}
 
 		public function add_edit_links( $actions, $post ) {
-			$is_default = get_option( 'iceberg_is_default_editor' );
+			$is_default = get_option( 'markdown_is_default_editor' );
 			$posttypes  = get_post_types(
 				array(
 					'public'       => true,
@@ -105,7 +112,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 
 			$url    = admin_url( 'post.php?post=' . $post->ID );
 			$params = array(
-				'action'     => 'edit',
+				'action'      => 'edit',
 				'is_markdown' => true,
 			);
 			if ( class_exists( 'Classic_Editor' ) ) {

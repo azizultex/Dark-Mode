@@ -1,5 +1,5 @@
 /**
- * Blocks we allow in Iceberg.
+ * Blocks we allow in WP-Markdown.
  *
  * @type {Object}
  */

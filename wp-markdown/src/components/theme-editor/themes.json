@@ -1,6 +1,6 @@
 {
-	"iceberg": {
-		"name": "Iceberg",
+	"default": {
+		"name": "Default",
 		"colors": {
 			"background": "#edebe8",
 			"text": "#1E1E1E",

@@ -76,13 +76,13 @@ export function assignVariables( settings ) {
 
 			if ( 'font' === key ) {
 				cssVariables.push(
-					'--iceberg--typography--font-family: ' +
+					'--markdown--typography--font-family: ' +
 						EditorFonts[ fontConfig ][ 'font-family' ] +
 						';'
 				);
 			} else {
 				cssVariables.push(
-					'--iceberg--typography--' + key + ': ' + fontConfig + ';'
+					'--markdown--typography--' + key + ': ' + fontConfig + ';'
 				);
 			}
 		}
@@ -102,53 +102,53 @@ export function assignVariables( settings ) {
 	}
 
 	cssVariables.push(
-		`--iceberg--typography--heading--font-size: ${ parseFloat(
+		`--markdown--typography--heading--font-size: ${ parseFloat(
 			headingFontSize
 		).toFixed( 2 ) }rem;`
 	);
 	cssVariables.push(
-		`--iceberg--typography--heading--line-height: ${ headingLineHeight.toFixed(
+		`--markdown--typography--heading--line-height: ${ headingLineHeight.toFixed(
 			2
 		) };`
 	);
 	cssVariables.push(
-		`--iceberg--typography--caption--font-size: ${ parseFloat(
+		`--markdown--typography--caption--font-size: ${ parseFloat(
 			captionFontSize
 		).toFixed( 2 ) }rem;`
 	);
 
 	map( colors, ( color, key ) => {
 		cssVariables.push(
-			'--iceberg--color--' + key + ': ' + Color( color ).hsl() + ';'
+			'--markdown--color--' + key + ': ' + Color( color ).hsl() + ';'
 		);
 	} );
 
 	cssVariables.push(
-		`--iceberg--color--text--dark: ${ generatedColorText100 };`
+		`--markdown--color--text--dark: ${ generatedColorText100 };`
 	);
 
 	cssVariables.push(
-		`--iceberg--color--accent--alpha: ${ generatedColorAccent300 };`
+		`--markdown--color--accent--alpha: ${ generatedColorAccent300 };`
 	);
 
 	cssVariables.push(
-		`--iceberg--color--accent--light: ${ generatedColorAccent100 };`
+		`--markdown--color--accent--light: ${ generatedColorAccent100 };`
 	);
 
 	cssVariables.push(
-		`--iceberg--color--accent--dark: ${ generatedColorAccent200 };`
+		`--markdown--color--accent--dark: ${ generatedColorAccent200 };`
 	);
 
 	cssVariables.push(
-		`--iceberg--color--background--light: ${ generatedColorBackground100 };`
+		`--markdown--color--background--light: ${ generatedColorBackground100 };`
 	);
 
 	cssVariables.push(
-		`--iceberg--color--background--dark: ${ generatedColorBackground200 };`
+		`--markdown--color--background--dark: ${ generatedColorBackground200 };`
 	);
 
 	cssVariables.push(
-		`--iceberg--color--background--alpha: ${ generatedColorBackground200a };`
+		`--markdown--color--background--alpha: ${ generatedColorBackground200a };`
 	);
 
 	// Add variables to <style>

@@ -9,7 +9,7 @@ import { BaseControl } from '@wordpress/components';
 function CharacterCount( { content } ) {
 	return (
 		<BaseControl>
-			{ __( 'Characters:', 'iceberg' ) }
+			{ __( 'Characters:', 'dark-mode' ) }
 			<span>{ wordCount( content, 'characters_excluding_spaces' ) }</span>
 		</BaseControl>
 	);

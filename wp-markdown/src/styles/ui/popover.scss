@@ -1,10 +1,10 @@
 .components-popover {
 	.components-popover__content {
-		background-color: var(--iceberg--color--background--light);
-		border-color: var(--iceberg--color--accent);
+		background-color: var(--markdown--color--background--light);
+		border-color: var(--markdown--color--accent);
 		border-radius: 2px;
 		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.025);
-		color: var(--iceberg--color--text);
+		color: var(--markdown--color--text);
 		padding: 0;
 
 		> div {
@@ -46,7 +46,7 @@
 
 .components-menu-group + .components-menu-group,
 .components-dropdown-menu__menu .components-menu-group + .components-menu-group {
-	border-color: var(--iceberg--color--accent);
+	border-color: var(--markdown--color--accent);
 }
 
 .components-dropdown-menu__menu {
@@ -57,7 +57,7 @@
 		}
 
 		&:not(:last-child) {
-			border-color: var(--iceberg--color--accent);
+			border-color: var(--markdown--color--accent);
 		}
 
 		&:last-child {
@@ -87,7 +87,7 @@
 		min-height: 42px;
 
 		&:hover {
-			color: var(--iceberg--color--accent);
+			color: var(--markdown--color--accent);
 		}
 
 		svg {
@@ -113,14 +113,14 @@
 }
 
 .components-animate__appear {
-	animation-name: IcebergFadeUp;
+	animation-name: markdownFadeUp;
 	animation-iteration-count: once;
 	animation-timing-function: cubic-bezier(0.2, 1, 0.25, 1);
 	animation-duration: 400ms;
 	animation-fill-mode: both;
 }
 
-@keyframes IcebergFadeUp {
+@keyframes markdownFadeUp {
 	0% {
 		opacity: 0;
 		transform: translateY(30px);

@@ -9,7 +9,7 @@ import { BaseControl } from '@wordpress/components';
 function WordCount( { content } ) {
 	return (
 		<BaseControl>
-			{ __( 'Words:', 'iceberg' ) }
+			{ __( 'Words:', 'dark-mode' ) }
 			<span>{ wordCount( content, 'words' ) }</span>
 		</BaseControl>
 	);

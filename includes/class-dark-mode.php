@@ -26,10 +26,6 @@ if ( ! class_exists( 'Dark_Mode' ) ) {
 			add_action( 'plugins_loaded', [ $this, 'load_text_domain' ], 10, 0 );
 			add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ], 99, 0 );
 
-			//add_action( 'personal_options', array( __CLASS__, 'add_profile_fields' ), 10, 1 );
-			//add_action( 'personal_options_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
-			//add_action( 'edit_user_profile_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
-
 			add_filter( 'plugin_action_links', [ $this, 'add_plugin_links' ], 10, 2 );
 		}
 
@@ -39,7 +35,8 @@ if ( ! class_exists( 'Dark_Mode' ) ) {
 		 */
 		public function includes() {
 			include DARK_MODE_PATH . '/includes/class-hooks.php';
-			include DARK_MODE_PATH . '/block/plugin.php';
+			include DARK_MODE_PATH . '/wp-markdown/plugin.php';
+			//include DARK_MODE_PATH . '/block/plugin.php';
 		}
 
 		/**
@@ -91,96 +88,6 @@ if ( ! class_exists( 'Dark_Mode' ) ) {
 
 			if ( class_exists( 'RankMath' ) ) {
 				wp_enqueue_style( 'dark-mode-rank-math', DARK_MODE_URL . '/assets/css/rankmath.css', false, DARK_MODE_VERSION );
-			}
-		}
-
-		/**
-		 * Create the HTML markup for the profile setting.
-		 *
-		 * @param object $user WP_User object data.
-		 *
-		 * @return mixed
-		 * @since 1.4   Added id attribute to element.
-		 * @since 1.8.1 Removed default value from get_user_meta and added escaping to values.
-		 * @since 2.0   Removed the automatic settings and added action hook and renamed variable.
-		 *
-		 * @since 1.0
-		 * @since 1.3   Added automatic Dark Mode markup.
-		 */
-		public static function add_profile_fields( $user ) {
-			// Setup a new nonce field for the Dark Mode options.
-			$dark_mode_nonce = wp_create_nonce( 'dark_mode_nonce' );
-			?>
-            <tr class="dark-mode user-dark-mode-option" id="dark-mode">
-                <th scope="row"><?php esc_html_e( 'Dark Mode', 'dark-mode' ); ?></th>
-                <td>
-                    <p>
-                        <label for="dark_mode">
-                            <input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"
-								<?php checked( get_user_meta( $user->data->ID, 'dark_mode', true ), 'on', true ); ?> />
-							<?php esc_html_e( 'Enable Dark Mode in the dashboard', 'dark-mode' ); ?>
-                        </label>
-                    </p>
-					<?php
-					/**
-					 * Fires after the main setting but before the nonce.
-					 *
-					 * @param object $user WP_User object of the current user.
-					 *
-					 * @since 2.0
-					 *
-					 */
-					do_action( 'dark_mode_profile_settings', $user );
-					?>
-                    <input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce"
-                           value="<?php echo esc_attr( $dark_mode_nonce ); ?>"/>
-                </td>
-            </tr>
-			<?php
-		}
-
-		/**
-		 * Save the value of the profile field.
-		 *
-		 * @param int $user_id The user id.
-		 *
-		 * @return void
-		 * @since 1.7 Added sanitisation to fields not explicitly set.
-		 * @since 2.0 Removed the automatic settings.
-		 * @since 3.0 Updated the nonce check for the save event.
-		 *
-		 * @since 1.0
-		 * @since 1.3 Added auto Dark Mode settings.
-		 */
-		public static function save_profile_fields( $user_id ) {
-			if ( isset( $_POST['dark_mode_nonce'] ) && wp_verify_nonce( sanitize_key( $_POST['dark_mode_nonce'] ), 'dark_mode_nonce' ) ) {
-				// Set the option value.
-				$option = isset( $_POST['dark_mode'] ) ? 'on' : 'off';
-
-				/**
-				 * Filter the user's Dark Mode choice.
-				 *
-				 * @param string $option The user's option choice.
-				 * @param int $user_id The current user's id.
-				 *
-				 * @since 2.0
-				 *
-				 */
-				$option = apply_filters( 'before_dark_mode_saved', $option, $user_id );
-
-				// Update the users meta.
-				update_user_meta( $user_id, 'dark_mode', $option );
-
-				/**
-				 * Fires after the Dark Mode option has been saved.
-				 *
-				 * @param string $option The user's option choice.
-				 * @param int $user_id The current user's id.
-				 *
-				 * @since 2.0
-				 *
-				 */
-				do_action( 'after_dark_mode_saved', $option, $user_id );
 			}
 		}
 

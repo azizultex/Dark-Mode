@@ -1,32 +1,32 @@
-.component-iceberg-contextual-toolbar {
+.component-markdown-contextual-toolbar {
 
 	.components-button {
 		background: transparent !important;
-		color: var(--iceberg--color--background) !important;
+		color: var(--markdown--color--background) !important;
 		height: 38px;
 
 		&:hover,
 		&:focus {
-			color: var(--iceberg--color--background--light) !important;
+			color: var(--markdown--color--background--light) !important;
 		}
 
 		&.is-pressed {
-			color: var(--iceberg--color--background--light) !important;
+			color: var(--markdown--color--background--light) !important;
 		}
 
 		&.is-pressed::before {
-			background: var(--iceberg--color--background) !important;
+			background: var(--markdown--color--background) !important;
 			opacity: 0.1;
 		}
 
 		&.is-pressed > svg {
-			color: var(--iceberg--color--text) !important;
-			background: var(--iceberg--color--background) !important;
+			color: var(--markdown--color--text) !important;
+			background: var(--markdown--color--background) !important;
 		}
 	}
 
 	.components-toolbar {
-		background: var(--iceberg--color--text);
+		background: var(--markdown--color--text);
 		border-radius: 5px;
 		border: 0;
 		display: flex;
@@ -44,7 +44,7 @@
 		&::after {
 			border-left: 6px solid transparent;
 			border-right: 6px solid transparent;
-			border-top: 6px solid  var(--iceberg--color--text);
+			border-top: 6px solid  var(--markdown--color--text);
 			bottom: -6px;
 			content: "";
 			font-size: 0;
@@ -57,7 +57,7 @@
 }
 
 &.mobile {
-	.component-iceberg-contextual-toolbar {
+	.component-markdown-contextual-toolbar {
 		display: none;
 	}
 }
@@ -70,7 +70,7 @@
 
 
 &.is-gutenberg {
-	.component-iceberg-contextual-toolbar {
+	.component-markdown-contextual-toolbar {
 		.components-toolbar div:first-child .components-button.has-icon {
 			margin-left: -5px;
 		}

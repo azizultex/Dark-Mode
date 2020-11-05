@@ -165,11 +165,11 @@ class MarkdownControl extends Component {
 			},
 			mark: {
 				markdown: ':',
-				format: 'iceberg/mark',
+				format: 'markdown/mark',
 			},
 			markDouble: {
 				markdown: ':',
-				format: 'iceberg/mark',
+				format: 'markdown/mark',
 				double: true,
 			},
 		};
@@ -191,8 +191,8 @@ class MarkdownControl extends Component {
 export default compose(
 	withSelect( ( select ) => {
 		return {
-			isIcebergActive: select( 'core/edit-post' ).isFeatureActive(
-				'icebergWritingMode'
+			isMarkdownActive: select( 'core/edit-post' ).isFeatureActive(
+				'markdownWritingMode'
 			),
 		};
 	} ),
@@ -207,6 +207,6 @@ export default compose(
 			};
 		}
 	),
-	ifCondition( ( props ) => props.isIcebergActive ),
+	ifCondition( ( props ) => props.isMarkdownActive ),
 	withSpokenMessages
 )( MarkdownControl );

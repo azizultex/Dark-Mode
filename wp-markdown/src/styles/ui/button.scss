@@ -1,14 +1,14 @@
 .components-button:not(.components-color-picker__saturation-pointer) {
 	border-radius: 4px;
-	color: var(--iceberg--color--text);
+	color: var(--markdown--color--text);
 	transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear, box-shadow 0.1s linear;
 
 	&:focus:not(:disabled) {
-		// box-shadow: inset 0 0 0 1px var(--iceberg--color--background), 0 0 0 1.5px var(--iceberg--color--accent--alpha) !important;
+		// box-shadow: inset 0 0 0 1px var(--markdown--color--background), 0 0 0 1.5px var(--markdown--color--accent--alpha) !important;
 		box-shadow: none !important;
-		color: var(--iceberg--color--accent--dark);
+		color: var(--markdown--color--accent--dark);
 		outline: 1px solid transparent;
-		background: var(--iceberg--color--accent--alpha);
+		background: var(--markdown--color--accent--alpha);
 	}
 
 	&.is-primary,
@@ -23,8 +23,8 @@
 	}
 
 	&.is-primary {
-		background: var(--iceberg--color--accent) !important;
-		color: var(--iceberg--color--background) !important;
+		background: var(--markdown--color--accent) !important;
+		color: var(--markdown--color--background) !important;
 		font-size: 13px;
 		font-weight: 500;
 		height: 34px;
@@ -32,8 +32,8 @@
 		&:hover,
 		&:focus,
 		&:active {
-			background: var(--iceberg--color--accent--dark) !important;
-			color: var(--iceberg--color--background) !important;
+			background: var(--markdown--color--accent--dark) !important;
+			color: var(--markdown--color--background) !important;
 		}
 
 		&:disabled,
@@ -48,38 +48,38 @@
 
 	&.is-secondary {
 		border: 0;
-		background: var(--iceberg--color--background) !important;
-		box-shadow: inset 0 0 0 1px var(--iceberg--color--accent) !important;
-		color: var(--iceberg--color--accent) !important;
+		background: var(--markdown--color--background) !important;
+		box-shadow: inset 0 0 0 1px var(--markdown--color--accent) !important;
+		color: var(--markdown--color--accent) !important;
 
 		&:hover {
-			box-shadow: inset 0 0 0 1px var(--iceberg--color--accent--light) !important;
-			color: var(--iceberg--color--accent--light) !important;
+			box-shadow: inset 0 0 0 1px var(--markdown--color--accent--light) !important;
+			color: var(--markdown--color--accent--light) !important;
 		}
 	}
 
 	&.is-tertiary {
-		background-color: var(--iceberg--color--background) !important;
+		background-color: var(--markdown--color--background) !important;
 		box-shadow: none !important;
-		border: 1px solid var(--iceberg--color--accent--light) !important;
-		color: var(--iceberg--color--accent) !important;
+		border: 1px solid var(--markdown--color--accent--light) !important;
+		color: var(--markdown--color--accent) !important;
 
 		&:hover {
-			background-color: var(--iceberg--color--background--light) !important;
-			color: var(--iceberg--color--accent) !important;
+			background-color: var(--markdown--color--background--light) !important;
+			color: var(--markdown--color--accent) !important;
 		}
 	}
 
 	&.editor-post-publish-button__button.is-primary {
-		background: var(--iceberg--color--background);
-		color: var(--iceberg--color--accent);
+		background: var(--markdown--color--background);
+		color: var(--markdown--color--accent);
 		font-weight: 600;
 
 		&:hover,
 		&:focus,
 		&:active {
-			background: var(--iceberg--color--accent--alpha);
-			color: var(--iceberg--color--accent--dark);
+			background: var(--markdown--color--accent--alpha);
+			color: var(--markdown--color--accent--dark);
 		}
 
 		&[aria-disabled="true"] {
@@ -97,8 +97,8 @@
 		&:hover,
 		&:focus,
 		&:active {
-			border-color: var(--iceberg--color--accent) !important;
-			color: var(--iceberg--color--accent--dark) !important;
+			border-color: var(--markdown--color--accent) !important;
+			color: var(--markdown--color--accent--dark) !important;
 		}
 
 		&[aria-disabled="true"] {
@@ -117,7 +117,7 @@
 
 	.components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):not(.components-color-picker__saturation-pointer):hover {
 		background-color: inherit;
-		color: var(--iceberg--color--accent--light);
+		color: var(--markdown--color--accent--light);
 		box-shadow: none;
 	}
 
@@ -126,7 +126,7 @@
 	}
 
 	.components-markdown-popover .components-button:not(.is-small):not(.components-circular-option-picker__option):not(.components-color-picker__saturation-pointer):not(.components-color-picker__inputs-toggle):hover {
-		color: var(--iceberg--color--accent) !important;
+		color: var(--markdown--color--accent) !important;
 	}
 
 	.components-menu-item__shortcut {
@@ -134,12 +134,12 @@
 	}
 
 	.components-button:hover .components-menu-item__shortcut {
-		color: var(--iceberg--color--accent) !important;
+		color: var(--markdown--color--accent) !important;
 	}
 
 	.components-menu-item__button:focus:not(:disabled):not([aria-disabled="true"]),
 	.components-menu-item__button.components-button:focus:not(:disabled):not([aria-disabled="true"]) {
-		color: var(--iceberg--color--accent);
+		color: var(--markdown--color--accent);
 		border: none;
 		box-shadow: none;
 		outline-offset: -2px;

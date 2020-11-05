@@ -6,9 +6,9 @@
 
 	span[class*="Thumb"] {
 		border-width: 1px;
-		background-color: var(--iceberg--color--text);
-		border-color: var(--iceberg--color--text) !important;
-		box-shadow: 0 0 0 var(--iceberg--color--text) !important;
+		background-color: var(--markdown--color--text);
+		border-color: var(--markdown--color--text) !important;
+		box-shadow: 0 0 0 var(--markdown--color--text) !important;
 	}
 
 	span[class*="ThumbWrapper"] {
@@ -18,7 +18,7 @@
 	}
 
 	span[class*="Rail"] {
-		background: var(--iceberg--color--accent--alpha);
+		background: var(--markdown--color--accent--alpha);
 		border-radius: 4px;
 	}
 
@@ -27,12 +27,12 @@
 	}
 
 	.components-range-control__track {
-		background-color: var(--iceberg--color--accent);
+		background-color: var(--markdown--color--accent);
 	}
 
 	.components-range-control__slider:focus + span[class*="Rail"],
 	.components-range-control__slider:focus ~ .components-range-control__wrapper {
-		background: var(--iceberg--color--accent--light);
+		background: var(--markdown--color--accent--light);
 	}
 }
 
@@ -43,12 +43,12 @@
 		.components-range-control__slider {
 
 			&::-webkit-slider-runnable-track {
-				background-color: var(--iceberg--color--accent--alpha);
+				background-color: var(--markdown--color--accent--alpha);
 				border-radius: 4px;
 			}
 
 			&::-webkit-slider-thumb {
-				background-color: var(--iceberg--color--text);
+				background-color: var(--markdown--color--text);
 				height: 25px;
 				margin-top: -11px;
 				width: 25px;

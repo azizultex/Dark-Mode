@@ -89,7 +89,7 @@ class ThemeEditor extends Component {
 		const selectOptions = () => {
 			return [
 				{
-					label: __( 'Select font', 'iceberg' ),
+					label: __( 'Select font', 'dark-mode' ),
 					value: '',
 					disabled: true,
 				},
@@ -125,7 +125,7 @@ class ThemeEditor extends Component {
 										? typography.font
 										: ''
 								}
-								label={ __( 'Font', 'iceberg' ) }
+								label={ __( 'Font', 'dark-mode' ) }
 								onChange={ ( selected ) => {
 									updateSettings(
 										'typography',
@@ -137,7 +137,7 @@ class ThemeEditor extends Component {
 								className="components-markdown-theme-switcher__font-family"
 							/>
 							<RangeControl
-								label={ __( 'Font size', 'iceberg' ) }
+								label={ __( 'Font size', 'dark-mode' ) }
 								value={
 									typeof typography[ 'font-size' ] !==
 									'undefined'
@@ -158,7 +158,7 @@ class ThemeEditor extends Component {
 								} }
 							/>
 							<RangeControl
-								label={ __( 'Line height', 'iceberg' ) }
+								label={ __( 'Line height', 'dark-mode' ) }
 								value={
 									typeof typography[ 'line-height' ] !==
 									'undefined'
@@ -177,7 +177,7 @@ class ThemeEditor extends Component {
 								} }
 							/>
 							<RangeControl
-								label={ __( 'Line width', 'iceberg' ) }
+								label={ __( 'Line width', 'dark-mode' ) }
 								value={
 									typeof typography[ 'line-width' ] !==
 									'undefined'
@@ -196,7 +196,7 @@ class ThemeEditor extends Component {
 								} }
 							/>
 							<RangeControl
-								label={ __( 'Paragraph spacing', 'iceberg' ) }
+								label={ __( 'Paragraph spacing', 'dark-mode' ) }
 								value={
 									typeof typography.spacing !== 'undefined'
 										? parseInt( typography.spacing )
@@ -219,11 +219,11 @@ class ThemeEditor extends Component {
 					<Fragment>
 						<MenuGroup>
 							<BaseControl className="components-markdown-menu-title is-colors">
-								{ __( 'Custom', 'iceberg' ) }
+								{ __( 'Custom', 'dark-mode' ) }
 							</BaseControl>
 							<BaseControl className="components-base-control--is-colors">
 								<ColorPalette
-									label={ __( 'Text', 'iceberg' ) }
+									label={ __( 'Text', 'dark-mode' ) }
 									value={ colors.text }
 									onChange={ ( textColor ) => {
 										if ( ! textColor ) {
@@ -240,7 +240,7 @@ class ThemeEditor extends Component {
 									} }
 								/>
 								<ColorPalette
-									label={ __( 'Background', 'iceberg' ) }
+									label={ __( 'Background', 'dark-mode' ) }
 									value={ colors.background }
 									onChange={ ( backgroundColor ) => {
 										if ( ! backgroundColor ) {
@@ -257,7 +257,7 @@ class ThemeEditor extends Component {
 									} }
 								/>
 								<ColorPalette
-									label={ __( 'Accent', 'iceberg' ) }
+									label={ __( 'Accent', 'dark-mode' ) }
 									value={ colors.accent }
 									onChange={ ( accentColor ) => {
 										if ( ! accentColor ) {
@@ -300,7 +300,7 @@ class ThemeEditor extends Component {
 								.focus();
 						} }
 					>
-						{ __( 'Back to editor themes', 'iceberg' ) }
+						{ __( 'Back to editor themes', 'dark-mode' ) }
 						{ icons.back }
 					</MenuItem>
 				</MenuGroup>

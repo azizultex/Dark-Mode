@@ -1,4 +1,4 @@
-.iceberg-components-color-palette {
+.markdown-components-color-palette {
 	position: relative;
 
 	.components-color-palette__item-wrapper {
@@ -22,7 +22,7 @@
 		&:focus {
 			&,
 			span {
-				color: var(--iceberg--color--accent);
+				color: var(--markdown--color--accent);
 			}
 		}
 
@@ -31,17 +31,17 @@
 		}
 
 		span {
-			color: var(--iceberg--color--text);
+			color: var(--markdown--color--text);
 
 			&:hover,
 			&:focus {
-				color: var(--iceberg--color--accent);
+				color: var(--markdown--color--accent);
 			}
 		}
 
 		&::after {
 			background: currentColor;
-			border: 2px solid var(--iceberg--color--text);
+			border: 2px solid var(--markdown--color--text);
 			width: 22px;
 			height: 22px;
 			position: absolute;

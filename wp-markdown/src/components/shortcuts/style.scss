@@ -24,28 +24,28 @@
 }
 
 .components-panel__body-toggle.components-button:focus:not(:disabled):not([aria-disabled="true"]) {
-	color: var(--iceberg--color--text);
+	color: var(--markdown--color--text);
 	border: none;
 	box-shadow: none;
 	outline: none;
-	background: var(--iceberg--color--accent--alpha);
+	background: var(--markdown--color--accent--alpha);
 }
 
 .components-panel__body-toggle.components-button:active:not(:disabled):not([aria-disabled="true"]) {
-	color: var(--iceberg--color--accent--light);
+	color: var(--markdown--color--accent--light);
 }
 
 .components-autocomplete__result.components-button {
 	border-radius: 2px;
 
 	&.is-selected {
-		background: var(--iceberg--color--accent--alpha);
+		background: var(--markdown--color--accent--alpha);
 		box-shadow: none !important;
-		color: var(--iceberg--color--accent);
+		color: var(--markdown--color--accent);
 	}
 
 	&:hover {
-		color: var(--iceberg--color--accent);
+		color: var(--markdown--color--accent);
 	}
 }
 
@@ -84,7 +84,7 @@
 
 	.components-panel__body-toggle.components-button {
 		justify-content: space-between !important;
-		color: var(--iceberg--color--text);
+		color: var(--markdown--color--text);
 
 		.components-panel__arrow {
 			color: inherit;
@@ -99,7 +99,7 @@
 }
 
 .components-markdown-shortcuts__section {
-	border-top: 1px solid var(--iceberg--color--accent);
+	border-top: 1px solid var(--markdown--color--accent);
 	padding: 12px;
 
 	&:first-child {
@@ -137,9 +137,9 @@
 
 .components-markdown-shortcuts__shortcut-key {
 	align-items: center;
-	background: var(--iceberg--color--background--dark);
+	background: var(--markdown--color--background--dark);
 	border-radius: 2px;
-	color: var(--iceberg--color--text);
+	color: var(--markdown--color--text);
 	display: inline-flex;
 	font-size: 10px;
 	font-weight: 400;
@@ -155,7 +155,7 @@
 }
 
 .components-markdown-shortcuts__trigger .components-button {
-	color: var(--iceberg--color--accent) !important;
+	color: var(--markdown--color--accent) !important;
 	height: 42px;
 	min-width: 42px;
 
@@ -165,10 +165,10 @@
 	}
 
 	&.is-opened {
-		color: var(--iceberg--color--accent--light) !important;
+		color: var(--markdown--color--accent--light) !important;
 	}
 
 	&:hover {
-		color: var(--iceberg--color--accent--light) !important;
+		color: var(--markdown--color--accent--light) !important;
 	}
 }

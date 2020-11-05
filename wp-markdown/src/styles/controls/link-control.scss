@@ -1,11 +1,11 @@
 .block-editor-link-control .block-editor-link-control__search-input.block-editor-link-control__search-input input[type="text"] {
-	background-color: var(--iceberg--color--background--light);
-	border-color: var(--iceberg--color--text);
-	color: var(--iceberg--color--text);
+	background-color: var(--markdown--color--background--light);
+	border-color: var(--markdown--color--text);
+	color: var(--markdown--color--text);
 
 	&:focus {
-		border-color: var(--iceberg--color--accent);
-		box-shadow: 0 0 0 1px var(--iceberg--color--accent);
+		border-color: var(--markdown--color--accent);
+		box-shadow: 0 0 0 1px var(--markdown--color--accent);
 	}
 }
 
@@ -15,13 +15,13 @@
 }
 
 .block-editor-link-control__settings {
-	background-color: var(--iceberg--color--background--light);
-	border-top-color: var(--iceberg--color--accent);
+	background-color: var(--markdown--color--background--light);
+	border-top-color: var(--markdown--color--accent);
 }
 
 .block-editor-link-control__search-item {
-	background: var(--iceberg--color--background--dark);
-	color: var(--iceberg--color--text);
+	background: var(--markdown--color--background--dark);
+	color: var(--markdown--color--text);
 	border-radius: 4px;
 
 	&:not(:last-of-type) {
@@ -29,7 +29,7 @@
 	}
 
 	&:hover {
-		color: var(--iceberg--color--accent) !important;
+		color: var(--markdown--color--accent) !important;
 	}
 }
 
@@ -38,19 +38,19 @@
 }
 
 .block-editor-link-control__search-item .block-editor-link-control__search-item-info {
-	color: var(--iceberg--color--text);
+	color: var(--markdown--color--text);
 	opacity: 0.65;
 }
 
 .block-editor-link-control__search-item .block-editor-link-control__search-item-title mark {
-	color: var(--iceberg--color--text);
+	color: var(--markdown--color--text);
 }
 
 .block-editor-link-control__search-item-type {
-	background: var(--iceberg--color--background--light);
-	color: var(--iceberg--color--text);
+	background: var(--markdown--color--background--light);
+	color: var(--markdown--color--text);
 }
 
 .components-popover input[type="checkbox"]:checked:focus {
-	box-shadow: 0 0 0 2px var(--iceberg--color--text--dark);
+	box-shadow: 0 0 0 2px var(--markdown--color--text--dark);
 }

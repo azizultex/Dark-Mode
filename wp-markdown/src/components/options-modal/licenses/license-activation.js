@@ -100,7 +100,7 @@ const LicenseActivation = createHigherOrderComponent( ( FilteredComponent ) => {
 							<p>
 								{ __(
 									'Invalid or expired license',
-									'iceberg'
+									'dark-mode'
 								) }
 							</p>
 						</Notice>
@@ -110,7 +110,7 @@ const LicenseActivation = createHigherOrderComponent( ( FilteredComponent ) => {
 					license.license === 'valid' && (
 						<Notice isDismissible={ false } status="success">
 							<p>
-								{ __( 'Successfully activated!', 'iceberg' ) }
+								{ __( 'Successfully activated!', 'dark-mode' ) }
 							</p>
 						</Notice>
 					) }
@@ -120,7 +120,7 @@ const LicenseActivation = createHigherOrderComponent( ( FilteredComponent ) => {
 }, 'LicenseActivation' );
 
 addFilter(
-	'iceberg.licenseSection',
-	'iceberg/license-activation',
+	'markdown.licenseSection',
+	'markdown/license-activation',
 	LicenseActivation
 );

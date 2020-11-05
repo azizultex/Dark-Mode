@@ -39,7 +39,7 @@ const acronymCompleter = {
 // Our filter function
 function addCompleter( completers, blockName ) {
 	if (
-		! select( 'core/edit-post' ).isFeatureActive( 'icebergWritingMode' ) ||
+		! select( 'core/edit-post' ).isFeatureActive( 'markdownWritingMode' ) ||
 		! select( 'markdown-settings' ).isEditorPanelEnabled( 'emoji' )
 	) {
 		return completers;
@@ -58,6 +58,6 @@ function addCompleter( completers, blockName ) {
 // Adding the filter
 addFilter(
 	'editor.Autocomplete.completers',
-	'iceberg/markdown/emoji',
+	'markdown/markdown/emoji',
 	addCompleter
 );

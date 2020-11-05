@@ -11,11 +11,11 @@ export const LicenseSettings = () => {
 			<p className="license-help">
 				{ __(
 					'Enter your license key for updates and support',
-					'iceberg'
+					'dark-mode'
 				) }
 			</p>
 		</Fragment>
 	);
 };
 
-export default withFilters( 'iceberg.licenseSection' )( LicenseSettings );
+export default withFilters( 'markdown.licenseSection' )( LicenseSettings );

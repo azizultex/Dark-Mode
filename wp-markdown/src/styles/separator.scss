@@ -1,12 +1,12 @@
 [data-type="core/separator"] {
-	margin-top: calc(var(--iceberg--typography--spacing, 2.85rem) * -0.225) !important;
-	margin-bottom: calc(var(--iceberg--typography--spacing, 2.85rem) * -0.225) !important;
+	margin-top: calc(var(--markdown--typography--spacing, 2.85rem) * -0.225) !important;
+	margin-bottom: calc(var(--markdown--typography--spacing, 2.85rem) * -0.225) !important;
 
 	hr.wp-block-separator {
-		background: var(--iceberg--color--background--dark) !important;
+		background: var(--markdown--color--background--dark) !important;
 		border: 0 !important;
-		margin-top: calc(var(--iceberg--typography--spacing, 2.85rem) * 0.5);
-		margin-bottom: calc(var(--iceberg--typography--spacing, 2.85rem) * 0.5);
+		margin-top: calc(var(--markdown--typography--spacing, 2.85rem) * 0.5);
+		margin-bottom: calc(var(--markdown--typography--spacing, 2.85rem) * 0.5);
 		max-width: 100% !important;
 		width: 100% !important;
 		height: 1px !important;
@@ -19,6 +19,6 @@
 	}
 
 	+ [data-type="core/separator"] {
-		margin-top: calc(var(--iceberg--typography--spacing, 2.85rem) * 0.75) !important;
+		margin-top: calc(var(--markdown--typography--spacing, 2.85rem) * 0.75) !important;
 	}
 }

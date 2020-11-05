@@ -55,7 +55,7 @@ class Settings extends Component {
 				<div className="components-markdown-settings">
 					<DropdownMenu
 						className="components-markdown-settings__trigger"
-						label={ __( 'Open settings', 'iceberg' ) }
+						label={ __( 'Open settings', 'dark-mode' ) }
 						icon="editor-help"
 						popoverProps={ POPOVER_PROPS }
 						toggleProps={ TOGGLE_PROPS }
@@ -64,7 +64,7 @@ class Settings extends Component {
 							<Fragment>
 								<MenuGroup>
 									<BaseControl className="components-markdown-menu-title">
-										{ __( 'Writing', 'iceberg' ) }
+										{ __( 'Writing', 'dark-mode' ) }
 									</BaseControl>
 									<MenuItem
 										onClick={ () => {
@@ -72,8 +72,8 @@ class Settings extends Component {
 										} }
 									>
 										{ __(
-											'Set Iceberg as the default editor',
-											'iceberg'
+											'Set WP Markdown as the default editor',
+											'dark-mode'
 										) }
 										{ isDefaultEditor
 											? icons.checkMark

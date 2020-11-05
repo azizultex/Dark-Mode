@@ -28,4 +28,4 @@ const withToolbar = createHigherOrderComponent( ( BlockEdit ) => {
 	};
 }, 'withToolbar' );
 
-addFilter( 'editor.BlockEdit', 'iceberg/contextual-toolbar', withToolbar );
+addFilter( 'editor.BlockEdit', 'markdown/contextual-toolbar', withToolbar );

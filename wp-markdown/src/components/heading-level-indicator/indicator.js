@@ -76,7 +76,7 @@ class HeadingLevelIndicator extends Component {
 		return (
 			<div
 				className={ classnames(
-					'iceberg-heading-level-indicator',
+					'markdown-heading-level-indicator',
 					'level-' + headingLevel,
 					{}
 				) }
@@ -84,7 +84,7 @@ class HeadingLevelIndicator extends Component {
 				<DropdownMenu
 					className="components-markdown-heading-level-indicator__trigger"
 					icon={ null }
-					label={ __( 'Change heading level', 'iceberg' ) }
+					label={ __( 'Change heading level', 'dark-mode' ) }
 					popoverProps={ POPOVER_PROPS }
 					toggleProps={ TOGGLE_PROPS }
 				>
@@ -114,7 +114,7 @@ class HeadingLevelIndicator extends Component {
 											{ sprintf(
 												__(
 													'Heading level %s',
-													'iceberg'
+													'dark-mode'
 												),
 												currentLevel
 											) }
@@ -148,7 +148,7 @@ class HeadingLevelIndicator extends Component {
 										onClose();
 									} }
 								>
-									{ __( 'Change to paragraph', 'iceberg' ) }
+									{ __( 'Change to paragraph', 'dark-mode' ) }
 									{ icons.paragraph }
 								</MenuItem>
 							</MenuGroup>
@@ -164,7 +164,7 @@ export default compose( [
 	withInstanceId,
 	withSelect( ( select ) => ( {
 		isActive: select( 'core/edit-post' ).isFeatureActive(
-			'icebergWritingMode'
+			'markdownWritingMode'
 		),
 		isEnabled: select( 'markdown-settings' ).isEditorPanelEnabled(
 			'headingIndicators'

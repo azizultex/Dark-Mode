@@ -1,10 +1,10 @@
 .components-drop-zone {
-	border-color: var(--iceberg--color--accent);
+	border-color: var(--markdown--color--accent);
 	border: none;
 	border-radius: 0;
 
 	&.is-dragging-over-element {
-		background-color: var(--iceberg--color--accent--light);
+		background-color: var(--markdown--color--accent--light);
 	}
 }
 

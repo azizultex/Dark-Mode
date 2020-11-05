@@ -14,7 +14,7 @@
 .edit-post-header__toolbar {
 
 	.components-dropdown:not(.components-markdown-theme-switcher__dropdown):not(.components-circular-option-picker__dropdown-link-action):not(.components-color-palette__item-wrapper),
-	> div:not(#iceberg-theme-switcher) {
+	> div:not(#markdown-theme-switcher) {
 		&:last-of-type {
 			display: none !important;
 		}

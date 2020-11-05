@@ -16,7 +16,7 @@
 		&::after,
 		.is-block-content {
 			box-shadow: none;
-			background: var(--iceberg--color--accent--alpha);
+			background: var(--markdown--color--accent--alpha);
 			border-radius: 0;
 		}
 	}
@@ -37,7 +37,7 @@
 		outline: none;
 
 		&::after {
-			background: var(--iceberg--color--accent--alpha);
+			background: var(--markdown--color--accent--alpha);
 			box-shadow: none;
 			border-radius: 0;
 		}
@@ -51,16 +51,16 @@
 
 	// Between-blocks dropzone line indicator.
 	&.is-drop-target::before {
-		border-top: 2px solid var(--iceberg--color--accent);
+		border-top: 2px solid var(--markdown--color--accent);
 	}
 
 	&.is-drop-target.is-dropping-horizontally::before {
-		border-left: 2px solid var(--iceberg--color--accent);
+		border-left: 2px solid var(--markdown--color--accent);
 	}
 }
 
 .edit-post-layout .block-editor-editor-skeleton__content {
-	background: var(--iceberg--color--background);
+	background: var(--markdown--color--background);
 }
 
 // Remove formats highlight
@@ -101,13 +101,13 @@
 			bottom: 1px;
 			left: 1px;
 			right: 1px;
-			background: var(--iceberg--color--accent--alpha);
+			background: var(--markdown--color--accent--alpha);
 		}
 	}
 }
 
 .interface-interface-skeleton__content {
-	background-color: var(--iceberg--color--background);
+	background-color: var(--markdown--color--background);
 }
 
 // Remove excess spacing.

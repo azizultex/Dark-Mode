@@ -8,7 +8,7 @@ import TableOfContents from './controls';
  */
 import { registerPlugin } from '@wordpress/plugins';
 
-registerPlugin( 'iceberg-toc', {
+registerPlugin( 'markdown-toc', {
 	icon: false,
 	render: TableOfContents,
 } );

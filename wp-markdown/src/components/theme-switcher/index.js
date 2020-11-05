@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { map, merge, assign, get } from 'lodash';
+import {map, merge, assign, get} from 'lodash';
 
 /**
  * Internal dependencies
@@ -10,614 +10,523 @@ import defaults from '../theme-editor/default';
 import EditorThemes from '../theme-editor/editor-themes';
 import ThemeEditor from '../theme-editor';
 import icons from '../icons';
-import { assignVariables } from './variables';
+import {assignVariables} from './variables';
 import difference from './utils/difference';
 
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { compose } from '@wordpress/compose';
-import { addQueryArgs } from '@wordpress/url';
-import { withSelect, withDispatch } from '@wordpress/data';
-import { Fragment, Component, render } from '@wordpress/element';
+import {__} from '@wordpress/i18n';
+import {compose} from '@wordpress/compose';
+import {addQueryArgs} from '@wordpress/url';
+import {withSelect, withDispatch} from '@wordpress/data';
+import {Fragment, Component, render} from '@wordpress/element';
 import {
-	Button,
-	Dropdown,
-	Tooltip,
-	MenuGroup,
-	MenuItem,
-	withSpokenMessages,
+    Button,
+    Dropdown,
+    Tooltip,
+    MenuGroup,
+    MenuItem,
+    withSpokenMessages,
 } from '@wordpress/components';
 
 class ThemeSwitcher extends Component {
-	constructor() {
-		super( ...arguments );
-		this.updateState = this.updateState.bind( this );
-		this.addControl = this.addControl.bind( this );
-		this.onSelect = this.onSelect.bind( this );
-		this.onEditTheme = this.onEditTheme.bind( this );
-		this.onExitEditTheme = this.onExitEditTheme.bind( this );
-		this.loadConfig = this.loadConfig.bind( this );
+    constructor() {
+        super(...arguments);
+        this.updateState = this.updateState.bind(this);
+        this.addControl = this.addControl.bind(this);
+        this.onSelect = this.onSelect.bind(this);
+        this.onEditTheme = this.onEditTheme.bind(this);
+        this.onExitEditTheme = this.onExitEditTheme.bind(this);
+        this.loadConfig = this.loadConfig.bind(this);
 
-		this.state = {
-			isOpen: false,
-			theme: '',
-			themeSettings: {},
-			isEditorThemeLoaded: false,
-			isEditingTheme: false,
-			isEditingTypography: false,
-		};
-	}
+        this.state = {
+            isOpen: false,
+            theme: '',
+            themeSettings: {},
+            isEditorThemeLoaded: false,
+            isEditingTheme: false,
+            isEditingTypography: false,
+            showPromo: false,
+        };
+    }
 
-	componentDidMount() {
-		this.setState( { themeSettings: this.props.themeSettings } );
-		this.addControl();
-	}
+    componentDidMount() {
+        this.setState({themeSettings: this.props.themeSettings});
+        this.addControl();
+    }
 
-	componentDidUpdate() {
-		const { themeSettings } = this.props;
+    componentDidUpdate() {
+        const {themeSettings} = this.props;
 
-		// Wait for settings to load
-		if ( typeof themeSettings.theme === 'undefined' ) {
-			return false;
-		}
+        // Wait for settings to load
+        if (typeof themeSettings.theme === 'undefined') {
+            return false;
+        }
 
-		if ( Object.keys( this.state.themeSettings ).length < 1 ) {
-			this.setState( { themeSettings } );
-		}
+        if (Object.keys(this.state.themeSettings).length < 1) {
+            this.setState({themeSettings});
+        }
 
-		if (
-			! this.state.isEditorThemeLoaded &&
-			Object.keys( this.state.themeSettings ).length > 1
-		) {
-			this.setState( { isEditorThemeLoaded: true } );
-		}
+        if (!this.state.isEditorThemeLoaded && Object.keys(this.state.themeSettings).length > 1) {
+            this.setState({isEditorThemeLoaded: true});
+        }
 
-		this.addControl();
+        this.addControl();
 
-		const icebergButton = document.querySelector(
-			'.components-markdown-theme-switcher__trigger'
-		);
+        const markdownButton = document.querySelector('.components-markdown-theme-switcher__trigger');
 
-		if ( icebergButton && this.props.isEnabled ) {
-			icebergButton.style.visibility = '';
-		}
+        if (markdownButton && this.props.isEnabled) {
+            markdownButton.style.visibility = '';
+        }
 
-		// Update switcher color
-		if ( icebergButton && this.state.themeSettings.theme === 'custom' ) {
-			icebergButton.querySelector(
-				'.components-markdown-theme-switcher__palette'
-			).style.backgroundImage = `linear-gradient(130deg,${
-				typeof EditorThemes[ this.state.theme ] !== 'undefined'
-					? EditorThemes[ this.state.theme ].colors.background
-					: this.state.themeSettings.colors.background
-			} 48.75%, ${
-				typeof EditorThemes[ this.state.theme ] !== 'undefined'
-					? EditorThemes[ this.state.theme ].colors.accent
-					: this.state.themeSettings.colors.accent
-			} 50%)`;
-		}
-	}
+        // Update switcher color
+        if (markdownButton && this.state.themeSettings.theme === 'custom') {
+            markdownButton.querySelector(
+                '.components-markdown-theme-switcher__palette'
+            ).style.backgroundImage = `linear-gradient(130deg,${
+                typeof EditorThemes[this.state.theme] !== 'undefined'
+                    ? EditorThemes[this.state.theme].colors.background
+                    : this.state.themeSettings.colors.background
+            } 48.75%, ${
+                typeof EditorThemes[this.state.theme] !== 'undefined'
+                    ? EditorThemes[this.state.theme].colors.accent
+                    : this.state.themeSettings.colors.accent
+            } 50%)`;
+        }
+    }
 
-	updateState( key, value ) {
-		this.setState( { [ key ]: value } );
-	}
+    updateState(key, value) {
+        this.setState({[key]: value});
+    }
 
-	addControl() {
-		const { isActive, updateThemeSettings, postType } = this.props;
-		let { themeSettings } = this.state;
+    addControl() {
+        const {isActive, updateThemeSettings, postType} = this.props;
+        let {themeSettings} = this.state;
 
-		// Wait for settings to load
-		if ( typeof themeSettings.theme === 'undefined' ) {
-			return false;
-		}
+        // Wait for settings to load
+        if (typeof themeSettings.theme === 'undefined') {
+            return false;
+        }
 
-		// Wait for post type information
-		if ( typeof postType === 'undefined' ) {
-			return false;
-		}
+        // Wait for post type information
+        if (typeof postType === 'undefined') {
+            return false;
+        }
 
-		if ( typeof themeSettings.colors === 'undefined' ) {
-			themeSettings = assign(
-				{ colors: { background: '#444', accent: '#111' } },
-				themeSettings
-			);
-		}
+        if (typeof themeSettings.colors === 'undefined') {
+            themeSettings = assign(
+                {colors: {background: '#444', accent: '#111'}},
+                themeSettings
+            );
+        }
 
-		if ( ! this.state.theme ) {
-			this.setState( { theme: themeSettings.theme } );
-		}
+        if (!this.state.theme) {
+            this.setState({theme: themeSettings.theme});
+        }
 
-		const onRequestClose = ( event ) => {
-			const closeButton = document.querySelector(
-				'.components-markdown-theme-switcher__trigger'
-			);
-			const editorWrapper = document.querySelector(
-				'.block-editor-writing-flow'
-			);
+        const onRequestClose = (event) => {
+            const closeButton = document.querySelector('.components-markdown-theme-switcher__trigger');
 
-			if (
-				closeButton &&
-				event &&
-				! event.relatedTarget.classList.contains(
-					'components-markdown-theme-switcher__trigger'
-				)
-			) {
-				closeButton.click();
-			} else if ( typeof event === 'undefined' ) {
-				closeButton.click();
-			}
+            const editorWrapper = document.querySelector('.block-editor-writing-flow');
 
-			document.body.classList.remove( 'is-editing-theme' );
-			editorWrapper.classList.remove( 'is-editing-theme' );
+            if (closeButton && event && !event.relatedTarget.classList.contains('components-markdown-theme-switcher__trigger')) {
+                closeButton.click();
+            } else if (typeof event === 'undefined') {
+                closeButton.click();
+            }
 
-			// Hide when Theme Switcher is disabled
-			if ( ! this.props.isEnabled ) {
-				const icebergButton = document.querySelector(
-					'.components-markdown-theme-switcher__trigger'
-				);
-				if ( icebergButton ) {
-					icebergButton.style.visibility = 'hidden';
-				}
-			}
+            document.body.classList.remove('is-editing-theme');
+            editorWrapper.classList.remove('is-editing-theme');
 
-			this.setState( { isEditingTypography: false } );
-			updateThemeSettings( this.state.themeSettings );
-		};
+            // Hide when Theme Switcher is disabled
+            if (!this.props.isEnabled) {
+                const markdownButton = document.querySelector('.components-markdown-theme-switcher__trigger');
+                if (markdownButton) {
+                    markdownButton.style.visibility = 'hidden';
+                }
+            }
 
-		const ButtonControls = () => {
-			return (
-				<Fragment>
-					<Tooltip
-						text={ __(
-							'Back to all ' +
-								get(
-									postType,
-									[ 'labels', 'name' ],
-									'Posts'
-								).toLowerCase(),
-							'iceberg'
-						) }
-					>
-						<Button
-							className="components-markdown-back-to"
-							onClick={ () => {
-								window.location.href = addQueryArgs(
-									'edit.php',
-									{
-										post_type: postType.slug,
-									}
-								);
-							} }
-						>
-							{ icons.caretDown }
-						</Button>
-					</Tooltip>
-					<Dropdown
-						className="components-markdown-theme-switcher__dropdown"
-						label={ __( 'Change heading level', 'iceberg' ) }
-						contentClassName="components-markdown-popover components-markdown-theme-switcher__content"
-						popoverProps={ {
-							role: 'menu',
-							onFocusOutside: ( event ) => {
-								onRequestClose( event );
-							},
-							onClose: ( event ) => {
-								onRequestClose( event );
-							},
-						} }
-						position="bottom left"
-						renderToggle={ ( { isOpen, onToggle } ) => (
-							<Button
-								onClick={ () => {
-									const editorWrapper = document.querySelector(
-										'.block-editor-writing-flow'
-									);
+            this.setState({isEditingTypography: false});
+            updateThemeSettings(this.state.themeSettings);
+        };
 
-									if ( ! isOpen ) {
-										document.body.classList.add(
-											'is-editing-theme'
-										);
+        const ButtonControls = () => {
+            return (
+                <Fragment>
+                    <Tooltip
+                        text={__('Back to all ' + get(postType, ['labels', 'name'], 'Posts').toLowerCase(), 'dark-mode')}
+                    >
+                        <Button
+                            className="components-markdown-back-to"
+                            onClick={() => {
+                                window.location.href = addQueryArgs(
+                                    'edit.php',
+                                    {
+                                        post_type: postType.slug,
+                                    }
+                                );
+                            }}
+                        >
+                            {icons.caretDown}
+                        </Button>
+                    </Tooltip>
 
-										editorWrapper.classList.add(
-											'is-editing-theme'
-										);
-									} else {
-										document.body.classList.remove(
-											'is-editing-theme'
-										);
+                    <Dropdown
+                        className="components-markdown-theme-switcher__dropdown"
+                        label={__('Change heading level', 'dark-mode')}
+                        contentClassName="components-markdown-popover components-markdown-theme-switcher__content"
+                        popoverProps={{
+                            role: 'menu',
+                            onFocusOutside: (event) => {
+                                onRequestClose(event);
+                            },
+                            onClose: (event) => {
+                                onRequestClose(event);
+                            },
+                        }}
+                        position="bottom left"
+                        renderToggle={({isOpen, onToggle}) => (
+                            <Button
+                                onClick={() => {
 
-										editorWrapper.classList.remove(
-											'is-editing-theme'
-										);
-									}
+                                    if (!WPMD_Settings.is_pro) {
+                                        return;
+                                    }
 
-									onToggle();
+                                    const editorWrapper = document.querySelector('.block-editor-writing-flow');
 
-									this.onExitEditTheme( onToggle );
-								} }
-								className="components-markdown-theme-switcher__trigger"
-							>
-								<span
-									className="components-markdown-theme-switcher__palette"
-									style={ {
-										backgroundImage: `linear-gradient(130deg,${
-											typeof EditorThemes[
-												this.state.theme
-											] !== 'undefined'
-												? EditorThemes[
-														this.state.theme
-												  ].colors.background
-												: this.state.themeSettings
-														.colors.background
-										} 48.75%, ${
-											typeof EditorThemes[
-												this.state.theme
-											] !== 'undefined'
-												? EditorThemes[
-														this.state.theme
-												  ].colors.accent
-												: this.state.themeSettings
-														.colors.accent
-										} 50%)`,
-									} }
-								></span>
-								{ icons.caretDown }
-							</Button>
-						) }
-						renderContent={ ( { onToggle } ) => (
-							<Fragment>
-								{ ! this.state.isEditingTheme &&
-								! this.state.isEditingTypography ? (
-									<Fragment>
-										<MenuGroup>
-											{ map(
-												EditorThemes,
-												( theme, key ) => {
-													if ( 'custom' !== key ) {
-														return (
-															<MenuItem
-																key={ key }
-																onClick={ () => {
-																	this.onSelect(
-																		key,
-																		onToggle
-																	);
-																} }
-															>
-																<Fragment>
+                                    if (!isOpen) {
+                                        document.body.classList.add('is-editing-theme');
+                                        editorWrapper.classList.add('is-editing-theme');
+                                    } else {
+                                        document.body.classList.remove('is-editing-theme');
+                                        editorWrapper.classList.remove('is-editing-theme');
+                                    }
+
+                                    onToggle();
+                                    this.onExitEditTheme(onToggle);
+                                }}
+
+                                disabled={!WPMD_Settings.is_pro}
+
+                                className={`components-markdown-theme-switcher__trigger ${!WPMD_Settings.is_pro ? 'disabled' : ''}`}
+                            >
+								<span className="components-markdown-theme-switcher__palette"
+                                      style={{
+                                          backgroundImage: `linear-gradient(130deg,${
+                                              typeof EditorThemes[this.state.theme] !== 'undefined'
+                                                  ? EditorThemes[this.state.theme].colors.background
+                                                  : this.state.themeSettings.colors.background
+                                          } 48.75%, ${
+                                              typeof EditorThemes[this.state.theme] !== 'undefined'
+                                                  ? EditorThemes[this.state.theme].colors.accent
+                                                  : this.state.themeSettings.colors.accent
+                                          } 50%)`,
+                                      }}
+                                ></span>
+
+                                {icons.caretDown}
+                            </Button>
+                        )}
+
+                        renderContent={({onToggle}) => (
+                            <Fragment>
+                                {!this.state.isEditingTheme &&
+                                !this.state.isEditingTypography ? (
+                                    <Fragment>
+                                        <MenuGroup>
+                                            {map(
+                                                EditorThemes,
+                                                (theme, key) => {
+                                                    if ('custom' !== key) {
+                                                        return (
+                                                            <MenuItem
+                                                                key={key}
+                                                                onClick={() => {
+                                                                    this.onSelect(key, onToggle);
+                                                                }}
+                                                            >
+                                                                <Fragment>
 																	<span
-																		className="components-markdown-theme-switcher__palette"
-																		style={ {
-																			backgroundImage: `linear-gradient(130deg,${ theme.colors.background } 48.75%, ${ theme.colors.accent } 50%)`,
-																		} }
-																	></span>
-																	{
-																		theme.name
-																	}
-																	{ this.state
-																		.theme ===
-																	key
-																		? icons.checkMark
-																		: null }
-																</Fragment>
-															</MenuItem>
-														);
-													}
-												}
-											) }
-											<MenuItem
-												key="custom"
-												onClick={ () => {
-													this.onEditTheme(
-														onToggle,
-														'isEditingTheme'
-													);
+                                                                        className="components-markdown-theme-switcher__palette"
+                                                                        style={{
+                                                                            backgroundImage: `linear-gradient(130deg,${theme.colors.background} 48.75%, ${theme.colors.accent} 50%)`,
+                                                                        }}
+                                                                    ></span>
+                                                                    {
+                                                                        theme.name
+                                                                    }
+                                                                    {this.state
+                                                                        .theme ===
+                                                                    key
+                                                                        ? icons.checkMark
+                                                                        : null}
+                                                                </Fragment>
+                                                            </MenuItem>
+                                                        );
+                                                    }
+                                                }
+                                            )}
+                                            <MenuItem
+                                                key="custom"
+                                                onClick={() => {
+                                                    this.onEditTheme(onToggle, 'isEditingTheme');
 
-													this.onSelect(
-														'custom',
-														onToggle
-													);
-												} }
-											>
-												<Fragment>
+                                                    this.onSelect('custom', onToggle);
+                                                }}
+                                            >
+                                                <Fragment>
 													<span
-														className="components-markdown-theme-switcher__palette"
-														style={ {
-															backgroundImage: `linear-gradient(130deg,${ this.state.themeSettings.colors.background } 48.75%, ${ this.state.themeSettings.colors.accent } 50%)`,
-														} }
-													></span>
-													{ __(
-														'Custom',
-														'iceberg'
-													) }
-													{ this.state.theme ===
-														'custom' ||
-													typeof EditorThemes[
-														this.state.theme
-													] === 'undefined'
-														? icons.checkMark
-														: icons.color }
-												</Fragment>
-											</MenuItem>
-										</MenuGroup>
-										<MenuGroup>
-											<MenuItem
-												className="components-markdown-theme-switcher__typography"
-												onClick={ () => {
-													this.onEditTheme(
-														onToggle,
-														'isEditingTypography'
-													);
-												} }
-											>
-												{ __(
-													'Edit typography',
-													'iceberg'
-												) }
-												{ icons.typography }
-											</MenuItem>
-										</MenuGroup>
-									</Fragment>
-								) : (
-									<ThemeEditor
-										onToggle={ onToggle }
-										loadConfig={ this.loadConfig }
-										isEditingTheme={
-											this.state.isEditingTheme
-										}
-										isEditingTypography={
-											this.state.isEditingTypography
-										}
-										updateState={ this.updateState }
-										themeSettings={
-											this.state.themeSettings
-										}
-										onClose={ () => {
-											this.setState( {
-												isEditingTheme: false,
-												isEditingTypography: false,
-											} );
-											this.onExitEditTheme( onToggle );
-										} }
-									/>
-								) }
-							</Fragment>
-						) }
-					/>
-				</Fragment>
-			);
-		};
+                                                        className="components-markdown-theme-switcher__palette"
+                                                        style={{
+                                                            backgroundImage: `linear-gradient(130deg,${this.state.themeSettings.colors.background} 48.75%, ${this.state.themeSettings.colors.accent} 50%)`,
+                                                        }}
+                                                    ></span>
+                                                    {__(
+                                                        'Custom',
+                                                        'dark-mode'
+                                                    )}
+                                                    {this.state.theme ===
+                                                    'custom' ||
+                                                    typeof EditorThemes[
+                                                        this.state.theme
+                                                        ] === 'undefined'
+                                                        ? icons.checkMark
+                                                        : icons.color}
+                                                </Fragment>
+                                            </MenuItem>
+                                        </MenuGroup>
+                                        <MenuGroup>
+                                            <MenuItem
+                                                className="components-markdown-theme-switcher__typography"
+                                                onClick={() => {
+                                                    this.onEditTheme(onToggle, 'isEditingTypography');
+                                                }}
+                                            >
+                                                {__('Edit typography', 'dark-mode')}
+                                                {icons.typography}
+                                            </MenuItem>
+                                        </MenuGroup>
+                                    </Fragment>
+                                ) : (
+                                    <ThemeEditor
+                                        onToggle={onToggle}
+                                        loadConfig={this.loadConfig}
+                                        isEditingTheme={
+                                            this.state.isEditingTheme
+                                        }
+                                        isEditingTypography={
+                                            this.state.isEditingTypography
+                                        }
+                                        updateState={this.updateState}
+                                        themeSettings={
+                                            this.state.themeSettings
+                                        }
+                                        onClose={() => {
+                                            this.setState({
+                                                isEditingTheme: false,
+                                                isEditingTypography: false,
+                                            });
+                                            this.onExitEditTheme(onToggle);
+                                        }}
+                                    />
+                                )}
+                            </Fragment>
+                        )}
+                    />
+                </Fragment>
+            );
+        };
 
-		const wrapper = document.querySelector( '.edit-post-header__toolbar' );
+        const wrapper = document.querySelector('.edit-post-header__toolbar');
 
-		if (
-			! wrapper.classList.contains( 'iceberg-additional-controls' ) &&
-			isActive
-		) {
-			wrapper.classList.add( 'iceberg-additional-controls' );
-			wrapper.insertAdjacentHTML(
-				'afterbegin',
-				'<div id="components-markdown-theme-switcher"></div>'
-			);
+        if (!wrapper.classList.contains('markdown-additional-controls') && isActive) {
+            wrapper.classList.add('markdown-additional-controls');
+            wrapper.insertAdjacentHTML('afterbegin', '<div id="components-markdown-theme-switcher"></div>');
 
-			render(
-				<ButtonControls />,
-				document.getElementById( 'components-markdown-theme-switcher' )
-			);
-		} else if (
-			wrapper.classList.contains( 'iceberg-additional-controls' ) &&
-			! isActive
-		) {
-			document
-				.getElementById( 'components-markdown-theme-switcher' )
-				.remove();
-			wrapper.classList.remove( 'iceberg-additional-controls' );
-		}
-	}
+            render(<ButtonControls/>, document.getElementById('components-markdown-theme-switcher'));
+        } else if (wrapper.classList.contains('markdown-additional-controls') && !isActive) {
+            document.getElementById('components-markdown-theme-switcher').remove();
+            wrapper.classList.remove('markdown-additional-controls');
+        }
+    }
 
-	onEditTheme( onToggle, type ) {
-		const wrapper = document.querySelector(
-			'.components-markdown-theme-switcher__content'
-		);
-		const editorWrapper = document.querySelector(
-			'.block-editor-writing-flow'
-		);
+    onEditTheme(onToggle, type) {
+        const wrapper = document.querySelector('.components-markdown-theme-switcher__content');
+        const editorWrapper = document.querySelector('.block-editor-writing-flow');
 
-		this.setState( { [ type ]: true } );
-		onToggle();
+        this.setState({[type]: true});
+        onToggle();
 
-		setTimeout( function() {
-			wrapper.classList.add( 'is-editing-theme' );
-			editorWrapper.classList.add( 'is-editing-theme' );
+        setTimeout(function () {
+            wrapper.classList.add('is-editing-theme');
+            editorWrapper.classList.add('is-editing-theme');
 
-			document
-				.querySelector( '.components-markdown-theme-switcher__trigger' )
-				.click();
-		}, 25 );
+            document.querySelector('.components-markdown-theme-switcher__trigger').click();
+        }, 25);
 
-		// focus manually to fix closing outside bug
-		document
-			.querySelector(
-				'.components-markdown-theme-switcher__content .components-popover__content'
-			)
-			.focus();
+        // focus manually to fix closing outside bug
+        document.querySelector('.components-markdown-theme-switcher__content .components-popover__content').focus();
 
-		// Save theme settings
-		this.props.updateThemeSettings( this.state.themeSettings );
-	}
+        // Save theme settings
+        this.props.updateThemeSettings(this.state.themeSettings);
+    }
 
-	onExitEditTheme() {
-		this.setState( { isEditingTheme: false } );
-	}
+    onExitEditTheme() {
+        this.setState({isEditingTheme: false});
+    }
 
-	onSelect( theme, onToggle ) {
-		const { themeSettings } = this.state;
-		this.setState( { theme } );
+    onSelect(theme, onToggle) {
 
-		let assignedSettings = themeSettings;
 
-		if (
-			typeof themeSettings.isDefault !== 'undefined' &&
-			themeSettings.isDefault
-		) {
-			// assignedSettings = EditorThemes[ theme ];
-			assignedSettings = merge( {}, assignedSettings, {
-				isDefault: true,
-				theme,
-			} );
-		} else {
-			const settingsDiff = difference(
-				themeSettings,
-				typeof EditorThemes[ themeSettings.theme ] !== 'undefined'
-					? EditorThemes[ themeSettings.theme ]
-					: {}
-			);
+        const {themeSettings} = this.state;
+        this.setState({theme});
 
-			// if ( typeof settingsDiff.name === 'undefined' ) {
-			assignedSettings = merge(
-				{},
-				theme === 'custom' ? themeSettings : EditorThemes[ theme ],
-				settingsDiff
-			);
-			delete assignedSettings.isDefault;
-			delete assignedSettings.theme;
+        let assignedSettings = themeSettings;
 
-			assignedSettings = assign(
-				{ isDefault: theme === 'custom' ? false : true },
-				assignedSettings
-			);
-			// }
-		}
+        if (typeof themeSettings.isDefault !== 'undefined' && themeSettings.isDefault) {
+            // assignedSettings = EditorThemes[ theme ];
+            assignedSettings = merge({}, assignedSettings, {
+                isDefault: true,
+                theme,
+            });
+        } else {
+            const settingsDiff = difference(themeSettings,
+                typeof EditorThemes[themeSettings.theme] !== 'undefined' ? EditorThemes[themeSettings.theme] : {}
+            );
 
-		this.loadConfig( theme, assignedSettings, true );
+            // if ( typeof settingsDiff.name === 'undefined' ) {
+            assignedSettings = merge(
+                {},
+                theme === 'custom' ? themeSettings : EditorThemes[theme],
+                settingsDiff
+            );
+            delete assignedSettings.isDefault;
+            delete assignedSettings.theme;
 
-		onToggle();
+            assignedSettings = assign({isDefault: theme === 'custom' ? false : true}, assignedSettings);
+            // }
+        }
 
-		if ( theme !== 'custom' ) {
-			setTimeout( function() {
-				document
-					.querySelector(
-						'.components-markdown-theme-switcher__trigger'
-					)
-					.click();
-			}, 25 );
-		}
+        this.loadConfig(theme, assignedSettings, true);
 
-		// update theme settings
-		delete assignedSettings.theme;
+        onToggle();
 
-		const settings = assign( { theme }, assignedSettings );
-		this.setState( { themeSettings: settings } );
-	}
+        if (theme !== 'custom') {
+            setTimeout(function () {
+                document.querySelector('.components-markdown-theme-switcher__trigger').click();
+            }, 25);
+        }
 
-	loadConfig( theme = '', updatedSettings = {} ) {
-		const { themeSettings } = this.state;
+        // update theme settings
+        delete assignedSettings.theme;
 
-		if ( ! theme ) {
-			theme = themeSettings.theme;
-		}
+        const settings = assign({theme}, assignedSettings);
+        this.setState({themeSettings: settings});
+    }
 
-		if (
-			typeof EditorThemes[ theme ] === 'undefined' &&
-			theme !== 'custom'
-		) {
-			// theme = 'iceberg';
-		}
+    loadConfig(theme = '', updatedSettings = {}) {
+        const {themeSettings} = this.state;
 
-		// Merge values from defaults, settings and theme editor
-		let assignedSettings;
+        if (!theme) {
+            theme = themeSettings.theme;
+        }
 
-		if ( typeof EditorThemes[ theme ] !== 'undefined' ) {
-			assignedSettings = EditorThemes[ theme ];
-		} else {
-			assignedSettings = themeSettings;
-		}
+        if (typeof EditorThemes[theme] === 'undefined' && theme !== 'custom') {
+            // theme = 'default';
+        }
 
-		const temporaryMerger = merge( {}, themeSettings, updatedSettings );
+        // Merge values from defaults, settings and theme editor
+        let assignedSettings;
 
-		if (
-			typeof temporaryMerger.isDefault !== 'undefined' &&
-			temporaryMerger.isDefault
-		) {
-			let mergeTypography = merge(
-				assignedSettings.typography,
-				themeSettings.typography
-			);
+        if (typeof EditorThemes[theme] !== 'undefined') {
+            assignedSettings = EditorThemes[theme];
+        } else {
+            assignedSettings = themeSettings;
+        }
 
-			if ( Object.keys( updatedSettings ).length > 1 ) {
-				mergeTypography = merge(
-					mergeTypography.typography,
-					updatedSettings.typography
-				);
-			}
+        const temporaryMerger = merge({}, themeSettings, updatedSettings);
 
-			delete assignedSettings.typography;
+        if (typeof temporaryMerger.isDefault !== 'undefined' && temporaryMerger.isDefault) {
+            let mergeTypography = merge(
+                assignedSettings.typography,
+                themeSettings.typography
+            );
 
-			assignedSettings = merge(
-				{ typography: mergeTypography },
-				assignedSettings
-			);
+            if (Object.keys(updatedSettings).length > 1) {
+                mergeTypography = merge(
+                    mergeTypography.typography,
+                    updatedSettings.typography
+                );
+            }
 
-			// Prevent error from happening
-			// if( typeof assignedSettings.typography === 'undefined' ){
-			// 	delete assignedSettings.typography;
+            delete assignedSettings.typography;
 
-			// 	assignedSettings = assign(
-			// 		{ typography: EditorThemes[ 'iceberg' ].typography },
-			// 		assignedSettings
-			// 	);
-			// }
-		} else {
-			assignedSettings = merge( {}, assignedSettings, themeSettings );
-			assignedSettings = merge( {}, assignedSettings, updatedSettings );
-		}
+            assignedSettings = merge(
+                {typography: mergeTypography},
+                assignedSettings
+            );
 
-		// merge defaults to add missing values
-		assignedSettings = merge( {}, defaults, assignedSettings );
+            // Prevent error from happening
+            // if( typeof assignedSettings.typography === 'undefined' ){
+            // 	delete assignedSettings.typography;
 
-		assignVariables( assignedSettings );
-	}
+            // 	assignedSettings = assign(
+            // 		{ typography: EditorThemes[ 'dark-mode' ].typography },
+            // 		assignedSettings
+            // 	);
+            // }
+        } else {
+            assignedSettings = merge({}, assignedSettings, themeSettings);
+            assignedSettings = merge({}, assignedSettings, updatedSettings);
+        }
 
-	render() {
-		const { themeSettings } = this.props;
+        // merge defaults to add missing values
+        assignedSettings = merge({}, defaults, assignedSettings);
 
-		// Wait for settings to load
-		if ( typeof themeSettings.theme === 'undefined' ) {
-			return false;
-		}
+        assignVariables(assignedSettings);
+    }
 
-		if (
-			! this.state.isEditorThemeLoaded &&
-			Object.keys( this.state.themeSettings ).length > 1
-		) {
-			this.loadConfig( themeSettings.theme );
-		}
+    render() {
+        const {themeSettings} = this.props;
 
-		return false;
-	}
+        // Wait for settings to load
+        if (typeof themeSettings.theme === 'undefined') {
+            return false;
+        }
+
+        if (!this.state.isEditorThemeLoaded && Object.keys(this.state.themeSettings).length > 1) {
+            this.loadConfig(themeSettings.theme);
+        }
+
+        return false;
+    }
 }
 
-export default compose( [
-	withSelect( ( select ) => {
-		const { getThemeSettings } = select( 'markdown-settings' );
-		const { getCurrentPostType } = select( 'core/editor' );
-		const { getPostType } = select( 'core' );
+export default compose([
 
-		return {
-			themeSettings: getThemeSettings(),
-			postType: getPostType( getCurrentPostType() ),
-		};
-	} ),
-	withDispatch( ( dispatch ) => {
-		const { setThemeSettings } = dispatch( 'markdown-settings' );
+    withSelect((select) => {
+        const {getThemeSettings} = select('markdown-settings');
+        const {getCurrentPostType} = select('core/editor');
+        const {getPostType} = select('core');
 
-		return {
-			updateThemeSettings( settings ) {
-				setThemeSettings( settings );
-			},
-		};
-	} ),
-	withSpokenMessages,
-] )( ThemeSwitcher );
+        return {
+            themeSettings: getThemeSettings(),
+            postType: getPostType(getCurrentPostType()),
+        };
+    }),
+
+    withDispatch((dispatch) => {
+        const {setThemeSettings} = dispatch('markdown-settings');
+
+        return {
+            updateThemeSettings(settings) {
+                setThemeSettings(settings);
+            },
+        };
+    }),
+
+    withSpokenMessages,
+
+])(ThemeSwitcher);

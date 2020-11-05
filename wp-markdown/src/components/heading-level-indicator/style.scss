@@ -1,12 +1,12 @@
-.iceberg-heading-level-indicator {
+.markdown-heading-level-indicator {
 	margin: 0 auto;
-	max-width: var(--iceberg--typography--line-width, 40rem);
-	line-height: var(--iceberg--typography--heading--line-height);
+	max-width: var(--markdown--typography--line-width, 40rem);
+	line-height: var(--markdown--typography--heading--line-height);
 
 	.components-markdown-heading-level-indicator__trigger {
-		color: var(--iceberg--color--accent);
+		color: var(--markdown--color--accent);
 		float: right;
-		font-size: var(--iceberg--typography--heading--font-size);
+		font-size: var(--markdown--typography--heading--font-size);
 		justify-content: flex-end;
 		margin-left: -85px;
 		min-width: 80px;
@@ -20,18 +20,18 @@
 		}
 
 		.components-button {
-			color: var(--iceberg--color--accent);
-			font-size: var(--iceberg--typography--heading--font-size);
+			color: var(--markdown--color--accent);
+			font-size: var(--markdown--typography--heading--font-size);
 			height: auto;
 			justify-content: flex-end;
-			line-height: var(--iceberg--typography--heading--line-height);
+			line-height: var(--markdown--typography--heading--line-height);
 			padding-bottom: 0;
 			padding-top: 0;
 
 			&:hover,
 			&:focus,
 			&:not([aria-disabled="true"]):active {
-				color: var(--iceberg--color--accent--light);
+				color: var(--markdown--color--accent--light);
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-// Minimized image option, scoped with .is-iceberg
+// Minimized image option, scoped with .is-markdown
 &.has-minimized-images {
 
 	.wp-block-image {
@@ -15,21 +15,21 @@
 		&.alignfull,
 		&.alignwide {
 			display: block;
-			max-width: var(--iceberg--minimized-image--width, $imageWidth) !important;
+			max-width: var(--markdown--minimized-image--width, $imageWidth) !important;
 			height: auto !important;
 
 			img {
-				width: var(--iceberg--minimized-image--width, $imageWidth);
+				width: var(--markdown--minimized-image--width, $imageWidth);
 			}
 		}
 
 		.components-drop-zone {
-			width: var(--iceberg--minimized-image--width, $imageWidth);
+			width: var(--markdown--minimized-image--width, $imageWidth);
 		}
 
 		&.alignfull,
 		&.alignwide {
-			max-width: var(--iceberg--typography--line-width, 40rem);
+			max-width: var(--markdown--typography--line-width, 40rem);
 			margin-left: auto !important;
 			margin-right: auto !important;
 		}
@@ -65,7 +65,7 @@
 
 		img {
 			display: block;
-			width: var(--iceberg--minimized-image--width, $imageWidth);
+			width: var(--markdown--minimized-image--width, $imageWidth);
 		}
 	}
 }

@@ -19,9 +19,9 @@ class BlockIndicator extends Component {
 		let indicator = name;
 
 		if ( 'core/block' === name ) {
-			indicator = __( 'core/reusable', 'iceberg' );
+			indicator = __( 'core/reusable', 'dark-mode' );
 		} else if ( 'core/freeform' === name ) {
-			indicator = __( 'core/classic', 'iceberg' );
+			indicator = __( 'core/classic', 'dark-mode' );
 		}
 
 		return (
@@ -37,7 +37,7 @@ class BlockIndicator extends Component {
 								convertToBlocks();
 							} }
 						>
-							{ __( 'Convert to Blocks', 'iceberg' ) }
+							{ __( 'Convert to Blocks', 'dark-mode' ) }
 						</Button>
 					) }
 				</div>
@@ -51,7 +51,7 @@ export default compose( [
 	withSelect( ( select, { clientId } ) => ( {
 		block: select( 'core/block-editor' ).getBlock( clientId ),
 		isActive: select( 'core/edit-post' ).isFeatureActive(
-			'icebergWritingMode'
+			'markdownWritingMode'
 		),
 	} ) ),
 	withDispatch( ( dispatch, { block } ) => {

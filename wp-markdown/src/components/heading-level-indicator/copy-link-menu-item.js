@@ -64,7 +64,7 @@ function CreateHTMLAnchorMenuItem( {
 		>
 			{ hasCopied
 				? __( 'Copied to clipboard!' )
-				: __( 'Create HTML anchor', 'iceberg' ) }
+				: __( 'Create HTML anchor', 'dark-mode' ) }
 			{ hasCopied ? icons.checkMark : icons.link }
 		</ClipboardButton>
 	);

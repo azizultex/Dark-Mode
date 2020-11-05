@@ -44,7 +44,7 @@ const addEditorBlockAttributes = createHigherOrderComponent(
 				! name.includes( 'core-embed' )
 			) {
 				customData = Object.assign( customData, {
-					'data-iceberg-not-allowed': 1,
+					'data-markdown-not-allowed': 1,
 				} );
 			}
 
@@ -61,10 +61,10 @@ const addEditorBlockAttributes = createHigherOrderComponent(
 	'addEditorBlockAttributes'
 );
 
-addFilter( 'editor.BlockEdit', 'iceberg/block-indicator', withBlockName );
+addFilter( 'editor.BlockEdit', 'markdown/block-indicator', withBlockName );
 
 addFilter(
 	'editor.BlockListBlock',
-	'iceberg/addEditorBlockAttributes',
+	'markdown/addEditorBlockAttributes',
 	addEditorBlockAttributes
 );

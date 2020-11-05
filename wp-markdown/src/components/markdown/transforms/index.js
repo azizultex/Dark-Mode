@@ -52,8 +52,8 @@ function addTransforms( settings ) {
 			prefix: '++',
 			transform() {
 				return createBlock( 'core/paragraph', {
-					customClassName: 'iceberg-comment',
-					className: 'iceberg-comment with-plus',
+					customClassName: 'markdown-comment',
+					className: 'markdown-comment with-plus',
 				} );
 			},
 		};
@@ -63,8 +63,8 @@ function addTransforms( settings ) {
 			prefix: '%%',
 			transform() {
 				return createBlock( 'core/paragraph', {
-					customClassName: 'iceberg-comment',
-					className: 'iceberg-comment with-percentage',
+					customClassName: 'markdown-comment',
+					className: 'markdown-comment with-percentage',
 				} );
 			},
 		};

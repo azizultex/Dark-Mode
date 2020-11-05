@@ -3,7 +3,7 @@
 /**
  * External dependencies
  */
-import { get } from 'lodash';
+import {get} from 'lodash';
 
 /**
  * Internal dependencies
@@ -17,309 +17,312 @@ import UpdateTitleHeight from '../utils/title-height';
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { withDispatch, withSelect } from '@wordpress/data';
-import { compose } from '@wordpress/compose';
-import { Fragment, Component, render } from '@wordpress/element';
-import { displayShortcut } from '@wordpress/keycodes';
-import { addQueryArgs } from '@wordpress/url';
+import {__} from '@wordpress/i18n';
+import {withDispatch, withSelect} from '@wordpress/data';
+import {compose} from '@wordpress/compose';
+import {Fragment, Component, render} from '@wordpress/element';
+import {displayShortcut} from '@wordpress/keycodes';
+import {addQueryArgs} from '@wordpress/url';
 import {
-	withSpokenMessages,
-	DropdownMenu,
-	MenuGroup,
-	MenuItem,
-	BaseControl,
+    withSpokenMessages,
+    DropdownMenu,
+    MenuGroup,
+    MenuItem,
+    BaseControl, Button,
 } from '@wordpress/components';
 
 class MoreMenu extends Component {
-	constructor() {
-		super( ...arguments );
+    constructor() {
+        super(...arguments);
 
-		this.addMoreMenu = this.addMoreMenu.bind( this );
+        this.addMoreMenu = this.addMoreMenu.bind(this);
 
-		this.state = {
-			isEnabled: false,
-			isSettingsOpen: false,
-		};
-	}
+        this.state = {
+            isEnabled: false,
+            isSettingsOpen: false,
+        };
+    }
 
-	componentDidMount() {
-		this.addMoreMenu();
-	}
+    componentDidMount() {
+        this.addMoreMenu();
+    }
 
-	componentDidUpdate() {
-		this.addMoreMenu();
-	}
+    componentDidUpdate() {
+        this.addMoreMenu();
+    }
 
-	addMoreMenu() {
-		const { isActive, toggleEditorMode, postType } = this.props;
+    addMoreMenu() {
+        const {isActive, toggleEditorMode, postType} = this.props;
 
-		if ( ! postType ) {
-			return null;
-		}
+        if (!postType) {
+            return null;
+        }
 
-		const POPOVER_PROPS = {
-			className:
-				'components-markdown-popover components-markdown-more-menu__content',
-			position: 'bottom left',
-		};
+        const POPOVER_PROPS = {
+            className:
+                'components-markdown-popover components-markdown-more-menu__content',
+            position: 'bottom left',
+        };
 
-		const TOGGLE_PROPS = {
-			tooltipPosition: 'bottom',
-		};
+        const TOGGLE_PROPS = {
+            tooltipPosition: 'bottom',
+        };
 
-		const MoreMenuDropdown = () => {
-			return (
-				<Fragment>
-					<DropdownMenu
-						className="components-markdown-more-menu__trigger"
-						icon={ icons.ellipsis }
-						label={ __( 'WP Markdown Settings', 'iceberg' ) }
-						popoverProps={ POPOVER_PROPS }
-						toggleProps={ TOGGLE_PROPS }
-					>
-						{ ( { onClose } ) => (
-							<Fragment>
-								<MenuGroup>
-									<BaseControl className="components-markdown-menu-title">
-										{ __( 'General', 'iceberg' ) }
-									</BaseControl>
-									<MenuItem
-										onClick={ () => {
-											const icebergButton = document.querySelector(
-												'.components-markdown-theme-switcher__trigger'
-											);
-											if ( icebergButton ) {
-												icebergButton.style.visibility =
-													'visible';
-												icebergButton.click();
-											}
-										} }
-									>
-										{ __( 'Edit editor theme', 'iceberg' ) }
-									</MenuItem>
-									<MenuItem
-										onClick={ () => {
-											const icebergButton = document.querySelector(
-												'.components-markdown-theme-switcher__trigger'
-											);
-											if ( icebergButton ) {
-												icebergButton.style.visibility =
-													'visible';
-												icebergButton.click();
+        const MoreMenuDropdown = () => {
+            return (
+                <Fragment>
+                    <DropdownMenu
+                        className="components-markdown-more-menu__trigger"
+                        icon={icons.ellipsis}
+                        label={__('WP Markdown Settings', 'dark-mode')}
+                        popoverProps={POPOVER_PROPS}
+                        toggleProps={TOGGLE_PROPS}
+                    >
+                        {({onClose}) => (
+                            <Fragment>
+                                <MenuGroup>
+                                    <BaseControl className="components-markdown-menu-title">
+                                        {__('General', 'dark-mode')}
+                                    </BaseControl>
+                                    <MenuItem
+                                        onClick={() => {
 
-												const checkExist = setInterval(
-													function() {
-														document
-															.querySelector(
-																'.components-markdown-theme-switcher__typography'
-															)
-															.click();
+                                            if (!WPMD_Settings.is_pro) {
+                                                return;
+                                            }
 
-														clearInterval(
-															checkExist
-														);
-													},
-													100
-												);
-											}
-										} }
-									>
-										{ __( 'Edit typography', 'iceberg' ) }
-									</MenuItem>
-									<MenuItem
-										className="components-markdown-more-menu__back"
-										onClick={ () => {
-											window.location.href = addQueryArgs(
-												'edit.php',
-												{
-													post_type: postType.slug,
-												}
-											);
-										} }
-									>
-										{ __(
-											'Back to all ' +
-												get(
-													postType,
-													[ 'labels', 'name' ],
-													'Posts'
-												).toLowerCase(),
-											'iceberg'
-										) }
-									</MenuItem>
-									<MenuItem
-										className="components-markdown-more-menu__exit"
-										shortcut={ displayShortcut.secondary(
-											'i'
-										) }
-										onClick={ () => {
-											onClose();
-											toggleEditorMode();
-										} }
-									>
-										{ __( 'Exit Markdown', 'iceberg' ) }
-									</MenuItem>
-								</MenuGroup>
-								<MenuGroup>
-									<BaseControl className="components-markdown-menu-title">
-										{ __( 'Tools', 'iceberg' ) }
-									</BaseControl>
-									<MenuItem
-										className="components-markdown-more-menu__new"
-										shortcut={ displayShortcut.primaryShift(
-											'+'
-										) }
-										onClick={ () => {
-											window.location.href = addQueryArgs(
-												'post-new.php',
-												{
-													post_type: postType.slug,
-													is_iceberg: 1,
-												}
-											);
-										} }
-									>
-										{ __(
-											'New ' +
-												get(
-													postType,
-													[
-														'labels',
-														'singular_name',
-													],
-													'Posts'
-												).toLowerCase(),
-											'iceberg'
-										) }
-									</MenuItem>
-									<CopyContentMenuItem />
-									<CopyContentMarkdownMenuItem />
-									<MenuItem
-										role="menuitem"
-										href="https://wppool.dev/"
-										target="_new"
-									>
-										{ __( 'Help', 'iceberg' ) }
-									</MenuItem>
-								</MenuGroup>
-								<MenuGroup>
-									<MenuItem
-										onClick={ () => {
-											this.setState( {
-												isSettingsOpen: true,
-											} );
-										} }
-									>
-										{ __( '⚙️ Settings', 'iceberg' ) }
-									</MenuItem>
-								</MenuGroup>
-							</Fragment>
-						) }
-					</DropdownMenu>
-				</Fragment>
-			);
-		};
+                                            const markdownButton = document.querySelector('.components-markdown-theme-switcher__trigger');
+                                            if (markdownButton) {
+                                                markdownButton.style.visibility = 'visible';
+                                                markdownButton.click();
+                                            }
+                                        }}
 
-		const wrapper = document.querySelector( '.edit-post-header__settings' );
+                                        disabled={!WPMD_Settings.is_pro}
+                                        className={!WPMD_Settings.is_pro ? 'disabled' : ''}
 
-		if ( ! wrapper.classList.contains( 'iceberg-more-menu' ) && isActive ) {
-			wrapper.classList.add( 'iceberg-more-menu' );
-			wrapper.insertAdjacentHTML(
-				'beforeend',
-				'<div id="components-markdown-more-menu"></div>'
-			);
+                                    >
+                                        {__('Edit editor theme', 'dark-mode')}
+                                    </MenuItem>
+                                    <MenuItem
+                                        onClick={() => {
 
-			render(
-				<MoreMenuDropdown />,
-				document.getElementById( 'components-markdown-more-menu' )
-			);
-		} else if (
-			wrapper.classList.contains( 'iceberg-more-menu' ) &&
-			! isActive
-		) {
-			document.getElementById( 'components-markdown-more-menu' ).remove();
-			wrapper.classList.remove( 'iceberg-more-menu' );
-		}
-	}
+                                            if (!WPMD_Settings.is_pro) {
+                                                return;
+                                            }
 
-	render() {
-		const { isSettingsOpen } = this.state;
-		const { license } = window.WPMD_Settings;
+                                            const markdownButton = document.querySelector('.components-markdown-theme-switcher__trigger');
 
-		let isValid = true;
-		let label = '';
+                                            if (markdownButton) {
+                                                markdownButton.style.visibility = 'visible';
+                                                markdownButton.click();
 
-		if (
-			typeof license !== 'undefined' &&
-			typeof license.license === 'undefined'
-		) {
-			isValid = false;
-			label = __( 'Unlicensed', 'iceberg' );
-		}
+                                                const checkExist = setInterval(
+                                                    function () {
+                                                        document.querySelector('.components-markdown-theme-switcher__typography').click();
+                                                        clearInterval(checkExist);
+                                                    }, 100);
+                                            }
+                                        }}
 
-		if (
-			typeof license !== 'undefined' &&
-			typeof license.license !== 'undefined' &&
-			'invalid' === license.license
-		) {
-			isValid = false;
-			label = __( 'Invalid License', 'iceberg' );
-		}
+                                        disabled={!WPMD_Settings.is_pro}
+                                        className={!WPMD_Settings.is_pro ? 'disabled' : ''}
+                                    >
+                                        {__('Edit typography', 'dark-mode')}
+                                    </MenuItem>
+                                    <MenuItem
+                                        className="components-markdown-more-menu__back"
+                                        onClick={() => {
+                                            window.location.href = addQueryArgs(
+                                                'edit.php',
+                                                {
+                                                    post_type: postType.slug,
+                                                }
+                                            );
+                                        }}
+                                    >
+                                        {__(
+                                            'Back to all ' +
+                                            get(
+                                                postType,
+                                                ['labels', 'name'],
+                                                'Posts'
+                                            ).toLowerCase(),
+                                            'dark-mode'
+                                        )}
+                                    </MenuItem>
+                                    <MenuItem
+                                        className="components-markdown-more-menu__exit"
+                                        shortcut={displayShortcut.secondary(
+                                            'i'
+                                        )}
+                                        onClick={() => {
+                                            onClose();
+                                            toggleEditorMode();
+                                        }}
+                                    >
+                                        {__('Exit Markdown', 'dark-mode')}
+                                    </MenuItem>
+                                </MenuGroup>
+                                <MenuGroup>
+                                    <BaseControl className="components-markdown-menu-title">
+                                        {__('Tools', 'dark-mode')}
+                                    </BaseControl>
+                                    <MenuItem
+                                        className="components-markdown-more-menu__new"
+                                        shortcut={displayShortcut.primaryShift(
+                                            '+'
+                                        )}
+                                        onClick={() => {
+                                            window.location.href = addQueryArgs(
+                                                'post-new.php',
+                                                {
+                                                    post_type: postType.slug,
+                                                    is_markdown: 1,
+                                                }
+                                            );
+                                        }}
+                                    >
+                                        {__(
+                                            'New ' +
+                                            get(
+                                                postType,
+                                                [
+                                                    'labels',
+                                                    'singular_name',
+                                                ],
+                                                'Posts'
+                                            ).toLowerCase(),
+                                            'dark-mode'
+                                        )}
+                                    </MenuItem>
+                                    <CopyContentMenuItem/>
+                                    <CopyContentMarkdownMenuItem/>
+                                    <MenuItem
+                                        role="menuitem"
+                                        href="https://wppool.dev/"
+                                        target="_new"
+                                    >
+                                        {__('Help', 'dark-mode')}
+                                    </MenuItem>
+                                </MenuGroup>
+                                <MenuGroup>
+                                    <MenuItem
+                                        onClick={() => {
+                                            this.setState({
+                                                isSettingsOpen: true,
+                                            });
+                                        }}
+                                    >
+                                        {__('⚙️ Settings', 'dark-mode')}
+                                    </MenuItem>
+                                </MenuGroup>
+                            </Fragment>
+                        )}
+                    </DropdownMenu>
+                </Fragment>
+            );
+        };
 
-		if (
-			typeof license !== 'undefined' &&
-			typeof license.expires !== 'undefined'
-		) {
-			const today = new Date();
-			const expires = new Date( license.expires );
+        const wrapper = document.querySelector('.edit-post-header__settings');
 
-			if ( today > expires ) {
-				isValid = false;
-				label = __( 'Expired License', 'iceberg' );
-			}
-		}
+        if (!wrapper.classList.contains('markdown-more-menu') && isActive) {
+            wrapper.classList.add('markdown-more-menu');
+            wrapper.insertAdjacentHTML(
+                'beforeend',
+                '<div id="components-markdown-more-menu"></div>'
+            );
 
-		return (
-			<Fragment>
-				{ isSettingsOpen && (
-					<Options
-						closeModal={ () => {
-							this.setState( { isSettingsOpen: false } );
-						} }
-					/>
-				) }
-			</Fragment>
-		);
-	}
+            render(
+                <MoreMenuDropdown/>,
+                document.getElementById('components-markdown-more-menu')
+            );
+        } else if (
+            wrapper.classList.contains('markdown-more-menu') &&
+            !isActive
+        ) {
+            document.getElementById('components-markdown-more-menu').remove();
+            wrapper.classList.remove('markdown-more-menu');
+        }
+    }
+
+    render() {
+        const {isSettingsOpen} = this.state;
+        const {license} = window.WPMD_Settings;
+
+        let isValid = true;
+        let label = '';
+
+        if (
+            typeof license !== 'undefined' &&
+            typeof license.license === 'undefined'
+        ) {
+            isValid = false;
+            label = __('Unlicensed', 'dark-mode');
+        }
+
+        if (
+            typeof license !== 'undefined' &&
+            typeof license.license !== 'undefined' &&
+            'invalid' === license.license
+        ) {
+            isValid = false;
+            label = __('Invalid License', 'dark-mode');
+        }
+
+        if (
+            typeof license !== 'undefined' &&
+            typeof license.expires !== 'undefined'
+        ) {
+            const today = new Date();
+            const expires = new Date(license.expires);
+
+            if (today > expires) {
+                isValid = false;
+                label = __('Expired License', 'dark-mode');
+            }
+        }
+
+        return (
+            <Fragment>
+                {isSettingsOpen && (
+                    <Options
+                        closeModal={() => {
+                            this.setState({isSettingsOpen: false});
+                        }}
+                    />
+                )}
+            </Fragment>
+        );
+    }
 }
 
-export default compose( [
-	withSelect( ( select ) => {
-		const { getCurrentPostType } = select( 'core/editor' );
-		const { getPostType } = select( 'core' );
+export default compose([
+    withSelect((select) => {
+        const {getCurrentPostType} = select('core/editor');
+        const {getPostType} = select('core');
 
-		return {
-			postType: getPostType( getCurrentPostType() ),
-		};
-	} ),
-	withDispatch( ( dispatch ) => ( {
-		toggleEditorMode() {
-			dispatch( 'core/edit-post' ).toggleFeature( 'icebergWritingMode' );
+        return {
+            postType: getPostType(getCurrentPostType()),
+        };
+    }),
+    withDispatch((dispatch) => ({
+        toggleEditorMode() {
+            dispatch('core/edit-post').toggleFeature('markdownWritingMode');
 
-			setTimeout( function() {
-				UpdateTitleHeight();
-			}, 100 );
+            setTimeout(function () {
+                UpdateTitleHeight();
+            }, 100);
 
-			// Reset post meta
-			dispatch( 'core/editor' ).editPost( {
-				meta: {
-					_iceberg_editor_remember: false,
-				},
-			} );
+            // Reset post meta
+            dispatch('core/editor').editPost({
+                meta: {
+                    _markdown_editor_remember: false,
+                },
+            });
 
-			dispatch( 'core/editor' ).savePost();
-		},
-	} ) ),
-	withSpokenMessages,
-] )( MoreMenu );
+            dispatch('core/editor').savePost();
+        },
+    })),
+    withSpokenMessages,
+])(MoreMenu);

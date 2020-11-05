@@ -1,5 +1,5 @@
 .edit-post-header {
-	background: var(--iceberg--color--background);
+	background: var(--markdown--color--background);
 	animation: none !important; // Remove odd drop-in animation.
 	transform: translateY(0%) !important;
 	position: absolute;
@@ -12,7 +12,7 @@
 }
 
 .interface-interface-skeleton__header {
-	color: var(--iceberg--color--text);
+	color: var(--markdown--color--text);
 }
 
 .block-editor-editor-skeleton__header {
@@ -20,7 +20,7 @@
 }
 
 .editor-post-saved-state {
-	color: var(--iceberg--color--accent--light);
+	color: var(--markdown--color--accent--light);
 
 	&.is-saved,
 	&.is-saving {
@@ -53,14 +53,14 @@
 }
 
 .components-markdown-back-to {
-	color: var(--iceberg--color--accent) !important;
+	color: var(--markdown--color--accent) !important;
 	height: 42px;
 	left: -5px;
 	position: relative;
 	top: -2px;
 
 	&:hover {
-		color: var(--iceberg--color--accent--light) !important;
+		color: var(--markdown--color--accent--light) !important;
 	}
 
 	svg {

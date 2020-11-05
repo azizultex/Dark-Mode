@@ -9,14 +9,14 @@ import { toggleFormat, registerFormatType } from '@wordpress/rich-text';
 /**
  * Block constants
  */
-const name = 'iceberg/mark';
-const title = __( 'Mark', 'iceberg' );
+const name = 'markdown/mark';
+const title = __( 'Mark', 'dark-mode' );
 
 export const settings = {
 	name,
 	title,
 	tagName: 'mark',
-	className: 'iceberg-mark',
+	className: 'markdown-mark',
 	edit( { isActive, value, onChange, onFocus } ) {
 		const onToggle = () => {
 			onChange( toggleFormat( value, { type: name } ) );

@@ -39,7 +39,7 @@ class ShortcutButton extends Component {
                 <Fragment>
                     <Button
                         icon={icon}
-                        label={__('Switch to Markdown', 'iceberg')}
+                        label={__('Switch to Markdown', 'dark-mode')}
                         shortcut={displayShortcut.secondary('i')}
                         onClick={() => {
                             onToggle();
@@ -72,12 +72,12 @@ class ShortcutButton extends Component {
                 )
             );
         } else if (isActive || !isEnabled) {
-            const icebergButton = document.getElementById(
+            const markdownButton = document.getElementById(
                 'components-markdown-shortcut-pinned-button'
             );
 
-            if (icebergButton) {
-                icebergButton.remove();
+            if (markdownButton) {
+                markdownButton.remove();
             }
         }
     }

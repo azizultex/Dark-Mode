@@ -22,9 +22,9 @@ const name = 'wp-mark-down-editor/markdown';
 
 export const settings = {
 	name,
-	title: __( 'Markdown', 'iceberg' ),
+	title: __( 'Markdown', 'dark-mode' ),
 	tagName: 'p',
-	className: 'iceberg-markdown',
+	className: 'markdown-markdown',
 	attributes: {
 		style: 'style',
 	},

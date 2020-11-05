@@ -108,13 +108,13 @@ class ContextualToolbar extends Component {
 				<Fragment>
 					<Popover
 						ref={ this.containerRef }
-						className="component-iceberg-contextual-toolbar"
+						className="component-markdown-contextual-toolbar"
 						position="top center"
 						focusOnMount={ false }
 						anchorRef={ anchorRef }
 						onFocusOutside={ ( event ) => {
 							const containerElement = document.querySelector(
-								'.component-iceberg-contextual-toolbar'
+								'.component-markdown-contextual-toolbar'
 							);
 							if (
 								containerElement &&
@@ -150,7 +150,7 @@ export default compose( [
 
 		return {
 			isActive: select( 'core/edit-post' ).isFeatureActive(
-				'icebergWritingMode'
+				'markdownWritingMode'
 			),
 			isEnabled: isEditorPanelEnabled( 'contextualToolbar' ),
 		};

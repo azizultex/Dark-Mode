@@ -6,11 +6,11 @@
 	}
 
 	&.is-selected img {
-		box-shadow: 0 0 0 3px var(--iceberg--color--background), 0 0 0 5px var(--iceberg--color--accent);
+		box-shadow: 0 0 0 3px var(--markdown--color--background), 0 0 0 5px var(--markdown--color--accent);
 	}
 
 	&.is-selected .components-placeholder {
-		box-shadow: 0 0 0 3px var(--iceberg--color--background), 0 0 0 5px var(--iceberg--color--accent);
+		box-shadow: 0 0 0 3px var(--markdown--color--background), 0 0 0 5px var(--markdown--color--accent);
 	}
 
 	&:focus::after {

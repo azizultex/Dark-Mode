@@ -21,7 +21,7 @@ export default function ColorPalette( { label, value, onChange, className } ) {
 
 	const classes = classnames(
 		'components-color-palette',
-		'iceberg-components-color-palette',
+		'markdown-components-color-palette',
 		className
 	);
 	return (

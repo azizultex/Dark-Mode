@@ -45,22 +45,22 @@ class MarkdownEditor extends Component {
 			return;
 		}
 
-		let isIcebergMode = false;
+		let isMarkdownMode = false;
 
-		if ( typeof postmeta._iceberg_editor_remember !== 'undefined' ) {
-			isIcebergMode = postmeta._iceberg_editor_remember;
+		if ( typeof postmeta._markdown_editor_remember !== 'undefined' ) {
+			isMarkdownMode = postmeta._markdown_editor_remember;
 		}
 
 		if ( ! isActive && isDefaultEditor ) {
 			onToggle();
 		} else if ( ! isActive && WPMD_Settings.isEditWPMD ) {
 			onToggle();
-		} else if ( ! isActive && isIcebergMode ) {
+		} else if ( ! isActive && isMarkdownMode ) {
 			onToggle();
 		} else if (
 			isActive &&
 			! WPMD_Settings.isEditWPMD &&
-			! isIcebergMode
+			! isMarkdownMode
 		) {
 			onToggle();
 		}
@@ -135,7 +135,7 @@ class MarkdownEditor extends Component {
 			typeof license.license !== 'undefined' &&
 			'invalid' === license.license
 		) {
-			document.body.classList.add( 'invalid-iceberg-license' );
+			document.body.classList.add( 'invalid-markdown-license' );
 		}
 
 		if ( isDocumentInformation ) {
@@ -146,7 +146,7 @@ class MarkdownEditor extends Component {
 
 		// If editor is active or enactive
 		if ( isActive ) {
-			document.body.classList.add( 'is-iceberg' );
+			document.body.classList.add( 'is-markdown' );
 			document
 				.querySelector( '.edit-post-layout' )
 				.classList.remove( 'is-sidebar-opened' );
@@ -157,7 +157,7 @@ class MarkdownEditor extends Component {
 			}
 		} else {
 			document.body.classList.remove(
-				'is-iceberg',
+				'is-markdown',
 				'is-gutenberg',
 				'has-minimized-images',
 				'has-theme-switcher',
@@ -197,7 +197,7 @@ class MarkdownEditor extends Component {
 					onClick={ onToggle }
 					shortcut={ displayShortcut.secondary( 'i' ) }
 				>
-					{ __( 'Switch to Markdown', 'iceberg' ) }
+					{ __( 'Switch to Markdown', 'dark-mode' ) }
 				</PluginMoreMenuItem>
 				<KeyboardShortcuts
 					bindGlobal
@@ -232,12 +232,12 @@ export default compose( [
 		const { getEditedPostAttribute } = select( 'core/editor' );
 		const { isEditorPanelEnabled } = select( 'markdown-settings' );
 		return {
-			isActive: isFeatureActive( 'icebergWritingMode' ),
+			isActive: isFeatureActive( 'markdownWritingMode' ),
 			isFocusMode: isFeatureActive( 'focusMode' ),
 			isFullscreenMode: isFeatureActive( 'fullscreenMode' ),
 			isFixedToolbar: isFeatureActive( 'fixedToolbar' ),
 			disableFullscreenMode: isFeatureActive(
-				'icebergDisableFullscreenMode'
+				'markdownDisableFullscreenMode'
 			),
 			isWelcomeGuide: isFeatureActive( 'welcomeGuide' ),
 			isMinimizeImages: isEditorPanelEnabled( 'minimizeImages' ),
@@ -256,15 +256,15 @@ export default compose( [
 	} ),
 	withDispatch( ( dispatch, ownProps ) => ( {
 		onToggle() {
-			dispatch( 'core/edit-post' ).toggleFeature( 'icebergWritingMode' );
+			dispatch( 'core/edit-post' ).toggleFeature( 'markdownWritingMode' );
 
 			if ( ! ownProps.isActive ) {
 				dispatch( 'core/editor' ).disablePublishSidebar();
 
-				const newPath = window.location.href + '&is_iceberg=1';
+				const newPath = window.location.href + '&is_markdown=1';
 				const getUrl = new URL( window.location.href );
 				// Force path to avoid issue on refresh
-				if ( ! getUrl.searchParams.get( 'is_iceberg' ) ) {
+				if ( ! getUrl.searchParams.get( 'is_markdown' ) ) {
 					window.history.pushState( { path: newPath }, '', newPath );
 				}
 
@@ -277,14 +277,14 @@ export default compose( [
 					! ownProps.disableFullscreenMode
 				) {
 					dispatch( 'core/edit-post' ).toggleFeature(
-						'icebergDisableFullscreenMode'
+						'markdownDisableFullscreenMode'
 					);
 				}
 
 				// Save post meta
 				dispatch( 'core/editor' ).editPost( {
 					meta: {
-						_iceberg_editor_remember: true,
+						_markdown_editor_remember: true,
 					},
 				} );
 
@@ -297,7 +297,7 @@ export default compose( [
 
 				if ( ownProps.disableFullscreenMode ) {
 					dispatch( 'core/edit-post' ).toggleFeature(
-						'icebergDisableFullscreenMode'
+						'markdownDisableFullscreenMode'
 					);
 					dispatch( 'core/edit-post' ).toggleFeature(
 						'fullscreenMode'
@@ -307,7 +307,7 @@ export default compose( [
 				// Reset post meta
 				dispatch( 'core/editor' ).editPost( {
 					meta: {
-						_iceberg_editor_remember: false,
+						_markdown_editor_remember: false,
 					},
 				} );
 

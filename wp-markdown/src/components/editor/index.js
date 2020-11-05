@@ -10,7 +10,7 @@ import createMarkdownStore from '../../extensions/settings-store/store';
 import { registerGenericStore } from '@wordpress/data';
 import { registerPlugin } from '@wordpress/plugins';
 
-registerPlugin( 'iceberg-editor', {
+registerPlugin( 'markdown-editor', {
 	icon: false,
 	render: MarkdownEditor,
 } );

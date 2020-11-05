@@ -51,7 +51,7 @@ function CopyContentMarkdownMenuItem( {
 					setState( { hasCopied: true } );
 					createNotice(
 						'info',
-						__( 'All content copied as markdown.', 'iceberg' ),
+						__( 'All content copied as markdown.', 'dark-mode' ),
 						{
 							isDismissible: true,
 							type: 'snackbar',
@@ -62,7 +62,7 @@ function CopyContentMarkdownMenuItem( {
 			>
 				{ hasCopied
 					? __( 'Copied as markdown' )
-					: __( 'Copy all as markdown', 'iceberg' ) }
+					: __( 'Copy all as markdown', 'dark-mode' ) }
 			</ClipboardButton>
 		)
 	);

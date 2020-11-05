@@ -52,7 +52,7 @@ class EstimatedReadingTime extends Component {
 		return (
 			<Fragment>
 				<BaseControl>
-					{ __( 'Reading time:', 'iceberg' ) }
+					{ __( 'Reading time:', 'dark-mode' ) }
 					<span>
 						{ this.calculateReadingTime() }
 						{ _x(

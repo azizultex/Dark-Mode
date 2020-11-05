@@ -1,5 +1,5 @@
 // Comments
-.iceberg-comment {
+.markdown-comment {
 	opacity: 0.65;
 
 	&:not(.is-selected)::after {
@@ -46,9 +46,9 @@
 }
 
 // Hide comments in the block editor.
-&:not(.is-iceberg) {
+&:not(.is-markdown) {
 
-	.iceberg-comment {
+	.markdown-comment {
 		display: none;
 	}
 }

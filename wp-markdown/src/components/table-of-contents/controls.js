@@ -108,7 +108,7 @@ class TableOfContents extends Component {
 						>
 							<Button
 								className={ classnames(
-									'iceberg-block-navigation__item-button'
+									'markdown-block-navigation__item-button'
 								) }
 								onClick={ () => {
 									this.scrollToSelected(
@@ -147,7 +147,7 @@ class TableOfContents extends Component {
 								>
 									<Button
 										className={ classnames(
-											'iceberg-block-navigation__item-button'
+											'markdown-block-navigation__item-button'
 										) }
 										onClick={ () => {
 											this.scrollToSelected(
@@ -188,7 +188,7 @@ export default compose( [
 			headingBlockCount: getGlobalBlockCount( 'core/heading' ),
 			title: getEditedPostAttribute( 'title' ),
 			isActive: select( 'core/edit-post' ).isFeatureActive(
-				'icebergWritingMode'
+				'markdownWritingMode'
 			),
 			isEnabled: select( 'markdown-settings' ).isEditorPanelEnabled(
 				'uiToc'

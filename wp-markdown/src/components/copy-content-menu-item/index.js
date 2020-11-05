@@ -22,7 +22,7 @@ function CopyContentMenuItem( {
 					setState( { hasCopied: true } );
 					createNotice(
 						'info',
-						__( 'All content copied.', 'iceberg' ),
+						__( 'All content copied.', 'dark-mode' ),
 						{
 							isDismissible: true,
 							type: 'snackbar',
@@ -33,7 +33,7 @@ function CopyContentMenuItem( {
 			>
 				{ hasCopied
 					? __( 'Copied' )
-					: __( 'Copy all content', 'iceberg' ) }
+					: __( 'Copy all content', 'dark-mode' ) }
 			</ClipboardButton>
 		)
 	);

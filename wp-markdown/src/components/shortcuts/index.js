@@ -159,7 +159,7 @@ class Shortcuts extends Component {
 				<div className="components-markdown-shortcuts">
 					<DropdownMenu
 						className="components-markdown-shortcuts__trigger"
-						label={ __( 'Open shortcuts', 'iceberg' ) }
+						label={ __( 'Open shortcuts', 'dark-mode' ) }
 						icon={ icons.shortcuts }
 						popoverProps={ POPOVER_PROPS }
 						toggleProps={ TOGGLE_PROPS }

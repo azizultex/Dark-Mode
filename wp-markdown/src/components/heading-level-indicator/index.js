@@ -29,4 +29,4 @@ const withToolbar = createHigherOrderComponent( ( BlockEdit ) => {
 	};
 }, 'withToolbar' );
 
-addFilter( 'editor.BlockEdit', 'iceberg/heading-level-indicator', withToolbar );
+addFilter( 'editor.BlockEdit', 'markdown/heading-level-indicator', withToolbar );

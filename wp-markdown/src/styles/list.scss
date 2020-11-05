@@ -13,7 +13,7 @@
 		list-style-type: none;
 
 		&::before {
-			color: var(--iceberg--color--accent);
+			color: var(--markdown--color--accent);
 			content: "•";
 			display: inline-block;
 			margin-left: -25px;
@@ -34,7 +34,7 @@
 			position: relative;
 
 			&::before {
-				color: var(--iceberg--color--accent);
+				color: var(--markdown--color--accent);
 				content: counters(li, ".") " ";
 				display: inline-block;
 				margin-left: -25px;

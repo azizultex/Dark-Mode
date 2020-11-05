@@ -1,11 +1,11 @@
 .wp-block-more {
 
 	&::before {
-		border-top: 1.5px dashed var(--iceberg--color--background--dark);
+		border-top: 1.5px dashed var(--markdown--color--background--dark);
 	}
 
 	input[type="text"] {
-		background: var(--iceberg--color--background);
-		color: var(--iceberg--color--text);
+		background: var(--markdown--color--background);
+		color: var(--markdown--color--text);
 	}
 }

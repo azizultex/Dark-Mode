@@ -1,10 +1,10 @@
 .components-placeholder {
-	background-image: linear-gradient(45deg, var(--iceberg--color--background--dark) 5.56%, var(--iceberg--color--background) 5.56%, var(--iceberg--color--background) 50%, var(--iceberg--color--background--dark) 50%, var(--iceberg--color--background--dark) 55.56%, var(--iceberg--color--background) 55.56%, var(--iceberg--color--background) 100%);
+	background-image: linear-gradient(45deg, var(--markdown--color--background--dark) 5.56%, var(--markdown--color--background) 5.56%, var(--markdown--color--background) 50%, var(--markdown--color--background--dark) 50%, var(--markdown--color--background--dark) 55.56%, var(--markdown--color--background) 55.56%, var(--markdown--color--background) 100%);
 	background-size: 12.73px 12.73px;
 	border-radius: 0;
-	border: 1px solid var(--iceberg--color--background--dark);
+	border: 1px solid var(--markdown--color--background--dark);
 	box-shadow: none;
-	color: var(--iceberg--color--text);
+	color: var(--markdown--color--text);
 	min-height: auto;
 	padding: 1.8em 2.25em 1.8em;
 
@@ -26,7 +26,7 @@
 
 	.components-placeholder__label,
 	.components-placeholder__instructions {
-		color: var(--iceberg--color--text);
+		color: var(--markdown--color--text);
 	}
 
 	.components-placeholder__label {
@@ -40,8 +40,8 @@
 	}
 
 	.components-button.is-tertiary {
-		background-color: var(--iceberg--color--background);
-		border: 1px solid var(--iceberg--color--background--dark);
-		color: var(--iceberg--color--text);
+		background-color: var(--markdown--color--background);
+		border: 1px solid var(--markdown--color--background--dark);
+		color: var(--markdown--color--text);
 	}
 }
