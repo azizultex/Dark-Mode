@@ -12,11 +12,13 @@ defined( 'ABSPATH' ) || exit;
  */
 class Markdown_Settings {
 
+	private static $instance = null;
+
 	/**
 	 * Hook in methods.
 	 */
-	public static function init() {
-		add_action( 'init', array( __CLASS__, 'register_settings' ) );
+	public function __construct() {
+		add_action( 'init', array( $this, 'register_settings' ) );
 	}
 
 	/**
@@ -75,7 +77,7 @@ class Markdown_Settings {
 				'show_in_rest'  => true,
 				'single'        => true,
 				'type'          => 'boolean',
-				'auth_callback' => function() {
+				'auth_callback' => function () {
 					return current_user_can( 'edit_posts' );
 				},
 			)
@@ -90,6 +92,14 @@ class Markdown_Settings {
 	private static function auth_callback() {
 		return current_user_can( 'read' );
 	}
+
+	public static function instance() {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
 }
 
-Markdown_Settings::init();
+Markdown_Settings::instance();

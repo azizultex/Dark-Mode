@@ -24,6 +24,7 @@ const paths = {
     php: {
         src: [
             '**/*.php',
+            '!wp-markdown/**',
             '!apigen/**',
             '!includes/libraries/**',
             '!node_modules/**',
@@ -39,8 +40,17 @@ const paths = {
         src: [
             '**/*',
             '!node_modules/**',
+
             '!block/node_modules/**',
             '!block/node_modules',
+            '!block/src/**',
+            '!block/src',
+
+            '!wp-markdown/node_modules/**',
+            '!wp-markdown/node_modules',
+            '!wp-markdown/src/**',
+            '!wp-markdown/src',
+
             '!build/**',
             '!src/**',
             '!**/*.md',

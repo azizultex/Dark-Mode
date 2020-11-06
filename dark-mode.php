@@ -16,4 +16,8 @@ define( 'DARK_MODE_FILE', __FILE__ );
 define( 'DARK_MODE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DARK_MODE_URL', plugin_dir_url( __FILE__ ) );
 
+register_activation_hook( __FILE__, function () {
+	require DARK_MODE_PATH . '/includes/class-install.php';
+} );
+
 require DARK_MODE_PATH.'/includes/class-dark-mode.php';

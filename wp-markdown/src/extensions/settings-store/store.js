@@ -16,8 +16,8 @@ export default function createMarkdownStore() {
     const settingsNonce = WPMD_Settings.WPMD_SettingsNonce;
     apiFetch.use(apiFetch.createNonceMiddleware(settingsNonce));
 
-    let storeChanged = () => {
-    };
+    let storeChanged = () => {};
+
     const settings = {
         markdownLimitedBlocks: JSON.stringify({}),
         markdownThemeSettings: {},
@@ -59,7 +59,7 @@ export default function createMarkdownStore() {
                     WPMD_Settings.siteurl.host
                 )
             ) {
-                settings.markdownThemeSettings.theme = 'mustard-seed';
+                settings.markdownThemeSettings.theme = 'default';
                 settings.isDefaultEditor = true;
                 settings.documentInformation = true;
             }
@@ -74,8 +74,7 @@ export default function createMarkdownStore() {
             'X-WP-Nonce': settingsNonce,
         },
     }).then((res) => {
-        settings.markdownLimitedBlocks =
-            res.markdown_limited_blocks || JSON.stringify({});
+        settings.markdownLimitedBlocks = res.markdown_limited_blocks || JSON.stringify({});
         storeChanged();
     });
 
@@ -87,9 +86,11 @@ export default function createMarkdownStore() {
         getLimitedBlocks() {
             return settings.markdownLimitedBlocks;
         },
+
         getThemeSettings() {
             return settings.markdownThemeSettings;
         },
+
         isEditorPanelEnabled(panelName) {
             return settings[panelName];
         },
@@ -110,6 +111,7 @@ export default function createMarkdownStore() {
                 },
             });
         },
+
         setThemeSettings(themeSettings) {
             settings.markdownThemeSettings = themeSettings;
             storeChanged();

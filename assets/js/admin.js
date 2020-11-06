@@ -3,6 +3,7 @@
         init: () => {
 
             app.initDarkMode();
+            app.handleExcludes();
 
             const btnSwitch = document.querySelector('.dark-mode-switch');
             if (btnSwitch) {
@@ -33,7 +34,27 @@
 
             const is_saved = document.querySelector('html').classList.contains('dark-mode-active') ? 1 : 0;
             localStorage.setItem('dark_mode_active', is_saved);
-        }
+        },
+
+        handleExcludes: function () {
+
+            const elements = document.querySelectorAll('.dark-mode-ignore, .color-palette');
+
+            console.log(elements)
+
+            if(!elements){
+                return;
+            }
+
+            elements.forEach((element) => {
+                element.classList.add('dark-mode-ignore');
+                const children = element.querySelectorAll('*');
+
+                children.forEach((child) => {
+                    child.classList.add('dark-mode-ignore');
+                })
+            });
+        },
     };
 
     document.addEventListener('DOMContentLoaded', app.init);

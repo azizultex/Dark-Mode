@@ -34,6 +34,30 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 
 			add_filter( 'post_row_actions', array( $this, 'add_edit_links' ), 15, 2 );
 			add_filter( 'page_row_actions', array( $this, 'add_edit_links' ), 15, 2 );
+
+			add_action( 'admin_init', [ $this, 'update_user_meta' ] );
+		}
+
+		public function update_user_meta() {
+			global $wpdb;
+			$meta_exists = get_user_meta( get_current_user_id(), $wpdb->get_blog_prefix() . 'markdown_theme_settings', true );
+
+			if ( !empty( $meta_exists ) ) {
+				return;
+			}
+
+			$meta_value = array(
+				'theme'     => 'default',
+				'isDefault' => 1,
+				'colors'    => array(
+					'background' => '#edebe8',
+					'text'       => '#1E1E1E',
+					'accent'     => '#105d72',
+				)
+
+			);
+			update_user_meta( get_current_user_id(), $wpdb->get_blog_prefix() . 'markdown_theme_settings', $meta_value );
+
 		}
 
 		public function includes() {
@@ -41,7 +65,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 		}
 
 		public function editor_scripts() {
-			$dependencies = [];
+			$dependencies = '';
 			$version      = '';
 
 			if ( file_exists( WP_MARKDOWN_PATH . '/build/index.asset.php' ) ) {
@@ -119,10 +143,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 				$params['classic-editor__forget'] = 'forget';
 			}
 
-			$edit_link = add_query_arg(
-				$params,
-				$url
-			);
+			$edit_link = add_query_arg( $params, $url );
 
 			$edit_actions = array(
 				'edit_with_markdown' => sprintf(

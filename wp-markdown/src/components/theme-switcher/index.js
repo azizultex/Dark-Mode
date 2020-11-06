@@ -30,6 +30,7 @@ import {
     withSpokenMessages,
 } from '@wordpress/components';
 
+
 class ThemeSwitcher extends Component {
     constructor() {
         super(...arguments);
@@ -47,7 +48,6 @@ class ThemeSwitcher extends Component {
             isEditorThemeLoaded: false,
             isEditingTheme: false,
             isEditingTypography: false,
-            showPromo: false,
         };
     }
 
@@ -101,6 +101,7 @@ class ThemeSwitcher extends Component {
     }
 
     addControl() {
+
         const {isActive, updateThemeSettings, postType} = this.props;
         let {themeSettings} = this.state;
 
@@ -124,6 +125,8 @@ class ThemeSwitcher extends Component {
         if (!this.state.theme) {
             this.setState({theme: themeSettings.theme});
         }
+
+
 
         const onRequestClose = (event) => {
             const closeButton = document.querySelector('.components-markdown-theme-switcher__trigger');
@@ -211,6 +214,7 @@ class ThemeSwitcher extends Component {
                                 disabled={!WPMD_Settings.is_pro}
 
                                 className={`components-markdown-theme-switcher__trigger ${!WPMD_Settings.is_pro ? 'disabled' : ''}`}
+                                className={`components-markdown-theme-switcher__trigger`}
                             >
 								<span className="components-markdown-theme-switcher__palette"
                                       style={{

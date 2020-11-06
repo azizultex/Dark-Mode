@@ -61,10 +61,7 @@ class ThemeEditor extends Component {
 				[ category ]: {
 					[ key ]: value,
 				},
-				isDefault:
-					typeof EditorThemes[ updatedSettings.theme ] !== 'undefined'
-						? true
-						: false,
+				isDefault: typeof EditorThemes[ updatedSettings.theme ] !== 'undefined' ? true : false,
 			} );
 
 			if ( category === 'colors' ) {

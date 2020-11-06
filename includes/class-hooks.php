@@ -78,6 +78,11 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		 * display dark mode switcher button on the admin bar menu
 		 */
 		public function render_admin_switcher_menu() {
+
+		    if(!is_admin()){
+		        return;
+		    }
+
 			$light_text = __( 'Light', 'dark-mode' );
 			$dark_text  = __( 'Dark', 'dark-mode' );
 

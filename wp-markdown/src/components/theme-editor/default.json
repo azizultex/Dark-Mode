@@ -1,5 +1,5 @@
 {
-  "default": "iceberg",
+  "default": "default",
   "isDefault": true,
   "colors": {
     "background": "#edebe8",

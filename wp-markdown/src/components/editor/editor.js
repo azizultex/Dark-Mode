@@ -191,6 +191,7 @@ class MarkdownEditor extends Component {
 
 		return (
 			<Fragment>
+
 				<PluginMoreMenuItem
 					role="menuitemcheckbox"
 					icon={ icon }
@@ -199,6 +200,7 @@ class MarkdownEditor extends Component {
 				>
 					{ __( 'Switch to Markdown', 'dark-mode' ) }
 				</PluginMoreMenuItem>
+
 				<KeyboardShortcuts
 					bindGlobal
 					shortcuts={ {
@@ -207,14 +209,18 @@ class MarkdownEditor extends Component {
 						},
 					} }
 				/>
+
 				{ isActive && <Shortcuts isActive={ isActive } /> }
 				<RegisterShortcuts isActive={ isActive } />
 				<MoreMenu isActive={ isActive } />
 				<BlockLimiter isActive={ isActive } />
+
 				<ThemeSwitcher isActive={ isActive } isEnabled={ isThemesUI } />
+
 				{ isActive && isDocumentInformation && (
 					<DocumentInfo isActive={ isActive } />
 				) }
+
 				{ ! isActive && (
 					<ShortcutButton
 						onToggle={ onToggle }
