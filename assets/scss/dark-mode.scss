@@ -110,18 +110,7 @@ html.dark-mode-active {
 
 }
 
-/**-- RankMath --*/
-body.dark-mode-active {
-  .rank-math-page {
-    .rank-math-ui {
-      &:before {
-        background: #10161E;
-
-      }
-    }
-
-    #wpfooter {
-      background: #10161E;
-    }
-  }
+/**-- WP Dark Mode Compatibility --*/
+#wp-admin-bar-wp-dark-mode{
+  display: none;
 }

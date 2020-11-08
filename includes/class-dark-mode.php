@@ -86,9 +86,6 @@ if ( ! class_exists( 'Dark_Mode' ) ) {
 
 			wp_enqueue_style( 'dark-mode', $css_url, false, DARK_MODE_VERSION );
 
-			if ( class_exists( 'RankMath' ) ) {
-				wp_enqueue_style( 'dark-mode-rank-math', DARK_MODE_URL . '/assets/css/rankmath.css', false, DARK_MODE_VERSION );
-			}
 		}
 
 		/**

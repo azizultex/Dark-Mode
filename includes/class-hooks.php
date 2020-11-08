@@ -79,9 +79,9 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		 */
 		public function render_admin_switcher_menu() {
 
-		    if(!is_admin()){
-		        return;
-		    }
+			if ( ! is_admin() ) {
+				return;
+			}
 
 			$light_text = __( 'Light', 'dark-mode' );
 			$dark_text  = __( 'Dark', 'dark-mode' );
