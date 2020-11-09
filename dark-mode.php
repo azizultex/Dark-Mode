@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WP Markdown (Formerly Dark Mode)
+ * Plugin Name: WP Markdown Editor (Formerly Dark Mode)
  * Plugin URI: https://wppool.dev/wp-dark-mode
  * Description: Lets your users make the WordPress admin dashboard darker.
  * Author: WPPOOL
