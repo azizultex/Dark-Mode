@@ -1,18 +1,23 @@
 <?php
 /**
- * Plugin Name: Dark Mode
- * Plugin URI: https://wordpress.org/plugins/dark-mode/
+ * Plugin Name: WP Markdown Editor (Formerly Dark Mode)
+ * Plugin URI: https://wppool.dev/wp-dark-mode
  * Description: Lets your users make the WordPress admin dashboard darker.
- * Author: David Gwyer
- * Author URI: https://www.wpgoplugins.com/
+ * Author: WPPOOL
+ * Author URI: https://wppool.dev
  * Text Domain: dark-mode
- * Version: 3.2.1
+ * Version: 3.3.2
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	die();
-}
+defined( 'ABSPATH' ) || exit();
 
-require 'class-dark-mode.php';
+define( 'DARK_MODE_VERSION', '3.3.2' );
+define( 'DARK_MODE_FILE', __FILE__ );
+define( 'DARK_MODE_PATH', plugin_dir_path( __FILE__ ) );
+define( 'DARK_MODE_URL', plugin_dir_url( __FILE__ ) );
 
-$dark_mode = new Dark_Mode();
+register_activation_hook( __FILE__, function () {
+	require DARK_MODE_PATH . '/includes/class-install.php';
+} );
+
+require DARK_MODE_PATH.'/includes/class-dark-mode.php';

@@ -1,0 +1,41 @@
+.editor-styles-wrapper {
+
+	.wp-block-code {
+		background: var(--markdown--color--background--dark);
+		border-radius: 0;
+		border: 0;
+		color: var(--markdown--color--text);
+		font-size: var(--markdown--typography--font-size, 0.95rem);
+		line-height: var(--markdown--typography--line-height, 2.25);
+		padding: 25px 35px;
+
+		textarea {
+			background: var(--markdown--color--background--dark);
+		}
+
+		code {
+			background: none !important;
+			border-radius: 0;
+			font-size: var(--markdown--typography--font-size, 0.95rem) !important;
+			margin: 0;
+			padding: 0;
+			top: 0;
+		}
+	}
+
+	.wp-block-verse pre,
+	.wp-block-preformatted pre,
+	.wp-block-code .block-editor-plain-text {
+		font-size: var(--markdown--typography--font-size, 0.95rem) !important;
+		color: var(--markdown--color--text) !important;
+	}
+
+	.block-editor-rich-text__editable code {
+		background: var(--markdown--color--background--dark);
+		color: var(--markdown--color--text);
+		border-radius: 0;
+		font-size: var(--markdown--typography--font-size, 0.95rem);
+		top: 0;
+		padding: 3px 5px;
+	}
+}
