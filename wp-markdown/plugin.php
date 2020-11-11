@@ -2,17 +2,16 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WP_MARKDOWN_VERSION', '1.0.0' );
-define( 'WP_MARKDOWN_FILE', __FILE__ );
-define( 'WP_MARKDOWN_PATH', dirname( WP_MARKDOWN_FILE ) );
-define( 'WP_MARKDOWN_INCLUDES', WP_MARKDOWN_PATH . '/includes/' );
-define( 'WP_MARKDOWN_URL', plugins_url( '', WP_MARKDOWN_FILE ) );
-define( 'WP_MARKDOWN_ASSETS', WP_MARKDOWN_URL . '/assets/' );
-define( 'WP_MARKDOWN_TEMPLATES', WP_MARKDOWN_PATH . '/templates/' );
-
 
 if ( ! class_exists( 'WP_Markdown' ) ) {
 
+	define( 'WP_MARKDOWN_VERSION', DARK_MODE_VERSION );
+	define( 'WP_MARKDOWN_FILE', __FILE__ );
+	define( 'WP_MARKDOWN_PATH', dirname( WP_MARKDOWN_FILE ) );
+	define( 'WP_MARKDOWN_INCLUDES', WP_MARKDOWN_PATH . '/includes/' );
+	define( 'WP_MARKDOWN_URL', plugins_url( '', WP_MARKDOWN_FILE ) );
+	define( 'WP_MARKDOWN_ASSETS', WP_MARKDOWN_URL . '/assets/' );
+	define( 'WP_MARKDOWN_TEMPLATES', WP_MARKDOWN_PATH . '/templates/' );
 
 	final class WP_Markdown {
 		private static $instance = null;
@@ -23,7 +22,6 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 
 			global $pagenow;
 			if ( is_admin() && ( $pagenow === 'post.php' || $pagenow === 'post-new.php' ) ) {
-
 				add_action( 'enqueue_block_assets', [ $this, 'editor_scripts' ] );
 				add_action( 'enqueue_block_assets', [ $this, 'editor_styles' ] );
 			}
@@ -38,6 +36,11 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 			add_action( 'admin_init', [ $this, 'update_user_meta' ] );
 		}
 
+		/**
+		 * set default data to the user meta
+		 *
+		 * @return void
+		 */
 		public function update_user_meta() {
 			global $wpdb;
 			$meta_exists = get_user_meta( get_current_user_id(), $wpdb->get_blog_prefix() . 'markdown_theme_settings', true );

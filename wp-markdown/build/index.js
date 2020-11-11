@@ -18459,7 +18459,7 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
               className: "components-menu-group__get-pro"
             }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_19__["MenuItem"], {
               className: "components-markdown-theme-switcher__get-pro"
-            }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("span", null, "Unlock PRO features now. ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("a", {
+            }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("span", null, "Unlock all features now. ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("a", {
               href: "https://wppool.dev/wp-markdown-editor",
               target: '_blank',
               className: 'wp-markdown-get-pro-btn'

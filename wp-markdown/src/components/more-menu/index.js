@@ -210,6 +210,9 @@ class MoreMenu extends Component {
                                         {__('⚙️ Settings', 'dark-mode')}
                                     </MenuItem>
                                 </MenuGroup>
+
+
+
                             </Fragment>
                         )}
                     </DropdownMenu>

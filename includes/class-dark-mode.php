@@ -2,7 +2,6 @@
 
 defined( 'ABSPATH' ) || exit();
 
-if ( ! class_exists( 'Dark_Mode' ) ) {
 	final class Dark_Mode {
 
 		private static $instance = null;
@@ -137,6 +136,5 @@ if ( ! class_exists( 'Dark_Mode' ) ) {
 			return self::$instance;
 		}
 	}
-}
 
 Dark_Mode::instance();

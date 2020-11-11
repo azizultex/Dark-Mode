@@ -155,7 +155,6 @@
 .components-markdown-theme-switcher__content {
 
 	.components-menu-group__get-pro {
-		padding: 10px 5px 10px 8px !important;
 		.components-markdown-theme-switcher__get-pro {
 			padding: 0 !important;
 			min-height: auto !important;
@@ -163,6 +162,10 @@
 			span {
 				font-size: 12px;
 				color: seagreen;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 			}
 		}
 	}

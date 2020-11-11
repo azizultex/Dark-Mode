@@ -316,7 +316,7 @@ class ThemeSwitcher extends Component {
                                             <MenuItem
                                                 className="components-markdown-theme-switcher__get-pro"
                                             >
-                                                <span>Unlock PRO features now. <a href="https://wppool.dev/wp-markdown-editor" target={'_blank'} className={'wp-markdown-get-pro-btn'}>Get PRO</a> </span>
+                                                <span>Unlock all features now. <a href="https://wppool.dev/wp-markdown-editor" target={'_blank'} className={'wp-markdown-get-pro-btn'}>Get PRO</a> </span>
                                             </MenuItem>
                                         </MenuGroup>
                                         }
