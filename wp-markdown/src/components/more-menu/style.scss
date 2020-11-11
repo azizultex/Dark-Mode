@@ -43,3 +43,28 @@
 		bottom: 38px;
 	}
 }
+
+/** -- Custom -- **/
+.components-markdown-more-menu__content {
+	.components-menu-item__button:disabled {
+		opacity: 1 !important;
+
+		span {
+			opacity: .3;
+		}
+	}
+}
+
+.wp-markdown-get-pro-btn{
+	font-size: 12px;
+	text-decoration: none;
+	border-radius: 5px;
+	border: 1px solid deeppink;
+	padding: 3px 5px;
+	background: deeppink;
+	color: #fff !important;
+
+	&:hover{
+		color: #fff !important;
+	}
+}

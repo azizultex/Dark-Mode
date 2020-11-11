@@ -31,10 +31,10 @@ class Options extends Component {
             <Fragment>
                 <Modal
                     className="components-markdown-options-modal"
-                    title={`WP Markdown Settings`}
+                    title={<span>WP Markdown Settings <a href="https://wppool.dev/wp-markdown-editor" target={'_blank'} className={'wp-markdown-get-pro-btn'}>Get PRO</a> </span>}
                     onRequestClose={closeModal}
                 >
-                    {!WPMD_Settings.is_pro ? <span className="components-markdown-options-modal-subtitle">(Upgrade to PRO to customize the settings)</span> : ''}
+                    {!WPMD_Settings.is_pro ? <span className="components-markdown-options-modal-subtitle">Upgrade to PRO to customize the settings</span> : ''}
 
                     <Section title={`Writing`}>
 
@@ -159,6 +159,7 @@ class Options extends Component {
                             )}
                         </Fragment>
                     </Section>
+
                 </Modal>
             </Fragment>
         );

@@ -4,7 +4,6 @@
  * External dependencies
  */
 import {get} from 'lodash';
-
 /**
  * Internal dependencies
  */
@@ -13,23 +12,16 @@ import CopyContentMarkdownMenuItem from '../copy-content-menu-item/markdown';
 import Options from '../options-modal/options';
 import icons from '../icons';
 import UpdateTitleHeight from '../utils/title-height';
-
 /**
  * WordPress dependencies
  */
 import {__} from '@wordpress/i18n';
 import {withDispatch, withSelect} from '@wordpress/data';
 import {compose} from '@wordpress/compose';
-import {Fragment, Component, render} from '@wordpress/element';
+import {Component, Fragment, render} from '@wordpress/element';
 import {displayShortcut} from '@wordpress/keycodes';
 import {addQueryArgs} from '@wordpress/url';
-import {
-    withSpokenMessages,
-    DropdownMenu,
-    MenuGroup,
-    MenuItem,
-    BaseControl, Button,
-} from '@wordpress/components';
+import {BaseControl, DropdownMenu, MenuGroup, MenuItem, withSpokenMessages,} from '@wordpress/components';
 
 class MoreMenu extends Component {
     constructor() {
@@ -99,11 +91,11 @@ class MoreMenu extends Component {
                                         }}
 
                                         disabled={!WPMD_Settings.is_pro}
-                                        className={!WPMD_Settings.is_pro ? 'disabled' : ''}
-
                                     >
-                                        {__('Edit editor theme', 'dark-mode')}
+                                        <span>{__('Edit editor theme', 'dark-mode')}</span>
+                                        {!WPMD_Settings.is_pro && <span className={'wp-markdown-pro-badge'}>PRO</span>}
                                     </MenuItem>
+
                                     <MenuItem
                                         onClick={() => {
 
@@ -128,7 +120,8 @@ class MoreMenu extends Component {
                                         disabled={!WPMD_Settings.is_pro}
                                         className={!WPMD_Settings.is_pro ? 'disabled' : ''}
                                     >
-                                        {__('Edit typography', 'dark-mode')}
+                                        <span>{__('Edit typography', 'dark-mode')}</span>
+                                        {!WPMD_Settings.is_pro && <span className={'wp-markdown-pro-badge'}>PRO</span>}
                                     </MenuItem>
                                     <MenuItem
                                         className="components-markdown-more-menu__back"

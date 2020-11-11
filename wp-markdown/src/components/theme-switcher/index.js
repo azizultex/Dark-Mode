@@ -1,8 +1,9 @@
+/*global WPMD_Settings*/
+
 /**
  * External dependencies
  */
-import {map, merge, assign, get} from 'lodash';
-
+import {assign, get, map, merge} from 'lodash';
 /**
  * Internal dependencies
  */
@@ -12,23 +13,15 @@ import ThemeEditor from '../theme-editor';
 import icons from '../icons';
 import {assignVariables} from './variables';
 import difference from './utils/difference';
-
 /**
  * WordPress dependencies
  */
 import {__} from '@wordpress/i18n';
 import {compose} from '@wordpress/compose';
 import {addQueryArgs} from '@wordpress/url';
-import {withSelect, withDispatch} from '@wordpress/data';
-import {Fragment, Component, render} from '@wordpress/element';
-import {
-    Button,
-    Dropdown,
-    Tooltip,
-    MenuGroup,
-    MenuItem,
-    withSpokenMessages,
-} from '@wordpress/components';
+import {withDispatch, withSelect} from '@wordpress/data';
+import {Component, Fragment, render} from '@wordpress/element';
+import {Button, Dropdown, MenuGroup, MenuItem, Tooltip, withSpokenMessages,} from '@wordpress/components';
 
 
 class ThemeSwitcher extends Component {
@@ -82,9 +75,8 @@ class ThemeSwitcher extends Component {
 
         // Update switcher color
         if (markdownButton && this.state.themeSettings.theme === 'custom') {
-            markdownButton.querySelector(
-                '.components-markdown-theme-switcher__palette'
-            ).style.backgroundImage = `linear-gradient(130deg,${
+            markdownButton.querySelector('.components-markdown-theme-switcher__palette')
+                .style.backgroundImage = `linear-gradient(130deg,${
                 typeof EditorThemes[this.state.theme] !== 'undefined'
                     ? EditorThemes[this.state.theme].colors.background
                     : this.state.themeSettings.colors.background
@@ -125,7 +117,6 @@ class ThemeSwitcher extends Component {
         if (!this.state.theme) {
             this.setState({theme: themeSettings.theme});
         }
-
 
 
         const onRequestClose = (event) => {
@@ -193,9 +184,9 @@ class ThemeSwitcher extends Component {
                             <Button
                                 onClick={() => {
 
-                                    if (!WPMD_Settings.is_pro) {
-                                        return;
-                                    }
+                                    // if (!WPMD_Settings.is_pro) {
+                                    //     return;
+                                    // }
 
                                     const editorWrapper = document.querySelector('.block-editor-writing-flow');
 
@@ -211,23 +202,23 @@ class ThemeSwitcher extends Component {
                                     this.onExitEditTheme(onToggle);
                                 }}
 
-                                disabled={!WPMD_Settings.is_pro}
+                                //disabled={!WPMD_Settings.is_pro}
 
                                 className={`components-markdown-theme-switcher__trigger ${!WPMD_Settings.is_pro ? 'disabled' : ''}`}
                                 className={`components-markdown-theme-switcher__trigger`}
                             >
 								<span className="components-markdown-theme-switcher__palette"
-                                      style={{
-                                          backgroundImage: `linear-gradient(130deg,${
-                                              typeof EditorThemes[this.state.theme] !== 'undefined'
-                                                  ? EditorThemes[this.state.theme].colors.background
-                                                  : this.state.themeSettings.colors.background
-                                          } 48.75%, ${
-                                              typeof EditorThemes[this.state.theme] !== 'undefined'
-                                                  ? EditorThemes[this.state.theme].colors.accent
-                                                  : this.state.themeSettings.colors.accent
-                                          } 50%)`,
-                                      }}
+                                    style={{
+                                        backgroundImage: `linear-gradient(130deg,${
+                                            typeof EditorThemes[this.state.theme] !== 'undefined'
+                                                ? EditorThemes[this.state.theme].colors.background
+                                                : this.state.themeSettings.colors.background
+                                        } 48.75%, ${
+                                            typeof EditorThemes[this.state.theme] !== 'undefined'
+                                                ? EditorThemes[this.state.theme].colors.accent
+                                                : this.state.themeSettings.colors.accent
+                                        } 50%)`,
+                                    }}
                                 ></span>
 
                                 {icons.caretDown}
@@ -240,9 +231,7 @@ class ThemeSwitcher extends Component {
                                 !this.state.isEditingTypography ? (
                                     <Fragment>
                                         <MenuGroup>
-                                            {map(
-                                                EditorThemes,
-                                                (theme, key) => {
+                                            {map(EditorThemes, (theme, key) => {
                                                     if ('custom' !== key) {
                                                         return (
                                                             <MenuItem
@@ -250,35 +239,38 @@ class ThemeSwitcher extends Component {
                                                                 onClick={() => {
                                                                     this.onSelect(key, onToggle);
                                                                 }}
+                                                                disabled={!WPMD_Settings.is_pro && 'default' !== key}
                                                             >
                                                                 <Fragment>
-																	<span
+
+                                                                    <span
                                                                         className="components-markdown-theme-switcher__palette"
                                                                         style={{
                                                                             backgroundImage: `linear-gradient(130deg,${theme.colors.background} 48.75%, ${theme.colors.accent} 50%)`,
                                                                         }}
                                                                     ></span>
-                                                                    {
-                                                                        theme.name
-                                                                    }
-                                                                    {this.state
-                                                                        .theme ===
-                                                                    key
-                                                                        ? icons.checkMark
-                                                                        : null}
+
+                                                                    <span>{theme.name}</span>
+
+                                                                    {this.state.theme === key ? icons.checkMark : null}
+
+                                                                    {(!WPMD_Settings.is_pro && 'default' !== key) &&
+                                                                    <span className={'wp-markdown-pro-badge'}>PRO</span>}
                                                                 </Fragment>
                                                             </MenuItem>
                                                         );
                                                     }
                                                 }
                                             )}
+
                                             <MenuItem
                                                 key="custom"
                                                 onClick={() => {
                                                     this.onEditTheme(onToggle, 'isEditingTheme');
-
                                                     this.onSelect('custom', onToggle);
                                                 }}
+
+                                                disabled={!WPMD_Settings.is_pro}
                                             >
                                                 <Fragment>
 													<span
@@ -287,31 +279,48 @@ class ThemeSwitcher extends Component {
                                                             backgroundImage: `linear-gradient(130deg,${this.state.themeSettings.colors.background} 48.75%, ${this.state.themeSettings.colors.accent} 50%)`,
                                                         }}
                                                     ></span>
-                                                    {__(
-                                                        'Custom',
-                                                        'dark-mode'
-                                                    )}
-                                                    {this.state.theme ===
-                                                    'custom' ||
-                                                    typeof EditorThemes[
-                                                        this.state.theme
-                                                        ] === 'undefined'
-                                                        ? icons.checkMark
-                                                        : icons.color}
+
+                                                    <span>{__('Custom', 'dark-mode')}</span>
+
+                                                    {
+                                                        WPMD_Settings.is_pro ?
+                                                            this.state.theme === 'custom' || typeof EditorThemes[this.state.theme] === 'undefined' ? icons.checkMark : icons.color
+                                                            : <span className={'wp-markdown-pro-badge'}>PRO</span>
+                                                    }
+
+
                                                 </Fragment>
                                             </MenuItem>
+
                                         </MenuGroup>
+
                                         <MenuGroup>
                                             <MenuItem
                                                 className="components-markdown-theme-switcher__typography"
                                                 onClick={() => {
                                                     this.onEditTheme(onToggle, 'isEditingTypography');
                                                 }}
+
+                                                disabled={!WPMD_Settings.is_pro}
                                             >
-                                                {__('Edit typography', 'dark-mode')}
-                                                {icons.typography}
+                                                <span>✎ {__('Edit typography', 'dark-mode')}</span>
+                                                {WPMD_Settings.is_pro ? icons.typography :
+                                                    <span className={'wp-markdown-pro-badge'}>PRO</span>}
                                             </MenuItem>
                                         </MenuGroup>
+
+                                        {!WPMD_Settings.is_pro &&
+                                        <MenuGroup
+                                        className="components-menu-group__get-pro"
+                                        >
+                                            <MenuItem
+                                                className="components-markdown-theme-switcher__get-pro"
+                                            >
+                                                <span>Unlock PRO features now. <a href="https://wppool.dev/wp-markdown-editor" target={'_blank'} className={'wp-markdown-get-pro-btn'}>Get PRO</a> </span>
+                                            </MenuItem>
+                                        </MenuGroup>
+                                        }
+
                                     </Fragment>
                                 ) : (
                                     <ThemeEditor

@@ -149,3 +149,38 @@
 		display: inline-flex;
 	}
 }
+
+/** --- Custom CSS -- **/
+
+.components-markdown-theme-switcher__content {
+
+	.components-menu-group__get-pro {
+		padding: 10px 5px 10px 8px !important;
+		.components-markdown-theme-switcher__get-pro {
+			padding: 0 !important;
+			min-height: auto !important;
+
+			span {
+				font-size: 12px;
+				color: seagreen;
+			}
+		}
+	}
+
+	.components-menu-item__button:disabled {
+		opacity: 1 !important;
+
+		span {
+			opacity: .3;
+		}
+	}
+}
+
+span.wp-markdown-pro-badge {
+	margin-left: auto;
+	font-size: 10px;
+	border: 1px solid deeppink;
+	padding: 3px 5px;
+	border-radius: 10px;
+	opacity: 1 !important;
+}

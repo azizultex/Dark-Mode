@@ -48,6 +48,13 @@
 }
 
 .components-markdown-options-modal {
+
+  .components-modal__header-heading {
+    .wp-markdown-get-pro-btn {
+      margin-left: 15px;
+    }
+  }
+
   .components-base-control__help {
     text-indent: 0 !important;
     font-size: 12px;
@@ -57,6 +64,8 @@
   &-subtitle {
     margin-top: 10px;
     display: block;
+    color: deeppink;
+    font-weight: bold;
   }
 
   .edit-post-options-modal__section.disabled {
