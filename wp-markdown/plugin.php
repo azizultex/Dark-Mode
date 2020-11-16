@@ -99,7 +99,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 					'license'            => get_option( 'iceberg_license_active' ),
 					'isGutenberg'        => defined( 'GUTENBERG_VERSION' ) || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'gutenberg/gutenberg.php' ) ) ? true : false,
 					'isEditWPMD'         => isset( $_GET['is_markdown'] ) ? sanitize_text_field( $_GET['is_markdown'] ) : false,
-					'is_pro'             => false,
+					'is_pro'             => apply_filters('wp_markdown_editor_is_pro_active', false),
 				)
 			);
 
@@ -119,11 +119,11 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 		}
 
 		public function enter_title_here( $text, $post ) {
-			return __( 'Title', 'iceberg' );
+			return __( 'Title', 'dark-mode' );
 		}
 
 		public function write_your_story( $text, $post ) {
-			return __( 'Tell your story...', 'iceberg' );
+			return __( 'Tell your story...', 'dark-mode' );
 		}
 
 		public function add_edit_links( $actions, $post ) {
@@ -152,7 +152,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 				'edit_with_markdown' => sprintf(
 					'<a href="%1$s">%2$s</a>',
 					esc_url( $edit_link ),
-					__( 'Edit (Markdown)', 'iceberg' )
+					__( 'Edit (Markdown)', 'dark-mode' )
 				),
 			);
 

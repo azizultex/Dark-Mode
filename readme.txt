@@ -34,14 +34,13 @@ Use  WP Markdown Editor plugin to create a stunning dark version for your WordPr
 * **Remember Dark Mode** – The dark mode remains saved once you activated the dark mode.
 
 = How to use? =
-After activating the plugin, you can see that a dar mode switch menu added to the admin bar.
+After activating the plugin, a new row action **Edit (Markdown)** will be added  in the post/ page table row actions.
+For editing any page/ post with the markdown editor, you need to click the **Edit (Markdown)** button in the post/ page row actions.
+Then you will redirect to the Markdown editor and can start editing with the markdown syntax.
+You can find the Markdown editor shortcuts by clicking the keyboard icon at the right-bottom side of the editor.
+
+You can see a Dark mode switch added to the admin bar menu.
 You can toggle between the dark and light mode by using that switch any time.
-
-== Installation ==
-
-1. Upload the plugin package to the plugins directory.
-2. Login to the dashboard and activate the plugin.
-3. Go to your profile and enable Dark Mode.
 
 == Frequently Asked Questions ==
 
@@ -55,12 +54,15 @@ Yes, the network administration areas have been styled accordingly to ensure a s
 
 == Screenshots ==
 
-1. The dashboard with Dark Mode turned off.
-2. The dashboard with Dark Mode turned on.
-3. Dark Mode with an admin color scheme in use.
-4. The Dark Mode settings on a user's profile page.
-5. Media Screen Dark Mode
-6. Gutenberg Editor Color Schemes
+1. WP Markdown Editor in default color.
+2. Ready-made Color Schema.
+3. Color customizing options.
+4. Typography customizing options.
+5. WP Markdown Editor More options.
+6. WP Markdown Editor Settings.
+7. WP Markdown Editor shortcuts.
+8. Dark Mode Switch Button.
+9. Admin Dashboard in Dark Mode.
 
 == Changelog ==
 

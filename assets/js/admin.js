@@ -38,9 +38,7 @@
 
         handleExcludes: function () {
 
-            const elements = document.querySelectorAll('.dark-mode-ignore, .color-palette');
-
-            console.log(elements)
+            const elements = document.querySelectorAll('.dark-mode-ignore, .color-palette, .health-check-accordion-heading');
 
             if(!elements){
                 return;

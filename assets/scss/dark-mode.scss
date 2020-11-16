@@ -64,7 +64,7 @@ html.dark-mode-active {
   $link_color: #0073A8;
 
   #wpbody-content {
-    :not(.wp-dark-mode-ignore):not(mark):not(code):not(pre):not(ins):not(option):not(input):not(select):not(textarea):not(button):not(a):not(video):not(canvas):not(progress):not(iframe):not(svg):not(path):not(.mejs-iframe-overlay):not(.dark-mode-ignore) {
+    :not(.wp-dark-mode-ignore):not(mark):not(code):not(pre):not(ins):not(option):not(input):not(select):not(textarea):not(button):not(a):not(video):not(canvas):not(progress):not(iframe):not(svg):not(path):not(.mejs-iframe-overlay):not(.dark-mode-ignore):not(.health-check-accordion-trigger) {
       background-color: $bg_color !important;
       color: $color !important;
       border-color: $border_color !important;

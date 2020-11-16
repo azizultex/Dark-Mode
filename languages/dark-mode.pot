@@ -13,14 +13,14 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: includes/class-dark-mode.php:108
+#: includes/class-dark-mode.php:104
 msgid "Feedback"
 msgstr ""
 
-#: includes/class-hooks.php:81
+#: includes/class-hooks.php:91
 msgid "Light"
 msgstr ""
 
-#: includes/class-hooks.php:82
+#: includes/class-hooks.php:92
 msgid "Dark"
 msgstr ""

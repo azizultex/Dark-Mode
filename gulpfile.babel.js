@@ -11,6 +11,8 @@ import zip from 'gulp-zip';
 import checktextdomain from 'gulp-checktextdomain';
 import wpPot from 'gulp-wp-pot';
 import webpack from 'webpack-stream';
+import named from 'vinyl-named';
+
 import ReplaceInFileWebpackPlugin from 'replace-in-file-webpack-plugin';
 
 const PRODUCTION = yargs.argv.prod;
@@ -47,15 +49,11 @@ const paths = {
             '**/*',
             '!node_modules/**',
 
-            '!block/node_modules/**',
-            '!block/node_modules',
-            '!block/src/**',
-            '!block/src',
-
             '!wp-markdown/node_modules/**',
-            '!wp-markdown/node_modules',
             '!wp-markdown/src/**',
-            '!wp-markdown/src',
+            '!wp-markdown/package.json',
+            '!wp-markdown/package-lock.json',
+            '!wp-markdown/webpack.config.js',
 
             '!build/**',
             '!src/**',
