@@ -21,7 +21,7 @@ import {compose} from '@wordpress/compose';
 import {Component, Fragment, render} from '@wordpress/element';
 import {displayShortcut} from '@wordpress/keycodes';
 import {addQueryArgs} from '@wordpress/url';
-import {BaseControl, DropdownMenu, MenuGroup, MenuItem, withSpokenMessages,} from '@wordpress/components';
+import {BaseControl, DropdownMenu, MenuGroup, MenuItem, withSpokenMessages} from '@wordpress/components';
 
 class MoreMenu extends Component {
     constructor() {

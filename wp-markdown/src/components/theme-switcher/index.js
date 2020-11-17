@@ -23,6 +23,8 @@ import {withDispatch, withSelect} from '@wordpress/data';
 import {Component, Fragment, render} from '@wordpress/element';
 import {Button, Dropdown, MenuGroup, MenuItem, Tooltip, withSpokenMessages,} from '@wordpress/components';
 
+import BackToGutenberg from '../back-to-gutenberg';
+
 
 class ThemeSwitcher extends Component {
     constructor() {
@@ -348,6 +350,7 @@ class ThemeSwitcher extends Component {
                             </Fragment>
                         )}
                     />
+                    <BackToGutenberg/>
                 </Fragment>
             );
         };
