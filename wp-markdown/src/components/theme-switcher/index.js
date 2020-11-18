@@ -24,6 +24,7 @@ import {Component, Fragment, render} from '@wordpress/element';
 import {Button, Dropdown, MenuGroup, MenuItem, Tooltip, withSpokenMessages,} from '@wordpress/components';
 
 import BackToGutenberg from '../back-to-gutenberg';
+import GetProBanner from '../get-pro-banner';
 
 
 class ThemeSwitcher extends Component {
@@ -239,9 +240,13 @@ class ThemeSwitcher extends Component {
                                                             <MenuItem
                                                                 key={key}
                                                                 onClick={() => {
-                                                                    this.onSelect(key, onToggle);
+                                                                    if(!WPMD_Settings.is_pro && 'default' !== key){
+                                                                        document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
+                                                                    } else {
+                                                                        this.onSelect(key, onToggle);
+                                                                    }
                                                                 }}
-                                                                disabled={!WPMD_Settings.is_pro && 'default' !== key}
+                                                                className={!WPMD_Settings.is_pro && 'default' !== key && 'disabled'}
                                                             >
                                                                 <Fragment>
 
@@ -268,11 +273,14 @@ class ThemeSwitcher extends Component {
                                             <MenuItem
                                                 key="custom"
                                                 onClick={() => {
-                                                    this.onEditTheme(onToggle, 'isEditingTheme');
-                                                    this.onSelect('custom', onToggle);
+                                                    if(!WPMD_Settings.is_pro){
+                                                        document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
+                                                    } else {
+                                                        this.onEditTheme(onToggle, 'isEditingTheme');
+                                                        this.onSelect('custom', onToggle);
+                                                    }
                                                 }}
-
-                                                disabled={!WPMD_Settings.is_pro}
+                                                className={!WPMD_Settings.is_pro && 'disabled'}
                                             >
                                                 <Fragment>
 													<span
@@ -300,10 +308,13 @@ class ThemeSwitcher extends Component {
                                             <MenuItem
                                                 className="components-markdown-theme-switcher__typography"
                                                 onClick={() => {
-                                                    this.onEditTheme(onToggle, 'isEditingTypography');
+                                                    if(!WPMD_Settings.is_pro){
+                                                        document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
+                                                    } else {
+                                                        this.onEditTheme(onToggle, 'isEditingTypography');
+                                                    }
                                                 }}
-
-                                                disabled={!WPMD_Settings.is_pro}
+                                                className={!WPMD_Settings.is_pro && 'disabled'}
                                             >
                                                 <span>✎ {__('Edit typography', 'dark-mode')}</span>
                                                 {WPMD_Settings.is_pro ? icons.typography :
@@ -351,6 +362,7 @@ class ThemeSwitcher extends Component {
                         )}
                     />
                     <BackToGutenberg/>
+                    <GetProBanner/>
                 </Fragment>
             );
         };
