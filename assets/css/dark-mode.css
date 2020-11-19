@@ -66,8 +66,7 @@
           transform: translateX(87%);
 }
 
-/**--- dark mode ---*/
-/**-- WP Dark Mode Compatibility --*/
+/**-- Dark Mode --*/
 #wp-admin-bar-wp-dark-mode {
   display: none;
 }

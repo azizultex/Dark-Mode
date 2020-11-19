@@ -56,65 +56,7 @@
 
 }
 
-/**--- dark mode ---*/
-// html.dark-mode-active {
-//   $bg_color: #10161E;
-//   $color: #bbc8d4;
-//   $border_color: #555;
-//   $link_color: #0073A8;
-
-//   #wpbody-content {
-//     :not(.wp-dark-mode-ignore):not(mark):not(code):not(pre):not(ins):not(option):not(input):not(select):not(textarea):not(button):not(a):not(video):not(canvas):not(progress):not(iframe):not(svg):not(path):not(.mejs-iframe-overlay):not(.dark-mode-ignore):not(.health-check-accordion-trigger) {
-//       background-color: $bg_color !important;
-//       color: $color !important;
-//       border-color: $border_color !important;
-//     }
-
-//     a,
-//     a *,
-//     a:active,
-//     a:active *,
-//     a:visited,
-//     a:visited * {
-//       &:not(.wp-dark-mode-ignore) {
-//         background-color: transparent !important;
-//         color: $link_color !important;
-//         border-color: $border_color !important;
-//       }
-//     }
-//   }
-
-//   #wpcontent {
-//     background: $bg_color !important;
-
-//     #wpbody {
-
-//       #wpbody-content {
-
-//         .delete, .submitdelete {
-//           color: red !important;
-//         }
-
-//         .notice, .notice * {
-//           background: #252525 !important;
-//         }
-
-//         #screen-meta * {
-//           background: #32373c !important;
-//         }
-//       }
-
-//     }
-
-//   }
-
-// }
-
-/**-- WP Dark Mode Compatibility --*/
-#wp-admin-bar-wp-dark-mode{
-  display: none;
-}
-
+/**-- Dark Mode --*/
 //Variables
 $white:           #ffffff;
 $black:           #000000;
@@ -144,7 +86,9 @@ $bright-blue:     #30ceff;
 $editor-lavender: #c678dd;
 $editor-sunglo:   #e06c75;
 $editor-olivine:  #98c379;
-
+#wp-admin-bar-wp-dark-mode{
+  display: none;
+}
 html.dark-mode-active {
   body:not(.gutenberg-editor-page) {
 
