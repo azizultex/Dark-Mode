@@ -106,7 +106,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 				$version
 			);
 
-			wp_enqueue_script( 'jquery.syotimer', DARK_MODE_URL . '/assets/js/jquery.syotimer.min.js', array('jquery'), '2.1.2', true );
+			wp_enqueue_script( 'jquery.syotimer', DARK_MODE_URL . 'assets/js/jquery.syotimer.min.js', array('jquery'), '2.1.2', true );
 
 			//todo
 			list( $iceberg_theme, ) = (array) get_theme_support( 'iceberg-editor' );

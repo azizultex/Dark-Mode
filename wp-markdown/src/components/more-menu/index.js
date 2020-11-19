@@ -78,19 +78,13 @@ class MoreMenu extends Component {
                                     </BaseControl>
                                     <MenuItem
                                         onClick={() => {
-
                                             if (!WPMD_Settings.is_pro) {
+                                                document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
                                                 return;
-                                            }
-
-                                            const markdownButton = document.querySelector('.components-markdown-theme-switcher__trigger');
-                                            if (markdownButton) {
-                                                markdownButton.style.visibility = 'visible';
-                                                markdownButton.click();
                                             }
                                         }}
 
-                                        disabled={!WPMD_Settings.is_pro}
+                                        className={!WPMD_Settings.is_pro && 'disabled'}
                                     >
                                         <span>{__('Edit editor theme', 'dark-mode')}</span>
                                         {!WPMD_Settings.is_pro && <span className={'wp-markdown-pro-badge'}>PRO</span>}
@@ -98,26 +92,11 @@ class MoreMenu extends Component {
 
                                     <MenuItem
                                         onClick={() => {
-
                                             if (!WPMD_Settings.is_pro) {
+                                                document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
                                                 return;
                                             }
-
-                                            const markdownButton = document.querySelector('.components-markdown-theme-switcher__trigger');
-
-                                            if (markdownButton) {
-                                                markdownButton.style.visibility = 'visible';
-                                                markdownButton.click();
-
-                                                const checkExist = setInterval(
-                                                    function () {
-                                                        document.querySelector('.components-markdown-theme-switcher__typography').click();
-                                                        clearInterval(checkExist);
-                                                    }, 100);
-                                            }
                                         }}
-
-                                        disabled={!WPMD_Settings.is_pro}
                                         className={!WPMD_Settings.is_pro ? 'disabled' : ''}
                                     >
                                         <span>{__('Edit typography', 'dark-mode')}</span>

@@ -14714,19 +14714,19 @@ var GetProBanner = /*#__PURE__*/function (_Component) {
         className: "promo-img",
         src: WPMD_Settings.pluginDirUrl + '/assets/images/icon-128x128.png',
         alt: "WP Markdown"
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h3", null, "Upgrade to Ultimate to access these features"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h3", {
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h3", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('Upgrade to Ultimate to access these features', 'dark-mode')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h3", {
         className: "discount"
-      }, "GET ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('GET', 'dark-mode'), " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
         class: "percentage"
-      }, "50%"), " OFF"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h3", {
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('50%', 'dark-mode')), " ", Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('OFF', 'dark-mode')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h3", {
         className: "limited-title"
-      }, "LIMITED TIME ONLY"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('LIMITED TIME ONLY', 'dark-mode')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "simple_timer"
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
         href: "https://wppool.dev/wp-markdown-editor",
         target: "_blank",
         className: "wpmd-pro-btn"
-      }, "GET PRO")));
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('GET PRO', 'dark-mode'))));
     }
   }]);
 
@@ -16184,37 +16184,20 @@ var MoreMenu = /*#__PURE__*/function (_Component) {
           }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_13__["__"])('General', 'dark-mode')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_18__["MenuItem"], {
             onClick: function onClick() {
               if (!WPMD_Settings.is_pro) {
+                document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
                 return;
               }
-
-              var markdownButton = document.querySelector('.components-markdown-theme-switcher__trigger');
-
-              if (markdownButton) {
-                markdownButton.style.visibility = 'visible';
-                markdownButton.click();
-              }
             },
-            disabled: !WPMD_Settings.is_pro
+            className: !WPMD_Settings.is_pro && 'disabled'
           }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("span", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_13__["__"])('Edit editor theme', 'dark-mode')), !WPMD_Settings.is_pro && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("span", {
             className: 'wp-markdown-pro-badge'
           }, "PRO")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_18__["MenuItem"], {
             onClick: function onClick() {
               if (!WPMD_Settings.is_pro) {
+                document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
                 return;
               }
-
-              var markdownButton = document.querySelector('.components-markdown-theme-switcher__trigger');
-
-              if (markdownButton) {
-                markdownButton.style.visibility = 'visible';
-                markdownButton.click();
-                var checkExist = setInterval(function () {
-                  document.querySelector('.components-markdown-theme-switcher__typography').click();
-                  clearInterval(checkExist);
-                }, 100);
-              }
             },
-            disabled: !WPMD_Settings.is_pro,
             className: !WPMD_Settings.is_pro ? 'disabled' : ''
           }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("span", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_13__["__"])('Edit typography', 'dark-mode')), !WPMD_Settings.is_pro && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("span", {
             className: 'wp-markdown-pro-badge'

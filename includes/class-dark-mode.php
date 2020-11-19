@@ -59,7 +59,7 @@ defined( 'ABSPATH' ) || exit();
 		 */
 		public function admin_scripts() {
 
-			wp_enqueue_script( 'dark-mode', DARK_MODE_URL . '/assets/js/admin.js', false, DARK_MODE_VERSION, true );
+			wp_enqueue_script( 'dark-mode', DARK_MODE_URL . 'assets/js/admin.js', false, DARK_MODE_VERSION, true );
 			wp_localize_script( 'dark-mode', 'darkmode', [
 				'plugin_url' => DARK_MODE_URL,
 			] );
@@ -81,7 +81,7 @@ defined( 'ABSPATH' ) || exit();
 			 * @since 1.1
 			 * @since 2.1 Removed second parameter from `plugins_url()`.
 			 */
-			$css_url = apply_filters( 'dark_mode_css', DARK_MODE_URL . '/assets/css/dark-mode.css' );
+			$css_url = apply_filters( 'dark_mode_css', DARK_MODE_URL . 'assets/css/dark-mode.css' );
 
 			wp_enqueue_style( 'dark-mode', $css_url, false, DARK_MODE_VERSION );
 

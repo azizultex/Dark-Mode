@@ -46,7 +46,8 @@
 
 /** -- Custom -- **/
 .components-markdown-more-menu__content {
-	.components-menu-item__button:disabled {
+	.components-menu-item__button:disabled,
+	.components-menu-item__button.disabled {
 		opacity: 1 !important;
 
 		span {

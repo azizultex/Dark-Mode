@@ -1,0 +1,55 @@
+.markdown-components-color-palette {
+  position: relative;
+}
+
+.markdown-components-color-palette .components-color-palette__item-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.markdown-components-color-palette .components-circular-option-picker__option {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  display: block;
+  border-radius: 2px;
+  height: auto;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  line-height: 25px;
+  min-height: 42px;
+  padding: 8px 12px 8px 42px !important;
+  width: 100%;
+  text-align: left;
+}
+
+.markdown-components-color-palette .components-circular-option-picker__option:hover,
+.markdown-components-color-palette .components-circular-option-picker__option:hover span, .markdown-components-color-palette .components-circular-option-picker__option:focus,
+.markdown-components-color-palette .components-circular-option-picker__option:focus span {
+  color: var(--markdown--color--accent);
+}
+
+.markdown-components-color-palette .components-circular-option-picker__option:focus {
+  background-size: none;
+}
+
+.markdown-components-color-palette .components-circular-option-picker__option span {
+  color: var(--markdown--color--text);
+}
+
+.markdown-components-color-palette .components-circular-option-picker__option span:hover, .markdown-components-color-palette .components-circular-option-picker__option span:focus {
+  color: var(--markdown--color--accent);
+}
+
+.markdown-components-color-palette .components-circular-option-picker__option::after {
+  background: currentColor;
+  border: 2px solid var(--markdown--color--text);
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  border-radius: 50%;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}

@@ -1,0 +1,134 @@
+.components-button.edit-post-fullscreen-mode-close, .components-button.editor-history__undo, .components-button.editor-history__redo, .components-button.editor-post-preview, .components-button.block-editor-post-preview__button-toggle {
+  display: none !important;
+}
+
+.edit-post-header-toolbar .components-dropdown:not(.components-markdown-theme-switcher__dropdown):not(.components-circular-option-picker__dropdown-link-action):not(.components-color-palette__item-wrapper):last-of-type,
+.edit-post-header-toolbar > div:not(#markdown-theme-switcher):last-of-type,
+.edit-post-header__toolbar .components-dropdown:not(.components-markdown-theme-switcher__dropdown):not(.components-circular-option-picker__dropdown-link-action):not(.components-color-palette__item-wrapper):last-of-type,
+.edit-post-header__toolbar > div:not(#markdown-theme-switcher):last-of-type {
+  display: none !important;
+}
+
+.edit-post-header-toolbar .edit-post-fullscreen-mode-close__toolbar,
+.edit-post-header__toolbar .edit-post-fullscreen-mode-close__toolbar {
+  display: none !important;
+}
+
+.edit-post-header__toolbar .table-of-contents {
+  display: none !important;
+}
+
+.edit-post-layout__toggle-publish-panel,
+.editor-post-publish-panel {
+  display: none;
+}
+
+.block-editor-inserter + .components-dropdown {
+  display: none !important;
+}
+
+.edit-post-header__settings .editor-post-preview__dropdown,
+.edit-post-header__settings .edit-post-pinned-plugins,
+.edit-post-header__settings .interface-pinned-items {
+  display: none !important;
+}
+
+.edit-post-header__settings .edit-post-more-menu {
+  display: none !important;
+}
+
+.editor-post-publish-button__button + .components-button {
+  display: none !important;
+}
+
+.edit-post-header__settings > div:nth-last-child(2) {
+  display: none !important;
+}
+
+.edit-post-sidebar,
+.editor-post-permalink,
+.edit-post-layout__footer,
+.block-editor-editor-skeleton__sidebar,
+.block-editor-editor-skeleton__footer,
+.edit-post-layout__metaboxes,
+.editorskit-component-help-tips {
+  display: none !important;
+}
+
+.block-editor-inserter,
+.block-editor-block-list__insertion-point,
+.block-editor-block-list__insertion-point-inserter,
+.block-editor-block-list__empty-block-inserter {
+  display: none !important;
+}
+
+.block-list-appender .block-editor-inserter {
+  display: none !important;
+}
+
+.edit-post-visual-editor > .popover-slot {
+  opacity: 0 !important;
+}
+
+.block-editor-rich-text__inline-format-toolbar {
+  display: none !important;
+}
+
+.block-editor-block-list__insertion-point-popover {
+  opacity: 0 !important;
+}
+
+.block-editor-block-list__block[data-type="core/paragraph"].is-selected::before {
+  display: none;
+}
+
+.block-editor-block-contextual-toolbar,
+.block-editor-block-contextual-toolbar-wrapper {
+  display: none !important;
+}
+
+.block-editor-block-mover {
+  display: none !important;
+}
+
+.components-editor-notices__dismissible {
+  display: none;
+}
+
+.edit-post-header__toolbar .block-editor-inserter {
+  display: none;
+}
+
+.block-editor-editor-skeleton__publish:focus-within .edit-post-layout__toggle-publish-panel,
+.block-editor-editor-skeleton__publish:focus-within .edit-post-layout__toogle-sidebar-panel,
+.block-editor-editor-skeleton__publish:focus .edit-post-layout__toggle-publish-panel,
+.block-editor-editor-skeleton__publish:focus .edit-post-layout__toogle-sidebar-panel,
+.block-editor-editor-skeleton__sidebar:focus-within .edit-post-layout__toggle-publish-panel,
+.block-editor-editor-skeleton__sidebar:focus-within .edit-post-layout__toogle-sidebar-panel,
+.block-editor-editor-skeleton__sidebar:focus .edit-post-layout__toggle-publish-panel,
+.block-editor-editor-skeleton__sidebar:focus .edit-post-layout__toogle-sidebar-panel {
+  display: none;
+}
+
+.editor-post-publish-panel {
+  padding-bottom: 40px;
+}
+
+.blocks-gallery-item::before,
+.blocks-gallery-item::after,
+.block-library-gallery-item__move-menu,
+.block-library-gallery-item__inline-menu {
+  display: none !important;
+}
+
+.interface-interface-skeleton__left-sidebar {
+  display: none;
+}
+
+.table-of-contents__popover,
+.block-editor-inserter__popover,
+.edit-post-more-menu__content,
+.block-editor-block-list__breadcrumb,
+.block-editor-block-navigation__popover {
+  display: none;
+}
