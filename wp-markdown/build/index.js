@@ -14723,7 +14723,7 @@ var GetProBanner = /*#__PURE__*/function (_Component) {
       }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('LIMITED TIME ONLY', 'dark-mode')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "simple_timer"
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
-        href: "https://wppool.dev/wp-markdown-editor",
+        href: "https://wppool.dev/wp-markdown",
         target: "_blank",
         className: "wpmd-pro-btn"
       }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('GET PRO', 'dark-mode'))));
@@ -16228,7 +16228,7 @@ var MoreMenu = /*#__PURE__*/function (_Component) {
             }
           }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_13__["__"])('New ' + Object(lodash__WEBPACK_IMPORTED_MODULE_7__["get"])(postType, ['labels', 'singular_name'], 'Posts').toLowerCase(), 'dark-mode')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_copy_content_menu_item__WEBPACK_IMPORTED_MODULE_8__["default"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_copy_content_menu_item_markdown__WEBPACK_IMPORTED_MODULE_9__["default"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_18__["MenuItem"], {
             role: "menuitem",
-            href: "https://wppool.dev/",
+            href: "https://wppool.dev/wp-markdown",
             target: "_new"
           }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_13__["__"])('Help', 'dark-mode'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_18__["MenuGroup"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_18__["MenuItem"], {
             onClick: function onClick() {
@@ -16762,15 +16762,15 @@ var Options = /*#__PURE__*/function (_Component) {
       var isResetting = this.state.isResetting;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Modal"], {
         className: "components-markdown-options-modal",
-        title: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", null, "WP Markdown Settings ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
-          href: "https://wppool.dev/wp-markdown-editor",
+        title: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('WP Markdown Settings', 'dark-mode'), " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
+          href: "https://wppool.dev/wp-markdown",
           target: '_blank',
           className: 'wp-markdown-get-pro-btn'
-        }, "Get PRO"), " "),
+        }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('Get PRO', 'dark-mode')), " "),
         onRequestClose: closeModal
       }, !WPMD_Settings.is_pro ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
         className: "components-markdown-options-modal-subtitle"
-      }, "Upgrade to PRO to customize the settings") : '', Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_section__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('Upgrade to PRO to customize the settings', 'dark-mode')) : '', Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_section__WEBPACK_IMPORTED_MODULE_10__["default"], {
         title: "Writing"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(___WEBPACK_IMPORTED_MODULE_11__["EnablePanelOption"], {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('Minimize images', 'dark-mode'),
@@ -18698,11 +18698,11 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
               className: "components-menu-group__get-pro"
             }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_19__["MenuItem"], {
               className: "components-markdown-theme-switcher__get-pro"
-            }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("span", null, "Unlock all features now. ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("a", {
-              href: "https://wppool.dev/wp-markdown-editor",
+            }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("span", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_15__["__"])('Unlock all features now.', 'dark-mode'), " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("a", {
+              href: "https://wppool.dev/wp-markdown",
               target: '_blank',
               className: 'wp-markdown-get-pro-btn'
-            }, "Get PRO"), " ")))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_theme_editor__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_15__["__"])('Get PRO', 'dark-mode')), " ")))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_theme_editor__WEBPACK_IMPORTED_MODULE_11__["default"], {
               onToggle: onToggle,
               loadConfig: _this2.loadConfig,
               isEditingTheme: _this2.state.isEditingTheme,

@@ -68,6 +68,9 @@ Yes, the network administration areas have been styled accordingly to ensure a s
 
 = Version History =
 
+= 4.0.0 =
+* New: Write post/ page with markdown syntax
+
 = 3.3.1 =
 * New: Add RankMath plugin support
 

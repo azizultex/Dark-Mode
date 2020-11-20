@@ -172,7 +172,7 @@ class MoreMenu extends Component {
                                     <CopyContentMarkdownMenuItem/>
                                     <MenuItem
                                         role="menuitem"
-                                        href="https://wppool.dev/"
+                                        href="https://wppool.dev/wp-markdown"
                                         target="_new"
                                     >
                                         {__('Help', 'dark-mode')}
