@@ -59,6 +59,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 				)
 
 			);
+
 			update_user_meta( get_current_user_id(), $wpdb->get_blog_prefix() . 'markdown_theme_settings', $meta_value );
 
 		}
@@ -108,9 +109,6 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 
 			wp_enqueue_script( 'jquery.syotimer', DARK_MODE_URL . 'assets/js/jquery.syotimer.min.js', array('jquery'), '2.1.2', true );
 
-			//todo
-			list( $iceberg_theme, ) = (array) get_theme_support( 'iceberg-editor' );
-
 			wp_localize_script(
 				'wp-markdown-script',
 				'WPMD_Settings',
@@ -119,9 +117,8 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 					'pluginDirUrl'  	 => plugin_dir_url( __DIR__ ),
 					'countdown_time'	 => $countdown_time,
 					'WPMD_SettingsNonce' => wp_create_nonce( 'wp_rest' ),
-					'isDefaultEditor'    => get_option( 'iceberg_is_default_editor' ),
-					'customThemes'       => ( false !== $iceberg_theme ) ? $iceberg_theme : '',
-					'license'            => get_option( 'iceberg_license_active' ),
+					'isDefaultEditor'    => get_option( 'markdown_is_default_editor' ),
+					'customThemes'       =>  '',
 					'isGutenberg'        => defined( 'GUTENBERG_VERSION' ) || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'gutenberg/gutenberg.php' ) ) ? true : false,
 					'isEditWPMD'         => isset( $_GET['is_markdown'] ) ? sanitize_text_field( $_GET['is_markdown'] ) : false,
 					'is_pro'             => apply_filters('wp_markdown_editor_is_pro_active', false)

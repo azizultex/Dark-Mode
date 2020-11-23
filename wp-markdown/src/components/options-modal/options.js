@@ -12,7 +12,7 @@ import {withSpokenMessages, Modal, Button} from '@wordpress/components';
  */
 import Section from './section';
 import {EnablePanelOption} from './';
-import LicenseSettings from './licenses/license-settings';
+//import LicenseSettings from './licenses/license-settings';
 import defaults from '../../components/theme-editor/default';
 
 class Options extends Component {
@@ -31,7 +31,7 @@ class Options extends Component {
             <Fragment>
                 <Modal
                     className="components-markdown-options-modal"
-                    title={<span>{__('WP Markdown Settings', 'dark-mode')} <a href="https://wppool.dev/wp-markdown" target={'_blank'} className={'wp-markdown-get-pro-btn'}>{__('Get PRO', 'dark-mode')}</a> </span>}
+                    title={<span>{__('WP Markdown Settings', 'dark-mode')} <a href="https://wppool.dev/wp-markdown-editor" target={'_blank'} className={'wp-markdown-get-pro-btn'}>{__('Get PRO', 'dark-mode')}</a> </span>}
                     onRequestClose={closeModal}
                 >
                     {!WPMD_Settings.is_pro ? <span className="components-markdown-options-modal-subtitle">{__('Upgrade to PRO to customize the settings', 'dark-mode')}</span> : ''}

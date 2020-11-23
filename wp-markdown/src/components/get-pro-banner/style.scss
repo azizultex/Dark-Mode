@@ -22,10 +22,8 @@
     margin-top: 32px;
 }
 .promo-img {
-    border-radius: 50%;
-    max-width: 128px;
-    margin-top: -64px;
-    border: 2px solid white;
+  width: 80px;
+  padding-top: 20px;
 }
 .markdown-gopro-inner h3{
     color: white;
@@ -55,15 +53,17 @@
 .syotimer-cell {
 	display: inline-block;
 	margin: 0 5px;
-	width: 79px;
-	background: url('../../assets/images/timer.png') no-repeat 0 0;
+  width: 50px;
+  height: 50px;
+  background: url('../../assets/images/timer.png') no-repeat;
+  background-size: cover;
 }
 
 .syotimer-cell__value {
-	font-size: 35px;
+	font-size: 24px;
 	color: #ff1493;
-	height: 81px;
-	line-height: 81px;
+	height: 50px;
+	line-height: 2  ;
 	margin: 0 0 5px;
 }
 

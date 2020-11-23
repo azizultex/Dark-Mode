@@ -33,17 +33,6 @@ if ( ! class_exists( 'Dark_Mode_Install' ) ) {
 		 */
 		private static function create_default_data() {
 
-			$user_meta = array(
-				'theme'     => 'default',
-				'isDefault' => 1,
-				'colors'    => array
-				(
-					'background' => '#edebe8',
-					'text'       => '#1E1E1E',
-					'accent'     => '#105d72',
-				)
-			);
-
 			update_option( 'dark_mode_version', DARK_MODE_VERSION );
 
 			$install_date = get_option( 'dark_mode_install_time' );

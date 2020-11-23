@@ -128,6 +128,9 @@ defined( 'ABSPATH' ) || exit();
 
 		}
 
+		/**
+		 * @return Dark_Mode|null
+		 */
 		public static function instance() {
 			if ( is_null( self::$instance ) ) {
 				self::$instance = new self();

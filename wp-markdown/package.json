@@ -34,6 +34,7 @@
     "css-loader": "^3.5.3",
     "dom-scroll-into-view": "^2.0.1",
     "eslint-plugin-eslint-comments": "^3.1.2",
+    "file-loader": "^6.2.0",
     "ignore-emit-webpack-plugin": "^2.0.2",
     "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.9.0",
@@ -43,14 +44,18 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "npm:wp-prettier@1.19.1",
+    "react-svg-loader": "^3.0.3",
     "replace-in-file-webpack-plugin": "^1.0.6",
     "sass-loader": "^8.0.2",
     "showdown": "^1.9.1",
     "stylelint-config-wordpress": "13.1.0",
+    "svg-inline-loader": "^0.8.2",
+    "url-loader": "^4.1.1",
     "webpack-fix-style-only-entries": "^0.4.0",
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
     "browser-sync": "^2.26.7",
     "wp-cli": "0.0.5"
   }
