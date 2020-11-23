@@ -1,6 +1,6 @@
 === WP Markdown Editor (Formerly Dark Mode) ===
-Contributors: wppool, azizultex, princeahmed, emrikol, danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad, loumray, bueltge, dingo_bastard, yuanhao, leetaylor5455
-Tags: dark, style, admin, dashboard, profile
+Contributors: wppool, azizultex, princeahmed, foysalremon, emrikol, danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad, loumray, bueltge, dingo_bastard, yuanhao, leetaylor5455
+Tags: dark, style, admin, dashboard, profile, markdown
 Requires at least: 5.0.0
 Tested up to: 5.5.3
 Stable tag: 4.0.0

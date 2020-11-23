@@ -362,7 +362,7 @@ class ThemeSwitcher extends Component {
                         )}
                     />
                     <BackToGutenberg/>
-                    <GetProBanner/>
+                    {!WPMD_Settings.is_pro && <GetProBanner/>}
                 </Fragment>
             );
         };
