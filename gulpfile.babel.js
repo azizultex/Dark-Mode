@@ -12,6 +12,8 @@ import checktextdomain from 'gulp-checktextdomain';
 import wpPot from 'gulp-wp-pot';
 import webpack from 'webpack-stream';
 import named from 'vinyl-named';
+import del from 'del';
+
 
 import ReplaceInFileWebpackPlugin from 'replace-in-file-webpack-plugin';
 
@@ -49,6 +51,7 @@ const paths = {
             '**/*',
             '!node_modules/**',
 
+            '!vendor/**',
             '!wp-markdown/node_modules/**',
             '!wp-markdown/src/**',
             '!wp-markdown/package.json',
@@ -89,6 +92,8 @@ const paths = {
     },
 
 };
+
+export const clean = () => del(['build'], {force: true});
 
 //css stuff
 export const css = () => {
@@ -227,6 +232,6 @@ export const makepot = () => {
 };
 
 export const dev = gulp.series(gulp.parallel(css, js), serve, watch);
-export const build = gulp.series(gulp.parallel(css, js), checkdomain, makepot, compress);
+export const build = gulp.series(clean, gulp.parallel(css, js), checkdomain, makepot, compress);
 
 export default dev;

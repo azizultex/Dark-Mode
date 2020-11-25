@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit();
 			add_action( 'plugins_loaded', [ $this, 'load_text_domain' ], 10, 0 );
 			add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ], 99, 0 );
 
-			add_filter( 'plugin_action_links', [ $this, 'add_plugin_links' ], 10, 2 );
+			add_filter( 'plugin_action_links_' . plugin_basename( DARK_MODE_FILE ), array( $this, 'plugin_action_links' ) );
 		}
 
 		/**
@@ -35,7 +35,6 @@ defined( 'ABSPATH' ) || exit();
 		public function includes() {
 			include DARK_MODE_PATH . '/includes/class-hooks.php';
 			include DARK_MODE_PATH . '/wp-markdown/plugin.php';
-			//include DARK_MODE_PATH . '/block/plugin.php';
 		}
 
 		/**
@@ -88,24 +87,16 @@ defined( 'ABSPATH' ) || exit();
 		}
 
 		/**
-		 * Add some useful links to the plugin table.
+		 * Plugin action links
 		 *
-		 * @param array $links The list of plugin links.
-		 * @param string $file The current plugin.
+		 * @param   array  $links
 		 *
-		 * @return array $links
-		 * @since 1.8
-		 *
+		 * @return array
 		 */
-		public function add_plugin_links( $links, $file ) {
-			// Check Dark Mode is the next plugin.
-			if ( 'dark-mode/dark-mode.php' === $file ) {
-				// Create the feedback link.
-				$feedback_link = '<a href="https://github.com/dgwyer/Dark-Mode/issues" target="_blank">' . __( 'Feedback', 'dark-mode' ) . '</a>';
+		public function plugin_action_links( $links ) {
 
-				// Add the feedback link.
-				array_unshift( $links, $feedback_link );
-			}
+			$links[] = sprintf( '<a href="%1$s" target="_blank" style="color: orangered;font-weight: bold;">%2$s</a>',
+				'https://wppool.dev/wp-markdown-editor', __( 'GET PRO', 'dark-mode' ) );
 
 			return $links;
 		}

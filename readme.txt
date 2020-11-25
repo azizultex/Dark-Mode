@@ -45,12 +45,23 @@ You can toggle between the dark and light mode by using that switch any time.
 == Frequently Asked Questions ==
 
 = What does this plugin do? =
+You can write and edit content easily in WordPress without thinking about blocks and hassle of formatting with WP Markdown. It also brings a dark mode flavour for you!
 
-By default, WordPress has a very bright color scheme which means working at night time can be difficult. Dark Mode allows you to change the overall design to a much darker and subtle design making it more visually pleasing when working late.
+= How can I get familiar with the commands for using the plugin? =
+A Markdown cheat sheet is available for you which shows other keyboard shortcuts for heading, formatting and the interface.
 
-= Does this support multi sites? =
+= Is there enough color available in it to highlight my content? =
+Yes, choose your favourite color from the ready-made color schema available in WP Markdown. You can also customize the colors for highlighting the background and image of your content.
 
-Yes, the network administration areas have been styled accordingly to ensure a smooth, darker interface across your WordPress experience.
+= Does it support emojis? =
+Yes, WP Markdown supports all types of emojis in your write up.
+
+= Is this plugin compatible with all modern browsers? =
+Yes, We have tested this plugin in all modern browsers (Safari, Chrome, Firefox, Edge etc) works without any issue.
+
+= Do I need to know any programming language for using this plugin? =
+WP Markdown is a developer's way of writing content. Developers or coding folks will love it. But even if you are a newbie, you can easily use the plugin once the commands are familiar for you.
+
 
 == Screenshots ==
 
@@ -69,7 +80,7 @@ Yes, the network administration areas have been styled accordingly to ensure a s
 = Version History =
 
 = 4.0.0 =
-* New: Write post/ page with markdown syntax
+* New: Write post/ page with markdown syntax (Markdown Editor)
 
 = 3.3.1 =
 * New: Add RankMath plugin support
