@@ -1,6 +1,6 @@
 === WP Markdown Editor (Formerly Dark Mode) ===
 Contributors: wppool, azizultex, princeahmed, foysalremon, emrikol, danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad, loumray, bueltge, dingo_bastard, yuanhao, leetaylor5455
-Tags: dark, style, admin, dashboard, profile, markdown
+Tags: markdown, editor, dashboard, dark, markdown editor
 Requires at least: 5.0.0
 Tested up to: 5.5.3
 Stable tag: 4.0.0
@@ -22,7 +22,7 @@ Use  WP Markdown Editor plugin to create a stunning dark version for your WordPr
 
 
 = WP Markdown Editor (Formerly Dark Mode) Features =
-* **Topography Settings** - You can change the typography of your editor screen, using four different fonts, and controls for font size, line height, line width, and paragraph spacing.
+* **Typography Settings** - You can change the typography of your editor screen, using four different fonts, and controls for font size, line height, line width, and paragraph spacing.
 * **Ready-made Color Schema** - Quickly choose your favourite color from the ready-made color schema available in WP Markdown. Highlight and edit your content the way you want.
 * **Syntax Shortcuts** - A Markdown cheat sheet is available for you which shows other keyboard shortcuts for heading, formatting and the interface.
 * **Emoji Supported** - You can make your content more interactive and attractive with emojis. WP Markdown supports all types of emojis in your write up.
