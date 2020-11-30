@@ -1,0 +1,52 @@
+.editor-styles-wrapper .wp-block .wp-block-quote {
+	border: 0;
+	color: var(--markdown--color--text) !important;
+	font-family: var(--markdown--typography--font-family, IBM Plex Mono, monospace) !important;
+	font-size: var(--markdown--typography--font-size, 0.95rem) !important;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	line-height: var(--markdown--typography--line-height, 2.25) !important;
+	margin: 0;
+	overflow: visible;
+	padding: 0 0 0 20px;
+
+	.block-editor-rich-text__editable {
+		position: relative;
+	}
+
+	p {
+		color: var(--markdown--color--text) !important;
+		font-family: var(--markdown--typography--font-family, IBM Plex Mono, monospace) !important;
+		font-size: var(--markdown--typography--font-size, 0.95rem) !important;
+		font-style: normal;
+		font-weight: 400;
+		line-height: var(--markdown--typography--line-height, 2.25) !important;
+		margin-bottom: 0;
+		opacity: 0.65;
+		text-rendering: optimizeLegibility;
+
+		&::before {
+			height: calc(100% - 20px);
+			position: absolute;
+			bottom: 10px;
+			content: "";
+			top: 10px;
+			left: -20px;
+			background: var(--markdown--color--text) !important;
+			opacity: 0.4;
+			width: 2px;
+			border-radius: 50px;
+		}
+	}
+
+	.wp-block-quote__citation {
+		color: var(--markdown--color--text) !important;
+		font-family: var(--markdown--typography--font-family, IBM Plex Mono, monospace) !important;
+		font-size: var(--markdown--typography--caption--font-size) !important;
+		font-style: normal;
+		font-weight: normal;
+		line-height: var(--markdown--typography--line-height, 2.25) !important;
+		margin-top: 10px;
+	}
+}

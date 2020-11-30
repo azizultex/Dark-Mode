@@ -1,0 +1,130 @@
+// Add more padding to the editor
+.edit-post-visual-editor {
+	padding-top: 50px;
+}
+
+// Add more padding for mobile.
+.block-editor-block-list__layout {
+	padding-left: 25px;
+	padding-right: 25px;
+
+	// The primary indicator of selection in text is the native selection marker.
+	// When selecting multiple blocks, we provide an additional selection indicator.
+	.is-navigate-mode & .block-editor-block-list__block.is-selected,
+	.block-editor-block-list__block.is-multi-selected {
+
+		&::after,
+		.is-block-content {
+			box-shadow: none;
+			background: var(--markdown--color--accent--alpha);
+			border-radius: 0;
+		}
+	}
+}
+
+.block-editor-block-list__layout .block-editor-block-list__block.is-highlighted::after,
+.block-editor-block-list__layout .block-editor-block-list__block.is-multi-selected::after,
+.is-navigate-mode .block-editor-block-list__layout .block-editor-block-list__block.is-selected::after {
+	box-shadow: none;
+}
+
+.block-editor-block-list__layout .block-editor-block-list__block {
+
+	// Navigate mode & Focused wrapper.
+	// We're using a pseudo element to overflow placeholder borders
+	// and any border inside the block itself.
+	&:not([contenteditable]):focus {
+		outline: none;
+
+		&::after {
+			background: var(--markdown--color--accent--alpha);
+			box-shadow: none;
+			border-radius: 0;
+		}
+	}
+}
+
+// Color the dropzone line indicator between blocks.
+.block-editor-block-list__layout .block-editor-block-list__block,
+.block-editor-block-list__layout .block-list-appender {
+	position: relative;
+
+	// Between-blocks dropzone line indicator.
+	&.is-drop-target::before {
+		border-top: 2px solid var(--markdown--color--accent);
+	}
+
+	&.is-drop-target.is-dropping-horizontally::before {
+		border-left: 2px solid var(--markdown--color--accent);
+	}
+}
+
+.edit-post-layout .block-editor-editor-skeleton__content {
+	background: var(--markdown--color--background);
+}
+
+// Remove formats highlight
+.rich-text:focus *[data-rich-text-format-boundary]:not(mark):not(code) {
+	background-color: transparent;
+}
+
+// Hide the default paragraph block placeholder from repeating itself everywhere.
+.block-editor-block-list__layout {
+	.wp-block[data-type="core/paragraph"] {
+		&:not(:first-of-type) {
+			span[data-rich-text-placeholder] {
+				display: none;
+			}
+		}
+	}
+}
+
+// Remove selected border shadow
+.block-editor-block-list__layout .block-editor-block-list__block {
+	&.is-selected::before {
+		display: none;
+	}
+	&.is-multi-selected:not(.is-block-collapsed) {
+		box-shadow: none;
+
+		&:not([data-type="core/heading"]) {
+			overflow-x: hidden;
+		}
+
+
+		&::after {
+			position: absolute;
+			z-index: 1;
+			pointer-events: none;
+			content: "";
+			top: 1px;
+			bottom: 1px;
+			left: 1px;
+			right: 1px;
+			background: var(--markdown--color--accent--alpha);
+		}
+	}
+}
+
+.interface-interface-skeleton__content {
+	background-color: var(--markdown--color--background);
+}
+
+// Remove excess spacing.
+.interface-interface-skeleton {
+	top: 0;
+}
+
+// Remove odd borders.
+.interface-interface-skeleton__header,
+.interface-interface-skeleton__sidebar,
+.interface-interface-skeleton__footer {
+	border: 0;
+}
+
+// Supporting core.
+&:not(.is-gutenberg) {
+	.edit-post-header {
+		height: 60px;
+	}
+}

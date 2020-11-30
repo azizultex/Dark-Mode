@@ -1,0 +1,106 @@
+.components-markdown-gopro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    &.components-markdown-gopro-hidden{
+        display: none;
+    }
+}
+.markdown-gopro-inner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #212c36;
+    text-align: center;
+    color: white;
+    padding: 0 30px 40px;
+    margin-top: 32px;
+    border-radius: 15px;
+}
+.promo-img {
+  width: 80px;
+  padding-top: 20px;
+}
+.markdown-gopro-inner h3{
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    margin: 1em auto;
+    font-size: 16px;
+}
+.markdown-gopro-inner .discount{
+    font-size: 26px;
+}
+.markdown-gopro-inner .percentage {
+    color:#ff1493;
+    font-size: 40px;
+    font-weight: bold;
+}
+.markdown-gopro-inner .limited-title{
+    font-size: 24px;
+}
+
+.syotimer {
+	text-align: center;
+
+	margin: 30px auto 0;
+	padding: 0 0 10px;
+}
+
+.syotimer-cell {
+	display: inline-block;
+	margin: 0 5px;
+  width: 50px;
+  height: 50px;
+  background: url('../../assets/images/timer.png') no-repeat;
+  background-size: cover;
+}
+
+.syotimer-cell__value {
+	font-size: 24px;
+	color: #ff1493;
+	height: 50px;
+	line-height: 2  ;
+	margin: 0 0 5px;
+}
+
+.syotimer-cell__unit {
+	font-family: Arial, serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #fff;
+}
+.wpmd-pro-btn,
+.is-markdown a.wpmd-pro-btn{
+    background-color: #ff1493;
+    color: white !important;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 15px 35px !important;
+    height: auto;
+    margin-top: 20px;
+    &:hover{
+        background-color: darken(#ff1493, 10%) !important;
+    }
+}
+
+.markdown-close-promo {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    border: 2px solid white;
+    display: block;
+    line-height: 24px;
+    min-width: 30px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 18px;
+    padding-bottom: 2px;
+    background-color: white;
+    color: #ff1493;
+    cursor: pointer;
+}

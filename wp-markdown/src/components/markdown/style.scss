@@ -1,0 +1,54 @@
+// Comments
+.markdown-comment {
+	opacity: 0.65;
+
+	&:not(.is-selected)::after {
+		position: relative;
+		top: inherit;
+		right: inherit;
+		bottom: inherit;
+		left: inherit;
+		box-shadow: none;
+	}
+
+	&.with-percentage:not(.is-selected) {
+		&::before {
+			content: "%% ";
+		}
+
+		&::after {
+			content: " %%";
+		}
+	}
+
+	&.with-plus:not(.is-selected) {
+		&::before {
+			content: "++ ";
+		}
+
+		&::after {
+			content: " ++";
+		}
+	}
+}
+
+// Emojis
+.components-autocomplete__results {
+	.components-button {
+		span:not(.block-editor-block-icon) {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 200px;
+			opacity: 0.65;
+		}
+	}
+}
+
+// Hide comments in the block editor.
+&:not(.is-markdown) {
+
+	.markdown-comment {
+		display: none;
+	}
+}

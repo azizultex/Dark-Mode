@@ -1,0 +1,14 @@
+#components-markdown-shortcut-pinned-button {
+	.components-button {
+		padding: 0 6px;
+
+		svg {
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	.is-markdown & {
+		display: none;
+	}
+}

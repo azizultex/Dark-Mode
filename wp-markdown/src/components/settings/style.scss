@@ -1,0 +1,12 @@
+// Position the icon to the bottom right of the viewport.
+.components-markdown-settings {
+	position: absolute;
+	bottom: 19px;
+	right: 22px; // @todo, RTL should move this to the left.
+}
+
+.components-markdown-settings__content {
+	.components-popover__content {
+		min-width: 280px;
+	}
+}

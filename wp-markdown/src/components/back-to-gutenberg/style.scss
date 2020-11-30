@@ -1,0 +1,19 @@
+.components-markdown-back-to-default{
+    display: inline-flex;
+    color: var(--markdown--color--accent)!important;
+    height: 42px;
+    position: relative;
+    vertical-align: top;
+    line-height: 42px;
+    svg{
+        height: 18px;
+        transform: rotate(90deg);
+        width: 18px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+    span{
+        vertical-align: middle;
+        display: inline-block;
+    }
+}

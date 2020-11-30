@@ -1,0 +1,87 @@
+.component-markdown-contextual-toolbar {
+
+	.components-button {
+		background: transparent !important;
+		color: var(--markdown--color--background) !important;
+		height: 38px;
+
+		&:hover,
+		&:focus {
+			color: var(--markdown--color--background--light) !important;
+		}
+
+		&.is-pressed {
+			color: var(--markdown--color--background--light) !important;
+		}
+
+		&.is-pressed::before {
+			background: var(--markdown--color--background) !important;
+			opacity: 0.1;
+		}
+
+		&.is-pressed > svg {
+			color: var(--markdown--color--text) !important;
+			background: var(--markdown--color--background) !important;
+		}
+	}
+
+	.components-toolbar {
+		background: var(--markdown--color--text);
+		border-radius: 5px;
+		border: 0;
+		display: flex;
+		flex-wrap: nowrap;
+		min-height: 38px;
+		position: relative;
+	}
+
+	.components-popover__content {
+		background: transparent !important;
+		border: 0 !important;
+		min-width: auto !important;
+		overflow-y: visible;
+
+		&::after {
+			border-left: 6px solid transparent;
+			border-right: 6px solid transparent;
+			border-top: 6px solid  var(--markdown--color--text);
+			bottom: -6px;
+			content: "";
+			font-size: 0;
+			left: calc(50% - 6px);
+			line-height: 0;
+			position: absolute;
+			width: 0;
+		}
+	}
+}
+
+&.mobile {
+	.component-markdown-contextual-toolbar {
+		display: none;
+	}
+}
+
+.components-popover.components-markdown-image-settings__popover {
+	.components-popover__content {
+		padding: 12px;
+	}
+}
+
+
+&.is-gutenberg {
+	.component-markdown-contextual-toolbar {
+		.components-toolbar div:first-child .components-button.has-icon {
+			margin-left: -5px;
+		}
+
+		.components-toolbar div:last-child .components-button.has-icon {
+			margin-right: -5px;
+		}
+
+		.components-button.is-pressed > svg {
+			color: inherit !important;
+			background: transparent !important;
+		}
+	}
+}

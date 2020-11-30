@@ -1,0 +1,3 @@
+.components-resizable-box__side-handle::after, .components-resizable-box__side-handle::before {
+  background: var(--markdown--color--accent);
+}

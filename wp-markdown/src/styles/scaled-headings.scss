@@ -1,0 +1,71 @@
+// Scaled heading level option, scoped with .is-markdown
+&.has-scaled-heading-levels {
+	--markdown--typography--heading--ratio: 1.1;
+	--markdown--typography--heading--scale-0: var(--markdown--typography--font-size);
+	--markdown--typography--heading--scale-1: calc(var(--markdown--typography--heading--scale-0) * var(--markdown--typography--heading--ratio));
+	--markdown--typography--heading--scale-2: calc(var(--markdown--typography--heading--scale-1) * var(--markdown--typography--heading--ratio));
+	--markdown--typography--heading--scale-3: calc(var(--markdown--typography--heading--scale-2) * var(--markdown--typography--heading--ratio));
+	--markdown--typography--heading--scale-4: calc(var(--markdown--typography--heading--scale-3) * var(--markdown--typography--heading--ratio));
+	--markdown--typography--heading--scale-5: calc(var(--markdown--typography--heading--scale-4) * var(--markdown--typography--heading--ratio));
+	--markdown--typography--heading--scale-6: calc(var(--markdown--typography--heading--scale-5) * var(--markdown--typography--heading--ratio));
+
+	.editor-styles-wrapper {
+
+		h1,
+		.editor-post-title__input {
+			font-size: var(--markdown--typography--heading--scale-6) !important;
+		}
+
+		.editor-post-title__input {
+			line-height: var(--markdown--typography--heading--scale-6) !important;
+		}
+
+		h2 {
+			font-size: var(--markdown--typography--heading--scale-5) !important;
+		}
+
+		h3 {
+			font-size: var(--markdown--typography--heading--scale-4) !important;
+		}
+
+		h4 {
+			font-size: var(--markdown--typography--heading--scale-3) !important;
+		}
+
+		h5 {
+			font-size: var(--markdown--typography--heading--scale-2) !important;
+		}
+
+		h6 {
+			font-size: var(--markdown--typography--heading--scale-1) !important;
+		}
+	}
+
+	// Style the heading indicators appropriately
+	.markdown-heading-level-indicator {
+
+		&.level-1 .components-button {
+			font-size: var(--markdown--typography--heading--scale-6);
+		}
+
+		&.level-2 .components-button {
+			font-size: var(--markdown--typography--heading--scale-5);
+		}
+
+		&.level-3 .components-button {
+			font-size: var(--markdown--typography--heading--scale-4);
+		}
+
+		&.level-4 .components-button {
+			font-size: var(--markdown--typography--heading--scale-3);
+		}
+
+		&.level-5 .components-button {
+			font-size: var(--markdown--typography--heading--scale-2);
+		}
+
+		&.level-6 .components-button {
+			font-size: var(--markdown--typography--heading--scale-1);
+		}
+	}
+}

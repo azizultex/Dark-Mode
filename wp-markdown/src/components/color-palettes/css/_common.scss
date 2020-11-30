@@ -1,0 +1,81 @@
+.darkmode-theme-switch {
+  border-radius: 100%;
+  display: block;
+  height: 22px;
+  width: 22px;
+  margin-right: 5px;
+  cursor: pointer;
+
+  &-wrapper {
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    #darkmodeThemeSwitch {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+}
+
+#darkmodeColorPalettesContainer {
+  position: absolute;
+  top: 50px;
+  width: 170px;
+  background: #555;
+  left: -25px;
+
+  .darkmode-color-palettes-wrapper {
+    padding: 10px;
+    border: 1px solid;
+
+    a {
+      display: flex;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #eee;
+      align-items: center;
+
+      &:focus {
+        border: none;
+        box-shadow: none;
+      }
+
+      .tick {
+        margin-left: auto;
+      }
+
+      img{
+        max-width: 20px;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+    }
+  }
+
+}
+
+.darkmode-arrow {
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-top: -3px;
+
+  &.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
+
+#darkmodeThemeSwitchImg{
+  width: 20px;
+  margin-right: 5px;
+  border: 1px solid;
+  border-radius: 50%;
+}

@@ -1,0 +1,79 @@
+.edit-post-header {
+	background: var(--markdown--color--background);
+	animation: none !important; // Remove odd drop-in animation.
+	transform: translateY(0%) !important;
+	position: absolute;
+	width: 100%;
+}
+
+// Add like padding to the left of the toolbar.
+.edit-post-header__toolbar {
+	padding-left: 14px;
+}
+
+.interface-interface-skeleton__header {
+	color: var(--markdown--color--text);
+}
+
+.block-editor-editor-skeleton__header {
+	border: 0;
+}
+
+.editor-post-saved-state {
+	color: var(--markdown--color--accent--light);
+
+	&.is-saved,
+	&.is-saving {
+
+		svg {
+			display: none;
+		}
+
+		&::before {
+			//-webkit-mask-image: url(../images/icon.svg);
+			-webkit-mask-repeat: no-repeat;
+			-webkit-mask-size: contain;
+			background-color: currentColor;
+			background-repeat: no-repeat;
+			content: "";
+			height: 20px;
+			margin-right: 6px;
+			width: 12px;
+		}
+	}
+}
+
+.edit-post-header-toolbar,
+.editor-post-switch-to-draft {
+	display: none;
+}
+
+.edit-post-visual-editor__post-title-wrapper .editor-post-title {
+	margin: 0;
+}
+
+.components-markdown-back-to {
+	color: var(--markdown--color--accent) !important;
+	height: 42px;
+	left: -5px;
+	position: relative;
+	top: -2px;
+
+	&:hover {
+		color: var(--markdown--color--accent--light) !important;
+	}
+
+	svg {
+		height: 18px;
+		transform: rotate(90deg);
+		width: 18px;
+	}
+}
+
+// Supporting core.
+&:not(.is-gutenberg) {
+	.components-button.editor-post-save-draft {
+		margin-right: 5px !important;
+	}
+}
+

@@ -1,0 +1,34 @@
+{
+	"default": {
+		"name": "Default",
+		"colors": {
+			"background": "#edebe8",
+			"text": "#1E1E1E",
+			"accent": "#105d72"
+		}
+	},
+	"pumpkin-spice": {
+		"name": "Pumpkin spice",
+		"colors": {
+			"background": "#1e1d19",
+			"text": "#d6cb99",
+			"accent": "#FF9323"
+		}
+	},
+	"mustard-seed": {
+		"name": "Mustard seed",
+		"colors": {
+			"background": "#151819",
+			"text": "#d5d6d7",
+			"accent": "#daa40b"
+		}
+	},
+	"concord-jam": {
+		"name": "Concord jam",
+		"colors": {
+			"background": "#171717",
+			"text": "#BFB7C0",
+			"accent": "#f776f0"
+		}
+	}
+}
