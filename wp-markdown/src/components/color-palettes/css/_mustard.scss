@@ -79,3 +79,7 @@ $btn_color: lighten($bg_color, 10%);
 .interface-interface-skeleton__content, .edit-post-visual-editor{
   background: $bg_color;
 }
+
+.editor-post-title {
+  color: $text_color;
+}

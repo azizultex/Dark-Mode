@@ -240,13 +240,13 @@ class ThemeSwitcher extends Component {
                                                             <MenuItem
                                                                 key={key}
                                                                 onClick={() => {
-                                                                    if(!WPMD_Settings.is_pro && ('default' !== key && 'pumpkin-spice' !== key)){
+                                                                    if(!WPMD_Settings.is_pro && ('default' !== key && 'darkmode' !== key)){
                                                                         document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
                                                                     } else {
                                                                         this.onSelect(key, onToggle);
                                                                     }
                                                                 }}
-                                                                className={!WPMD_Settings.is_pro && ('default' !== key && 'pumpkin-spice' !== key) && 'disabled'}
+                                                                className={!WPMD_Settings.is_pro && ('default' !== key && 'darkmode' !== key) && 'disabled'}
                                                             >
                                                                 <Fragment>
 
@@ -261,7 +261,7 @@ class ThemeSwitcher extends Component {
 
                                                                     {this.state.theme === key ? icons.checkMark : null}
 
-                                                                    {!WPMD_Settings.is_pro && ('default' !== key && 'pumpkin-spice' !== key) &&
+                                                                    {!WPMD_Settings.is_pro && ('default' !== key && 'darkmode' !== key) &&
                                                                     <span className={'wp-markdown-pro-badge'}>PRO</span>}
                                                                 </Fragment>
                                                             </MenuItem>

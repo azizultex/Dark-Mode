@@ -82,6 +82,7 @@ WP Markdown is a developer's way of writing content. Developers or coding folks 
 = 4.0.1 =
 * Fix: Fixed the classic editor dark mode
 * New: Add color palettes for Gutenberg editor
+* New: Add Dark Mode color theme to Markdown editor.
 
 = 4.0.0 =
 * New: Write post/ page with markdown syntax (Markdown Editor)

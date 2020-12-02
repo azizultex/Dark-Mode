@@ -4,8 +4,10 @@ import GetProBanner from '../get-pro-banner';
 
 class Palette extends Component {
 
+    is_saved = localStorage.getItem('dark_mode_active');
+
     state = {
-        type: 'default'
+        type: (this.is_saved && this.is_saved != 0) ? 'darkmode' : 'default',
     };
 
     handleColorPalette(type) {

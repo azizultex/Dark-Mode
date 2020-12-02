@@ -7,6 +7,14 @@
 			"accent": "#105d72"
 		}
 	},
+	"darkmode": {
+		"name": "Darkmode",
+		"colors": {
+			"background": "#1B2836",
+			"text": "#fff",
+			"accent": "#459BE6"
+		}
+	},
 	"pumpkin-spice": {
 		"name": "Pumpkin spice",
 		"colors": {
