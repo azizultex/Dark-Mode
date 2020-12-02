@@ -31,15 +31,16 @@ class GetProBanner extends Component {
 
     render() {
         return (
-            <div className="components-markdown-gopro components-markdown-gopro-hidden">
-                <div className="markdown-gopro-inner">
-                    <span class="markdown-close-promo">×</span>
-                    <img className="promo-img" src={WPMD_Settings.pluginDirUrl + '/assets/images/icon-128x128.svg'} alt="WP Markdown"/>
-                    <h3>{__('Upgrade to PRO to access these features', 'dark-mode')}</h3>
-                    <h3 className="discount">{__('GET', 'dark-mode')} <span class="percentage">{__('80%', 'dark-mode')}</span> {__('OFF', 'dark-mode')}</h3>
-                    <h3 className="limited-title">{__('LIMITED TIME ONLY', 'dark-mode')}</h3>
-                    <div className="simple_timer"></div>
-                    <Button href="https://wppool.dev/wp-markdown-editor" target="_blank" className="wpmd-pro-btn">{__('GET PRO', 'dark-mode')}</Button>
+
+            <div className="components-markdown-gopro components-markdown-gopro-hidden darkmode-ignore">
+                <div className="markdown-gopro-inner darkmode-ignore">
+                    <span class="markdown-close-promo darkmode-ignore">×</span>
+                    <img className="promo-img darkmode-ignore" src={WPMD_Settings.pluginDirUrl + '/assets/images/icon-128x128.svg'} alt="WP Markdown"/>
+                    <h3 className="darkmode-ignore">{__('Upgrade to PRO to access these features', 'dark-mode')}</h3>
+                    <h3 className="discount darkmode-ignore">{__('GET', 'dark-mode')} <span class="percentage">{__('80%', 'dark-mode')}</span> {__('OFF', 'dark-mode')}</h3>
+                    <h3 className="limited-title darkmode-ignore">{__('LIMITED TIME ONLY', 'dark-mode')}</h3>
+                    <div className="simple_timer darkmode-ignore"></div>
+                    <Button href="https://wppool.dev/wp-markdown-editor" target="_blank" className="wpmd-pro-btn darkmode-ignore">{__('GET PRO', 'dark-mode')}</Button>
                 </div>
             </div>
         )

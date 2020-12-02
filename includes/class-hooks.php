@@ -83,10 +83,9 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 				return;
 			}
 
-			global $pagenow;
-			if ( is_admin() && ( $pagenow === 'post.php' || $pagenow === 'post-new.php' ) ) {
-			return;
-			}
+			if(wpmd_is_gutenberg_page()){
+			    return;
+            }
 
 			$light_text = __( 'Light', 'dark-mode' );
 			$dark_text  = __( 'Dark', 'dark-mode' );

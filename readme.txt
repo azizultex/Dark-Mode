@@ -79,8 +79,15 @@ WP Markdown is a developer's way of writing content. Developers or coding folks 
 
 = Version History =
 
+= 4.0.1 =
+* Fix: Fixed the classic editor dark mode
+* New: Add color palettes for Gutenberg editor
+
 = 4.0.0 =
 * New: Write post/ page with markdown syntax (Markdown Editor)
+* New: Add admin bar switch menu
+* New: Add OS aware dark mode
+* Remove: Removed the Dark Mode checkbox from the user profile settings
 
 = 3.3.1 =
 * New: Add RankMath plugin support

@@ -33,6 +33,7 @@ defined( 'ABSPATH' ) || exit();
 		 *
 		 */
 		public function includes() {
+			include DARK_MODE_PATH . '/includes/functions.php';
 			include DARK_MODE_PATH . '/includes/class-hooks.php';
 			include DARK_MODE_PATH . '/wp-markdown/plugin.php';
 		}
@@ -63,26 +64,11 @@ defined( 'ABSPATH' ) || exit();
 				'plugin_url' => DARK_MODE_URL,
 			] );
 
-			global $pagenow;
-			if ( is_admin() && ( $pagenow === 'post.php' || $pagenow === 'post-new.php' ) ) {
+			if ( wpmd_is_gutenberg_page() ) {
 				return;
 			}
 
-
-			/**
-			 * Filters the Dark Mode stylesheet URL.
-			 *
-			 * @param string $css_url Default CSS file path for Dark Mode.
-			 *
-			 * @return string $css_url
-			 * @since 3.0 Changed CSS file to include hyphen in name.
-			 *
-			 * @since 1.1
-			 * @since 2.1 Removed second parameter from `plugins_url()`.
-			 */
-			$css_url = apply_filters( 'dark_mode_css', DARK_MODE_URL . 'assets/css/dark-mode.css' );
-
-			wp_enqueue_style( 'dark-mode', $css_url, false, DARK_MODE_VERSION );
+			wp_enqueue_style( 'dark-mode', DARK_MODE_URL . 'assets/css/dark-mode.css', false, DARK_MODE_VERSION );
 
 		}
 

@@ -16,7 +16,7 @@ function appendThemeSwitch() {
     let newElem = document.createElement('div');
     newElem.classList.add('darkmode-theme-switch-wrapper');
 
-    let html = `<div id="darkmodeThemeSwitch"><img id="darkmodeThemeSwitchImg" src="${darkmode.plugin_url}/block/build/images/default.png" /> <i class="darkmode-arrow down"></i> </div>`;
+    let html = `<div id="darkmodeThemeSwitch"><img id="darkmodeThemeSwitchImg" src="${darkmode.plugin_url}/wp-markdown/build/images/default.png" /> <i class="darkmode-arrow down"></i> </div>`;
     html += `<div id="darkmodeColorPalettesContainer"></div> `;
 
     newElem.innerHTML = html;

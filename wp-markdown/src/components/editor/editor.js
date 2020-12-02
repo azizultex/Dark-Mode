@@ -11,22 +11,16 @@ import RegisterShortcuts from '../shortcuts/shortcuts';
 import DocumentInfo from '../document-info';
 import UpdateTitleHeight from '../utils/title-height';
 import ShortcutButton from '../shortcut-button';
-
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { withSelect, withDispatch } from '@wordpress/data';
-import { PluginMoreMenuItem } from '@wordpress/edit-post';
-import { compose } from '@wordpress/compose';
-import { Fragment, Component } from '@wordpress/element';
-import { rawShortcut, displayShortcut } from '@wordpress/keycodes';
-import {
-	KeyboardShortcuts,
-	withSpokenMessages,
-	Path,
-	SVG,
-} from '@wordpress/components';
+import {__} from '@wordpress/i18n';
+import {withDispatch, withSelect} from '@wordpress/data';
+import {PluginMoreMenuItem} from '@wordpress/edit-post';
+import {compose} from '@wordpress/compose';
+import {Component, Fragment} from '@wordpress/element';
+import {displayShortcut, rawShortcut} from '@wordpress/keycodes';
+import {KeyboardShortcuts, withSpokenMessages,} from '@wordpress/components';
 
 class MarkdownEditor extends Component {
 	constructor() {
@@ -275,6 +269,9 @@ export default compose( [
 	} ),
 	withDispatch( ( dispatch, ownProps ) => ( {
 		onToggle() {
+
+			document.querySelector('html').classList.remove('darkmode-theme-default', 'darkmode-theme-darkmode', 'darkmode-theme-chathams', 'darkmode-theme-pumpkin', 'darkmode-theme-mustard', 'darkmode-theme-concord');
+
 			dispatch( 'core/edit-post' ).toggleFeature( 'markdownWritingMode' );
 
 			if ( ! ownProps.isActive ) {
