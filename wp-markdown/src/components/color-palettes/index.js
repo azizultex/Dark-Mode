@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function appendThemeSwitch() {
+
+    const is_md = document.querySelector('body').classList.contains('is-markdown');
+
+    if(is_md){
+        return;
+    }
+
     const is_saved = localStorage.getItem('dark_mode_active');
     let mode ='default';
 

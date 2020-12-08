@@ -121,7 +121,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 					'customThemes'       =>  '',
 					'isGutenberg'        => defined( 'GUTENBERG_VERSION' ) || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'gutenberg/gutenberg.php' ) ) ? true : false,
 					'isEditWPMD'         => isset( $_GET['is_markdown'] ) ? sanitize_text_field( $_GET['is_markdown'] ) : false,
-					'is_pro'             => apply_filters('wp_markdown_editor_is_pro_active', false)
+					'is_pro'             => apply_filters('wp_markdown_editor/is_pro_active', false)
 				)
 			);
 

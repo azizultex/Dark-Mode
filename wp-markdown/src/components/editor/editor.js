@@ -29,9 +29,11 @@ class MarkdownEditor extends Component {
 		this.state = {
 			isEnabled: false,
 		};
+
 	}
 
 	componentDidMount() {
+
 		const { isActive, onToggle, isDefaultEditor, postmeta } = this.props;
 
 		// wait for post meta
@@ -165,6 +167,7 @@ class MarkdownEditor extends Component {
 	}
 
 	render() {
+
 		const {
 			isActive,
 			onToggle,

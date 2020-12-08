@@ -3,7 +3,7 @@ Contributors: wppool, azizultex, princeahmed, foysalremon, emrikol, danieltj, mu
 Tags: markdown, editor, dashboard, dark, markdown editor
 Requires at least: 5.0.0
 Tested up to: 5.5.3
-Stable tag: 4.0.0
+Stable tag: 4.0.2
 Requires PHP: 5.6
 License: GNU GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

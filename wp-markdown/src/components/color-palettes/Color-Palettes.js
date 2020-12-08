@@ -8,9 +8,11 @@ class Palette extends Component {
 
     state = {
         type: (this.is_saved && this.is_saved != 0) ? 'darkmode' : 'default',
+        is_pro: wpmdeHooks.applyFilters('is_wpmde_pro', false),
     };
 
     handleColorPalette(type) {
+
         const elm = document.getElementsByTagName('html')[0];
         const img = document.getElementById('darkmodeThemeSwitchImg');
 
@@ -23,7 +25,7 @@ class Palette extends Component {
     }
 
     render() {
-        const {type} = this.state;
+        const {type, is_pro} = this.state;
 
         const labels = {
             default: 'Default',
@@ -39,9 +41,9 @@ class Palette extends Component {
                 <div>
                     {Object.entries(labels).map(([key, label], i) =>
                         <a href="javascript:;"
-                            className= {`${type == key ? 'active' : ''} ${!WPMD_Settings.is_pro && ('default' !== key && 'darkmode' !== key) ? 'disabled' : ''}`}
+                            className= {`${type == key ? 'active' : ''} ${!is_pro && ('default' !== key && 'darkmode' !== key) ? 'disabled' : ''}`}
                             onClick={() => {
-                                if (!WPMD_Settings.is_pro && ('default' !== key && 'darkmode' !== key)) {
+                                if (!is_pro && ('default' !== key && 'darkmode' !== key)) {
                                     document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
                                 } else {
                                     this.handleColorPalette(key);
@@ -54,7 +56,7 @@ class Palette extends Component {
 
                             {type == key ? <span className='tick'>✓</span> : ''}
 
-                            {!WPMD_Settings.is_pro && ('default' !== key && 'darkmode' !== key) &&
+                            {!is_pro && ('default' !== key && 'darkmode' !== key) &&
                             <span className={'wp-markdown-pro-badge'}>PRO</span>}
 
                         </a>)}
@@ -69,6 +71,8 @@ class ColorPalettes extends Component {
 
 
     render() {
+        const is_pro = wpmdeHooks.applyFilters('is_wpmde_pro', false);
+
         const {active} = this.props;
 
         return (
@@ -81,7 +85,7 @@ class ColorPalettes extends Component {
                         : ''
                 }
 
-                {!WPMD_Settings.is_pro && <GetProBanner/>}
+                {!is_pro && <GetProBanner/>}
 
             </Fragment>
         )

@@ -24,7 +24,7 @@ class BackToGutenberg extends Component {
                 }}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M12.3 16.1l-5.8-5.6 1-1 4.7 4.4 4.3-4.4 1 1z"></path></svg>
-                <span>{__('Back to Gutenberg Editor', 'dark-mode')}</span>
+                <span>{__('Back to WordPress Editor', 'dark-mode')}</span>
             </Button>
         )
     }
