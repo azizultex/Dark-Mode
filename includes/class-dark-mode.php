@@ -26,6 +26,19 @@ defined( 'ABSPATH' ) || exit();
 			add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ], 99, 0 );
 
 			add_filter( 'plugin_action_links_' . plugin_basename( DARK_MODE_FILE ), array( $this, 'plugin_action_links' ) );
+
+			add_action( 'admin_notices', [ $this, 'print_notices' ], 15 );
+		}
+
+		public function print_notices() {
+			$notices = get_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );
+			foreach ( $notices as $notice ) { ?>
+				<div class="notice notice-<?php echo $notice['class']; ?>">
+					<?php echo $notice['message']; ?>
+				</div>
+				<?php
+				update_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );
+			}
 		}
 
 		/**

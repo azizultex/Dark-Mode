@@ -117,7 +117,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 				'is_christmas'  => 'no',
 			];
 
-			if ( ! get_transient( $promo_data_transient_key ) ) {
+			if ( ! $promo_data = get_transient( $promo_data_transient_key ) ) {
 				$url = 'https://wppool.dev/wp-markdown-editor-promo-data.json';
 
 				$res = wp_remote_get( $url );
