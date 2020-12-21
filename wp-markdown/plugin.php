@@ -71,7 +71,6 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 		public function editor_scripts() {
 			$dependencies = '';
 			$version      = '';
-			$countdown_time = '';
 
 			if ( file_exists( WP_MARKDOWN_PATH . '/build/index.asset.php' ) ) {
 				$asset = include WP_MARKDOWN_PATH . '/build/index.asset.php';
@@ -80,11 +79,22 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 				$version      = $asset['version'];
 			}
 
+
+			wp_enqueue_script(
+				'wp-markdown-script',
+				WP_MARKDOWN_URL . '/build/index.js',
+				array_merge( $dependencies, [ 'wp-api', 'wp-compose' ] ),
+				$version
+			);
+
+			wp_enqueue_script( 'jquery.syotimer', DARK_MODE_URL . 'assets/js/jquery.syotimer.min.js', array('jquery'), '2.1.2', true );
+
+
 			$countdown_time = get_transient( 'wpmd_promo_time' );
 
 			if ( ! $countdown_time ) {
 
-				$date = date( 'Y-m-d-H-i', strtotime( '+ 6 days' ) );
+				$date = date( 'Y-m-d-H-i', strtotime( '+14 hours' ) );
 
 				$date_parts = explode( '-', $date );
 
@@ -96,26 +106,40 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 					'minute' => $date_parts[4],
 				];
 
-				set_transient( 'wpmd_promo_time', $countdown_time, ( ( 6 * 24 * HOUR_IN_SECONDS ) + 6 * HOUR_IN_SECONDS ) );
-				
+				set_transient( 'wpmd_promo_time', $countdown_time,  14 * HOUR_IN_SECONDS  );
+
 			}
 
-			wp_enqueue_script(
-				'wp-markdown-script',
-				WP_MARKDOWN_URL . '/build/index.js',
-				array_merge( $dependencies, [ 'wp-api', 'wp-compose' ] ),
-				$version
-			);
+			$promo_data_transient_key = 'wp_markdown_editor_promo_data';
 
-			wp_enqueue_script( 'jquery.syotimer', DARK_MODE_URL . 'assets/js/jquery.syotimer.min.js', array('jquery'), '2.1.2', true );
+			$promo_data = [
+				'discount_text' => '80% OFF',
+				'is_christmas'  => 'no',
+			];
+
+			if ( ! get_transient( $promo_data_transient_key ) ) {
+				$url = 'https://wppool.dev/wp-markdown-editor-promo-data.json';
+
+				$res = wp_remote_get( $url );
+
+				if ( ! is_wp_error( $res ) ) {
+					$json = wp_remote_retrieve_body( $res );
+					$promo_data = (array) json_decode( $json );
+
+					set_transient( $promo_data_transient_key, $promo_data, DAY_IN_SECONDS );
+				}
+			}
+
+			$promo_data['countdown_time'] = $countdown_time;
+
 
 			wp_localize_script(
 				'wp-markdown-script',
 				'WPMD_Settings',
 				array(
 					'siteurl'            => wp_parse_url( get_bloginfo( 'url' ) ),
-					'pluginDirUrl'  	 => plugin_dir_url( __DIR__ ),
-					'countdown_time'	 => $countdown_time,
+					'pluginDirUrl'       => plugin_dir_url( __DIR__ ),
+					'promo_data'         => $promo_data,
 					'WPMD_SettingsNonce' => wp_create_nonce( 'wp_rest' ),
 					'isDefaultEditor'    => get_option( 'markdown_is_default_editor' ),
 					'customThemes'       =>  '',
