@@ -112,12 +112,14 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 
 			$promo_data_transient_key = 'wp_markdown_editor_promo_data';
 
-			$promo_data = [
+			$saved_data = get_transient( $promo_data_transient_key );
+
+			$promo_data = array_merge( [
 				'discount_text' => '80% OFF',
 				'is_christmas'  => 'no',
-			];
+			], (array) $saved_data );
 
-			if ( ! $promo_data = get_transient( $promo_data_transient_key ) ) {
+			if ( ! $saved_data ) {
 				$url = 'https://wppool.dev/wp-markdown-editor-promo-data.json';
 
 				$res = wp_remote_get( $url );

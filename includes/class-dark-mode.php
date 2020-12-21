@@ -111,7 +111,7 @@ defined( 'ABSPATH' ) || exit();
 				require_once DARK_MODE_PATH . '/appsero/src/Client.php';
 			}
 
-			$client = new Appsero\Client( 'abf3e1be-dc75-4d7e-af65-595a8039cad7', 'Dark Mode', __FILE__ );
+			$client = new Appsero\Client( 'abf3e1be-dc75-4d7e-af65-595a8039cad7', 'WP Markdown Editor', DARK_MODE_FILE );
 
 			// Active insights
 			$client->insights()->init();

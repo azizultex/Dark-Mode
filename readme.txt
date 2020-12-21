@@ -3,7 +3,7 @@ Contributors: wppool, azizultex, princeahmed, foysalremon, emrikol, danieltj, mu
 Tags: markdown, editor, dashboard, dark, markdown editor
 Requires at least: 5.0.0
 Tested up to: 5.6
-Stable tag: 4.0.2
+Stable tag: trunk
 Requires PHP: 5.6
 License: GNU GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -88,6 +88,12 @@ WP Markdown is a developer's way of writing content. Developers or coding folks 
 == Changelog ==
 
 = Version History =
+
+= 4.0.3 =
+* Fix: Fixed WordPress 5.6 Compatibility
+
+= 4.0.2 =
+* Fix: Make Darkmode as Default Theme of the editor
 
 = 4.0.1 =
 * Fix: Fixed the classic editor dark mode
