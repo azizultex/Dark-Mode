@@ -20,7 +20,7 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 			add_action( 'admin_head', [ $this, 'head_scripts' ] );
 
 			add_action( 'admin_init', [ $this, 'display_notice' ] );
-			add_action( 'wp_markdown_editor_hide_christmas_notice', [ $this, 'hide_christmas_notice' ] );
+			add_action( 'wp_ajax_wp_markdown_editor_hide_christmas_notice', [ $this, 'hide_christmas_notice' ] );
 		}
 
 		public function hide_christmas_notice() {
