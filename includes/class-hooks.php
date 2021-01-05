@@ -19,32 +19,32 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 			add_action( 'admin_bar_menu', [ $this, 'render_admin_switcher_menu' ], 2000 );
 			add_action( 'admin_head', [ $this, 'head_scripts' ] );
 
-			add_action( 'admin_init', [ $this, 'display_notice' ] );
-			add_action( 'wp_ajax_wp_markdown_editor_hide_christmas_notice', [ $this, 'hide_christmas_notice' ] );
+			//add_action( 'admin_init', [ $this, 'display_notice' ] );
+			//add_action( 'wp_ajax_wp_markdown_editor_hide_christmas_notice', [ $this, 'hide_christmas_notice' ] );
 		}
 
 		public function hide_christmas_notice() {
-			update_option( 'wp_markdown_editor_hide_christmas_notice', true );
-			update_option( sanitize_key( 'wp_dark_mode_notices' ), [] );
-			die();
+//			update_option( 'wp_markdown_editor_hide_christmas_notice', true );
+//			update_option( sanitize_key( 'wp_dark_mode_notices' ), [] );
+//			die();
 		}
 
 		public function display_notice() {
 
-			if ( get_option( 'wp_markdown_editor_hide_christmas_notice' ) ) {
-				return;
-			}
-
-			/** display the black-friday notice if the pro version is not activated */
-			if ( wpmd_is_pro_active() ) {
-				return;
-			}
-
-			ob_start();
-			include DARK_MODE_PATH . '/includes/christmas-notice.php';
-			$message = ob_get_clean();
-
-			wpmd_add_notice( 'info is-dismissible christmas_notice', $message );
+//			if ( get_option( 'wp_markdown_editor_hide_christmas_notice' ) ) {
+//				return;
+//			}
+//
+//			/** display the black-friday notice if the pro version is not activated */
+//			if ( wpmd_is_pro_active() ) {
+//				return;
+//			}
+//
+//			ob_start();
+//			include DARK_MODE_PATH . '/includes/christmas-notice.php';
+//			$message = ob_get_clean();
+//
+//			wpmd_add_notice( 'info is-dismissible christmas_notice', $message );
 
 		}
 

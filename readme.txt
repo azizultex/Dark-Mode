@@ -28,7 +28,6 @@ Use  WP Markdown Editor plugin to create a stunning dark version for your WordPr
 * **Syntax Shortcuts** - A Markdown cheat sheet is available for you which shows other keyboard shortcuts for heading, formatting and the interface.
 * **Emoji Supported** - You can make your content more interactive and attractive with emojis. WP Markdown supports all types of emojis in your write up.
 * **Custom Colors** - You can customize the background text and color as you want with the custom color feature of our WP Markdown. Pick the color schema of your preference and make it yours!
-* **Live Preview** - You can quickly preview your post on the front end before publishing it. Use the live preview feature and see how the post will look like when published.
 * **Makes it easy and fast** - formatting in WordPress without thinking about the blocks.
 * **Dark Mode Switch** - You can toggle between the dark and light mode using the admin bar dark mode switch menu anytime.
 * **Auto Match OS Theme** – Automatically shows Darkmode if the OS preferred theme is dark.
@@ -88,6 +87,9 @@ WP Markdown is a developer's way of writing content. Developers or coding folks 
 == Changelog ==
 
 = Version History =
+
+= 4.0.4 =
+* Fix: Fixed Christmas Offer Notice
 
 = 4.0.3 =
 * Fix: Fixed WordPress 5.6 Compatibility

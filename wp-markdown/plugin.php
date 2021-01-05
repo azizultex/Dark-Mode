@@ -119,18 +119,18 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 				'is_christmas'  => 'no',
 			], (array) $saved_data );
 
-			if ( ! $saved_data ) {
-				$url = 'https://wppool.dev/wp-markdown-editor-promo-data.json';
-
-				$res = wp_remote_get( $url );
-
-				if ( ! is_wp_error( $res ) ) {
-					$json = wp_remote_retrieve_body( $res );
-					$promo_data = (array) json_decode( $json );
-
-					set_transient( $promo_data_transient_key, $promo_data, DAY_IN_SECONDS );
-				}
-			}
+//			if ( ! $saved_data ) {
+//				$url = 'https://wppool.dev/wp-markdown-editor-promo-data.json';
+//
+//				$res = wp_remote_get( $url );
+//
+//				if ( ! is_wp_error( $res ) ) {
+//					$json = wp_remote_retrieve_body( $res );
+//					$promo_data = (array) json_decode( $json );
+//
+//					set_transient( $promo_data_transient_key, $promo_data, DAY_IN_SECONDS );
+//				}
+//			}
 
 			$promo_data['countdown_time'] = $countdown_time;
 

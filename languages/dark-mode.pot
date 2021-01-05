@@ -1,4 +1,4 @@
-# Copyright (C) 2020 dark-mode
+# Copyright (C) 2021 dark-mode
 # This file is distributed under the same license as the dark-mode package.
 msgid ""
 msgstr ""
