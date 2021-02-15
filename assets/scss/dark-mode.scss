@@ -49,6 +49,10 @@
     &.active {
       .toggle {
         transform: translateX(87%);
+        background: #000;
+      }
+      .dark{
+        color: #fff;
       }
     }
 
@@ -86,9 +90,11 @@ $bright-blue:     #30ceff;
 $editor-lavender: #c678dd;
 $editor-sunglo:   #e06c75;
 $editor-olivine:  #98c379;
+
 #wp-admin-bar-wp-dark-mode{
   display: none;
 }
+
 html.dark-mode-active {
   body:not(.gutenberg-editor-page) {
 

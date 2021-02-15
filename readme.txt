@@ -2,8 +2,8 @@
 Contributors: wppool, azizultex, princeahmed, foysalremon, emrikol, danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad, loumray, bueltge, dingo_bastard, yuanhao, leetaylor5455
 Tags: markdown, editor, dashboard, dark, markdown editor
 Requires at least: 5.0.0
-Tested up to: 5.5.3
-Stable tag: 4.0.0
+Tested up to: 5.6
+Stable tag: trunk
 Requires PHP: 5.6
 License: GNU GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -20,6 +20,7 @@ WP Markdown Editor will also darken the colors of your admin dashboard making it
 
 Use  WP Markdown Editor plugin to create a stunning dark version for your WordPress admin dashboard. Dark Mode works automatically as per their preferred operating system preference.
 
+[youtube https://youtu.be/PqIX-aOTO6c]
 
 = WP Markdown Editor (Formerly Dark Mode) Features =
 * **Typography Settings** - You can change the typography of your editor screen, using four different fonts, and controls for font size, line height, line width, and paragraph spacing.
@@ -27,7 +28,6 @@ Use  WP Markdown Editor plugin to create a stunning dark version for your WordPr
 * **Syntax Shortcuts** - A Markdown cheat sheet is available for you which shows other keyboard shortcuts for heading, formatting and the interface.
 * **Emoji Supported** - You can make your content more interactive and attractive with emojis. WP Markdown supports all types of emojis in your write up.
 * **Custom Colors** - You can customize the background text and color as you want with the custom color feature of our WP Markdown. Pick the color schema of your preference and make it yours!
-* **Live Preview** - You can quickly preview your post on the front end before publishing it. Use the live preview feature and see how the post will look like when published.
 * **Makes it easy and fast** - formatting in WordPress without thinking about the blocks.
 * **Dark Mode Switch** - You can toggle between the dark and light mode using the admin bar dark mode switch menu anytime.
 * **Auto Match OS Theme** – Automatically shows Darkmode if the OS preferred theme is dark.
@@ -41,6 +41,15 @@ You can find the Markdown editor shortcuts by clicking the keyboard icon at the 
 
 You can see a Dark mode switch added to the admin bar menu.
 You can toggle between the dark and light mode by using that switch any time.
+
+## Privacy Policy
+WP Markdown Editor uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
+
+Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users.
+
+Integrating Appsero SDK **DOES NOT IMMEDIATELY** start gathering data, **without confirmation from users in any case.**
+
+Learn more about how [Appsero collects and uses this data](https://appsero.com/privacy-policy/).
 
 == Frequently Asked Questions ==
 
@@ -79,8 +88,25 @@ WP Markdown is a developer's way of writing content. Developers or coding folks 
 
 = Version History =
 
+= 4.0.4 =
+* Fix: Fixed Christmas Offer Notice
+
+= 4.0.3 =
+* Fix: Fixed WordPress 5.6 Compatibility
+
+= 4.0.2 =
+* Fix: Make Darkmode as Default Theme of the editor
+
+= 4.0.1 =
+* Fix: Fixed the classic editor dark mode
+* New: Add color palettes for Gutenberg editor
+* New: Add Dark Mode color theme to Markdown editor.
+
 = 4.0.0 =
 * New: Write post/ page with markdown syntax (Markdown Editor)
+* New: Add admin bar switch menu
+* New: Add OS aware dark mode
+* Remove: Removed the Dark Mode checkbox from the user profile settings
 
 = 3.3.1 =
 * New: Add RankMath plugin support

@@ -26,6 +26,9 @@ import {Button, Dropdown, MenuGroup, MenuItem, Tooltip, withSpokenMessages,} fro
 import BackToGutenberg from '../back-to-gutenberg';
 import GetProBanner from '../get-pro-banner';
 
+import { createHooks } from '@wordpress/hooks';
+window.wpmdeHooks = createHooks();
+//console.log(is_pro);
 
 class ThemeSwitcher extends Component {
     constructor() {
@@ -44,7 +47,9 @@ class ThemeSwitcher extends Component {
             isEditorThemeLoaded: false,
             isEditingTheme: false,
             isEditingTypography: false,
-        };
+            is_pro: wpmdeHooks.applyFilters('is_wpmde_pro', false),
+    };
+
     }
 
     componentDidMount() {
@@ -187,10 +192,6 @@ class ThemeSwitcher extends Component {
                             <Button
                                 onClick={() => {
 
-                                    // if (!WPMD_Settings.is_pro) {
-                                    //     return;
-                                    // }
-
                                     const editorWrapper = document.querySelector('.block-editor-writing-flow');
 
                                     if (!isOpen) {
@@ -205,9 +206,7 @@ class ThemeSwitcher extends Component {
                                     this.onExitEditTheme(onToggle);
                                 }}
 
-                                //disabled={!WPMD_Settings.is_pro}
-
-                                className={`components-markdown-theme-switcher__trigger ${!WPMD_Settings.is_pro ? 'disabled' : ''}`}
+                                className={`components-markdown-theme-switcher__trigger ${!this.state.is_pro ? 'disabled' : ''}`}
                                 className={`components-markdown-theme-switcher__trigger`}
                             >
 								<span className="components-markdown-theme-switcher__palette"
@@ -240,13 +239,16 @@ class ThemeSwitcher extends Component {
                                                             <MenuItem
                                                                 key={key}
                                                                 onClick={() => {
-                                                                    if(!WPMD_Settings.is_pro && 'default' !== key){
+
+                                                                    if(!this.state.is_pro && ('default' !== key && 'darkmode' !== key)){
                                                                         document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
                                                                     } else {
                                                                         this.onSelect(key, onToggle);
                                                                     }
+
+
                                                                 }}
-                                                                className={!WPMD_Settings.is_pro && 'default' !== key && 'disabled'}
+                                                                className={!this.state.is_pro && ('default' !== key && 'darkmode' !== key) && 'disabled'}
                                                             >
                                                                 <Fragment>
 
@@ -261,7 +263,7 @@ class ThemeSwitcher extends Component {
 
                                                                     {this.state.theme === key ? icons.checkMark : null}
 
-                                                                    {(!WPMD_Settings.is_pro && 'default' !== key) &&
+                                                                    {!this.state.is_pro && ('default' !== key && 'darkmode' !== key) &&
                                                                     <span className={'wp-markdown-pro-badge'}>PRO</span>}
                                                                 </Fragment>
                                                             </MenuItem>
@@ -273,14 +275,14 @@ class ThemeSwitcher extends Component {
                                             <MenuItem
                                                 key="custom"
                                                 onClick={() => {
-                                                    if(!WPMD_Settings.is_pro){
+                                                    if(!this.state.is_pro){
                                                         document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
                                                     } else {
                                                         this.onEditTheme(onToggle, 'isEditingTheme');
                                                         this.onSelect('custom', onToggle);
                                                     }
                                                 }}
-                                                className={!WPMD_Settings.is_pro && 'disabled'}
+                                                className={!this.state.is_pro && 'disabled'}
                                             >
                                                 <Fragment>
 													<span
@@ -293,7 +295,7 @@ class ThemeSwitcher extends Component {
                                                     <span>{__('Custom', 'dark-mode')}</span>
 
                                                     {
-                                                        WPMD_Settings.is_pro ?
+                                                        this.state.is_pro ?
                                                             this.state.theme === 'custom' || typeof EditorThemes[this.state.theme] === 'undefined' ? icons.checkMark : icons.color
                                                             : <span className={'wp-markdown-pro-badge'}>PRO</span>
                                                     }
@@ -308,21 +310,21 @@ class ThemeSwitcher extends Component {
                                             <MenuItem
                                                 className="components-markdown-theme-switcher__typography"
                                                 onClick={() => {
-                                                    if(!WPMD_Settings.is_pro){
+                                                    if(!this.state.is_pro){
                                                         document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
                                                     } else {
                                                         this.onEditTheme(onToggle, 'isEditingTypography');
                                                     }
                                                 }}
-                                                className={!WPMD_Settings.is_pro && 'disabled'}
+                                                className={!this.state.is_pro && 'disabled'}
                                             >
                                                 <span>✎ {__('Edit typography', 'dark-mode')}</span>
-                                                {WPMD_Settings.is_pro ? icons.typography :
+                                                {this.state.is_pro ? icons.typography :
                                                     <span className={'wp-markdown-pro-badge'}>PRO</span>}
                                             </MenuItem>
                                         </MenuGroup>
 
-                                        {!WPMD_Settings.is_pro &&
+                                        {!this.state.is_pro &&
                                         <MenuGroup
                                         className="components-menu-group__get-pro"
                                         >
@@ -362,7 +364,7 @@ class ThemeSwitcher extends Component {
                         )}
                     />
                     <BackToGutenberg/>
-                    {!WPMD_Settings.is_pro && <GetProBanner/>}
+                    {!this.state.is_pro && <GetProBanner/>}
                 </Fragment>
             );
         };

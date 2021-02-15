@@ -8,7 +8,7 @@
 
   &-wrapper {
     position: relative;
-    margin-right: 10px;
+    margin: 0 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@
 #darkmodeColorPalettesContainer {
   position: absolute;
   top: 50px;
-  width: 170px;
+  width: 180px;
   background: #555;
   left: -25px;
 
@@ -37,6 +37,7 @@
       margin-bottom: 10px;
       text-decoration: none;
       color: #eee;
+      font-size: .8rem;
       align-items: center;
 
       &:focus {
@@ -53,6 +54,12 @@
         border: 1px solid #ddd;
         border-radius: 50%;
         margin-right: 10px;
+      }
+
+      &.disabled {
+        *:not(.wp-markdown-pro-badge) {
+          opacity: .3;
+        }
       }
 
     }

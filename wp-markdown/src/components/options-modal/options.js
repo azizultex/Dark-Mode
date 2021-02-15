@@ -5,14 +5,13 @@ import {__} from '@wordpress/i18n';
 import {withDispatch} from '@wordpress/data';
 import {Component, Fragment} from '@wordpress/element';
 import {compose, withInstanceId} from '@wordpress/compose';
-import {withSpokenMessages, Modal, Button} from '@wordpress/components';
-
+import {Button, Modal, withSpokenMessages} from '@wordpress/components';
 /**
  * Internal dependencies
  */
 import Section from './section';
 import {EnablePanelOption} from './';
-//import LicenseSettings from './licenses/license-settings';
+
 import defaults from '../../components/theme-editor/default';
 
 class Options extends Component {
@@ -31,7 +30,11 @@ class Options extends Component {
             <Fragment>
                 <Modal
                     className="components-markdown-options-modal"
-                    title={<span>{__('WP Markdown Settings', 'dark-mode')} <a href="https://wppool.dev/wp-markdown-editor" target={'_blank'} className={'wp-markdown-get-pro-btn'}>{__('Get PRO', 'dark-mode')}</a> </span>}
+                    title={
+                        <span>{__('WP Markdown Settings', 'dark-mode')}
+                            {!WPMD_Settings.is_pro &&
+                            <a href="https://wppool.dev/wp-markdown-editor" target={'_blank'} className={'wp-markdown-get-pro-btn'}>{__('Get PRO', 'dark-mode')}</a>}
+                        </span>}
                     onRequestClose={closeModal}
                 >
                     {!WPMD_Settings.is_pro ? <span className="components-markdown-options-modal-subtitle">{__('Upgrade to PRO to customize the settings', 'dark-mode')}</span> : ''}

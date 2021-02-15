@@ -5,14 +5,18 @@ $border_color: lighten($bg_color, 20%);
 $btn_color: lighten($bg_color, 10%);
 
 /**--- Main Styles ----*/
-html.darkmode-theme-pumpkin :not(.darkmode-ignore):not(mark):not(code):not(pre):not(ins):not(option):not(input):not(select):not(textarea):not(button):not(a):not(video):not(canvas):not(progress):not(iframe):not(svg):not(path):not(.mejs-iframe-overlay):not(.mejs-time-slider):not(.mejs-overlay-play):not(.block-editor-default-block-appender__content) {
-  background-color: $bg_color !important;
-  color: $text_color !important;
-  border-color: $border_color !important;
+.interface-interface-skeleton__header,
+.interface-interface-skeleton__body > div:not(.interface-interface-skeleton__content) {
+  :not(.darkmode-ignore):not(mark):not(code):not(pre):not(ins):not(option):not(input):not(select):not(textarea):not(button):not(a):not(video):not(canvas):not(progress):not(iframe):not(svg):not(path):not(.mejs-iframe-overlay):not(.mejs-time-slider):not(.mejs-overlay-play):not(.block-editor-default-block-appender__content) {
+    background-color: $bg_color !important;
+    color: $text_color !important;
+    border-color: $border_color !important;
+  }
 }
 
 /**--- Link Styles ----*/
-html.darkmode-theme-pumpkin {
+.interface-interface-skeleton__header,
+.interface-interface-skeleton__body > div:not(.interface-interface-skeleton__content) {
   a:not(.darkmode-ignore),
   a *:not(.darkmode-ignore) {
     background-color: transparent !important;
@@ -22,7 +26,8 @@ html.darkmode-theme-pumpkin {
 
 
 /**--- Link Pseoudo Styles ----*/
-html.darkmode-theme-pumpkin {
+.interface-interface-skeleton__header,
+.interface-interface-skeleton__body > div:not(.interface-interface-skeleton__content) {
   a:active,
   a:active *,
   a:visited,
@@ -33,7 +38,8 @@ html.darkmode-theme-pumpkin {
 }
 
 /**--- Input Styles ----*/
-html.darkmode-theme-pumpkin {
+.interface-interface-skeleton__header,
+.interface-interface-skeleton__body > div:not(.interface-interface-skeleton__content) {
   button:not(#collapse-button),
   iframe,
   iframe *,
@@ -67,4 +73,15 @@ html.darkmode-theme-pumpkin {
     }
 
   }
+}
+
+/** Editor Area **/
+.interface-interface-skeleton__content, .edit-post-visual-editor{
+  background: $bg_color;
+  color: $text_color;
+
+}
+
+.editor-post-title {
+  color: $text_color;
 }
