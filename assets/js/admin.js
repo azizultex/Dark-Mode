@@ -1,4 +1,4 @@
-;(function ($) {
+;(function () {
     const app = {
         init: () => {
 
@@ -20,6 +20,7 @@
 
         initDarkMode: () => {
             var is_saved = localStorage.getItem('dark_mode_active');
+
             var is_gutenberg = document.querySelector('body').classList.contains('block-editor-page');
             if (is_saved && is_saved != 0 && !is_gutenberg) {
                 document.querySelector('html').classList.add('dark-mode-active');

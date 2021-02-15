@@ -17,10 +17,10 @@ msgstr ""
 msgid "GET PRO"
 msgstr ""
 
-#: includes/class-hooks.php:118
+#: includes/class-hooks.php:126
 msgid "Light"
 msgstr ""
 
-#: includes/class-hooks.php:119
+#: includes/class-hooks.php:127
 msgid "Dark"
 msgstr ""

@@ -50,33 +50,24 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 
 		public function head_scripts() { ?>
             <script>
-                var is_saved = localStorage.getItem('dark_mode_active');
-                if (is_saved && is_saved != 0) {
-                    document.querySelector('html').classList.add('dark-mode-active');
-                }
+                (function () {
 
+                    var is_saved = localStorage.getItem('dark_mode_active');
 
-                //check os aware mode
-                var darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                    if (is_saved && is_saved != 0) {
+                        document.querySelector('html').classList.add('dark-mode-active');
+                    }
 
-                try {
-                    // Chrome & Firefox
-                    darkMediaQuery.addEventListener('change', function (e) {
-                        var newColorScheme = e.matches ? 'dark' : 'light';
+                    if (is_saved == 0) {
+                        return;
+                    }
 
-                        if ('dark' === newColorScheme) {
-                            document.querySelector('html').classList.add('dark-mode-active');
-                        } else {
-                            document.querySelector('html').classList.remove('dark-mode-active');
-                        }
+                    //check os aware mode
+                    var darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-                        window.dispatchEvent(new Event('dark_mode_init'));
-
-                    });
-                } catch (e1) {
                     try {
-                        // Safari
-                        darkMediaQuery.addListener(function (e) {
+                        // Chrome & Firefox
+                        darkMediaQuery.addEventListener('change', function (e) {
                             var newColorScheme = e.matches ? 'dark' : 'light';
 
                             if ('dark' === newColorScheme) {
@@ -88,16 +79,33 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
                             window.dispatchEvent(new Event('dark_mode_init'));
 
                         });
-                    } catch (e2) {
-                        console.error(e2);
-                    }
-                }
+                    } catch (e1) {
+                        try {
+                            // Safari
+                            darkMediaQuery.addListener(function (e) {
+                                var newColorScheme = e.matches ? 'dark' : 'light';
 
-                /** check init dark theme */
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.querySelector('html').classList.add('dark-mode-active');
-                    window.dispatchEvent(new Event('dark_mode_init'));
-                }
+                                if ('dark' === newColorScheme) {
+                                    document.querySelector('html').classList.add('dark-mode-active');
+                                } else {
+                                    document.querySelector('html').classList.remove('dark-mode-active');
+                                }
+
+                                window.dispatchEvent(new Event('dark_mode_init'));
+
+                            });
+                        } catch (e2) {
+                            console.error(e2);
+                        }
+                    }
+
+                    /** check init dark theme */
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        document.querySelector('html').classList.add('dark-mode-active');
+                        window.dispatchEvent(new Event('dark_mode_init'));
+                    }
+
+                })();
 
             </script>
 		<?php }
