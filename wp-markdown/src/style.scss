@@ -77,3 +77,21 @@ span.wp-markdown-pro-badge {
 	border-radius: 10px;
 	opacity: 1 !important;
 }
+
+/*------- fonts --------*/
+
+@font-face {
+	font-family: 'Open Dyslexic';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(../../assets/fonts/OpenDyslexic-Regular.woff2) format('woff2');
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(../../assets/fonts/Atkinson-Hyperlegible-Regular-102a.woff2) format('woff2');
+}

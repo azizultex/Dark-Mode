@@ -4,6 +4,16 @@
 		"font-family": "Oxygen Mono, monospace",
 		"url": "https://fonts.googleapis.com/css2?family=Oxygen+Mono:wght@400;500;700&display=swap"
 	},
+	"open-dyslexic": {
+		"name": "Open Dyslexic",
+		"font-family": "Open Dyslexic, monospace",
+		"url": ""
+	},
+	"atkinson-hyperlegible": {
+		"name": "Atkinson Hyperlegible",
+		"font-family": "Atkinson Hyperlegible, monospace",
+		"url": ""
+	},
 	"ibm-plex-mono": {
 		"name": "IBM Plex Mono",
 		"font-family": "IBM Plex Mono, monospace",
