@@ -26,7 +26,8 @@ import {Button, Dropdown, MenuGroup, MenuItem, Tooltip, withSpokenMessages,} fro
 import BackToGutenberg from '../back-to-gutenberg';
 import GetProBanner from '../get-pro-banner';
 
-import { createHooks } from '@wordpress/hooks';
+import {createHooks} from '@wordpress/hooks';
+
 window.wpmdeHooks = createHooks();
 //console.log(is_pro);
 
@@ -53,6 +54,14 @@ class ThemeSwitcher extends Component {
     }
 
     componentDidMount() {
+        const {theme} = this.props.themeSettings;
+
+        if (typeof theme !== 'undefined' && 'default' !== theme) {
+            document.querySelector('html').classList.add('darkmode-theme');
+        } else {
+            document.querySelector('html').classList.remove('darkmode-theme');
+        }
+
         this.setState({themeSettings: this.props.themeSettings});
         this.addControl();
     }
@@ -102,7 +111,7 @@ class ThemeSwitcher extends Component {
 
     addControl() {
 
-        const {isActive, updateThemeSettings, postType} = this.props;
+        const {isActive, isMarkdown, updateThemeSettings, postType} = this.props;
         let {themeSettings} = this.state;
 
         // Wait for settings to load
@@ -207,7 +216,6 @@ class ThemeSwitcher extends Component {
                                 }}
 
                                 className={`components-markdown-theme-switcher__trigger ${!this.state.is_pro ? 'disabled' : ''}`}
-                                className={`components-markdown-theme-switcher__trigger`}
                             >
 								<span className="components-markdown-theme-switcher__palette"
                                     style={{
@@ -409,6 +417,11 @@ class ThemeSwitcher extends Component {
 
     onSelect(theme, onToggle) {
 
+        if ('default' !== theme) {
+            document.querySelector('html').classList.add('darkmode-theme');
+        } else {
+            document.querySelector('html').classList.remove('darkmode-theme');
+        }
 
         const {themeSettings} = this.state;
         this.setState({theme});

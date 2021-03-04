@@ -225,18 +225,15 @@ class MarkdownEditor extends Component {
 				<MoreMenu isActive={ isActive } />
 				<BlockLimiter isActive={ isActive } />
 
-				<ThemeSwitcher isActive={ isActive } isEnabled={ isThemesUI } />
+				{/*<ThemeSwitcher isActive={ isActive } isEnabled={ isThemesUI } />*/}
+				<ThemeSwitcher isMarkdown={isActive} isActive={ true } isEnabled={ true } />
 
 				{ isActive && isDocumentInformation && (
 					<DocumentInfo isActive={ isActive } />
 				) }
 
-				{ ! isActive && (
-					<ShortcutButton
-						onToggle={ onToggle }
-						isEnabled={ isSwitchTo }
-					/>
-				) }
+
+				{ ! isActive && (<ShortcutButton onToggle={ onToggle } isEnabled={ isSwitchTo }/>) }
 			</Fragment>
 		);
 	}

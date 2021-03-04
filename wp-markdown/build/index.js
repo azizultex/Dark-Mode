@@ -13407,392 +13407,6 @@ var BlockLimiter = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./src/components/color-palettes/Color-Palettes.js":
-/*!*********************************************************!*\
-  !*** ./src/components/color-palettes/Color-Palettes.js ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _get_pro_banner__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../get-pro-banner */ "./src/components/get-pro-banner/index.js");
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct();
-
-  return function _createSuperInternal() {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-var _wp$element = wp.element,
-    Component = _wp$element.Component,
-    Fragment = _wp$element.Fragment;
-
-
-var Palette = /*#__PURE__*/function (_Component) {
-  _inherits(Palette, _Component);
-
-  var _super = _createSuper(Palette);
-
-  function Palette() {
-    var _this;
-
-    _classCallCheck(this, Palette);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "is_saved", localStorage.getItem('dark_mode_active'));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      type: _this.is_saved && _this.is_saved != 0 ? 'darkmode' : 'default',
-      is_pro: wpmdeHooks.applyFilters('is_wpmde_pro', false)
-    });
-
-    return _this;
-  }
-
-  _createClass(Palette, [{
-    key: "handleColorPalette",
-    value: function handleColorPalette(type) {
-      var elm = document.getElementsByTagName('html')[0];
-      var img = document.getElementById('darkmodeThemeSwitchImg');
-      elm.classList.remove('darkmode-theme-default', 'darkmode-theme-darkmode', 'darkmode-theme-chathams', 'darkmode-theme-pumpkin', 'darkmode-theme-mustard', 'darkmode-theme-concord');
-      elm.classList.add("darkmode-theme-".concat(type));
-      img.setAttribute('src', "".concat(darkmode.plugin_url, "/wp-markdown/build/images/").concat(type, ".png"));
-      this.setState({
-        type: type
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$state = this.state,
-          type = _this$state.type,
-          is_pro = _this$state.is_pro;
-      var labels = {
-        default: 'Default',
-        darkmode: 'Darkmode',
-        chathams: 'Chathams',
-        pumpkin: 'Pumpkin Spice',
-        mustard: 'Mustard Seed',
-        concord: 'Concord Jam'
-      };
-      return wp.element.createElement(Fragment, null, wp.element.createElement("div", null, Object.entries(labels).map(function (_ref, i) {
-        var _ref2 = _slicedToArray(_ref, 2),
-            key = _ref2[0],
-            label = _ref2[1];
-
-        return wp.element.createElement("a", {
-          href: "javascript:;",
-          className: "".concat(type == key ? 'active' : '', " ").concat(!is_pro && 'default' !== key && 'darkmode' !== key ? 'disabled' : ''),
-          onClick: function onClick() {
-            if (!is_pro && 'default' !== key && 'darkmode' !== key) {
-              document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
-            } else {
-              _this2.handleColorPalette(key);
-            }
-          }
-        }, wp.element.createElement("img", {
-          src: "".concat(darkmode.plugin_url, "/wp-markdown/build/images/").concat(key, ".png"),
-          alt: label
-        }), wp.element.createElement("span", null, label), type == key ? wp.element.createElement("span", {
-          className: "tick"
-        }, "\u2713") : '', !is_pro && 'default' !== key && 'darkmode' !== key && wp.element.createElement("span", {
-          className: 'wp-markdown-pro-badge'
-        }, "PRO"));
-      })));
-    }
-  }]);
-
-  return Palette;
-}(Component);
-
-var ColorPalettes = /*#__PURE__*/function (_Component2) {
-  _inherits(ColorPalettes, _Component2);
-
-  var _super2 = _createSuper(ColorPalettes);
-
-  function ColorPalettes() {
-    _classCallCheck(this, ColorPalettes);
-
-    return _super2.apply(this, arguments);
-  }
-
-  _createClass(ColorPalettes, [{
-    key: "render",
-    value: function render() {
-      var is_pro = wpmdeHooks.applyFilters('is_wpmde_pro', false);
-      var active = this.props.active;
-      return wp.element.createElement(Fragment, null, active ? wp.element.createElement("div", {
-        className: "darkmode-color-palettes-wrapper"
-      }, wp.element.createElement(Palette, null)) : '', !is_pro && wp.element.createElement(_get_pro_banner__WEBPACK_IMPORTED_MODULE_0__["default"], null));
-    }
-  }]);
-
-  return ColorPalettes;
-}(Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (ColorPalettes);
-
-/***/ }),
-
-/***/ "./src/components/color-palettes/index.js":
-/*!************************************************!*\
-  !*** ./src/components/color-palettes/index.js ***!
-  \************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Color_Palettes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Color-Palettes */ "./src/components/color-palettes/Color-Palettes.js");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/components/color-palettes/style.scss");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_1__);
-var render = wp.element.render;
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(function () {
-    appendThemeSwitch();
-  }, 1);
-});
-
-function appendThemeSwitch() {
-  var is_md = document.querySelector('body').classList.contains('is-markdown');
-
-  if (is_md) {
-    return;
-  }
-
-  var is_saved = localStorage.getItem('dark_mode_active');
-  var mode = 'default';
-
-  if (is_saved && is_saved != 0) {
-    mode = 'darkmode';
-    document.querySelector('html').classList.add("darkmode-theme-darkmode");
-  }
-
-  var node = document.querySelector('.edit-post-header__toolbar');
-  var newElem = document.createElement('div');
-  newElem.classList.add('darkmode-theme-switch-wrapper');
-  var html = "<div id=\"darkmodeThemeSwitch\"><img id=\"darkmodeThemeSwitchImg\" src=\"".concat(darkmode.plugin_url, "/wp-markdown/build/images/").concat(mode, ".png\" /> <i class=\"darkmode-arrow down\"></i> </div>");
-  html += "<div id=\"darkmodeColorPalettesContainer\"></div> ";
-  newElem.innerHTML = html;
-  node.insertBefore(newElem, node.childNodes[0]);
-  document.getElementById('darkmodeThemeSwitch').addEventListener('click', editorColorPalettes);
-}
-
-var themeChooseActive = false;
-
-function editorColorPalettes() {
-  themeChooseActive = !themeChooseActive;
-  render(wp.element.createElement(_Color_Palettes__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    active: themeChooseActive
-  }), document.getElementById('darkmodeColorPalettesContainer'));
-}
-
-/***/ }),
-
-/***/ "./src/components/color-palettes/style.scss":
-/*!**************************************************!*\
-  !*** ./src/components/color-palettes/style.scss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./src/components/contextual-toolbar/index.js":
 /*!****************************************************!*\
   !*** ./src/components/contextual-toolbar/index.js ***!
@@ -15250,8 +14864,9 @@ var MarkdownEditor = /*#__PURE__*/function (_Component) {
       }), wp.element.createElement(_block_limiter__WEBPACK_IMPORTED_MODULE_0__["default"], {
         isActive: isActive
       }), wp.element.createElement(_theme_switcher__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        isActive: isActive,
-        isEnabled: isThemesUI
+        isMarkdown: isActive,
+        isActive: true,
+        isEnabled: true
       }), isActive && isDocumentInformation && wp.element.createElement(_document_info__WEBPACK_IMPORTED_MODULE_5__["default"], {
         isActive: isActive
       }), !isActive && wp.element.createElement(_shortcut_button__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -20479,6 +20094,14 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
   _createClass(ThemeSwitcher, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var theme = this.props.themeSettings.theme;
+
+      if (typeof theme !== 'undefined' && 'default' !== theme) {
+        document.querySelector('html').classList.add('darkmode-theme');
+      } else {
+        document.querySelector('html').classList.remove('darkmode-theme');
+      }
+
       this.setState({
         themeSettings: this.props.themeSettings
       });
@@ -20529,6 +20152,7 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
 
       var _this$props = this.props,
           isActive = _this$props.isActive,
+          isMarkdown = _this$props.isMarkdown,
           updateThemeSettings = _this$props.updateThemeSettings,
           postType = _this$props.postType;
       var themeSettings = this.state.themeSettings; // Wait for settings to load
@@ -20612,7 +20236,7 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
           renderToggle: function renderToggle(_ref) {
             var isOpen = _ref.isOpen,
                 onToggle = _ref.onToggle;
-            return wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["Button"], _defineProperty({
+            return wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["Button"], {
               onClick: function onClick() {
                 var editorWrapper = document.querySelector('.block-editor-writing-flow');
 
@@ -20629,7 +20253,7 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
                 _this2.onExitEditTheme(onToggle);
               },
               className: "components-markdown-theme-switcher__trigger ".concat(!_this2.state.is_pro ? 'disabled' : '')
-            }, "className", "components-markdown-theme-switcher__trigger"), wp.element.createElement("span", {
+            }, wp.element.createElement("span", {
               className: "components-markdown-theme-switcher__palette",
               style: {
                 backgroundImage: "linear-gradient(130deg,".concat(typeof _theme_editor_editor_themes__WEBPACK_IMPORTED_MODULE_2__["default"][_this2.state.theme] !== 'undefined' ? _theme_editor_editor_themes__WEBPACK_IMPORTED_MODULE_2__["default"][_this2.state.theme].colors.background : _this2.state.themeSettings.colors.background, " 48.75%, ").concat(typeof _theme_editor_editor_themes__WEBPACK_IMPORTED_MODULE_2__["default"][_this2.state.theme] !== 'undefined' ? _theme_editor_editor_themes__WEBPACK_IMPORTED_MODULE_2__["default"][_this2.state.theme].colors.accent : _this2.state.themeSettings.colors.accent, " 50%)")
@@ -20755,6 +20379,12 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
   }, {
     key: "onSelect",
     value: function onSelect(theme, onToggle) {
+      if ('default' !== theme) {
+        document.querySelector('html').classList.add('darkmode-theme');
+      } else {
+        document.querySelector('html').classList.remove('darkmode-theme');
+      }
+
       var themeSettings = this.state.themeSettings;
       this.setState({
         theme: theme
@@ -21369,14 +20999,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_markdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/markdown */ "./src/components/markdown/index.js");
 /* harmony import */ var _components_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/editor */ "./src/components/editor/index.js");
-/* harmony import */ var _components_color_palettes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/color-palettes */ "./src/components/color-palettes/index.js");
-/* harmony import */ var _components_table_of_contents__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/table-of-contents */ "./src/components/table-of-contents/index.js");
-/* harmony import */ var _components_heading_level_indicator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/heading-level-indicator */ "./src/components/heading-level-indicator/index.js");
-/* harmony import */ var _components_block_indicator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/block-indicator */ "./src/components/block-indicator/index.js");
-/* harmony import */ var _components_contextual_toolbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/contextual-toolbar */ "./src/components/contextual-toolbar/index.js");
+/* harmony import */ var _components_table_of_contents__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/table-of-contents */ "./src/components/table-of-contents/index.js");
+/* harmony import */ var _components_heading_level_indicator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/heading-level-indicator */ "./src/components/heading-level-indicator/index.js");
+/* harmony import */ var _components_block_indicator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/block-indicator */ "./src/components/block-indicator/index.js");
+/* harmony import */ var _components_contextual_toolbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/contextual-toolbar */ "./src/components/contextual-toolbar/index.js");
 
 
-
+ //import './components/color-palettes';
+//import './components/theme-switcher';
 
 
 

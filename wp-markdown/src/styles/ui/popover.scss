@@ -133,10 +133,12 @@
 }
 
 // Supporting core.
-&:not(.is-gutenberg) {
+.is-markdown {
+	&:not(.is-gutenberg) {
 
-	.components-dropdown-menu__menu {
-		padding-top: 0;
-		padding-bottom: 0;
+		.components-dropdown-menu__menu {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
 	}
 }

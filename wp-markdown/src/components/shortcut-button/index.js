@@ -64,33 +64,18 @@ class ShortcutButton extends Component {
             );
         };
         //edit-post-header-toolbar edit-post-header-toolbar__block-toolbar
-        const moreMenuButton = document.querySelector(
-            '.edit-post-header-toolbar'
-        );
+        const moreMenuButton = document.querySelector('.edit-post-header-toolbar');
 
-        if (
-            isEnabled &&
-            !isActive &&
-            !document.getElementById(
-                'components-markdown-shortcut-pinned-button'
-            )
-        ) {
-            moreMenuButton.insertAdjacentHTML(
-                'beforeend',
-                '<div id="components-markdown-shortcut-pinned-button"></div>'
-            );
+        if (isEnabled && !isActive && !document.getElementById('components-markdown-shortcut-pinned-button')) {
+
+            moreMenuButton.insertAdjacentHTML('beforeend', '<div id="components-markdown-shortcut-pinned-button"></div>');
 
             render(
                 <ShortcutPinnedButton/>,
-                document.getElementById(
-                    'components-markdown-shortcut-pinned-button'
-                )
+                document.getElementById('components-markdown-shortcut-pinned-button')
             );
         } else if (isActive || !isEnabled) {
-            const markdownButton = document.getElementById(
-                'components-markdown-shortcut-pinned-button'
-            );
-
+            const markdownButton = document.getElementById('components-markdown-shortcut-pinned-button');
             if (markdownButton) {
                 markdownButton.remove();
             }
