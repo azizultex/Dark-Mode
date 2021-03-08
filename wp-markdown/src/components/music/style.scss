@@ -1,0 +1,60 @@
+.wp-markdown-music {
+  position: absolute;
+  background: #555;
+  color: #fff;
+  padding: 15px 15px 15px 25px;
+  width: 250px;
+  top: 62px;
+  text-align: center;
+
+  button.is-small.wp-markdown-remove-music {
+    min-height: auto;
+    margin-right: 7px;
+    background: #ddd;
+  }
+
+}
+
+.wp-markdown-music-list {
+  margin: 0;
+}
+
+.wp-markdown-music-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .music-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .music-play-pause {
+    height: auto;
+    width: auto;
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .music-action {
+    position: relative;
+
+    .music-action-toggle {
+      padding: 0;
+      color: #fff;
+    }
+
+    .music-action-remove {
+      color: orangered;
+      background: #ddd;
+      padding: 5px;
+      border-radius: 5px;
+      line-height: 0;
+      height: auto;
+    }
+
+  }
+
+}

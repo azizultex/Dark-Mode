@@ -34,6 +34,76 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 			add_filter( 'page_row_actions', array( $this, 'add_edit_links' ), 15, 2 );
 
 			add_action( 'admin_init', [ $this, 'update_user_meta' ] );
+
+			add_action( 'wp_ajax_wp_markdown_add_music', [ $this, 'add_music' ] );
+			add_action( 'wp_ajax_nopriv_wp_markdown_add_music', [ $this, 'add_music' ] );
+
+			add_action( 'wp_ajax_wp_markdown_remove_music', [ $this, 'remove_music' ] );
+			add_action( 'wp_ajax_nopriv_wp_markdown_remove_music', [ $this, 'remove_music' ] );
+
+			add_action( 'wp_ajax_wp_markdown_get_musics', [ $this, 'get_musics' ] );
+			add_action( 'wp_ajax_nopriv_wp_markdown_get_musics', [ $this, 'get_musics' ] );
+
+
+		}
+
+		public function remove_music() {
+
+			$user_id = ! empty( $_REQUEST['data']['user_id'] ) ? intval( $_REQUEST['data']['user_id'] ) : '';
+			$src     = ! empty( $_REQUEST['data']['src'] ) ? esc_url( $_REQUEST['data']['src'] ) : '';
+
+			if ( empty( $user_id ) || empty( $src ) ) {
+				return;
+			}
+
+			$music_id = attachment_url_to_postid( $src );
+
+			$musics = (array) get_user_meta( $user_id, 'musics', true );
+			$musics = array_filter( $musics );
+
+			if ( ( $key = array_search( $music_id, $musics ) ) !== false ) {
+				unset( $musics[ $key ] );
+			}
+
+			update_user_meta( $user_id, 'musics', $musics );
+
+		}
+
+		public function get_musics() {
+			$user_id   = ! empty( $_REQUEST['user_id'] ) ? intval( $_REQUEST['user_id'] ) : '';
+			$music_ids = (array) get_user_meta( $user_id, 'musics', true );
+			$music_ids = array_filter( $music_ids );
+
+			$musics = [];
+
+			if ( ! empty( $music_ids ) ) {
+				foreach ( $music_ids as $music_id ) {
+					$musics[] = [
+						'name' => get_the_title( $music_id ),
+						'src'  => wp_get_attachment_url( $music_id ),
+					];
+				}
+			}
+
+			wp_send_json_success( $musics );
+
+		}
+
+		public function add_music() {
+			$user_id  = ! empty( $_REQUEST['data']['user_id'] ) ? intval( $_REQUEST['data']['user_id'] ) : '';
+			$music_id = ! empty( $_REQUEST['data']['music_id'] ) ? intval( $_REQUEST['data']['music_id'] ) : '';
+
+			if ( empty( $user_id ) || empty( $music_id ) ) {
+				return;
+			}
+
+			$musics = (array) get_user_meta( $user_id, 'musics', true );
+			$musics = array_filter( $musics );
+
+			$musics[] = $music_id;
+
+			update_user_meta( $user_id, 'musics', $musics );
+
 		}
 
 		/**
@@ -139,6 +209,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 				'wp-markdown-script',
 				'WPMD_Settings',
 				array(
+					'current_user_id'    => get_current_user_id(),
 					'siteurl'            => wp_parse_url( get_bloginfo( 'url' ) ),
 					'pluginDirUrl'       => plugin_dir_url( __DIR__ ),
 					'promo_data'         => $promo_data,

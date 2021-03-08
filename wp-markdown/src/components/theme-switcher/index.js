@@ -24,6 +24,7 @@ import {Component, Fragment, render} from '@wordpress/element';
 import {Button, Dropdown, MenuGroup, MenuItem, Tooltip, withSpokenMessages,} from '@wordpress/components';
 
 import BackToGutenberg from '../back-to-gutenberg';
+import Music from '../music';
 import GetProBanner from '../get-pro-banner';
 
 import {createHooks} from '@wordpress/hooks';
@@ -371,7 +372,11 @@ class ThemeSwitcher extends Component {
                             </Fragment>
                         )}
                     />
+
+                    <Music/>
+
                     <BackToGutenberg/>
+
                     {!this.state.is_pro && <GetProBanner/>}
                 </Fragment>
             );

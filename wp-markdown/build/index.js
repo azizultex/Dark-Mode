@@ -17255,6 +17255,574 @@ var MoreMenu = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./src/components/music/index.js":
+/*!***************************************!*\
+  !*** ./src/components/music/index.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_title_height__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/title-height */ "./src/components/utils/title-height.js");
+/* harmony import */ var _music_list__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./music-list */ "./src/components/music/music-list.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./style.scss */ "./src/components/music/style.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_7__);
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+
+
+
+
+
+
+
+
+
+var Music = /*#__PURE__*/function (_Component) {
+  _inherits(Music, _Component);
+
+  var _super = _createSuper(Music);
+
+  function Music(props) {
+    var _this;
+
+    _classCallCheck(this, Music);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      list: false
+    };
+    return _this;
+  }
+
+  _createClass(Music, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+        className: "components-markdown-music",
+        onClick: function onClick() {
+          _this2.setState({
+            list: !_this2.state.list
+          });
+        }
+      }, wp.element.createElement("svg", {
+        id: "wp-markdown-music",
+        style: {
+          width: 20,
+          height: 20
+        },
+        "enable-background": "new 0 0 415.963 415.963",
+        viewBox: "0 0 415.963 415.963",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, wp.element.createElement("path", {
+        d: "m328.712 264.539c12.928-21.632 21.504-48.992 23.168-76.064 1.056-17.376-2.816-35.616-11.2-52.768-13.152-26.944-35.744-42.08-57.568-56.704-16.288-10.912-31.68-21.216-42.56-35.936l-1.952-2.624c-6.432-8.64-13.696-18.432-14.848-26.656-1.152-8.32-8.704-14.24-16.96-13.76-8.384.576-14.88 7.52-14.88 15.936v285.12c-13.408-8.128-29.92-13.12-48-13.12-44.096 0-80 28.704-80 64s35.904 64 80 64 80-28.704 80-64v-186.496c24.032 9.184 63.36 32.576 74.176 87.2-2.016 2.976-3.936 6.176-6.176 8.736-5.856 6.624-5.216 16.736 1.44 22.56 6.592 5.888 16.704 5.184 22.56-1.44 4.288-4.864 8.096-10.56 11.744-16.512.384-.448.737-.928 1.056-1.472z"
+      }), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null))), this.state.list && wp.element.createElement(_music_list__WEBPACK_IMPORTED_MODULE_6__["default"], null));
+    }
+  }]);
+
+  return Music;
+}(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Music);
+
+/***/ }),
+
+/***/ "./src/components/music/music-list.js":
+/*!********************************************!*\
+  !*** ./src/components/music/music-list.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+
+
+
+var MusicList = /*#__PURE__*/function (_Component) {
+  _inherits(MusicList, _Component);
+
+  var _super = _createSuper(MusicList);
+
+  function MusicList(props) {
+    var _this;
+
+    _classCallCheck(this, MusicList);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      playing: false,
+      track: null,
+      audio: null,
+      musics: [{
+        name: 'Relaxing',
+        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/relaxing.mp3")
+      }, {
+        name: 'Relaxing 2',
+        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/music2.mp3")
+      }],
+      action: false
+    };
+    return _this;
+  }
+
+  _createClass(MusicList, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      wp.ajax.send('wp_markdown_get_musics', {
+        data: {
+          user_id: WPMD_Settings.current_user_id
+        },
+        success: function success(data) {
+          _this2.setState({
+            musics: [].concat(_toConsumableArray(_this2.state.musics), _toConsumableArray(data))
+          });
+        },
+        error: function error(_error) {
+          return console.log(_error);
+        }
+      });
+    }
+  }, {
+    key: "handlePlayPause",
+    value: function handlePlayPause(e) {
+      var key = e.target.getAttribute('data-key');
+      /*remove pause from all items and add play*/
+
+      document.querySelectorAll('.music-play-pause').forEach(function (element) {
+        element.classList.remove('dashicons-controls-pause');
+        element.classList.add('dashicons-controls-play');
+      });
+      /*check if current item is playing*/
+
+      if (this.state.playing && this.state.track === key) {
+        this.setState({
+          playing: false,
+          track: null
+        });
+        this.state.audio.pause();
+      } else {
+        if (this.state.audio) {
+          this.state.audio.pause();
+        }
+
+        e.target.classList.remove('dashicons-controls-play');
+        e.target.classList.add('dashicons-controls-pause');
+        console.log(this.state.musics);
+        var mp3 = this.state.musics[key].src;
+        var audio = new Audio(mp3);
+        audio.play();
+        this.setState({
+          playing: true,
+          track: key,
+          audio: audio
+        });
+      }
+    }
+  }, {
+    key: "removeMusic",
+    value: function removeMusic(e) {
+      var key = e.target.getAttribute('data-key');
+
+      if (this.state.playing && this.state.track === key) {
+        this.state.audio.pause();
+      }
+
+      var mp3 = this.state.musics[key].src;
+      this.state.musics.splice(key, 1);
+      this.setState({
+        musics: this.state.musics
+      });
+      wp.ajax.post('wp_markdown_remove_music', {
+        data: {
+          src: mp3,
+          user_id: WPMD_Settings.current_user_id
+        }
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, wp.element.createElement("div", {
+        className: "wp-markdown-music"
+      }, wp.element.createElement("ol", {
+        className: "wp-markdown-music-list"
+      }, this.state.musics.map(function (item, i) {
+        return Object.keys(item).length ? wp.element.createElement("li", {
+          key: i
+        }, wp.element.createElement("div", {
+          className: "wp-markdown-music-item"
+        }, wp.element.createElement("span", {
+          className: "music-title"
+        }, item.name), _this3.state.action && i > 1 ? wp.element.createElement("span", {
+          className: "music-action"
+        }, _this3.state.action && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+          "data-key": i,
+          className: "music-action-remove",
+          onClick: function onClick(e) {
+            _this3.removeMusic(e);
+          }
+        }, wp.element.createElement("i", {
+          "data-key": i,
+          className: "dashicons dashicons-trash"
+        }))) : wp.element.createElement("span", {
+          className: "music-play-pause dashicons dashicons-controls-play",
+          "data-key": i,
+          onClick: function onClick(e) {
+            return _this3.handlePlayPause(e);
+          }
+        }, " "))) : '';
+      })), this.state.musics.length > 2 && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+        className: "wp-markdown-remove-music is-small button button-link-delete",
+        onClick: function onClick() {
+          _this3.setState({
+            action: !_this3.state.action
+          });
+        }
+      }, this.state.action ? 'Done' : 'Remove Music'), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+        className: "wp-markdown-add-music is-small is-primary",
+        onClick: function onClick() {
+          var file_frame = wp.media.frames.file_frame = wp.media({
+            title: 'Add Music',
+            library: {
+              type: 'audio'
+            },
+            button: {
+              text: 'Add Music'
+            },
+            multiple: false
+          });
+          file_frame.on('select', function () {
+            var attachment = file_frame.state().get('selection').first().toJSON();
+            var items = [].concat(_toConsumableArray(_this3.state.musics), [{
+              name: attachment.title,
+              src: attachment.url
+            }]);
+
+            _this3.setState({
+              musics: items
+            });
+
+            wp.ajax.post('wp_markdown_add_music', {
+              data: {
+                music_id: attachment.id,
+                user_id: WPMD_Settings.current_user_id
+              }
+            });
+          }); // Finally, open the modal
+
+          file_frame.open();
+        }
+      }, "Add Music")));
+    }
+  }]);
+
+  return MusicList;
+}(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (MusicList);
+
+/***/ }),
+
+/***/ "./src/components/music/style.scss":
+/*!*****************************************!*\
+  !*** ./src/components/music/style.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./src/components/options-modal/base.js":
 /*!**********************************************!*\
   !*** ./src/components/options-modal/base.js ***!
@@ -19895,9 +20463,10 @@ var _theme_editor_default__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _back_to_gutenberg__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../back-to-gutenberg */ "./src/components/back-to-gutenberg/index.js");
-/* harmony import */ var _get_pro_banner__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../get-pro-banner */ "./src/components/get-pro-banner/index.js");
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _music__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../music */ "./src/components/music/index.js");
+/* harmony import */ var _get_pro_banner__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../get-pro-banner */ "./src/components/get-pro-banner/index.js");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_16__);
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -20060,7 +20629,8 @@ function _getPrototypeOf(o) {
 
 
 
-window.wpmdeHooks = Object(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_15__["createHooks"])(); //console.log(is_pro);
+
+window.wpmdeHooks = Object(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_16__["createHooks"])(); //console.log(is_pro);
 
 var ThemeSwitcher = /*#__PURE__*/function (_Component) {
   _inherits(ThemeSwitcher, _Component);
@@ -20338,7 +20908,7 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
               }
             }));
           }
-        }), wp.element.createElement(_back_to_gutenberg__WEBPACK_IMPORTED_MODULE_13__["default"], null), !_this2.state.is_pro && wp.element.createElement(_get_pro_banner__WEBPACK_IMPORTED_MODULE_14__["default"], null));
+        }), wp.element.createElement(_music__WEBPACK_IMPORTED_MODULE_14__["default"], null), wp.element.createElement(_back_to_gutenberg__WEBPACK_IMPORTED_MODULE_13__["default"], null), !_this2.state.is_pro && wp.element.createElement(_get_pro_banner__WEBPACK_IMPORTED_MODULE_15__["default"], null));
       };
 
       var wrapper = document.querySelector('.edit-post-header__toolbar');
