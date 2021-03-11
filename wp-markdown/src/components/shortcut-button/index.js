@@ -74,6 +74,7 @@ class ShortcutButton extends Component {
                 <ShortcutPinnedButton/>,
                 document.getElementById('components-markdown-shortcut-pinned-button')
             );
+
         } else if (isActive || !isEnabled) {
             const markdownButton = document.getElementById('components-markdown-shortcut-pinned-button');
             if (markdownButton) {

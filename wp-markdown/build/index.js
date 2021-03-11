@@ -14487,21 +14487,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shortcuts_shortcuts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shortcuts/shortcuts */ "./src/components/shortcuts/shortcuts.js");
 /* harmony import */ var _document_info__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../document-info */ "./src/components/document-info/index.js");
 /* harmony import */ var _utils_title_height__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/title-height */ "./src/components/utils/title-height.js");
-/* harmony import */ var _shortcut_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shortcut-button */ "./src/components/shortcut-button/index.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @wordpress/edit-post */ "@wordpress/edit-post");
-/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @wordpress/keycodes */ "@wordpress/keycodes");
-/* harmony import */ var _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_wordpress_keycodes__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/edit-post */ "@wordpress/edit-post");
+/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @wordpress/keycodes */ "@wordpress/keycodes");
+/* harmony import */ var _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_wordpress_keycodes__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_13__);
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -14646,7 +14645,7 @@ function _getPrototypeOf(o) {
 
 
 
-
+ //import ShortcutButton from '../shortcut-button';
 
 /**
  * WordPress dependencies
@@ -14801,6 +14800,7 @@ var MarkdownEditor = /*#__PURE__*/function (_Component) {
           onToggle = _this$props3.onToggle,
           isThemesUI = _this$props3.isThemesUI,
           isSwitchTo = _this$props3.isSwitchTo,
+          toggleText = _this$props3.toggleText,
           isDocumentInformation = _this$props3.isDocumentInformation;
       var icon = wp.element.createElement("svg", {
         width: "34",
@@ -14845,14 +14845,14 @@ var MarkdownEditor = /*#__PURE__*/function (_Component) {
         height: "36.2559",
         fill: "white"
       }))));
-      return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_12__["Fragment"], null, wp.element.createElement(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_10__["PluginMoreMenuItem"], {
+      return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_11__["Fragment"], null, wp.element.createElement(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_9__["PluginMoreMenuItem"], {
         role: "menuitemcheckbox",
         icon: icon,
         onClick: onToggle,
-        shortcut: _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_13__["displayShortcut"].secondary('i')
-      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])('Switch to Markdown', 'dark-mode')), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_14__["KeyboardShortcuts"], {
+        shortcut: _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_12__["displayShortcut"].secondary('i')
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Switch to Markdown', 'dark-mode')), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_13__["KeyboardShortcuts"], {
         bindGlobal: true,
-        shortcuts: _defineProperty({}, _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_13__["rawShortcut"].secondary('i'), function () {
+        shortcuts: _defineProperty({}, _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_12__["rawShortcut"].secondary('i'), function () {
           onToggle();
         })
       }), isActive && wp.element.createElement(_shortcuts__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -14864,22 +14864,21 @@ var MarkdownEditor = /*#__PURE__*/function (_Component) {
       }), wp.element.createElement(_block_limiter__WEBPACK_IMPORTED_MODULE_0__["default"], {
         isActive: isActive
       }), wp.element.createElement(_theme_switcher__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        toggleText: toggleText,
+        toggleEditor: onToggle,
         isMarkdown: isActive,
         isActive: true,
-        isEnabled: true
+        isEnabled: isThemesUI
       }), isActive && isDocumentInformation && wp.element.createElement(_document_info__WEBPACK_IMPORTED_MODULE_5__["default"], {
         isActive: isActive
-      }), !isActive && wp.element.createElement(_shortcut_button__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        onToggle: onToggle,
-        isEnabled: isSwitchTo
       }));
     }
   }]);
 
   return MarkdownEditor;
-}(_wordpress_element__WEBPACK_IMPORTED_MODULE_12__["Component"]);
+}(_wordpress_element__WEBPACK_IMPORTED_MODULE_11__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_11__["compose"])([Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["withSelect"])(function (select) {
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_10__["compose"])([Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_8__["withSelect"])(function (select) {
   var _select = select('core/edit-post'),
       isFeatureActive = _select.isFeatureActive;
 
@@ -14907,8 +14906,11 @@ var MarkdownEditor = /*#__PURE__*/function (_Component) {
     isDocumentInformation: isEditorPanelEnabled('documentInformation'),
     postmeta: getEditedPostAttribute('meta')
   };
-}), Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["withDispatch"])(function (dispatch, ownProps) {
+}), Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_8__["withDispatch"])(function (dispatch, ownProps) {
   return {
+    toggleText: function toggleText() {
+      return ownProps.isActive ? 'Exit Markdown' : 'Switch to Markdown';
+    },
     onToggle: function onToggle() {
       document.querySelector('html').classList.remove('darkmode-theme-default', 'darkmode-theme-darkmode', 'darkmode-theme-chathams', 'darkmode-theme-pumpkin', 'darkmode-theme-mustard', 'darkmode-theme-concord');
       dispatch('core/edit-post').toggleFeature('markdownWritingMode');
@@ -14980,7 +14982,7 @@ var MarkdownEditor = /*#__PURE__*/function (_Component) {
       dispatch('markdown-settings').toggleEditorPanelEnabled('savedDefaultEditor');
     }
   };
-}), _wordpress_components__WEBPACK_IMPORTED_MODULE_14__["withSpokenMessages"]])(MarkdownEditor));
+}), _wordpress_components__WEBPACK_IMPORTED_MODULE_13__["withSpokenMessages"]])(MarkdownEditor));
 
 /***/ }),
 
@@ -17639,11 +17641,14 @@ var MusicList = /*#__PURE__*/function (_Component) {
       track: null,
       audio: null,
       musics: [{
-        name: 'Relaxing',
-        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/relaxing.mp3")
+        name: 'Thunderstorm',
+        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/Thunderstorm.mp3")
       }, {
-        name: 'Relaxing 2',
-        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/music2.mp3")
+        name: 'Forest',
+        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/forest.mp3")
+      }, {
+        name: 'Seaside',
+        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/seaside.mp3")
       }],
       action: false
     };
@@ -17697,6 +17702,7 @@ var MusicList = /*#__PURE__*/function (_Component) {
         console.log(this.state.musics);
         var mp3 = this.state.musics[key].src;
         var audio = new Audio(mp3);
+        audio.loop = true;
         audio.play();
         this.setState({
           playing: true,
@@ -17742,7 +17748,7 @@ var MusicList = /*#__PURE__*/function (_Component) {
           className: "wp-markdown-music-item"
         }, wp.element.createElement("span", {
           className: "music-title"
-        }, item.name), _this3.state.action && i > 1 ? wp.element.createElement("span", {
+        }, item.name), _this3.state.action && i > 2 ? wp.element.createElement("span", {
           className: "music-action"
         }, _this3.state.action && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
           "data-key": i,
@@ -17760,8 +17766,8 @@ var MusicList = /*#__PURE__*/function (_Component) {
             return _this3.handlePlayPause(e);
           }
         }, " "))) : '';
-      })), this.state.musics.length > 2 && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-        className: "wp-markdown-remove-music is-small button button-link-delete",
+      })), this.state.musics.length > 3 && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+        className: "wp-markdown-remove-music is-small is-secondary button button-link-delete",
         onClick: function onClick() {
           _this3.setState({
             action: !_this3.state.action
@@ -18365,267 +18371,6 @@ var Section = function Section(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Section);
-
-/***/ }),
-
-/***/ "./src/components/shortcut-button/index.js":
-/*!*************************************************!*\
-  !*** ./src/components/shortcut-button/index.js ***!
-  \*************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/keycodes */ "@wordpress/keycodes");
-/* harmony import */ var _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_keycodes__WEBPACK_IMPORTED_MODULE_4__);
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct();
-
-  return function _createSuperInternal() {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-/**
- * WordPress dependencies
- */
-
-
-
-
-
-
-
-
-var ShortcutButton = /*#__PURE__*/function (_Component) {
-  _inherits(ShortcutButton, _Component);
-
-  var _super = _createSuper(ShortcutButton);
-
-  function ShortcutButton() {
-    var _this;
-
-    _classCallCheck(this, ShortcutButton);
-
-    _this = _super.apply(this, arguments);
-    _this.addPinnedButton = _this.addPinnedButton.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(ShortcutButton, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.addPinnedButton();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.addPinnedButton();
-    }
-  }, {
-    key: "addPinnedButton",
-    value: function addPinnedButton() {
-      var _this$props = this.props,
-          isActive = _this$props.isActive,
-          onToggle = _this$props.onToggle,
-          isEnabled = _this$props.isEnabled;
-      var icon = wp.element.createElement("svg", {
-        width: "60",
-        height: "27",
-        viewBox: "0 0 83 37",
-        fill: "none",
-        xmlns: "http://www.w3.org/2000/svg",
-        style: {
-          borderRadius: '5px',
-          boxShadow: '0px 0px 3px #666'
-        }
-      }, wp.element.createElement("g", {
-        "clip-path": "url(#clip0)"
-      }, wp.element.createElement("path", {
-        d: "M0 4.82332C0 2.16888 2.16888 0 4.82332 0H78.1767C80.8311 0 83 2.16888 83 4.82332V31.4002C83 34.0546 80.8311 36.2235 78.1767 36.2235H4.82332C2.16888 36.2559 0 34.087 0 31.4325V4.82332Z",
-        fill: "#0591E5"
-      }), wp.element.createElement("path", {
-        d: "M0 4.82332C0 2.16888 2.16888 0 4.82332 0H31.8857C34.5402 0 36.709 2.16888 36.709 4.82332V31.4002C36.709 34.0546 34.5402 36.2235 31.8857 36.2235H4.82332C2.16888 36.2559 0 34.087 0 31.4325V4.82332Z",
-        fill: "white"
-      }), wp.element.createElement("path", {
-        d: "M75.9431 19.5199V12.6572H72.0585V19.5199H69.7601L74.0008 24.408L78.2414 19.5199H75.9431Z",
-        fill: "white"
-      }), wp.element.createElement("path", {
-        d: "M41.1116 24.3756C41.9209 24.3756 42.5683 23.6958 42.5683 22.8865C42.5683 22.0772 41.9209 21.3974 41.1116 21.3974C40.3023 21.3974 39.6872 22.0772 39.6872 22.8865C39.6872 23.6958 40.3023 24.3756 41.1116 24.3756Z",
-        fill: "white"
-      }), wp.element.createElement("path", {
-        d: "M44.0897 24.2785H46.8412V19.0991C46.8412 18.225 47.3268 17.6747 48.0713 17.6747C48.8159 17.6747 49.2367 18.1603 49.2367 19.0343V24.2785H51.8588V19.0667C51.8588 18.1927 52.312 17.6424 53.0565 17.6424C53.8334 17.6424 54.2543 18.1279 54.2543 19.0343V24.2785H57.0058V18.3222C57.0058 16.5417 55.8728 15.344 54.2219 15.344C52.9594 15.344 51.9235 16.0885 51.5998 17.2215H51.5351C51.3085 16.0238 50.4344 15.344 49.172 15.344C48.0066 15.344 47.1002 16.0885 46.7441 17.1892H46.6794V15.5059H43.9926V24.2785H44.0897Z",
-        fill: "white"
-      }), wp.element.createElement("path", {
-        d: "M61.4407 24.408C62.7032 24.408 63.6743 23.6958 64.0304 22.7894H64.0952V24.2785H66.8143V12.6572H64.0628V17.0597H63.998C63.6096 16.0885 62.7032 15.3764 61.4731 15.3764C59.3689 15.3764 58.0741 17.0597 58.0741 19.876C58.0741 22.6923 59.3366 24.408 61.4407 24.408ZM62.4766 17.61C63.4477 17.61 64.0628 18.484 64.0628 19.9084C64.0628 21.3327 63.4801 22.1743 62.4766 22.1743C61.4731 22.1743 60.8904 21.3003 60.8904 19.9084C60.8904 18.484 61.5055 17.61 62.4766 17.61Z",
-        fill: "white"
-      }), wp.element.createElement("path", {
-        d: "M18.3869 5.14704C20.0702 5.14704 21.7535 5.50312 23.3073 6.15055C24.0519 6.47426 24.764 6.86271 25.4438 7.34828C26.1236 7.80148 26.7387 8.35179 27.3214 8.93448C27.9041 9.51716 28.422 10.1646 28.8752 10.8444C29.3284 11.5242 29.7169 12.2687 30.0406 13.0456C30.688 14.6318 31.0441 16.3151 31.0441 18.0632C31.0441 19.8112 30.7204 21.4945 30.0406 23.0807C29.7169 23.8576 29.3284 24.5698 28.8752 25.282C28.422 25.9618 27.9041 26.6092 27.3214 27.1919C26.7387 27.7746 26.1236 28.2925 25.4438 28.7781C24.764 29.2313 24.0519 29.6521 23.3073 29.9758C21.7535 30.6556 20.1026 30.9793 18.3869 30.9793C16.6712 30.9793 15.0203 30.6232 13.4665 29.9758C12.7219 29.6521 12.0098 29.2637 11.33 28.7781C10.6502 28.3249 10.0351 27.7746 9.45242 27.1919C8.86974 26.6092 8.3518 25.9618 7.8986 25.282C7.4454 24.6022 7.05695 23.8576 6.73323 23.0807C6.08581 21.4945 5.72972 19.8112 5.72972 18.0632C5.72972 16.3151 6.05344 14.6318 6.73323 13.0456C7.05695 12.2687 7.4454 11.5566 7.8986 10.8444C8.3518 10.1646 8.86974 9.51716 9.45242 8.93448C10.0351 8.35179 10.6502 7.83385 11.33 7.34828C12.0098 6.89509 12.7219 6.47426 13.4665 6.15055C15.0203 5.50312 16.6712 5.14704 18.3869 5.14704ZM18.3869 4.33775C10.9415 4.33775 4.92044 10.4883 4.92044 18.0308C4.92044 25.5733 10.9415 31.7239 18.3869 31.7239C25.8323 31.7239 31.8534 25.5733 31.8534 18.0308C31.821 10.4559 25.7999 4.33775 18.3869 4.33775Z",
-        fill: "#32373C"
-      }), wp.element.createElement("path", {
-        d: "M7.15405 18.0308C7.15405 22.5628 9.74376 26.4474 13.4665 28.3249L8.12519 13.4017C7.51014 14.7937 7.15405 16.3799 7.15405 18.0308ZM25.9618 17.4481C25.9618 16.0238 25.4762 15.0527 25.023 14.3081C24.4403 13.3694 23.9224 12.5601 23.9224 11.6213C23.9224 10.5854 24.6993 9.58191 25.7999 9.58191C25.8647 9.58191 25.897 9.58191 25.9294 9.58191C23.9224 7.70438 21.2679 6.57138 18.3545 6.57138C14.4376 6.57138 10.9739 8.61077 8.96685 11.7184C9.22582 11.7184 9.48479 11.7184 9.67901 11.7184C10.8444 11.7184 12.6572 11.5889 12.6572 11.5889C13.2722 11.5566 13.337 12.463 12.7219 12.5277C12.7219 12.5277 12.1069 12.5924 11.4271 12.6248L15.5058 24.9906L17.9661 17.4805L16.218 12.5924C15.603 12.5601 15.0526 12.4953 15.0526 12.4953C14.4376 12.463 14.5347 11.5242 15.1174 11.5566C15.1174 11.5566 16.9626 11.686 18.0632 11.686C19.2285 11.686 21.0413 11.5566 21.0413 11.5566C21.6564 11.5242 21.7211 12.4306 21.1061 12.4953C21.1061 12.4953 20.491 12.5601 19.8112 12.5924L23.8576 24.8612L25.023 21.1385C25.6381 19.5846 25.9618 18.4516 25.9618 17.4481ZM18.5811 19.0343L15.2145 29.0047C16.218 29.296 17.2863 29.4579 18.3869 29.4579C19.6817 29.4579 20.9442 29.2313 22.1096 28.8105C22.0772 28.7457 22.0448 28.7133 22.0448 28.6486L18.5811 19.0343ZM28.2278 12.5601C28.2601 12.9162 28.2925 13.3046 28.2925 13.7254C28.2925 14.8908 28.0659 16.1857 27.4509 17.8042L24.0195 27.9041C27.3537 25.9294 29.5874 22.2391 29.5874 18.0308C29.5874 16.0562 29.1018 14.1786 28.2278 12.5601Z",
-        fill: "#32373C"
-      })), wp.element.createElement("defs", null, wp.element.createElement("clipPath", {
-        id: "clip0"
-      }, wp.element.createElement("rect", {
-        width: "83",
-        height: "36.2559",
-        fill: "white"
-      }))));
-
-      var ShortcutPinnedButton = function ShortcutPinnedButton() {
-        return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-          icon: icon,
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Switch to Markdown', 'dark-mode'),
-          shortcut: _wordpress_keycodes__WEBPACK_IMPORTED_MODULE_4__["displayShortcut"].secondary('i'),
-          onClick: function onClick() {
-            onToggle();
-          }
-        }));
-      }; //edit-post-header-toolbar edit-post-header-toolbar__block-toolbar
-
-
-      var moreMenuButton = document.querySelector('.edit-post-header-toolbar');
-
-      if (isEnabled && !isActive && !document.getElementById('components-markdown-shortcut-pinned-button')) {
-        moreMenuButton.insertAdjacentHTML('beforeend', '<div id="components-markdown-shortcut-pinned-button"></div>');
-        Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["render"])(wp.element.createElement(ShortcutPinnedButton, null), document.getElementById('components-markdown-shortcut-pinned-button'));
-      } else if (isActive || !isEnabled) {
-        var markdownButton = document.getElementById('components-markdown-shortcut-pinned-button');
-
-        if (markdownButton) {
-          markdownButton.remove();
-        }
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return false;
-    }
-  }]);
-
-  return ShortcutButton;
-}(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_1__["compose"])([_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["withSpokenMessages"]])(ShortcutButton));
 
 /***/ }),
 
@@ -20680,7 +20425,10 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      var themeSettings = this.props.themeSettings; // Wait for settings to load
+      var _this$props = this.props,
+          themeSettings = _this$props.themeSettings,
+          isActive = _this$props.isActive,
+          isMarkdown = _this$props.isMarkdown; // Wait for settings to load
 
       if (typeof themeSettings.theme === 'undefined') {
         return false;
@@ -20720,11 +20468,14 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
     value: function addControl() {
       var _this2 = this;
 
-      var _this$props = this.props,
-          isActive = _this$props.isActive,
-          isMarkdown = _this$props.isMarkdown,
-          updateThemeSettings = _this$props.updateThemeSettings,
-          postType = _this$props.postType;
+      var _this$props2 = this.props,
+          isActive = _this$props2.isActive,
+          toggleEditor = _this$props2.toggleEditor,
+          isEnabled = _this$props2.isEnabled,
+          isMarkdown = _this$props2.isMarkdown,
+          toggleText = _this$props2.toggleText,
+          updateThemeSettings = _this$props2.updateThemeSettings,
+          postType = _this$props2.postType;
       var themeSettings = this.state.themeSettings; // Wait for settings to load
 
       if (typeof themeSettings.theme === 'undefined') {
@@ -20883,7 +20634,55 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
               }
             }, "className", !_this2.state.is_pro && 'disabled'), wp.element.createElement("span", null, "\u270E ", Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Edit typography', 'dark-mode')), _this2.state.is_pro ? _icons__WEBPACK_IMPORTED_MODULE_4__["default"].typography : wp.element.createElement("span", {
               className: 'wp-markdown-pro-badge'
-            }, "PRO"))), !_this2.state.is_pro && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], {
+            }, "PRO"))), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
+              className: "components-markdown-mode-toggle",
+              onClick: function onClick() {
+                toggleEditor();
+                onToggle();
+              }
+            }, wp.element.createElement("svg", {
+              width: "60",
+              height: "27",
+              viewBox: "0 0 83 37",
+              fill: "none",
+              xmlns: "http://www.w3.org/2000/svg",
+              style: {
+                borderRadius: '5px',
+                boxShadow: '0px 0px 3px #666'
+              }
+            }, wp.element.createElement("g", {
+              "clip-path": "url(#clip0)"
+            }, wp.element.createElement("path", {
+              d: "M0 4.82332C0 2.16888 2.16888 0 4.82332 0H78.1767C80.8311 0 83 2.16888 83 4.82332V31.4002C83 34.0546 80.8311 36.2235 78.1767 36.2235H4.82332C2.16888 36.2559 0 34.087 0 31.4325V4.82332Z",
+              fill: "#0591E5"
+            }), wp.element.createElement("path", {
+              d: "M0 4.82332C0 2.16888 2.16888 0 4.82332 0H31.8857C34.5402 0 36.709 2.16888 36.709 4.82332V31.4002C36.709 34.0546 34.5402 36.2235 31.8857 36.2235H4.82332C2.16888 36.2559 0 34.087 0 31.4325V4.82332Z",
+              fill: "white"
+            }), wp.element.createElement("path", {
+              d: "M75.9431 19.5199V12.6572H72.0585V19.5199H69.7601L74.0008 24.408L78.2414 19.5199H75.9431Z",
+              fill: "white"
+            }), wp.element.createElement("path", {
+              d: "M41.1116 24.3756C41.9209 24.3756 42.5683 23.6958 42.5683 22.8865C42.5683 22.0772 41.9209 21.3974 41.1116 21.3974C40.3023 21.3974 39.6872 22.0772 39.6872 22.8865C39.6872 23.6958 40.3023 24.3756 41.1116 24.3756Z",
+              fill: "white"
+            }), wp.element.createElement("path", {
+              d: "M44.0897 24.2785H46.8412V19.0991C46.8412 18.225 47.3268 17.6747 48.0713 17.6747C48.8159 17.6747 49.2367 18.1603 49.2367 19.0343V24.2785H51.8588V19.0667C51.8588 18.1927 52.312 17.6424 53.0565 17.6424C53.8334 17.6424 54.2543 18.1279 54.2543 19.0343V24.2785H57.0058V18.3222C57.0058 16.5417 55.8728 15.344 54.2219 15.344C52.9594 15.344 51.9235 16.0885 51.5998 17.2215H51.5351C51.3085 16.0238 50.4344 15.344 49.172 15.344C48.0066 15.344 47.1002 16.0885 46.7441 17.1892H46.6794V15.5059H43.9926V24.2785H44.0897Z",
+              fill: "white"
+            }), wp.element.createElement("path", {
+              d: "M61.4407 24.408C62.7032 24.408 63.6743 23.6958 64.0304 22.7894H64.0952V24.2785H66.8143V12.6572H64.0628V17.0597H63.998C63.6096 16.0885 62.7032 15.3764 61.4731 15.3764C59.3689 15.3764 58.0741 17.0597 58.0741 19.876C58.0741 22.6923 59.3366 24.408 61.4407 24.408ZM62.4766 17.61C63.4477 17.61 64.0628 18.484 64.0628 19.9084C64.0628 21.3327 63.4801 22.1743 62.4766 22.1743C61.4731 22.1743 60.8904 21.3003 60.8904 19.9084C60.8904 18.484 61.5055 17.61 62.4766 17.61Z",
+              fill: "white"
+            }), wp.element.createElement("path", {
+              d: "M18.3869 5.14704C20.0702 5.14704 21.7535 5.50312 23.3073 6.15055C24.0519 6.47426 24.764 6.86271 25.4438 7.34828C26.1236 7.80148 26.7387 8.35179 27.3214 8.93448C27.9041 9.51716 28.422 10.1646 28.8752 10.8444C29.3284 11.5242 29.7169 12.2687 30.0406 13.0456C30.688 14.6318 31.0441 16.3151 31.0441 18.0632C31.0441 19.8112 30.7204 21.4945 30.0406 23.0807C29.7169 23.8576 29.3284 24.5698 28.8752 25.282C28.422 25.9618 27.9041 26.6092 27.3214 27.1919C26.7387 27.7746 26.1236 28.2925 25.4438 28.7781C24.764 29.2313 24.0519 29.6521 23.3073 29.9758C21.7535 30.6556 20.1026 30.9793 18.3869 30.9793C16.6712 30.9793 15.0203 30.6232 13.4665 29.9758C12.7219 29.6521 12.0098 29.2637 11.33 28.7781C10.6502 28.3249 10.0351 27.7746 9.45242 27.1919C8.86974 26.6092 8.3518 25.9618 7.8986 25.282C7.4454 24.6022 7.05695 23.8576 6.73323 23.0807C6.08581 21.4945 5.72972 19.8112 5.72972 18.0632C5.72972 16.3151 6.05344 14.6318 6.73323 13.0456C7.05695 12.2687 7.4454 11.5566 7.8986 10.8444C8.3518 10.1646 8.86974 9.51716 9.45242 8.93448C10.0351 8.35179 10.6502 7.83385 11.33 7.34828C12.0098 6.89509 12.7219 6.47426 13.4665 6.15055C15.0203 5.50312 16.6712 5.14704 18.3869 5.14704ZM18.3869 4.33775C10.9415 4.33775 4.92044 10.4883 4.92044 18.0308C4.92044 25.5733 10.9415 31.7239 18.3869 31.7239C25.8323 31.7239 31.8534 25.5733 31.8534 18.0308C31.821 10.4559 25.7999 4.33775 18.3869 4.33775Z",
+              fill: "#32373C"
+            }), wp.element.createElement("path", {
+              d: "M7.15405 18.0308C7.15405 22.5628 9.74376 26.4474 13.4665 28.3249L8.12519 13.4017C7.51014 14.7937 7.15405 16.3799 7.15405 18.0308ZM25.9618 17.4481C25.9618 16.0238 25.4762 15.0527 25.023 14.3081C24.4403 13.3694 23.9224 12.5601 23.9224 11.6213C23.9224 10.5854 24.6993 9.58191 25.7999 9.58191C25.8647 9.58191 25.897 9.58191 25.9294 9.58191C23.9224 7.70438 21.2679 6.57138 18.3545 6.57138C14.4376 6.57138 10.9739 8.61077 8.96685 11.7184C9.22582 11.7184 9.48479 11.7184 9.67901 11.7184C10.8444 11.7184 12.6572 11.5889 12.6572 11.5889C13.2722 11.5566 13.337 12.463 12.7219 12.5277C12.7219 12.5277 12.1069 12.5924 11.4271 12.6248L15.5058 24.9906L17.9661 17.4805L16.218 12.5924C15.603 12.5601 15.0526 12.4953 15.0526 12.4953C14.4376 12.463 14.5347 11.5242 15.1174 11.5566C15.1174 11.5566 16.9626 11.686 18.0632 11.686C19.2285 11.686 21.0413 11.5566 21.0413 11.5566C21.6564 11.5242 21.7211 12.4306 21.1061 12.4953C21.1061 12.4953 20.491 12.5601 19.8112 12.5924L23.8576 24.8612L25.023 21.1385C25.6381 19.5846 25.9618 18.4516 25.9618 17.4481ZM18.5811 19.0343L15.2145 29.0047C16.218 29.296 17.2863 29.4579 18.3869 29.4579C19.6817 29.4579 20.9442 29.2313 22.1096 28.8105C22.0772 28.7457 22.0448 28.7133 22.0448 28.6486L18.5811 19.0343ZM28.2278 12.5601C28.2601 12.9162 28.2925 13.3046 28.2925 13.7254C28.2925 14.8908 28.0659 16.1857 27.4509 17.8042L24.0195 27.9041C27.3537 25.9294 29.5874 22.2391 29.5874 18.0308C29.5874 16.0562 29.1018 14.1786 28.2278 12.5601Z",
+              fill: "#32373C"
+            })), wp.element.createElement("defs", null, wp.element.createElement("clipPath", {
+              id: "clip0"
+            }, wp.element.createElement("rect", {
+              width: "83",
+              height: "36.2559",
+              fill: "white"
+            })))), wp.element.createElement("span", null, toggleText()))), !_this2.state.is_pro && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], {
               className: "components-menu-group__get-pro"
             }, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
               className: "components-markdown-theme-switcher__get-pro"

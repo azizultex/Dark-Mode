@@ -12,12 +12,16 @@ class MusicList extends Component {
             audio: null,
             musics: [
                 {
-                    name: 'Relaxing',
-                    src: `${WPMD_Settings.pluginDirUrl}assets/musics/relaxing.mp3`,
+                    name: 'Thunderstorm',
+                    src: `${WPMD_Settings.pluginDirUrl}assets/musics/Thunderstorm.mp3`,
                 },
                 {
-                    name: 'Relaxing 2',
-                    src: `${WPMD_Settings.pluginDirUrl}assets/musics/music2.mp3`,
+                    name: 'Forest',
+                    src: `${WPMD_Settings.pluginDirUrl}assets/musics/forest.mp3`,
+                },
+                {
+                    name: 'Seaside',
+                    src: `${WPMD_Settings.pluginDirUrl}assets/musics/seaside.mp3`,
                 },
             ],
             action: false
@@ -73,6 +77,7 @@ class MusicList extends Component {
             const mp3 = this.state.musics[key].src;
 
             const audio = new Audio(mp3);
+            audio.loop = true;
             audio.play();
 
             this.setState({
@@ -124,7 +129,7 @@ class MusicList extends Component {
                                             <div className='wp-markdown-music-item'>
                                                 <span className='music-title'>{item.name}</span>
                                                 {
-                                                    this.state.action && i > 1 ?
+                                                    this.state.action && i > 2 ?
                                                         <span className='music-action'>
                                                             {
                                                                 this.state.action &&
@@ -151,9 +156,9 @@ class MusicList extends Component {
                     </ol>
 
                     {
-                        this.state.musics.length > 2 &&
+                        this.state.musics.length > 3 &&
                         <Button
-                            className="wp-markdown-remove-music is-small button button-link-delete"
+                            className="wp-markdown-remove-music is-small is-secondary button button-link-delete"
                             onClick={() => {
                                 this.setState({action: !this.state.action})
                             }}

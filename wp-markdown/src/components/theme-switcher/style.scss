@@ -188,3 +188,19 @@
 		}
 	}
 }
+
+.components-markdown-mode-toggle {
+	.components-menu-item__item {
+		display: flex;
+		align-items: center;
+
+		svg {
+			margin-left: 0 !important;
+			width: 50px !important;
+		}
+
+		span {
+			margin-left: 10px;
+		}
+	}
+}
