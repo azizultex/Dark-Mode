@@ -1,60 +1,69 @@
-.wp-markdown-music {
-  position: absolute;
-  background: #555;
-  color: #fff;
-  padding: 15px 15px 15px 25px;
-  width: 250px;
-  top: 62px;
-  text-align: center;
-
-  button.is-small.wp-markdown-remove-music {
-    min-height: auto;
-    margin-right: 7px;
-    background: #ddd;
+.components-markdown-edit-music {
+  .components-menu-item__item {
+    span {
+      margin-left: 10px;
+    }
   }
+}
 
+.components-markdown-music {
+  background: #333;
+
+  .music-cat-group {
+    display: flex;
+    margin: -12px;
+    margin-bottom: 20px;
+
+    .music-cat {
+      display: flex;
+      align-items: center;
+      width: 50%;
+      color: #fff;
+      background: rgba(#fff, .2);
+      cursor: pointer;
+      padding: 15px 7px;
+      justify-content: center;
+
+      &.active {
+        background: rgba(blue, .6);
+      }
+
+      span {
+        margin-left: 7px;
+      }
+
+    }
+  }
 }
 
 .wp-markdown-music-list {
-  margin: 0;
-}
+  color: #fff;
 
-.wp-markdown-music-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .wp-markdown-music-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #777;
+    padding-bottom: 10px;
 
-  .music-title {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    &:last-child {
+      border: none;
+    }
+  }
+
+  .music-icon {
+    margin-right: 7px;
+
+    svg {
+      width: 25px;
+      height: auto;
+    }
   }
 
   .music-play-pause {
+    margin-left: auto;
+    cursor: pointer;
+    font-size: 28px;
     height: auto;
     width: auto;
-    font-size: 30px;
-    cursor: pointer;
-    margin-left: auto;
   }
-
-  .music-action {
-    position: relative;
-
-    .music-action-toggle {
-      padding: 0;
-      color: #fff;
-    }
-
-    .music-action-remove {
-      color: orangered;
-      background: #ddd;
-      padding: 5px;
-      border-radius: 5px;
-      line-height: 0;
-      height: auto;
-    }
-
-  }
-
 }

@@ -17417,36 +17417,14 @@ var Music = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, Music);
 
     _this = _super.call(this, props);
-    _this.state = {
-      list: false
-    };
+    _this.state = {};
     return _this;
   }
 
   _createClass(Music, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
-      return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
-        className: "components-markdown-music",
-        onClick: function onClick() {
-          _this2.setState({
-            list: !_this2.state.list
-          });
-        }
-      }, wp.element.createElement("svg", {
-        id: "wp-markdown-music",
-        style: {
-          width: 20,
-          height: 20
-        },
-        "enable-background": "new 0 0 415.963 415.963",
-        viewBox: "0 0 415.963 415.963",
-        xmlns: "http://www.w3.org/2000/svg"
-      }, wp.element.createElement("path", {
-        d: "m328.712 264.539c12.928-21.632 21.504-48.992 23.168-76.064 1.056-17.376-2.816-35.616-11.2-52.768-13.152-26.944-35.744-42.08-57.568-56.704-16.288-10.912-31.68-21.216-42.56-35.936l-1.952-2.624c-6.432-8.64-13.696-18.432-14.848-26.656-1.152-8.32-8.704-14.24-16.96-13.76-8.384.576-14.88 7.52-14.88 15.936v285.12c-13.408-8.128-29.92-13.12-48-13.12-44.096 0-80 28.704-80 64s35.904 64 80 64 80-28.704 80-64v-186.496c24.032 9.184 63.36 32.576 74.176 87.2-2.016 2.976-3.936 6.176-6.176 8.736-5.856 6.624-5.216 16.736 1.44 22.56 6.592 5.888 16.704 5.184 22.56-1.44 4.288-4.864 8.096-10.56 11.744-16.512.384-.448.737-.928 1.056-1.472z"
-      }), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null))), this.state.list && wp.element.createElement(_music_list__WEBPACK_IMPORTED_MODULE_6__["default"], null));
+      return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, wp.element.createElement(_music_list__WEBPACK_IMPORTED_MODULE_6__["default"], null));
     }
   }]);
 
@@ -17468,8 +17446,8 @@ var Music = /*#__PURE__*/function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _musics__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./musics */ "./src/components/music/musics.json");
+var _musics__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./musics */ "./src/components/music/musics.json", 1);
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -17484,41 +17462,6 @@ function _typeof(obj) {
   }
 
   return _typeof(obj);
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -17637,177 +17580,192 @@ var MusicList = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      playing: false,
-      track: null,
-      audio: null,
-      musics: [{
-        name: 'Thunderstorm',
-        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/Thunderstorm.mp3")
-      }, {
-        name: 'Forest',
-        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/forest.mp3")
-      }, {
-        name: 'Seaside',
-        src: "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/seaside.mp3")
-      }],
-      action: false
+      playing: typeof wpMarkdownPlaying !== 'undefined' ? wpMarkdownPlaying : [false, false, false],
+      audio: typeof wpMarkdownAudio !== 'undefined' ? wpMarkdownAudio : [null, null, null],
+      cat: typeof wpMarkdownCat !== 'undefined' ? wpMarkdownCat : 'relax'
     };
     return _this;
   }
 
   _createClass(MusicList, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      wp.ajax.send('wp_markdown_get_musics', {
-        data: {
-          user_id: WPMD_Settings.current_user_id
-        },
-        success: function success(data) {
-          _this2.setState({
-            musics: [].concat(_toConsumableArray(_this2.state.musics), _toConsumableArray(data))
-          });
-        },
-        error: function error(_error) {
-          return console.log(_error);
-        }
-      });
-    }
+    value: function componentDidMount() {}
   }, {
     key: "handlePlayPause",
-    value: function handlePlayPause(e) {
-      var key = e.target.getAttribute('data-key');
-      /*remove pause from all items and add play*/
-
-      document.querySelectorAll('.music-play-pause').forEach(function (element) {
-        element.classList.remove('dashicons-controls-pause');
-        element.classList.add('dashicons-controls-play');
-      });
+    value: function handlePlayPause(e, index) {
       /*check if current item is playing*/
-
-      if (this.state.playing && this.state.track === key) {
+      if (this.state.playing[index]) {
+        this.state.playing[index] = false;
         this.setState({
-          playing: false,
-          track: null
+          playing: this.state.playing
         });
-        this.state.audio.pause();
+        this.state.audio[index].pause();
       } else {
-        if (this.state.audio) {
-          this.state.audio.pause();
+        if (this.state.audio[index]) {
+          this.state.audio[index].pause();
         }
 
-        e.target.classList.remove('dashicons-controls-play');
-        e.target.classList.add('dashicons-controls-pause');
-        console.log(this.state.musics);
-        var mp3 = this.state.musics[key].src;
+        var mp3 = "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/").concat(_musics__WEBPACK_IMPORTED_MODULE_1__[this.state.cat][index]['name'], ".mp3");
         var audio = new Audio(mp3);
         audio.loop = true;
         audio.play();
+        this.state.playing[index] = true;
+        this.state.audio[index] = audio;
         this.setState({
-          playing: true,
-          track: key,
-          audio: audio
+          playing: this.state.playing,
+          audio: this.state.audio
         });
       }
     }
   }, {
-    key: "removeMusic",
-    value: function removeMusic(e) {
-      var key = e.target.getAttribute('data-key');
+    key: "playPauseAll",
+    value: function playPauseAll(cat) {
+      var _this2 = this;
 
-      if (this.state.playing && this.state.track === key) {
-        this.state.audio.pause();
+      var notPlaying = this.state.audio.every(function (v) {
+        return v === null;
+      });
+      var isCat = cat === this.state.cat;
+      this.state.audio.map(function (audio, index) {
+        if (_this2.state.audio[index]) {
+          _this2.state.audio[index].pause();
+        }
+
+        _this2.state.audio[index] = null;
+        _this2.state.playing[index] = false;
+
+        _this2.setState({
+          playing: _this2.state.playing,
+          audio: _this2.state.audio
+        });
+      });
+
+      if (notPlaying || !isCat) {
+        this.state.audio.map(function (audio, index) {
+          var mp3 = "".concat(WPMD_Settings.pluginDirUrl, "assets/musics/").concat(_musics__WEBPACK_IMPORTED_MODULE_1__[cat][index]['name'], ".mp3");
+          audio = new Audio(mp3);
+          audio.loop = true;
+          audio.play();
+          _this2.state.playing[index] = true;
+          _this2.state.audio[index] = audio;
+
+          _this2.setState({
+            playing: _this2.state.playing,
+            audio: _this2.state.audio
+          });
+        });
       }
 
-      var mp3 = this.state.musics[key].src;
-      this.state.musics.splice(key, 1);
       this.setState({
-        musics: this.state.musics
+        cat: cat
       });
-      wp.ajax.post('wp_markdown_remove_music', {
-        data: {
-          src: mp3,
-          user_id: WPMD_Settings.current_user_id
-        }
-      });
+      window.wpMarkdownCat = cat;
+      window.wpMarkdownPlaying = this.state.playing;
+      window.wpMarkdownAudio = this.state.audio;
     }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
+      var sounds = 'relax' === this.state.cat ? _musics__WEBPACK_IMPORTED_MODULE_1__.relax : _musics__WEBPACK_IMPORTED_MODULE_1__.productivity;
       return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, wp.element.createElement("div", {
-        className: "wp-markdown-music"
-      }, wp.element.createElement("ol", {
+        className: "music-cat-group"
+      }, wp.element.createElement("div", {
+        className: "music-cat ".concat('productivity' === this.state.cat ? 'active' : ''),
+        onClick: function onClick() {
+          _this3.playPauseAll('productivity');
+        }
+      }, wp.element.createElement("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "20",
+        height: "20",
+        viewBox: "0 0 40 40"
+      }, wp.element.createElement("g", {
+        fill: "none",
+        "fill-rule": "evenodd"
+      }, wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M25.6,19.8 C25.1581722,20.1313708 24.5313708,20.0418278 24.2,19.6 C23.8686292,19.1581722 23.9581722,18.5313708 24.4,18.2 C26.8002538,16.3998096 28,13.7003807 28,10 C28,5.581722 24.418278,2 20,2 C15.581722,2 12,5.581722 12,10 C12,13.7003807 13.1997462,16.3998096 15.6,18.2 C16.0418278,18.5313708 16.1313708,19.1581722 15.8,19.6 C15.4686292,20.0418278 14.8418278,20.1313708 14.4,19.8 C11.4669205,17.6001904 10,14.2996193 10,10 C10,4.4771525 14.4771525,0 20,0 C25.5228475,0 30,4.4771525 30,10 C30,14.2996193 28.5330795,17.6001904 25.6,19.8 Z"
+      }), wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M14.0077361,18.8758531 C14.0763006,18.3278409 14.5761347,17.9391717 15.1241469,18.0077361 C15.6721591,18.0763006 16.0608283,18.5761347 15.9922639,19.1241469 C15.5993516,22.2645608 13.8659919,23.9963304 11,23.9963304 C9.20903823,23.9963304 7.26016331,22.8862914 6.58952873,21.4099027 C6.29581884,20.7633062 6.12088021,20.0367999 6.03411872,19.2197876 C5.95747892,18.4980889 5.95228455,17.8795717 5.98350296,16.8161737 C5.99843076,16.3076859 6.00116429,16.1894115 6.00001953,16.0062499 C5.99216256,14.749134 5.14763105,14 3.990625,14 C2.83585516,14 2,14.7455712 2,16 L2,17.9981652 C2,18.5504499 1.55228475,18.9981652 1,18.9981652 C0.44771525,18.9981652 1.42108547e-14,18.5504499 1.42108547e-14,17.9981652 L1.42108547e-14,16 C1.42108547e-14,13.586833 1.77898859,12 3.990625,12 C6.2000252,12 7.98491497,13.5832702 7.99998047,15.9937501 C8.00134069,16.2113852 7.99845848,16.3360924 7.98264167,16.8748629 C7.95394416,17.8523908 7.95856323,18.4024037 8.02293612,19.0085879 C8.08872546,19.6281104 8.21495561,20.1523342 8.41047127,20.582758 C8.73762658,21.302984 9.95492207,21.9963304 11,21.9963304 C12.8006747,21.9963304 13.7339817,21.0638796 14.0077361,18.8758531 Z"
+      }), wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M38.0077221,18.8759653 C38.0762246,18.3279453 38.5760148,17.9392196 39.1240347,18.0077221 C39.6720547,18.0762246 40.0607804,18.5760148 39.9922779,19.1240347 C39.5994322,22.2668005 37.8662326,24 35,24 C33.2090382,24 31.2601633,22.8899611 30.5895287,21.4135723 C30.2947649,20.7646557 30.1196638,20.0346501 30.0332222,19.212833 C29.9574447,18.492402 29.9523962,17.8745555 29.9835016,16.8133509 C29.9984415,16.303656 30.0011642,16.1857327 30.0000195,16.0025802 C29.9921509,14.7436031 29.1450582,13.989258 27.9887796,13.9871242 C26.8347087,13.9849944 26,14.7321101 26,16 L26,18 C26,18.5522847 25.5522847,19 25,19 C24.4477153,19 24,18.5522847 24,18 L24,16 C24,13.5745325 25.7780804,11.9830411 27.9924704,11.9871276 C30.2005244,11.9912024 31.9849189,13.5802246 31.9999805,15.9900805 C32.0013405,16.2076785 31.9984712,16.3319478 31.982643,16.8719485 C31.9540347,17.8479617 31.9585275,18.3978021 32.0222496,19.00362 C32.0878615,19.6274055 32.2143135,20.1545902 32.4104713,20.5864277 C32.7376266,21.3066536 33.9549221,22 35,22 C36.800434,22 37.7339012,21.0665328 38.0077221,18.8759653 Z",
+        transform: "matrix(-1 0 0 1 64 0)"
+      }), wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M16 16C14.3431458 16 13 14.6568542 13 13 13 11.3431458 14.3431458 10 16 10 17.6568542 10 19 11.3431458 19 13 19 14.6568542 17.6568542 16 16 16zM16 14C16.5522847 14 17 13.5522847 17 13 17 12.4477153 16.5522847 12 16 12 15.4477153 12 15 12.4477153 15 13 15 13.5522847 15.4477153 14 16 14zM24 16C22.3431458 16 21 14.6568542 21 13 21 11.3431458 22.3431458 10 24 10 25.6568542 10 27 11.3431458 27 13 27 14.6568542 25.6568542 16 24 16zM24 14C24.5522847 14 25 13.5522847 25 13 25 12.4477153 24.5522847 12 24 12 23.4477153 12 23 12.4477153 23 13 23 13.5522847 23.4477153 14 24 14zM4 25C4.55228475 25 5 25.4477153 5 26 5 26.5522847 4.55228475 27 4 27 2.8954305 27 2 27.8954305 2 29 2 30.1045695 2.8954305 31 4 31 4.74854529 31 5.72416184 30.5818786 6.85405776 29.7366137L13.3540578 24.2366137C13.7756644 23.8798697 14.4066422 23.9324512 14.7633863 24.3540578 15.1201303 24.7756644 15.0675488 25.4066422 14.6459422 25.7633863L8.1 31.3C6.60917149 32.4181214 5.25145471 33 4 33 1.790861 33 0 31.209139 0 29 0 26.790861 1.790861 25 4 25z"
+      }), wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M12,32 C12.5522847,32 13,32.4477153 13,33 C13,33.5522847 12.5522847,34 12,34 C10.8954305,34 10,34.8954305 10,36 C10,37.1045695 10.8954305,38 12,38 C13.4831616,38 14.4645776,37.018584 15.0136061,34.835601 L17.0136061,22.835601 C17.1044011,22.2908307 17.6196287,21.922811 18.164399,22.0136061 C18.7091693,22.1044011 19.077189,22.6196287 18.9863939,23.164399 L16.9701425,35.2425356 C16.2020891,38.3147493 14.5168384,40 12,40 C9.790861,40 8,38.209139 8,36 C8,33.790861 9.790861,32 12,32 Z"
+      }), wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M29,25 C29.5522847,25 30,25.4477153 30,26 C30,26.5522847 29.5522847,27 29,27 C27.8954305,27 27,27.8954305 27,29 C27,30.1045695 27.8954305,31 29,31 C29.7485453,31 30.7241618,30.5818786 31.8540578,29.7366137 L38.3540578,24.2366137 C38.7756644,23.8798697 39.4066422,23.9324512 39.7633863,24.3540578 C40.1201303,24.7756644 40.0675488,25.4066422 39.6459422,25.7633863 L33.1,31.3 C31.6091715,32.4181214 30.2514547,33 29,33 C26.790861,33 25,31.209139 25,29 C25,26.790861 26.790861,25 29,25 Z",
+        transform: "matrix(-1 0 0 1 65 0)"
+      }), wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M25,32 C25.5522847,32 26,32.4477153 26,33 C26,33.5522847 25.5522847,34 25,34 C23.8954305,34 23,34.8954305 23,36 C23,37.1045695 23.8954305,38 25,38 C26.4831616,38 27.4645776,37.018584 28.0136061,34.835601 L30.0136061,22.835601 C30.1044011,22.2908307 30.6196287,21.922811 31.164399,22.0136061 C31.7091693,22.1044011 32.077189,22.6196287 31.9863939,23.164399 L29.9701425,35.2425356 C29.2020891,38.3147493 27.5168384,40 25,40 C22.790861,40 21,38.209139 21,36 C21,33.790861 22.790861,32 25,32 Z",
+        transform: "matrix(-1 0 0 1 53 0)"
+      }), wp.element.createElement("path", {
+        d: "M0 0H40V40H0z"
+      }))), wp.element.createElement("span", null, "Productivity")), wp.element.createElement("div", {
+        className: "music-cat ".concat('relax' === this.state.cat ? 'active' : ''),
+        onClick: function onClick() {
+          _this3.playPauseAll('relax');
+        }
+      }, wp.element.createElement("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "20",
+        height: "20",
+        viewBox: "0 0 40 40"
+      }, wp.element.createElement("g", {
+        fill: "none",
+        "fill-rule": "evenodd"
+      }, wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M30.4348573,28.8249931 L31.5651427,27.1750069 C32.2825685,27.666463 33.2372433,28 34,28 C36.2195246,28 38,26.2395819 38,24.0407717 C38,22.0392473 36.644192,20.3168521 34.8203242,19.9837259 L35.1796758,18.0162741 C37.9779593,18.5273756 40,21.0961415 40,24.0407717 C40,27.3492552 37.319054,30 34,30 C32.8062302,30 31.4672115,29.5321839 30.4348573,28.8249931 Z"
+      }), wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M.0190094498 16C.0190094498 14.895422.914446835 13.9999846 2.01902531 13.9999846L34.0201851 14C35.1304537 14.0031607 36.0233215 14.9011374 36.0201769 16.0057043 36.0109178 19.2497893 35.3056791 22.3906654 33.9079594 25.4190582 32.5839378 28.2877716 30.6151667 31.2347978 28.0047982 34.2639863 27.0549727 35.3662063 25.6721336 36.0000094 24.217121 36.0000094L18.0101347 36 11.7605016 36C10.3350468 36 8.97735974 35.3915877 8.02865929 34.3276723 5.27231962 31.2365482 3.28716119 28.2589488 2.07836462 25.388057.830636994 22.4247039.144354368 19.3188809.0204676323 16.0763587.0192525245 16.0381886.0192525245 16.0381886.0190094498 16zM3.92163538 24.611943C5.03764438 27.2624644 6.90250444 30.0596246 9.52139187 32.9966015 10.0906127 33.6349513 10.9052278 34 11.7605016 34L18.0101362 34 24.2171225 34.0000094C25.0901303 34.0000094 25.9198347 33.6197271 26.4897308 32.9583942 28.985022 30.0627466 30.851408 27.2689792 32.0920406 24.5809418 33.3702042 21.8115873 34.0117529 18.9543636 34.0201846 15.9999846L2.01900946 15.9999846C2.13372257 19.0024189 2.76761425 21.8711428 3.92163538 24.611943zM17.2928932.292893219C17.6834175-.0976310729 18.3165825-.0976310729 18.7071068.292893219 19.0976311.683417511 19.0976311 1.31658249 18.7071068 1.70710678 18.213657 2.20055655 18 2.62787058 18 3 18 3.57228574 18.1874079 3.97833627 18.8320503 4.9452998 19.6874079 6.22833627 20 6.90561907 20 8 20 8.96120391 19.5469904 9.86722321 18.7071068 10.7071068 18.3165825 11.0976311 17.6834175 11.0976311 17.2928932 10.7071068 16.9023689 10.3165825 16.9023689 9.68341751 17.2928932 9.29289322 17.786343 8.79944345 18 8.37212942 18 8 18 7.42771426 17.8125921 7.02166373 17.1679497 6.0547002 16.3125921 4.77166373 16 4.09438093 16 3 16 2.03879609 16.4530096 1.13277679 17.2928932.292893219zM23.2928932.292893219C23.6834175-.0976310729 24.3165825-.0976310729 24.7071068.292893219 25.0976311.683417511 25.0976311 1.31658249 24.7071068 1.70710678 24.213657 2.20055655 24 2.62787058 24 3 24 3.57228574 24.1874079 3.97833627 24.8320503 4.9452998 25.6874079 6.22833627 26 6.90561907 26 8 26 8.96120391 25.5469904 9.86722321 24.7071068 10.7071068 24.3165825 11.0976311 23.6834175 11.0976311 23.2928932 10.7071068 22.9023689 10.3165825 22.9023689 9.68341751 23.2928932 9.29289322 23.786343 8.79944345 24 8.37212942 24 8 24 7.42771426 23.8125921 7.02166373 23.1679497 6.0547002 22.3125921 4.77166373 22 4.09438093 22 3 22 2.03879609 22.4530096 1.13277679 23.2928932.292893219zM11.2928932.292893219C11.6834175-.0976310729 12.3165825-.0976310729 12.7071068.292893219 13.0976311.683417511 13.0976311 1.31658249 12.7071068 1.70710678 12.213657 2.20055655 12 2.62787058 12 3 12 3.57228574 12.1874079 3.97833627 12.8320503 4.9452998 13.6874079 6.22833627 14 6.90561907 14 8 14 8.96120391 13.5469904 9.86722321 12.7071068 10.7071068 12.3165825 11.0976311 11.6834175 11.0976311 11.2928932 10.7071068 10.9023689 10.3165825 10.9023689 9.68341751 11.2928932 9.29289322 11.786343 8.79944345 12 8.37212942 12 8 12 7.42771426 11.8125921 7.02166373 11.1679497 6.0547002 10.3125921 4.77166373 10 4.09438093 10 3 10 2.03879609 10.4530096 1.13277679 11.2928932.292893219z"
+      }), wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M11 22.618034L11 27 17 27 17 22.618034 14 21.118034 11 22.618034zM18.4472136 21.1055728C18.7859976 21.2749648 19 21.6212279 19 22L19 28C19 28.5522847 18.5522847 29 18 29L10 29C9.44771525 29 9 28.5522847 9 28L9 22C9 21.6212279 9.21400238 21.2749648 9.5527864 21.1055728L13 19.381966 13 15C13 14.4477153 13.4477153 14 14 14 14.5522847 14 15 14.4477153 15 15L15 19.381966 18.4472136 21.1055728zM11.236068 36C10.8572959 36 10.5110328 36.2140024 10.3416408 36.5527864L9.61803399 38 26.381966 38 25.6583592 36.5527864C25.4889672 36.2140024 25.1427041 36 24.763932 36L11.236068 36zM11.236068 34L24.763932 34C25.9002482 34 26.9390376 34.6420071 27.4472136 35.6583592L28.1708204 37.1055728C28.6647989 38.0935298 28.2643502 39.2948759 27.2763932 39.7888544 26.9986823 39.9277098 26.6924562 40 26.381966 40L9.61803399 40C8.51346449 40 7.61803399 39.1045695 7.61803399 38 7.61803399 37.6895098 7.69032417 37.3832837 7.82917961 37.1055728L8.5527864 35.6583592C9.06096245 34.6420071 10.0997518 34 11.236068 34z"
+      }), wp.element.createElement("path", {
+        d: "M0 0H40V40H0z"
+      }))), wp.element.createElement("span", null, "Relax"))), wp.element.createElement("ul", {
         className: "wp-markdown-music-list"
-      }, this.state.musics.map(function (item, i) {
-        return Object.keys(item).length ? wp.element.createElement("li", {
+      }, sounds.map(function (item, i) {
+        return wp.element.createElement("li", {
           key: i
         }, wp.element.createElement("div", {
           className: "wp-markdown-music-item"
         }, wp.element.createElement("span", {
+          className: "music-icon",
+          dangerouslySetInnerHTML: {
+            __html: item.icon
+          }
+        }), wp.element.createElement("span", {
           className: "music-title"
-        }, item.name), _this3.state.action && i > 2 ? wp.element.createElement("span", {
-          className: "music-action"
-        }, _this3.state.action && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-          "data-key": i,
-          className: "music-action-remove",
-          onClick: function onClick(e) {
-            _this3.removeMusic(e);
-          }
-        }, wp.element.createElement("i", {
-          "data-key": i,
-          className: "dashicons dashicons-trash"
-        }))) : wp.element.createElement("span", {
-          className: "music-play-pause dashicons dashicons-controls-play",
+        }, item.name), wp.element.createElement("span", {
+          className: "music-play-pause dashicons dashicons-controls-".concat(_this3.state.playing[i] ? 'pause' : 'play'),
           "data-key": i,
           onClick: function onClick(e) {
-            return _this3.handlePlayPause(e);
+            _this3.handlePlayPause(e, i);
           }
-        }, " "))) : '';
-      })), this.state.musics.length > 3 && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-        className: "wp-markdown-remove-music is-small is-secondary button button-link-delete",
-        onClick: function onClick() {
-          _this3.setState({
-            action: !_this3.state.action
-          });
-        }
-      }, this.state.action ? 'Done' : 'Remove Music'), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-        className: "wp-markdown-add-music is-small is-primary",
-        onClick: function onClick() {
-          var file_frame = wp.media.frames.file_frame = wp.media({
-            title: 'Add Music',
-            library: {
-              type: 'audio'
-            },
-            button: {
-              text: 'Add Music'
-            },
-            multiple: false
-          });
-          file_frame.on('select', function () {
-            var attachment = file_frame.state().get('selection').first().toJSON();
-            var items = [].concat(_toConsumableArray(_this3.state.musics), [{
-              name: attachment.title,
-              src: attachment.url
-            }]);
-
-            _this3.setState({
-              musics: items
-            });
-
-            wp.ajax.post('wp_markdown_add_music', {
-              data: {
-                music_id: attachment.id,
-                user_id: WPMD_Settings.current_user_id
-              }
-            });
-          }); // Finally, open the modal
-
-          file_frame.open();
-        }
-      }, "Add Music")));
+        }, " ")));
+      })));
     }
   }]);
 
@@ -17815,6 +17773,17 @@ var MusicList = /*#__PURE__*/function (_Component) {
 }(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (MusicList);
+
+/***/ }),
+
+/***/ "./src/components/music/musics.json":
+/*!******************************************!*\
+  !*** ./src/components/music/musics.json ***!
+  \******************************************/
+/*! exports provided: productivity, relax, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"productivity\":[{\"name\":\"Wind\",\"icon\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"56\\\" height=\\\"56\\\" viewBox=\\\"0 0 56 56\\\"><title>Wind</title><g fill=\\\"none\\\" fill-rule=\\\"evenodd\\\"><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M1.5 23a1.5 1.5 0 0 1 0-3H27a5 5 0 0 0 0-10c-2.903 0-5 1.874-5 4.5a1.5 1.5 0 0 1-3 0c0-4.363 3.51-7.5 8-7.5a8 8 0 1 1 0 16H1.5zM26 42.5a1.5 1.5 0 0 1 3 0c0 2.626 2.097 4.5 5 4.5a5 5 0 0 0 0-10H1.5a1.5 1.5 0 0 1 0-3H34a8 8 0 1 1 0 16c-4.49 0-8-3.137-8-7.5z\\\"></path><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M1.5 30a1.5 1.5 0 0 1 0-3H48a5 5 0 0 0 0-10c-2.903 0-5 1.874-5 4.5a1.5 1.5 0 0 1-3 0c0-4.363 3.51-7.5 8-7.5a8 8 0 1 1 0 16H1.5z\\\"></path><path d=\\\"M0 0h56v56H0z\\\"></path></g></svg>\"},{\"name\":\"Water\",\"icon\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"56\\\" height=\\\"56\\\" viewBox=\\\"0 0 56 56\\\"><title>Water</title><g fill=\\\"none\\\" fill-rule=\\\"evenodd\\\"><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M26.723.712a1.489 1.489 0 0 1 .65-.575 1.49 1.49 0 0 1 1.887.548 1.51 1.51 0 0 1 0 1.63c-.429.662-.849 1.316-1.26 1.964-.411-.648-.831-1.302-1.26-1.964A1.5 1.5 0 1 1 29.278.712C40.415 17.93 46 30.458 46 38.5 46 48.088 37.747 56 28 56s-18-7.912-18-17.5c0-8.042 5.585-20.57 16.723-37.788zM13 38.5C13 46.402 19.883 53 28 53s15-6.598 15-14.5c0-7-4.99-18.467-15-34.221C17.99 20.033 13 31.5 13 38.5z\\\"></path><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M17 37.5a1.5 1.5 0 0 1 3 0c0 4.633 3.911 8.5 8.5 8.5a1.5 1.5 0 0 1 0 3C22.262 49 17 43.798 17 37.5z\\\"></path><path d=\\\"M0 0h56v56H0z\\\"></path></g></svg>\"},{\"name\":\"Coffee Shop\",\"icon\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"56\\\" height=\\\"56\\\" viewBox=\\\"0 0 56 56\\\"><title>Coffee shop</title><g fill=\\\"none\\\" fill-rule=\\\"evenodd\\\"><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M6 29.5A1.5 1.5 0 0 1 7.5 28H44a1.5 1.5 0 0 1 1.5 1.5c0 16.404-6.362 26.5-20 26.5C11.935 56 6 46.153 6 29.5zM9.017 31C9.34 45.255 14.38 53 25.5 53c11.221 0 16.627-7.975 16.981-22H9.017z\\\"></path><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M41.008 45.202l1.498-2.6A3 3 0 1 0 44 37v-3a6 6 0 1 1-2.992 11.202zM35.748 22.668a1.5 1.5 0 1 1-2.496 1.664C32.428 23.096 32 21.812 32 20.5c0-.82.14-1.453.558-2.912.333-1.166.442-1.657.442-2.088 0-.688-.238-1.404-.748-2.168a1.5 1.5 0 1 1 2.496-1.664C35.572 12.904 36 14.188 36 15.5c0 .82-.14 1.453-.558 2.912C35.11 19.578 35 20.07 35 20.5c0 .688.238 1.404.748 2.168zM25.107 2.057A1.5 1.5 0 1 1 27.893.943C28.629 2.783 29 4.639 29 6.5c0 1.213-.253 2.5-1.04 5.844-.713 3.031-.96 4.286-.96 5.156 0 1.367.587 3.13 1.802 5.256a1.5 1.5 0 1 1-2.604 1.488C24.746 21.704 24 19.466 24 17.5c0-1.213.253-2.5 1.04-5.844.713-3.031.96-4.286.96-5.156 0-1.472-.296-2.95-.893-4.443zm-7.855 11.275a1.5 1.5 0 1 1 2.496-1.664C20.572 12.904 21 14.188 21 15.5c0 .82-.14 1.453-.558 2.912C20.11 19.578 20 20.07 20 20.5c0 .688.238 1.404.748 2.168a1.5 1.5 0 1 1-2.496 1.664C17.428 23.096 17 21.812 17 20.5c0-.82.14-1.453.558-2.912.333-1.166.442-1.657.442-2.088 0-.688-.238-1.404-.748-2.168z\\\"></path><path d=\\\"M0 0h56v56H0z\\\"></path></g></svg>\"}],\"relax\":[{\"name\":\"Thunderstorm\",\"icon\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"56\\\" height=\\\"56\\\" viewBox=\\\"0 0 56 56\\\"><title>Thunderstorm</title><g fill=\\\"none\\\" fill-rule=\\\"evenodd\\\"><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M15.676 11.446l-.518.745-.9-.113A10.113 10.113 0 0 0 13 12C7.477 12 3 16.477 3 22s4.477 10 10 10a9.965 9.965 0 0 0 3.814-.753l.841-.347.697.586A14.931 14.931 0 0 0 28 35c3.581 0 6.964-1.257 9.648-3.514l.697-.586.841.347A9.965 9.965 0 0 0 43 32c5.523 0 10-4.477 10-10s-4.477-10-10-10c-.424 0-.843.026-1.258.078l-.9.113-.518-.745A14.979 14.979 0 0 0 28 5a14.979 14.979 0 0 0-12.324 6.446zM28 2c5.666 0 10.89 2.639 14.265 7.02.244-.013.49-.02.735-.02 7.18 0 13 5.82 13 13s-5.82 13-13 13c-1.414 0-2.8-.227-4.113-.664A17.926 17.926 0 0 1 28 38a17.926 17.926 0 0 1-10.887-3.664A12.988 12.988 0 0 1 13 35C5.82 35 0 29.18 0 22S5.82 9 13 9c.246 0 .491.007.735.02A17.972 17.972 0 0 1 28 2z\\\"></path><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M24.6 42.7a1.5 1.5 0 0 1-.271-2.137l4-5a1.5 1.5 0 0 1 2.342 1.874l-3.033 3.792L30.4 43.3a1.5 1.5 0 0 1 .32 2.072l-5 7a1.5 1.5 0 1 1-2.44-1.744l4.148-5.807L24.6 42.7z\\\"></path><path d=\\\"M0 0h56v56H0z\\\"></path></g></svg>\"},{\"name\":\"Forest\",\"icon\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"56\\\" height=\\\"56\\\" viewBox=\\\"0 0 56 56\\\"><title>Forest</title><g fill=\\\"none\\\" fill-rule=\\\"evenodd\\\"><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M14 50h2v2a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-5H1a1 1 0 0 1-.868-1.496L3.277 40H2a1 1 0 0 1-.848-1.53L5.196 32H5a1 1 0 0 1-.868-1.496L7.277 25H7a1 1 0 0 1-.878-1.479l6-11a1 1 0 0 1 1.752-.007l3.895 7.011-1.188 1.98-3.573-6.431L8.685 23H9a1 1 0 0 1 .868 1.496L6.723 30H7a1 1 0 0 1 .848 1.53L3.804 38H5a1 1 0 0 1 .868 1.496L2.723 45H10c.294 0 .558.127.74.328l-.516 1.137A2.499 2.499 0 0 0 11 49.502V51h3v-1zm24.23-30.475l3.896-7.01a1 1 0 0 1 1.752.006l6 11A1 1 0 0 1 49 25h-.277l3.145 5.504A1 1 0 0 1 51 32h-.196l4.044 6.47A1 1 0 0 1 54 40h-1.277l3.145 5.504A1 1 0 0 1 55 47h-8v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-2h2v1h3v-1.498a2.499 2.499 0 0 0 .776-3.037l-.517-1.137A.997.997 0 0 1 46 45h7.277l-3.145-5.504A1 1 0 0 1 51 38h1.196l-4.044-6.47A1 1 0 0 1 49 30h.277l-3.145-5.504A1 1 0 0 1 47 23h.315l-4.323-7.926-3.573 6.431-1.188-1.98z\\\"></path><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M33 49v5.5a1.5 1.5 0 0 1-1.5 1.5h-7a1.5 1.5 0 0 1-1.5-1.5V49H12.5a1.5 1.5 0 0 1-1.366-2.12L15.17 38H13.5a1.5 1.5 0 0 1-1.286-2.272L16.85 28H16.5a1.5 1.5 0 0 1-1.286-2.272L19.85 18H19.5a1.5 1.5 0 0 1-1.305-2.24l8.5-15a1.5 1.5 0 0 1 2.61 0l8.5 15A1.5 1.5 0 0 1 36.5 18h-.35l4.636 7.728A1.5 1.5 0 0 1 39.5 28h-.35l4.636 7.728A1.5 1.5 0 0 1 42.5 38h-1.67l4.036 8.88A1.5 1.5 0 0 1 43.5 49H33zm-2.56-2.56c.27-.272.646-.44 1.06-.44h9.67l-4.036-8.88A1.5 1.5 0 0 1 38.5 35h1.35l-4.636-7.728A1.5 1.5 0 0 1 36.5 25h.35l-4.636-7.728A1.5 1.5 0 0 1 33.5 15h.426L28 4.543 22.074 15h.426a1.5 1.5 0 0 1 1.286 2.272L19.15 25h.351a1.5 1.5 0 0 1 1.286 2.272L16.15 35H17.5a1.5 1.5 0 0 1 1.366 2.12L14.83 46h9.67a1.5 1.5 0 0 1 1.5 1.5V53h4v-5.5c0-.414.168-.79.44-1.06z\\\"></path><path d=\\\"M0 0h56v56H0z\\\"></path></g></svg>\"},{\"name\":\"Seaside\",\"icon\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"56\\\" height=\\\"56\\\" viewBox=\\\"0 0 56 56\\\"><title>Seaside</title><g fill=\\\"none\\\" fill-rule=\\\"evenodd\\\"><path fill=\\\"currentColor\\\" fill-rule=\\\"nonzero\\\" d=\\\"M53.264 11.65a1.5 1.5 0 0 1 2.472 1.7C53.604 16.452 50.216 18 45.75 18c-4.467 0-7.854-1.548-9.986-4.65a1.5 1.5 0 0 1 2.472-1.7C39.77 13.882 42.216 15 45.75 15c3.533 0 5.98-1.118 7.514-3.35zm-35.5 0a1.5 1.5 0 0 1 2.472 1.7C18.104 16.452 14.716 18 10.25 18c-4.467 0-7.854-1.548-9.986-4.65a1.5 1.5 0 1 1 2.472-1.7C4.27 13.882 6.716 15 10.25 15c3.533 0 5.98-1.118 7.514-3.35zm.036 1.75a1.5 1.5 0 1 1 2.4-1.8c1.7 2.267 4.25 3.4 7.8 3.4s6.1-1.133 7.8-3.4a1.5 1.5 0 1 1 2.4 1.8C35.9 16.466 32.45 18 28 18c-4.45 0-7.9-1.534-10.2-4.6zm35.464 11.25a1.5 1.5 0 0 1 2.472 1.7C53.604 29.452 50.216 31 45.75 31c-4.467 0-7.854-1.548-9.986-4.65a1.5 1.5 0 0 1 2.472-1.7C39.77 26.882 42.216 28 45.75 28c3.533 0 5.98-1.118 7.514-3.35zm-35.5 0a1.5 1.5 0 0 1 2.472 1.7C18.104 29.452 14.716 31 10.25 31c-4.467 0-7.854-1.548-9.986-4.65a1.5 1.5 0 1 1 2.472-1.7C4.27 26.882 6.716 28 10.25 28c3.533 0 5.98-1.118 7.514-3.35zm.036 1.75a1.5 1.5 0 1 1 2.4-1.8c1.7 2.267 4.25 3.4 7.8 3.4s6.1-1.133 7.8-3.4a1.5 1.5 0 1 1 2.4 1.8C35.9 29.466 32.45 31 28 31c-4.45 0-7.9-1.534-10.2-4.6zm35.464 11.25a1.5 1.5 0 0 1 2.472 1.7C53.604 42.452 50.216 44 45.75 44c-4.467 0-7.854-1.548-9.986-4.65a1.5 1.5 0 0 1 2.472-1.7C39.77 39.882 42.216 41 45.75 41c3.533 0 5.98-1.118 7.514-3.35zm-35.5 0a1.5 1.5 0 0 1 2.472 1.7C18.104 42.452 14.716 44 10.25 44c-4.467 0-7.854-1.548-9.986-4.65a1.5 1.5 0 1 1 2.472-1.7C4.27 39.882 6.716 41 10.25 41c3.533 0 5.98-1.118 7.514-3.35zm.036 1.75a1.5 1.5 0 1 1 2.4-1.8c1.7 2.267 4.25 3.4 7.8 3.4s6.1-1.133 7.8-3.4a1.5 1.5 0 1 1 2.4 1.8C35.9 42.466 32.45 44 28 44c-4.45 0-7.9-1.534-10.2-4.6z\\\"></path><path d=\\\"M0 0h56v56H0z\\\"></path></g></svg>\"}]}");
 
 /***/ }),
 
@@ -20208,8 +20177,8 @@ var _theme_editor_default__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _back_to_gutenberg__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../back-to-gutenberg */ "./src/components/back-to-gutenberg/index.js");
-/* harmony import */ var _music__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../music */ "./src/components/music/index.js");
-/* harmony import */ var _get_pro_banner__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../get-pro-banner */ "./src/components/get-pro-banner/index.js");
+/* harmony import */ var _get_pro_banner__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../get-pro-banner */ "./src/components/get-pro-banner/index.js");
+/* harmony import */ var _music__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../music */ "./src/components/music/index.js");
 /* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
 /* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_16__);
 function _typeof(obj) {
@@ -20375,7 +20344,7 @@ function _getPrototypeOf(o) {
 
 
 
-window.wpmdeHooks = Object(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_16__["createHooks"])(); //console.log(is_pro);
+window.wpmdeHooks = Object(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_16__["createHooks"])();
 
 var ThemeSwitcher = /*#__PURE__*/function (_Component) {
   _inherits(ThemeSwitcher, _Component);
@@ -20401,6 +20370,7 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
       isEditorThemeLoaded: false,
       isEditingTheme: false,
       isEditingTypography: false,
+      isMusic: false,
       is_pro: wpmdeHooks.applyFilters('is_wpmde_pro', false)
     };
     return _this;
@@ -20583,7 +20553,26 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
           },
           renderContent: function renderContent(_ref2) {
             var onToggle = _ref2.onToggle;
-            return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_11__["Fragment"], null, !_this2.state.isEditingTheme && !_this2.state.isEditingTypography ? wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_11__["Fragment"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, Object(lodash__WEBPACK_IMPORTED_MODULE_0__["map"])(_theme_editor_editor_themes__WEBPACK_IMPORTED_MODULE_2__["default"], function (theme, key) {
+            return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_11__["Fragment"], null, _this2.state.isMusic ? wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_11__["Fragment"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], {
+              className: "components-markdown-music"
+            }, wp.element.createElement(_music__WEBPACK_IMPORTED_MODULE_15__["default"], null)), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
+              className: "components-markdown-exit-music",
+              onClick: function onClick() {
+                _this2.onExitMusic(onToggle);
+              }
+            }, wp.element.createElement("span", null, "Back"), wp.element.createElement("svg", {
+              fill: "none",
+              viewBox: "0 0 22 22",
+              xmlns: "http://www.w3.org/2000/svg",
+              role: "img",
+              "aria-hidden": "true",
+              focusable: "false"
+            }, wp.element.createElement("path", {
+              "clip-rule": "evenodd",
+              d: "m6.25349 10.0667 2.55709-2.87673-1.12112-.99655-4.13649 4.65358 4.16672 4.1667 1.06066-1.0607-2.38634-2.3863h7.35799c.535 0 .8778.1787 1.1287.4378.2723.2812.479.7039.6218 1.2398.2599.9747.2542 2.0879.2504 2.8331-.0005.0848-.0009.1649-.0009.2394l1.5-.0002c0-.0662.0006-.1413.0012-.2242.0052-.7258.0146-2.0493-.3013-3.2345-.1779-.6673-.4753-1.3617-.9937-1.897-.5397-.5572-1.2741-.8942-2.2062-.8942z",
+              fill: "currentColor",
+              "fill-rule": "evenodd"
+            }))))) : !_this2.state.isEditingTheme && !_this2.state.isEditingTypography ? wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_11__["Fragment"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, Object(lodash__WEBPACK_IMPORTED_MODULE_0__["map"])(_theme_editor_editor_themes__WEBPACK_IMPORTED_MODULE_2__["default"], function (theme, key) {
               if ('custom' !== key) {
                 return wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
                   key: key,
@@ -20635,6 +20624,22 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
             }, "className", !_this2.state.is_pro && 'disabled'), wp.element.createElement("span", null, "\u270E ", Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Edit typography', 'dark-mode')), _this2.state.is_pro ? _icons__WEBPACK_IMPORTED_MODULE_4__["default"].typography : wp.element.createElement("span", {
               className: 'wp-markdown-pro-badge'
             }, "PRO"))), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
+              className: "components-markdown-edit-music",
+              onClick: function onClick() {
+                _this2.onEditMusic(onToggle);
+              }
+            }, wp.element.createElement("svg", {
+              id: "wp-markdown-music",
+              style: {
+                width: 15,
+                height: 15
+              },
+              "enable-background": "new 0 0 415.963 415.963",
+              viewBox: "0 0 415.963 415.963",
+              xmlns: "http://www.w3.org/2000/svg"
+            }, wp.element.createElement("path", {
+              d: "m328.712 264.539c12.928-21.632 21.504-48.992 23.168-76.064 1.056-17.376-2.816-35.616-11.2-52.768-13.152-26.944-35.744-42.08-57.568-56.704-16.288-10.912-31.68-21.216-42.56-35.936l-1.952-2.624c-6.432-8.64-13.696-18.432-14.848-26.656-1.152-8.32-8.704-14.24-16.96-13.76-8.384.576-14.88 7.52-14.88 15.936v285.12c-13.408-8.128-29.92-13.12-48-13.12-44.096 0-80 28.704-80 64s35.904 64 80 64 80-28.704 80-64v-186.496c24.032 9.184 63.36 32.576 74.176 87.2-2.016 2.976-3.936 6.176-6.176 8.736-5.856 6.624-5.216 16.736 1.44 22.56 6.592 5.888 16.704 5.184 22.56-1.44 4.288-4.864 8.096-10.56 11.744-16.512.384-.448.737-.928 1.056-1.472z"
+            }), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null)), wp.element.createElement("span", null, "Music"))), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
               className: "components-markdown-mode-toggle",
               onClick: function onClick() {
                 toggleEditor();
@@ -20686,7 +20691,7 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
               className: "components-menu-group__get-pro"
             }, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
               className: "components-markdown-theme-switcher__get-pro"
-            }, wp.element.createElement("span", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Unlock all features now.', 'dark-mode'), " ", wp.element.createElement("a", {
+            }, wp.element.createElement("span", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Unlock all features now.', 'dark-mode'), wp.element.createElement("a", {
               href: "https://wppool.dev/wp-markdown-editor",
               target: '_blank',
               className: 'wp-markdown-get-pro-btn'
@@ -20707,7 +20712,7 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
               }
             }));
           }
-        }), wp.element.createElement(_music__WEBPACK_IMPORTED_MODULE_14__["default"], null), wp.element.createElement(_back_to_gutenberg__WEBPACK_IMPORTED_MODULE_13__["default"], null), !_this2.state.is_pro && wp.element.createElement(_get_pro_banner__WEBPACK_IMPORTED_MODULE_15__["default"], null));
+        }), wp.element.createElement(_back_to_gutenberg__WEBPACK_IMPORTED_MODULE_13__["default"], null), !_this2.state.is_pro && wp.element.createElement(_get_pro_banner__WEBPACK_IMPORTED_MODULE_14__["default"], null));
       };
 
       var wrapper = document.querySelector('.edit-post-header__toolbar');
@@ -20734,9 +20739,45 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
         document.querySelector('.components-markdown-theme-switcher__trigger').click();
       }, 25); // focus manually to fix closing outside bug
 
-      document.querySelector('.components-markdown-theme-switcher__content .components-popover__content').focus(); // Save theme settings
+      document.querySelector('.components-markdown-theme-switcher__content .components-popover__content').focus(); //Save theme settings
 
       this.props.updateThemeSettings(this.state.themeSettings);
+    }
+  }, {
+    key: "onEditMusic",
+    value: function onEditMusic(onToggle) {
+      //const wrapper = document.querySelector('.components-markdown-theme-switcher__content');
+      //const editorWrapper = document.querySelector('.block-editor-writing-flow');
+      this.setState({
+        isMusic: true
+      });
+      onToggle();
+      setTimeout(function () {
+        //wrapper.classList.add('is-editing-theme');
+        //editorWrapper.classList.add('is-editing-theme');
+        document.querySelector('.components-markdown-theme-switcher__trigger').click();
+      }, 25); // focus manually to fix closing outside bug
+      //document.querySelector('.components-markdown-theme-switcher__content .components-popover__content').focus();
+      // Save theme settings
+      //this.props.updateThemeSettings(this.state.themeSettings);
+    }
+  }, {
+    key: "onExitMusic",
+    value: function onExitMusic(onToggle) {
+      //const wrapper = document.querySelector('.components-markdown-theme-switcher__content');
+      //const editorWrapper = document.querySelector('.block-editor-writing-flow');
+      this.setState({
+        isMusic: false
+      });
+      onToggle();
+      setTimeout(function () {
+        //wrapper.classList.add('is-editing-theme');
+        //editorWrapper.classList.add('is-editing-theme');
+        document.querySelector('.components-markdown-theme-switcher__trigger').click();
+      }, 25); // focus manually to fix closing outside bug
+      //document.querySelector('.components-markdown-theme-switcher__content .components-popover__content').focus();
+      // Save theme settings
+      //this.props.updateThemeSettings(this.state.themeSettings);
     }
   }, {
     key: "onExitEditTheme",
