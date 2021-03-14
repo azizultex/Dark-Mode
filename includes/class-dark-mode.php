@@ -72,10 +72,9 @@ defined( 'ABSPATH' ) || exit();
 		 */
 		public function admin_scripts() {
 
+		    wp_enqueue_script('wp-markdown-dark-mode', DARK_MODE_URL . 'assets/js/dark-mode.js');
 			wp_enqueue_script( 'dark-mode', DARK_MODE_URL . 'assets/js/admin.js', false, DARK_MODE_VERSION, true );
-			wp_localize_script( 'dark-mode', 'darkmode', [
-				'plugin_url' => DARK_MODE_URL,
-			] );
+			wp_localize_script( 'dark-mode', 'darkmode', [ 'plugin_url' => DARK_MODE_URL, ] );
 
 			if ( wpmd_is_gutenberg_page() ) {
 				return;

@@ -21,7 +21,20 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 
 			//add_action( 'admin_init', [ $this, 'display_notice' ] );
 			//add_action( 'wp_ajax_wp_markdown_editor_hide_christmas_notice', [ $this, 'hide_christmas_notice' ] );
+
+			add_action( 'admin_footer', [ $this, 'footer_scripts' ] );
 		}
+
+		public function footer_scripts() { ?>
+            <script>
+                var is_saved = localStorage.getItem('dark_mode_active');
+
+                if (is_saved && is_saved != 0) {
+                    document.querySelector('html').classList.add('dark-mode-active');
+                    DarkMode.enable();
+                }
+            </script>
+		<?php }
 
 		public function hide_christmas_notice() {
 //			update_option( 'wp_markdown_editor_hide_christmas_notice', true );
@@ -54,10 +67,6 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 
                     var is_saved = localStorage.getItem('dark_mode_active');
 
-                    if (is_saved && is_saved != 0) {
-                        document.querySelector('html').classList.add('dark-mode-active');
-                    }
-
                     if (is_saved == 0) {
                         return;
                     }
@@ -72,8 +81,10 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 
                             if ('dark' === newColorScheme) {
                                 document.querySelector('html').classList.add('dark-mode-active');
+                                DarkMode.enable();
                             } else {
                                 document.querySelector('html').classList.remove('dark-mode-active');
+                                DarkMode.disable();
                             }
 
                             window.dispatchEvent(new Event('dark_mode_init'));
@@ -86,9 +97,11 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
                                 var newColorScheme = e.matches ? 'dark' : 'light';
 
                                 if ('dark' === newColorScheme) {
+                                    DarkMode.enable();
                                     document.querySelector('html').classList.add('dark-mode-active');
                                 } else {
                                     document.querySelector('html').classList.remove('dark-mode-active');
+                                    DarkMode.disable()
                                 }
 
                                 window.dispatchEvent(new Event('dark_mode_init'));
@@ -102,6 +115,7 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
                     /** check init dark theme */
                     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                         document.querySelector('html').classList.add('dark-mode-active');
+                        DarkMode.enable();
                         window.dispatchEvent(new Event('dark_mode_init'));
                     }
 
@@ -130,10 +144,10 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 			$wp_admin_bar->add_menu( array(
 				'id'    => 'dark-mode-switch',
 				'title' => sprintf( '<div class="dark-mode-switch dark-mode-ignore">
-	                                    <div class="toggle"></div>
-	                                    <div class="modes">
-	                                        <p class="light">%s</p>
-	                                        <p class="dark">%s</p>
+	                                    <div class="toggle dark-mode-ignore"></div>
+	                                    <div class="modes dark-mode-ignore">
+	                                        <p class="light dark-mode-ignore">%s</p>
+	                                        <p class="dark dark-mode-ignore">%s</p>
 	                                    </div>
 	                            	</div>', $light_text, $dark_text ),
 				'href'  => '#',

@@ -25,6 +25,7 @@
             if (is_saved && is_saved != 0 && !is_gutenberg) {
                 document.querySelector('html').classList.add('dark-mode-active');
                 document.querySelector('.dark-mode-switch').classList.toggle('active');
+                DarkMode.enable();
             }
         },
 
@@ -35,6 +36,12 @@
             document.querySelector('.dark-mode-switch').classList.toggle('active');
 
             const is_saved = document.querySelector('html').classList.contains('dark-mode-active') ? 1 : 0;
+            if(is_saved){
+                DarkMode.enable();
+            }else{
+                DarkMode.disable();
+            }
+
             localStorage.setItem('dark_mode_active', is_saved);
         },
 
