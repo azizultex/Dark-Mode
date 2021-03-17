@@ -6,13 +6,13 @@
  * Author: WPPOOL
  * Author URI: https://wppool.dev
  * Text Domain: dark-mode
- * Version: 4.0.5
+ * Version: 4.0.6
  */
 
 defined( 'ABSPATH' ) || exit();
 
 if ( ! class_exists( 'Dark_Mode' ) ) {
-	define( 'DARK_MODE_VERSION', '4.0.5' );
+	define( 'DARK_MODE_VERSION', '4.0.6' );
 	define( 'DARK_MODE_FILE', __FILE__ );
 	define( 'DARK_MODE_PATH', plugin_dir_path( __FILE__ ) );
 	define( 'DARK_MODE_URL', plugin_dir_url( __FILE__ ) );

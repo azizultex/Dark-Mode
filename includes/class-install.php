@@ -41,6 +41,9 @@ if ( ! class_exists( 'Dark_Mode_Install' ) ) {
 				update_option( 'dark_mode_install_time', time() );
 			}
 
+			set_transient( 'wp_markdown_editor_review_notice_interval', 'off', 3 * DAY_IN_SECONDS );
+			set_transient( 'wp_markdown_editor_affiliate_notice_interval', 'off', 3 * DAY_IN_SECONDS );
+
 		}
 
 		/**

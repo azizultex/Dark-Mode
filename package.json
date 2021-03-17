@@ -1,6 +1,6 @@
 {
   "name": "dark-mode",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "Completed:\r ---\r 1.",
   "main": "index.js",
   "repository": {
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.13.10",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",

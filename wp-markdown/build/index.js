@@ -19708,10 +19708,10 @@ EditorThemes = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, EditorTh
 /*!************************************************!*\
   !*** ./src/components/theme-editor/fonts.json ***!
   \************************************************/
-/*! exports provided: oxygen-mono, open-dyslexic, atkinson-hyperlegible, ibm-plex-mono, libre-baskerville, system, default */
+/*! exports provided: oxygen-mono, ibm-plex-mono, libre-baskerville, system, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"oxygen-mono\":{\"name\":\"Oxygen Mono\",\"font-family\":\"Oxygen Mono, monospace\",\"url\":\"https://fonts.googleapis.com/css2?family=Oxygen+Mono:wght@400;500;700&display=swap\"},\"open-dyslexic\":{\"name\":\"Open Dyslexic\",\"font-family\":\"Open Dyslexic, monospace\",\"url\":\"\"},\"atkinson-hyperlegible\":{\"name\":\"Atkinson Hyperlegible\",\"font-family\":\"Atkinson Hyperlegible, monospace\",\"url\":\"\"},\"ibm-plex-mono\":{\"name\":\"IBM Plex Mono\",\"font-family\":\"IBM Plex Mono, monospace\",\"url\":\"https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i,700,700i&display=swap\"},\"libre-baskerville\":{\"name\":\"Libre Baskerville\",\"font-family\":\"Libre Baskerville, serif\",\"url\":\"https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap\"},\"system\":{\"name\":\"System\",\"font-family\":\"-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif\",\"url\":\"\"}}");
+module.exports = JSON.parse("{\"oxygen-mono\":{\"name\":\"Oxygen Mono\",\"font-family\":\"Oxygen Mono, monospace\",\"url\":\"https://fonts.googleapis.com/css2?family=Oxygen+Mono:wght@400;500;700&display=swap\"},\"ibm-plex-mono\":{\"name\":\"IBM Plex Mono\",\"font-family\":\"IBM Plex Mono, monospace\",\"url\":\"https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i,700,700i&display=swap\"},\"libre-baskerville\":{\"name\":\"Libre Baskerville\",\"font-family\":\"Libre Baskerville, serif\",\"url\":\"https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap\"},\"system\":{\"name\":\"System\",\"font-family\":\"-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif\",\"url\":\"\"}}");
 
 /***/ }),
 
@@ -20624,22 +20624,6 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
             }, "className", !_this2.state.is_pro && 'disabled'), wp.element.createElement("span", null, "\u270E ", Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Edit typography', 'dark-mode')), _this2.state.is_pro ? _icons__WEBPACK_IMPORTED_MODULE_4__["default"].typography : wp.element.createElement("span", {
               className: 'wp-markdown-pro-badge'
             }, "PRO"))), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
-              className: "components-markdown-edit-music",
-              onClick: function onClick() {
-                _this2.onEditMusic(onToggle);
-              }
-            }, wp.element.createElement("svg", {
-              id: "wp-markdown-music",
-              style: {
-                width: 15,
-                height: 15
-              },
-              "enable-background": "new 0 0 415.963 415.963",
-              viewBox: "0 0 415.963 415.963",
-              xmlns: "http://www.w3.org/2000/svg"
-            }, wp.element.createElement("path", {
-              d: "m328.712 264.539c12.928-21.632 21.504-48.992 23.168-76.064 1.056-17.376-2.816-35.616-11.2-52.768-13.152-26.944-35.744-42.08-57.568-56.704-16.288-10.912-31.68-21.216-42.56-35.936l-1.952-2.624c-6.432-8.64-13.696-18.432-14.848-26.656-1.152-8.32-8.704-14.24-16.96-13.76-8.384.576-14.88 7.52-14.88 15.936v285.12c-13.408-8.128-29.92-13.12-48-13.12-44.096 0-80 28.704-80 64s35.904 64 80 64 80-28.704 80-64v-186.496c24.032 9.184 63.36 32.576 74.176 87.2-2.016 2.976-3.936 6.176-6.176 8.736-5.856 6.624-5.216 16.736 1.44 22.56 6.592 5.888 16.704 5.184 22.56-1.44 4.288-4.864 8.096-10.56 11.744-16.512.384-.448.737-.928 1.056-1.472z"
-            }), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null)), wp.element.createElement("span", null, "Music"))), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
               className: "components-markdown-mode-toggle",
               onClick: function onClick() {
                 toggleEditor();

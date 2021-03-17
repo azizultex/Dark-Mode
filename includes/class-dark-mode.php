@@ -47,8 +47,15 @@ defined( 'ABSPATH' ) || exit();
 		 */
 		public function includes() {
 			include DARK_MODE_PATH . '/includes/functions.php';
+			include DARK_MODE_PATH . '/includes/class-settings-api.php';
+			include DARK_MODE_PATH . '/includes/class-settings.php';
 			include DARK_MODE_PATH . '/includes/class-hooks.php';
-			include DARK_MODE_PATH . '/wp-markdown/plugin.php';
+
+			if ( 'off' == wpmde_get_settings( 'only_darkmode', 'off' )
+			     && 'on' == wpmde_get_settings( 'markdown_editor', 'on' ) ) {
+				include DARK_MODE_PATH . '/wp-markdown/plugin.php';
+			}
+
 		}
 
 		/**
@@ -71,16 +78,16 @@ defined( 'ABSPATH' ) || exit();
 		 * @since 1.0
 		 */
 		public function admin_scripts() {
+			wp_enqueue_style( 'p-markdown-editor-admin', DARK_MODE_URL . 'assets/css/dark-mode.css', false, DARK_MODE_VERSION );
 
-		    wp_enqueue_script('wp-markdown-dark-mode', DARK_MODE_URL . 'assets/js/dark-mode.js');
-			wp_enqueue_script( 'dark-mode', DARK_MODE_URL . 'assets/js/admin.js', false, DARK_MODE_VERSION, true );
-			wp_localize_script( 'dark-mode', 'darkmode', [ 'plugin_url' => DARK_MODE_URL, ] );
+			wp_enqueue_script( 'wp-markdown-editor-admin', DARK_MODE_URL . 'assets/js/admin.min.js', ['jquery','wp-util'], DARK_MODE_VERSION, true );
+			wp_localize_script( 'wp-markdown-editor-admin', 'darkmode', [ 'plugin_url' => DARK_MODE_URL, ] );
 
-			if ( wpmd_is_gutenberg_page() ) {
+			if ( ! wpmde_darkmode_enabled() ) {
 				return;
 			}
 
-			wp_enqueue_style( 'dark-mode', DARK_MODE_URL . 'assets/css/dark-mode.css', false, DARK_MODE_VERSION );
+			wp_enqueue_script( 'wp-markdown-dark-mode', DARK_MODE_URL . 'assets/js/dark-mode.js' );
 
 		}
 

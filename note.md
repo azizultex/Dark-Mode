@@ -5,8 +5,15 @@ Next
 
 ## todo
 ----------
-* Add dark reader script for dark mode
-* Add UI like noisli
-* Make one icon
+	"open-dyslexic": {
+		"name": "Open Dyslexic",
+		"font-family": "Open Dyslexic, monospace",
+		"url": ""
+	},
+	"atkinson-hyperlegible": {
+		"name": "Atkinson Hyperlegible",
+		"font-family": "Atkinson Hyperlegible, monospace",
+		"url": ""
+	},
 
-p
+license: 

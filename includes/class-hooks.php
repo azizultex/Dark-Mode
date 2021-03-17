@@ -19,50 +19,114 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 			add_action( 'admin_bar_menu', [ $this, 'render_admin_switcher_menu' ], 2000 );
 			add_action( 'admin_head', [ $this, 'head_scripts' ] );
 
-			//add_action( 'admin_init', [ $this, 'display_notice' ] );
-			//add_action( 'wp_ajax_wp_markdown_editor_hide_christmas_notice', [ $this, 'hide_christmas_notice' ] );
-
+			add_action( 'admin_init', [ $this, 'display_notice' ] );
 			add_action( 'admin_footer', [ $this, 'footer_scripts' ] );
+
+			add_action( 'wp_ajax_wp_markdown_editor_update_notice', [ $this, 'handle_update_notice' ] );
+			add_action( 'wp_ajax_wp_markdown_editor_review_notice', [ $this, 'handle_review_notice' ] );
+			add_action( 'wp_ajax_wp_markdown_editor_affiliate_notice', [ $this, 'handle_affiliate_notice' ] );
+
+		}
+
+		/**
+		 * handle review notice
+		 */
+		public function handle_review_notice() {
+
+			$value = ! empty( $_REQUEST['value'] ) ? wp_unslash( $_REQUEST['value'] ) : 7;
+
+			if ( 'hide_notice' == $value ) {
+				update_option( 'wp_markdown_editor_review_notice_interval', 'off' );
+			} else {
+				set_transient( 'wp_markdown_editor_review_notice_interval', 'off', $value * DAY_IN_SECONDS );
+			}
+
+			update_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );
+
+		}
+
+		/**
+		 * handle affiliate notice
+		 */
+		public function handle_affiliate_notice() {
+			$value = ! empty( $_REQUEST['value'] ) ? wp_unslash( $_REQUEST['value'] ) : 7;
+
+			if ( 'hide_notice' == $value ) {
+				update_option( 'wp_markdown_editor_affiliate_notice_interval', 'off' );
+			} else {
+				set_transient( 'wp_markdown_editor_affiliate_notice_interval', 'off', $value * DAY_IN_SECONDS );
+			}
+
+			update_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );
+
 		}
 
 		public function footer_scripts() { ?>
             <script>
                 var is_saved = localStorage.getItem('dark_mode_active');
+
+                if (!is_saved) {
+                    is_saved = 1;
+                }
+
                 var is_gutenberg = document.querySelector('body').classList.contains('block-editor-page');
 
-                if (is_saved && is_saved != 0 && !is_gutenberg) {
+                if (is_saved && is_saved != 0) {
                     document.querySelector('html').classList.add('dark-mode-active');
-                    DarkMode.enable();
+                    //DarkMode.enable();
                 }
             </script>
 		<?php }
 
-		public function hide_christmas_notice() {
-//			update_option( 'wp_markdown_editor_hide_christmas_notice', true );
-//			update_option( sanitize_key( 'wp_dark_mode_notices' ), [] );
-//			die();
+		public function handle_update_notice() {
+			update_option( 'wp_markdown_editor_update_notice_interval', 'off' );
+			update_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );
+			die();
 		}
 
 		public function display_notice() {
 
-//			if ( get_option( 'wp_markdown_editor_hide_christmas_notice' ) ) {
-//				return;
-//			}
-//
-//			/** display the black-friday notice if the pro version is not activated */
-//			if ( wpmd_is_pro_active() ) {
-//				return;
-//			}
-//
-//			ob_start();
-//			include DARK_MODE_PATH . '/includes/christmas-notice.php';
-//			$message = ob_get_clean();
-//
-//			wpmd_add_notice( 'info is-dismissible christmas_notice', $message );
+		    //Update Notice
+			if ( 'off' != get_option( 'wp_markdown_editor_update_notice_interval', 'on' )){
+			    $notice = '<p>WP Markdown Editor (formerly Dark Mode) has now additional settings you can turn off. </p> 
+<a style="margin-bottom: 8px;" href="'.admin_url('options-general.php?page=wp-markdown-settings').'" class="button-primary">Explore Now</a> ';
+
+				wpmd_add_notice( 'info is-dismissible wp-markdown-editor-update-notice', $notice );
+			}
+
+				//Review notice
+			if ( 'off' != get_option( 'wp_markdown_editor_review_notice_interval', 'on' )
+			     && 'off' != get_transient( 'wp_markdown_editor_review_notice_interval' ) ) {
+
+				ob_start();
+				include_once DARK_MODE_PATH . '/includes/notices/review-notice.php';
+				$notice_html = ob_get_clean();
+
+				wpmd_add_notice( 'info wp-markdown-editor-review-notice', $notice_html );
+			}
+
+			//Affiliate notice
+			if ( ( 'off' == get_option( 'wp_markdown_editor_review_notice_interval' )
+			       || 'off' == get_transient( 'wp_markdown_editor_review_notice_interval' ) )
+			     && 'off' != get_option( 'wp_markdown_editor_affiliate_notice_interval', 'on' )
+			     && 'off' != get_transient( 'wp_markdown_editor_affiliate_notice_interval' ) ) {
+
+				ob_start();
+				include_once DARK_MODE_PATH . '/includes/notices/affiliate-notice.php';
+				$notice_html = ob_get_clean();
+
+				wpmd_add_notice( 'info wp-markdown-editor-affiliate-notice', $notice_html );
+			}
 
 		}
 
-		public function head_scripts() { ?>
+		public function head_scripts() {
+
+			if ( ! wpmde_darkmode_enabled() ) {
+				return;
+			}
+
+			?>
             <script>
                 (function () {
 
@@ -130,12 +194,8 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		 */
 		public function render_admin_switcher_menu() {
 
-			if ( ! is_admin() ) {
+			if ( ! wpmde_darkmode_enabled() ) {
 				return;
-			}
-
-			if(wpmd_is_gutenberg_page()){
-			    return;
             }
 
 			$light_text = __( 'Light', 'dark-mode' );

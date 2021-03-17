@@ -13,7 +13,7 @@ import wpPot from 'gulp-wp-pot';
 import webpack from 'webpack-stream';
 import named from 'vinyl-named';
 import del from 'del';
-
+import rename from 'gulp-rename';
 
 import ReplaceInFileWebpackPlugin from 'replace-in-file-webpack-plugin';
 
@@ -27,7 +27,7 @@ const paths = {
     },
 
     js: {
-        src: ['src/js/**.js'],
+        src: ['assets/js/admin.js'],
         dest: 'assets/js/'
     },
 
@@ -157,6 +157,7 @@ export const js = () => {
 
             devtool: !PRODUCTION ? 'inline-source-map' : false
         }))
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(paths.js.dest));
 };
 
@@ -178,7 +179,7 @@ export const reload = done => {
 //watch changes
 export const watch = () => {
     gulp.watch('assets/scss/**/*.scss', css);
-    gulp.watch('assets/js/**/*.js', reload);
+    gulp.watch(['assets/js/admin.js','assets/js/components/**.js'], reload);
     gulp.watch('**/*.php', reload);
 };
 
