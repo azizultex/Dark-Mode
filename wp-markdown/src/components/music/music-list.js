@@ -141,6 +141,13 @@ class MusicList extends Component {
                         <span>Relax</span>
                     </div>
 
+                    <div className={`music-cat ${'custom' === this.state.cat ? 'active' : ''}`} onClick={() => {
+                        this.playPauseAll('custom');
+                    }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><path fill="#FFF" fill-rule="nonzero" d="M38,29 C38,29.5522847 37.5522847,30 37,30 C36.4477153,30 36,29.5522847 36,29 L36,21 C36,11.7156561 29.1378738,5 20,5 C10.870639,5 4,11.7304218 4,21 L4,29 C4,29.5522847 3.55228475,30 3,30 C2.44771525,30 2,29.5522847 2,29 L2,21 C2,10.6165169 9.77519437,3 20,3 C30.2329004,3 38,10.6013131 38,21 L38,29 Z"></path><path fill="#FFF" fill-rule="nonzero" d="M8 23C6.8954305 23 6 23.8954305 6 25L6 33C6 34.1045695 6.8954305 35 8 35L10 35 10 23 8 23zM8 21L10 21C11.1045695 21 12 21.8954305 12 23L12 35C12 36.1045695 11.1045695 37 10 37L8 37C5.790861 37 4 35.209139 4 33L4 25C4 22.790861 5.790861 21 8 21zM30 23L30 35 32 35C33.1045695 35 34 34.1045695 34 33L34 25C34 23.8954305 33.1045695 23 32 23L30 23zM30 21L32 21C34.209139 21 36 22.790861 36 25L36 33C36 35.209139 34.209139 37 32 37L30 37C28.8954305 37 28 36.1045695 28 35L28 23C28 21.8954305 28.8954305 21 30 21z"></path><path d="M0 0H40V40H0z"></path><path d="M0 0H40V40H0z"></path></g></svg>
+                        <span>Custom</span>
+                    </div>
+
                 </div>
 
                 <ul className='wp-markdown-music-list'>
@@ -176,6 +183,7 @@ class MusicList extends Component {
                         }
 
                 </ul>
+
             </Fragment>
         );
     }

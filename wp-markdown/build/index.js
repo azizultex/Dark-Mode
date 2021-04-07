@@ -17744,7 +17744,32 @@ var MusicList = /*#__PURE__*/function (_Component) {
         d: "M11 22.618034L11 27 17 27 17 22.618034 14 21.118034 11 22.618034zM18.4472136 21.1055728C18.7859976 21.2749648 19 21.6212279 19 22L19 28C19 28.5522847 18.5522847 29 18 29L10 29C9.44771525 29 9 28.5522847 9 28L9 22C9 21.6212279 9.21400238 21.2749648 9.5527864 21.1055728L13 19.381966 13 15C13 14.4477153 13.4477153 14 14 14 14.5522847 14 15 14.4477153 15 15L15 19.381966 18.4472136 21.1055728zM11.236068 36C10.8572959 36 10.5110328 36.2140024 10.3416408 36.5527864L9.61803399 38 26.381966 38 25.6583592 36.5527864C25.4889672 36.2140024 25.1427041 36 24.763932 36L11.236068 36zM11.236068 34L24.763932 34C25.9002482 34 26.9390376 34.6420071 27.4472136 35.6583592L28.1708204 37.1055728C28.6647989 38.0935298 28.2643502 39.2948759 27.2763932 39.7888544 26.9986823 39.9277098 26.6924562 40 26.381966 40L9.61803399 40C8.51346449 40 7.61803399 39.1045695 7.61803399 38 7.61803399 37.6895098 7.69032417 37.3832837 7.82917961 37.1055728L8.5527864 35.6583592C9.06096245 34.6420071 10.0997518 34 11.236068 34z"
       }), wp.element.createElement("path", {
         d: "M0 0H40V40H0z"
-      }))), wp.element.createElement("span", null, "Relax"))), wp.element.createElement("ul", {
+      }))), wp.element.createElement("span", null, "Relax")), wp.element.createElement("div", {
+        className: "music-cat ".concat('custom' === this.state.cat ? 'active' : ''),
+        onClick: function onClick() {
+          _this3.playPauseAll('custom');
+        }
+      }, wp.element.createElement("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "40",
+        height: "40",
+        viewBox: "0 0 40 40"
+      }, wp.element.createElement("g", {
+        fill: "none",
+        "fill-rule": "evenodd"
+      }, wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M38,29 C38,29.5522847 37.5522847,30 37,30 C36.4477153,30 36,29.5522847 36,29 L36,21 C36,11.7156561 29.1378738,5 20,5 C10.870639,5 4,11.7304218 4,21 L4,29 C4,29.5522847 3.55228475,30 3,30 C2.44771525,30 2,29.5522847 2,29 L2,21 C2,10.6165169 9.77519437,3 20,3 C30.2329004,3 38,10.6013131 38,21 L38,29 Z"
+      }), wp.element.createElement("path", {
+        fill: "#FFF",
+        "fill-rule": "nonzero",
+        d: "M8 23C6.8954305 23 6 23.8954305 6 25L6 33C6 34.1045695 6.8954305 35 8 35L10 35 10 23 8 23zM8 21L10 21C11.1045695 21 12 21.8954305 12 23L12 35C12 36.1045695 11.1045695 37 10 37L8 37C5.790861 37 4 35.209139 4 33L4 25C4 22.790861 5.790861 21 8 21zM30 23L30 35 32 35C33.1045695 35 34 34.1045695 34 33L34 25C34 23.8954305 33.1045695 23 32 23L30 23zM30 21L32 21C34.209139 21 36 22.790861 36 25L36 33C36 35.209139 34.209139 37 32 37L30 37C28.8954305 37 28 36.1045695 28 35L28 23C28 21.8954305 28.8954305 21 30 21z"
+      }), wp.element.createElement("path", {
+        d: "M0 0H40V40H0z"
+      }), wp.element.createElement("path", {
+        d: "M0 0H40V40H0z"
+      }))), wp.element.createElement("span", null, "Custom"))), wp.element.createElement("ul", {
         className: "wp-markdown-music-list"
       }, sounds.map(function (item, i) {
         return wp.element.createElement("li", {
@@ -19708,10 +19733,10 @@ EditorThemes = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, EditorTh
 /*!************************************************!*\
   !*** ./src/components/theme-editor/fonts.json ***!
   \************************************************/
-/*! exports provided: oxygen-mono, ibm-plex-mono, libre-baskerville, system, default */
+/*! exports provided: oxygen-mono, ibm-plex-mono, libre-baskerville, open-dyslexic, atkinson-hyperlegible, system, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"oxygen-mono\":{\"name\":\"Oxygen Mono\",\"font-family\":\"Oxygen Mono, monospace\",\"url\":\"https://fonts.googleapis.com/css2?family=Oxygen+Mono:wght@400;500;700&display=swap\"},\"ibm-plex-mono\":{\"name\":\"IBM Plex Mono\",\"font-family\":\"IBM Plex Mono, monospace\",\"url\":\"https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i,700,700i&display=swap\"},\"libre-baskerville\":{\"name\":\"Libre Baskerville\",\"font-family\":\"Libre Baskerville, serif\",\"url\":\"https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap\"},\"system\":{\"name\":\"System\",\"font-family\":\"-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif\",\"url\":\"\"}}");
+module.exports = JSON.parse("{\"oxygen-mono\":{\"name\":\"Oxygen Mono\",\"font-family\":\"Oxygen Mono, monospace\",\"url\":\"https://fonts.googleapis.com/css2?family=Oxygen+Mono:wght@400;500;700&display=swap\"},\"ibm-plex-mono\":{\"name\":\"IBM Plex Mono\",\"font-family\":\"IBM Plex Mono, monospace\",\"url\":\"https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i,700,700i&display=swap\"},\"libre-baskerville\":{\"name\":\"Libre Baskerville\",\"font-family\":\"Libre Baskerville, serif\",\"url\":\"https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap\"},\"open-dyslexic\":{\"name\":\"Open Dyslexic\",\"font-family\":\"Open Dyslexic, monospace\",\"url\":\"\"},\"atkinson-hyperlegible\":{\"name\":\"Atkinson Hyperlegible\",\"font-family\":\"Atkinson Hyperlegible, monospace\",\"url\":\"\"},\"system\":{\"name\":\"System\",\"font-family\":\"-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif\",\"url\":\"\"}}");
 
 /***/ }),
 
@@ -19946,6 +19971,7 @@ var ThemeEditor = /*#__PURE__*/function (_Component) {
 
     _classCallCheck(this, ThemeEditor);
 
+    console.log(_fonts__WEBPACK_IMPORTED_MODULE_4__);
     _this = _super.apply(this, arguments);
     _this.state = {
       updatedSettings: {}
@@ -20612,18 +20638,28 @@ var ThemeSwitcher = /*#__PURE__*/function (_Component) {
               }
             }), wp.element.createElement("span", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Custom', 'dark-mode')), _this2.state.is_pro ? _this2.state.theme === 'custom' || typeof _theme_editor_editor_themes__WEBPACK_IMPORTED_MODULE_2__["default"][_this2.state.theme] === 'undefined' ? _icons__WEBPACK_IMPORTED_MODULE_4__["default"].checkMark : _icons__WEBPACK_IMPORTED_MODULE_4__["default"].color : wp.element.createElement("span", {
               className: 'wp-markdown-pro-badge'
-            }, "PRO")))), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], _defineProperty({
+            }, "PRO")))), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
               className: "components-markdown-theme-switcher__typography",
               onClick: function onClick() {
-                if (!_this2.state.is_pro) {
-                  document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
-                } else {
-                  _this2.onEditTheme(onToggle, 'isEditingTypography');
-                }
+                _this2.onEditTheme(onToggle, 'isEditingTypography');
               }
-            }, "className", !_this2.state.is_pro && 'disabled'), wp.element.createElement("span", null, "\u270E ", Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Edit typography', 'dark-mode')), _this2.state.is_pro ? _icons__WEBPACK_IMPORTED_MODULE_4__["default"].typography : wp.element.createElement("span", {
-              className: 'wp-markdown-pro-badge'
-            }, "PRO"))), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
+            }, wp.element.createElement("span", null, "\u270E ", Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Edit typography', 'dark-mode')))), WPMD_Settings.productivity_sound && wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
+              className: "components-markdown-edit-music",
+              onClick: function onClick() {
+                _this2.onEditMusic(onToggle);
+              }
+            }, wp.element.createElement("svg", {
+              id: "wp-markdown-music",
+              style: {
+                width: 15,
+                height: 15
+              },
+              "enable-background": "new 0 0 415.963 415.963",
+              viewBox: "0 0 415.963 415.963",
+              xmlns: "http://www.w3.org/2000/svg"
+            }, wp.element.createElement("path", {
+              d: "m328.712 264.539c12.928-21.632 21.504-48.992 23.168-76.064 1.056-17.376-2.816-35.616-11.2-52.768-13.152-26.944-35.744-42.08-57.568-56.704-16.288-10.912-31.68-21.216-42.56-35.936l-1.952-2.624c-6.432-8.64-13.696-18.432-14.848-26.656-1.152-8.32-8.704-14.24-16.96-13.76-8.384.576-14.88 7.52-14.88 15.936v285.12c-13.408-8.128-29.92-13.12-48-13.12-44.096 0-80 28.704-80 64s35.904 64 80 64 80-28.704 80-64v-186.496c24.032 9.184 63.36 32.576 74.176 87.2-2.016 2.976-3.936 6.176-6.176 8.736-5.856 6.624-5.216 16.736 1.44 22.56 6.592 5.888 16.704 5.184 22.56-1.44 4.288-4.864 8.096-10.56 11.744-16.512.384-.448.737-.928 1.056-1.472z"
+            }), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null), wp.element.createElement("g", null)), wp.element.createElement("span", null, "Music"))), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuGroup"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_12__["MenuItem"], {
               className: "components-markdown-mode-toggle",
               onClick: function onClick() {
                 toggleEditor();

@@ -1,5 +1,5 @@
 <p>Hi there, you have been using <strong>WP Markdown Editor</strong> for while now. Do you know that <b>WP Markdown Editor</b> has an affiliate program?
-    join now <b>get 20% commission from each sale.</b>
+    Join now <b>get 20% commission from each sale.</b>
 </p>
 
 <div class="notice-actions">

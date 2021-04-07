@@ -73,4 +73,17 @@
       display: none;
     }
   }
+
+  .upcoming_features{
+    th{
+      display: none;
+    }
+
+    td{
+      position: relative;
+      left: 30px;
+      padding: 0;
+      margin: 0;
+    }
+  }
 }

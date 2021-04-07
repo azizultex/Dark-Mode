@@ -4,8 +4,6 @@
         //Handle the update notice
         $(document).on('click','.wp-markdown-editor-update-notice .notice-dismiss', function () {
 
-            console.log('a')
-
             wp.ajax.send('wp_markdown_editor_update_notice', {
                 success: () => {},
                 error: (error) => console.log(error),
@@ -53,12 +51,11 @@
         });
 
         $('.wp-markdown-editor-affiliate-notice .dashicons-dismiss').on('click', function (e) {
-            console.log('a')
             e.preventDefault();
             $('.wp-markdown-editor-affiliate-notice .notice-overlay-wrap').css('display', 'flex');
         });
 
-        $(`.wp-markdown-editor-affiliate-notice .notice-overlay-actions a, .wp-markdown-editor-affiliate-notice .notice-actions a.hide_notice`).on('click', function () {
+        $(`.wp-markdown-editor-affiliate-notice .notice-overlay-actions a, .wp-markdown-editor-affiliate-notice .notice-dismiss, .wp-markdown-editor-affiliate-notice .notice-actions a.hide_notice`).on('click', function () {
 
             $(this).parents('.wp-markdown-editor-affiliate-notice').slideUp();
 

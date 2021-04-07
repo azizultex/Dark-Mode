@@ -80,18 +80,28 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 
 		public function handle_update_notice() {
 			update_option( 'wp_markdown_editor_update_notice_interval', 'off' );
-			update_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );
+			update_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );//
 			die();
 		}
 
 		public function display_notice() {
 
+			//Return if allow tracking is not interacted yet
+			if ( ! get_option( 'dark-mode_allow_tracking' ) ) {
+				return;
+			}
+
 		    //Update Notice
 			if ( 'off' != get_option( 'wp_markdown_editor_update_notice_interval', 'on' )){
-			    $notice = '<p>WP Markdown Editor (formerly Dark Mode) has now additional settings you can turn off. </p> 
-<a style="margin-bottom: 8px;" href="'.admin_url('options-general.php?page=wp-markdown-settings').'" class="button-primary">Explore Now</a> ';
+				$notice = '<p>WP Markdown Editor (formerly Dark Mode) has now additional settings that you can turn off. </p> 
+<a style="margin-bottom: 8px;" href="' . admin_url( 'options-general.php?page=wp-markdown-settings' )
+				          . '" class="button-primary">Explore Now</a> ';
 
 				wpmd_add_notice( 'info is-dismissible wp-markdown-editor-update-notice', $notice );
+			}
+
+			if ( 'off' != get_option( 'wp_markdown_editor_update_notice_interval', 'on' ) ) {
+				return;
 			}
 
 				//Review notice
@@ -102,20 +112,19 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 				include_once DARK_MODE_PATH . '/includes/notices/review-notice.php';
 				$notice_html = ob_get_clean();
 
-				wpmd_add_notice( 'info wp-markdown-editor-review-notice', $notice_html );
+				wpmd_add_notice( 'info is-dismissible wp-markdown-editor-review-notice', $notice_html );
 			}
 
 			//Affiliate notice
-			if ( ( 'off' == get_option( 'wp_markdown_editor_review_notice_interval' )
-			       || 'off' == get_transient( 'wp_markdown_editor_review_notice_interval' ) )
+			if ( 'off' == get_option( 'wp_markdown_editor_review_notice_interval' )
 			     && 'off' != get_option( 'wp_markdown_editor_affiliate_notice_interval', 'on' )
-			     && 'off' != get_transient( 'wp_markdown_editor_affiliate_notice_interval' ) ) {
+			     && 'off' != get_transient( 'wp_markdown_editor_affiliate_notice_interval') ){
 
 				ob_start();
 				include_once DARK_MODE_PATH . '/includes/notices/affiliate-notice.php';
 				$notice_html = ob_get_clean();
 
-				wpmd_add_notice( 'info wp-markdown-editor-affiliate-notice', $notice_html );
+			wpmd_add_notice( 'info is-dismissible wp-markdown-editor-affiliate-notice', $notice_html );
 			}
 
 		}

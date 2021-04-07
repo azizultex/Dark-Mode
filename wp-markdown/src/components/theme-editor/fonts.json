@@ -15,6 +15,19 @@
 		"font-family": "Libre Baskerville, serif",
 		"url": "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
 	},
+
+	"open-dyslexic": {
+		"name": "Open Dyslexic",
+		"font-family": "Open Dyslexic, monospace",
+		"url": ""
+	},
+
+	"atkinson-hyperlegible": {
+		"name": "Atkinson Hyperlegible",
+		"font-family": "Atkinson Hyperlegible, monospace",
+		"url": ""
+	},
+
 	"system": {
 		"name": "System",
 		"font-family": "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif",

@@ -41,9 +41,13 @@ import './comoponents/notice';
             if (is_darkmode_enabled) {
                 document.querySelector('.admin_darkmode').style.display = 'none';
                 document.querySelector('.markdown_editor').style.display = 'none';
+                document.querySelector('.productivity_sound').style.display = 'none';
+                document.querySelector('.new_fonts').style.display = 'none';
             } else {
                 document.querySelector('.admin_darkmode').style.display = 'revert';
                 document.querySelector('.markdown_editor').style.display = 'revert';
+                document.querySelector('.productivity_sound').style.display = 'revert';
+                document.querySelector('.new_fonts').style.display = 'revert';
             }
         },
 

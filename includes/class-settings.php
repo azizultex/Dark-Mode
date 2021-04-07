@@ -51,7 +51,7 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 						'name'    => 'markdown_editor',
 						'default' => 'on',
 						'label'   => __( 'Enable Markdown Editor', 'dark-mode' ),
-						'desc'    => __( 'Enable/ Disable The Markdown Editor.', 'dark-mode' ),
+						'desc'    => __( 'Enable/disable The Markdown Editor.', 'dark-mode' ),
 						'type'    => 'switcher',
 					),
 
@@ -59,7 +59,7 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 						'name'    => 'admin_darkmode',
 						'default' => 'on',
 						'label'   => __( 'Enable Admin Darkmode', 'dark-mode' ),
-						'desc'    => __( 'Enable/ Disable Darkmode in the admin dashboard.', 'dark-mode' ),
+						'desc'    => __( 'Enable/disable Darkmode in the admin dashboard.', 'dark-mode' ),
 						'type'    => 'switcher',
 					),
 
@@ -71,7 +71,7 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 						'name'    => 'productivity_sound',
 						'default' => 'on',
 						'label'   => __( 'Enable Productivity Sounds', 'dark-mode' ),
-						'desc'    => __( 'Enable/ Disable productivity sounds in the admin dashboard.', 'dark-mode' ),
+						'desc'    => __( 'Enable/disable productivity sounds in the admin dashboard.', 'dark-mode' ),
 						'type'    => 'switcher',
 					),
 
@@ -79,7 +79,7 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 						'name'    => 'new_fonts',
 						'default' => 'on',
 						'label'   => __( 'Enable New Fonts', 'dark-mode' ),
-						'desc'    => __( 'Enable/ Disable new fonts for gutenberg and markdown editor.', 'dark-mode' ),
+						'desc'    => __( 'Enable/disable new fonts for Gutenberg and Markdown editor.', 'dark-mode' ),
 						'type'    => 'switcher',
 					),
 
@@ -106,9 +106,9 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 
 				$fields['wpmde_general']['classic_editor_darkmode'] = array(
 					'name'    => 'classic_editor_darkmode',
-					'default' => 'off',
+					'default' => 'on',
 					'label'   => __( 'Enable Darkmode in Classic Editor', 'dark-mode' ),
-					'desc'    => __( 'Enable/ Disable Darkmode in the classic editor.', 'dark-mode' ),
+					'desc'    => __( 'Enable/disable Darkmode in the classic editor.', 'dark-mode' ),
 					'type'    => 'switcher',
 				);
 			}else{
@@ -118,7 +118,7 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 					'name'    => 'gutenberg_darkmode',
 					'default' => 'off',
 					'label'   => __( 'Enable Darkmode in Gutenberg', 'dark-mode' ),
-					'desc'    => __( 'Enable/ Disable Darkmode in the gutenberg editor.', 'dark-mode' ),
+					'desc'    => __( 'Enable/disable Darkmode in the Gutenberg editor.', 'dark-mode' ),
 					'type'    => 'switcher',
 				);
             }

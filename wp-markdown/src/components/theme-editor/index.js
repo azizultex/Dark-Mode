@@ -31,6 +31,9 @@ import {
 
 class ThemeEditor extends Component {
 	constructor() {
+
+		console.log(EditorFonts)
+
 		super( ...arguments );
 
 		this.state = {

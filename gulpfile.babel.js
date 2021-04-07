@@ -58,6 +58,8 @@ const paths = {
             '!wp-markdown/package-lock.json',
             '!wp-markdown/webpack.config.js',
 
+            '!assets/musics/**',
+            '!assets/scss/**',
             '!build/**',
             '!src/**',
             '!**/*.md',

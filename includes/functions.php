@@ -91,7 +91,7 @@ function wpmde_darkmode_enabled() {
 	}
 
 	// Check if classic editor darkmode enabled
-	if ( 'off' == wpmde_get_settings( 'classic_editor_darkmode' )
+	if ( 'off' == wpmde_get_settings( 'classic_editor_darkmode', 'on' )
 	     && wpmde_is_classic_editor_page() ) {
 		return false;
 	}

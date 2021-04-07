@@ -17,11 +17,11 @@ msgstr ""
 msgid "GET PRO"
 msgstr ""
 
-#: includes/class-hooks.php:201
+#: includes/class-hooks.php:207
 msgid "Light"
 msgstr ""
 
-#: includes/class-hooks.php:202
+#: includes/class-hooks.php:208
 msgid "Dark"
 msgstr ""
 
@@ -50,7 +50,7 @@ msgid "Enable Markdown Editor"
 msgstr ""
 
 #: includes/class-settings.php:54
-msgid "Enable/ Disable The Markdown Editor."
+msgid "Enable/disable The Markdown Editor."
 msgstr ""
 
 #: includes/class-settings.php:61
@@ -58,41 +58,45 @@ msgid "Enable Admin Darkmode"
 msgstr ""
 
 #: includes/class-settings.php:62
-msgid "Enable/ Disable Darkmode in the admin dashboard."
+msgid "Enable/disable Darkmode in the admin dashboard."
 msgstr ""
 
-#: includes/class-settings.php:73
+#: includes/class-settings.php:72
+msgid "Upcoming Features"
+msgstr ""
+
+#: includes/class-settings.php:79
 msgid "Enable Productivity Sounds"
 msgstr ""
 
-#: includes/class-settings.php:74
-msgid "Enable/ Disable productivity sounds in the admin dashboard."
+#: includes/class-settings.php:80
+msgid "Enable/disable productivity sounds in the admin dashboard."
 msgstr ""
 
-#: includes/class-settings.php:81
+#: includes/class-settings.php:87
 msgid "Enable New Fonts"
 msgstr ""
 
-#: includes/class-settings.php:82
-msgid "Enable/ Disable new fonts for gutenberg and markdown editor."
+#: includes/class-settings.php:88
+msgid "Enable/disable new fonts for Gutenberg and Markdown editor."
 msgstr ""
 
-#: includes/class-settings.php:120
+#: includes/class-settings.php:126
 msgid "Enable Darkmode in Gutenberg"
 msgstr ""
 
-#: includes/class-settings.php:121
-msgid "Enable/ Disable Darkmode in the gutenberg editor."
+#: includes/class-settings.php:127
+msgid "Enable/disable Darkmode in the Gutenberg editor."
 msgstr ""
 
-#: includes/class-settings.php:110
+#: includes/class-settings.php:116
 msgid "Enable Darkmode in Classic Editor"
 msgstr ""
 
-#: includes/class-settings.php:111
-msgid "Enable/ Disable Darkmode in the classic editor."
+#: includes/class-settings.php:117
+msgid "Enable/disable Darkmode in the classic editor."
 msgstr ""
 
-#: includes/class-settings.php:159
+#: includes/class-settings.php:165
 msgid "WP Markdown Editor Settings"
 msgstr ""
