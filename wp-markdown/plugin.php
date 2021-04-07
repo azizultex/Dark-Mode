@@ -139,6 +139,7 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 				'wp-markdown-script',
 				'WPMD_Settings',
 				array(
+					'current_user_id'    => get_current_user_id(),
 					'siteurl'            => wp_parse_url( get_bloginfo( 'url' ) ),
 					'pluginDirUrl'       => plugin_dir_url( __DIR__ ),
 					'promo_data'         => $promo_data,
@@ -147,7 +148,9 @@ if ( ! class_exists( 'WP_Markdown' ) ) {
 					'customThemes'       =>  '',
 					'isGutenberg'        => defined( 'GUTENBERG_VERSION' ) || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'gutenberg/gutenberg.php' ) ) ? true : false,
 					'isEditWPMD'         => isset( $_GET['is_markdown'] ) ? sanitize_text_field( $_GET['is_markdown'] ) : false,
-					'is_pro'             => apply_filters('wp_markdown_editor/is_pro_active', false)
+					'is_pro'             => apply_filters( 'wp_markdown_editor/is_pro_active', false ),
+					'new_fonts'          => 'on' == wpmde_get_settings( 'new_fonts', 'on' ),
+					'productivity_sound' => 'on' == wpmde_get_settings( 'productivity_sound', 'on' ),
 				)
 			);
 

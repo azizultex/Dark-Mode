@@ -10,7 +10,7 @@ import Shortcuts from '../shortcuts';
 import RegisterShortcuts from '../shortcuts/shortcuts';
 import DocumentInfo from '../document-info';
 import UpdateTitleHeight from '../utils/title-height';
-import ShortcutButton from '../shortcut-button';
+//import ShortcutButton from '../shortcut-button';
 /**
  * WordPress dependencies
  */
@@ -173,6 +173,7 @@ class MarkdownEditor extends Component {
 			onToggle,
 			isThemesUI,
 			isSwitchTo,
+			toggleText,
 			isDocumentInformation,
 		} = this.props;
 
@@ -225,24 +226,22 @@ class MarkdownEditor extends Component {
 				<MoreMenu isActive={ isActive } />
 				<BlockLimiter isActive={ isActive } />
 
-				<ThemeSwitcher isActive={ isActive } isEnabled={ isThemesUI } />
+				{/*<ThemeSwitcher isActive={ isActive } isEnabled={ isThemesUI } />*/}
+				<ThemeSwitcher toggleText={toggleText} toggleEditor={onToggle} isMarkdown={isActive} isActive={true} isEnabled={isThemesUI}/>
 
 				{ isActive && isDocumentInformation && (
 					<DocumentInfo isActive={ isActive } />
 				) }
 
-				{ ! isActive && (
-					<ShortcutButton
-						onToggle={ onToggle }
-						isEnabled={ isSwitchTo }
-					/>
-				) }
+
+				{/*{ ! isActive && (<ShortcutButton onToggle={ onToggle } isEnabled={ isSwitchTo }/>) }*/}
 			</Fragment>
 		);
 	}
 }
 
 export default compose( [
+
 	withSelect( ( select ) => {
 		const { isFeatureActive } = select( 'core/edit-post' );
 		const { getEditedPostAttribute } = select( 'core/editor' );
@@ -270,7 +269,11 @@ export default compose( [
 			postmeta: getEditedPostAttribute( 'meta' ),
 		};
 	} ),
+
 	withDispatch( ( dispatch, ownProps ) => ( {
+		toggleText() {
+			return ownProps.isActive ? 'Exit Markdown' : 'Switch to Markdown';
+		},
 		onToggle() {
 
 			document.querySelector('html').classList.remove('darkmode-theme-default', 'darkmode-theme-darkmode', 'darkmode-theme-chathams', 'darkmode-theme-pumpkin', 'darkmode-theme-mustard', 'darkmode-theme-concord');
@@ -359,5 +362,6 @@ export default compose( [
 			);
 		},
 	} ) ),
+
 	withSpokenMessages,
 ] )( MarkdownEditor );

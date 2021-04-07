@@ -27,12 +27,6 @@
 	padding-right: 10px;
 }
 
-&.has-theme-switcher {
-	.components-markdown-theme-switcher__trigger {
-		visibility: visible;
-	}
-}
-
 // Down caret
 .components-markdown-theme-switcher__trigger svg {
 	height: 18px;
@@ -141,14 +135,29 @@
 }
 
 // Back to visibility
-.components-markdown-back-to {
+.components-markdown-back-to-default, .components-markdown-back-to {
 	display: none;
 }
-&.has-back-to {
-	.components-markdown-back-to {
+
+.is-markdown {
+	&.has-back-to {
+		.components-markdown-back-to {
+			display: inline-flex;
+		}
+	}
+
+	.components-markdown-back-to-default {
 		display: inline-flex;
 	}
 }
+
+//&.has-theme-switcher {
+.components-markdown-theme-switcher__trigger {
+	visibility: visible;
+}
+
+//}
+
 
 /** --- Custom CSS -- **/
 
@@ -176,6 +185,22 @@
 
 		span {
 			opacity: .3;
+		}
+	}
+}
+
+.components-markdown-mode-toggle {
+	.components-menu-item__item {
+		display: flex;
+		align-items: center;
+
+		svg {
+			margin-left: 0 !important;
+			width: 50px !important;
+		}
+
+		span {
+			margin-left: 10px;
 		}
 	}
 }

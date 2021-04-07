@@ -43,3 +43,60 @@ function wpmd_add_notice( $class, $message ) {
 	}
 
 }
+
+function wpmde_get_settings( $key = '', $default = '', $section = 'wpmde_general' ) {
+	$settings = get_option( $section );
+
+	return ! empty( $settings[ $key ] ) ? $settings[ $key ] : $default;
+}
+
+/**
+ * Check if Classic Editor plugin is active.
+ *
+ * @return bool
+ */
+function wpmde_is_classic_editor_plugin_active() {
+	if ( ! function_exists( 'is_plugin_active' ) ) {
+		include_once ABSPATH . 'wp-admin/includes/plugin.php';
+	}
+
+	if ( is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+
+function wpmde_is_classic_editor_page() {
+	global $pagenow;
+
+	return wpmde_is_classic_editor_plugin_active() && ( $pagenow == 'post.php' );
+}
+
+function wpmde_darkmode_enabled() {
+
+	if ( ! is_admin() ) {
+		return false;
+	}
+
+	// Check if admin darkmode enabled
+	if ( 'on' != wpmde_get_settings( 'admin_darkmode', 'on' ) ) {
+		return false;
+	}
+
+	// Check if gutenberg darkmode enabled
+	if ( 'off' == wpmde_get_settings( 'gutenberg_darkmode' ) && wpmd_is_gutenberg_page() ) {
+		return false;
+	}
+
+	// Check if classic editor darkmode enabled
+	if ( 'off' == wpmde_get_settings( 'classic_editor_darkmode', 'on' )
+	     && wpmde_is_classic_editor_page() ) {
+		return false;
+	}
+
+	return true;
+}
+
+

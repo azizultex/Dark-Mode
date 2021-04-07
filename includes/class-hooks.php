@@ -19,85 +19,181 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 			add_action( 'admin_bar_menu', [ $this, 'render_admin_switcher_menu' ], 2000 );
 			add_action( 'admin_head', [ $this, 'head_scripts' ] );
 
-			//add_action( 'admin_init', [ $this, 'display_notice' ] );
-			//add_action( 'wp_ajax_wp_markdown_editor_hide_christmas_notice', [ $this, 'hide_christmas_notice' ] );
+			add_action( 'admin_init', [ $this, 'display_notice' ] );
+			add_action( 'admin_footer', [ $this, 'footer_scripts' ] );
+
+			add_action( 'wp_ajax_wp_markdown_editor_update_notice', [ $this, 'handle_update_notice' ] );
+			add_action( 'wp_ajax_wp_markdown_editor_review_notice', [ $this, 'handle_review_notice' ] );
+			add_action( 'wp_ajax_wp_markdown_editor_affiliate_notice', [ $this, 'handle_affiliate_notice' ] );
+
 		}
 
-		public function hide_christmas_notice() {
-//			update_option( 'wp_markdown_editor_hide_christmas_notice', true );
-//			update_option( sanitize_key( 'wp_dark_mode_notices' ), [] );
-//			die();
+		/**
+		 * handle review notice
+		 */
+		public function handle_review_notice() {
+
+			$value = ! empty( $_REQUEST['value'] ) ? wp_unslash( $_REQUEST['value'] ) : 7;
+
+			if ( 'hide_notice' == $value ) {
+				update_option( 'wp_markdown_editor_review_notice_interval', 'off' );
+			} else {
+				set_transient( 'wp_markdown_editor_review_notice_interval', 'off', $value * DAY_IN_SECONDS );
+			}
+
+			update_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );
+
+		}
+
+		/**
+		 * handle affiliate notice
+		 */
+		public function handle_affiliate_notice() {
+			$value = ! empty( $_REQUEST['value'] ) ? wp_unslash( $_REQUEST['value'] ) : 7;
+
+			if ( 'hide_notice' == $value ) {
+				update_option( 'wp_markdown_editor_affiliate_notice_interval', 'off' );
+			} else {
+				set_transient( 'wp_markdown_editor_affiliate_notice_interval', 'off', $value * DAY_IN_SECONDS );
+			}
+
+			update_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );
+
+		}
+
+		public function footer_scripts() { ?>
+            <script>
+                var is_saved = localStorage.getItem('dark_mode_active');
+
+                if (!is_saved) {
+                    is_saved = 1;
+                }
+
+                var is_gutenberg = document.querySelector('body').classList.contains('block-editor-page');
+
+                if (is_saved && is_saved != 0) {
+                    document.querySelector('html').classList.add('dark-mode-active');
+                    //DarkMode.enable();
+                }
+            </script>
+		<?php }
+
+		public function handle_update_notice() {
+			update_option( 'wp_markdown_editor_update_notice_interval', 'off' );
+			update_option( sanitize_key( 'wp_markdown_editor_notices' ), [] );//
+			die();
 		}
 
 		public function display_notice() {
 
-//			if ( get_option( 'wp_markdown_editor_hide_christmas_notice' ) ) {
-//				return;
-//			}
-//
-//			/** display the black-friday notice if the pro version is not activated */
-//			if ( wpmd_is_pro_active() ) {
-//				return;
-//			}
-//
-//			ob_start();
-//			include DARK_MODE_PATH . '/includes/christmas-notice.php';
-//			$message = ob_get_clean();
-//
-//			wpmd_add_notice( 'info is-dismissible christmas_notice', $message );
+			//Return if allow tracking is not interacted yet
+			if ( ! get_option( 'dark-mode_allow_tracking' ) ) {
+				return;
+			}
+
+		    //Update Notice
+			if ( 'off' != get_option( 'wp_markdown_editor_update_notice_interval', 'on' )){
+				$notice = '<p>WP Markdown Editor (formerly Dark Mode) has now additional settings that you can turn off. </p> 
+<a style="margin-bottom: 8px;" href="' . admin_url( 'options-general.php?page=wp-markdown-settings' )
+				          . '" class="button-primary">Explore Now</a> ';
+
+				wpmd_add_notice( 'info is-dismissible wp-markdown-editor-update-notice', $notice );
+			}
+
+			if ( 'off' != get_option( 'wp_markdown_editor_update_notice_interval', 'on' ) ) {
+				return;
+			}
+
+				//Review notice
+			if ( 'off' != get_option( 'wp_markdown_editor_review_notice_interval', 'on' )
+			     && 'off' != get_transient( 'wp_markdown_editor_review_notice_interval' ) ) {
+
+				ob_start();
+				include_once DARK_MODE_PATH . '/includes/notices/review-notice.php';
+				$notice_html = ob_get_clean();
+
+				wpmd_add_notice( 'info is-dismissible wp-markdown-editor-review-notice', $notice_html );
+			}
+
+			//Affiliate notice
+			if ( 'off' == get_option( 'wp_markdown_editor_review_notice_interval' )
+			     && 'off' != get_option( 'wp_markdown_editor_affiliate_notice_interval', 'on' )
+			     && 'off' != get_transient( 'wp_markdown_editor_affiliate_notice_interval') ){
+
+				ob_start();
+				include_once DARK_MODE_PATH . '/includes/notices/affiliate-notice.php';
+				$notice_html = ob_get_clean();
+
+			wpmd_add_notice( 'info is-dismissible wp-markdown-editor-affiliate-notice', $notice_html );
+			}
 
 		}
 
-		public function head_scripts() { ?>
+		public function head_scripts() {
+
+			if ( ! wpmde_darkmode_enabled() ) {
+				return;
+			}
+
+			?>
             <script>
-                var is_saved = localStorage.getItem('dark_mode_active');
-                if (is_saved && is_saved != 0) {
-                    document.querySelector('html').classList.add('dark-mode-active');
-                }
+                (function () {
 
+                    var is_saved = localStorage.getItem('dark_mode_active');
 
-                //check os aware mode
-                var darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                    if (is_saved == 0) {
+                        return;
+                    }
 
-                try {
-                    // Chrome & Firefox
-                    darkMediaQuery.addEventListener('change', function (e) {
-                        var newColorScheme = e.matches ? 'dark' : 'light';
+                    //check os aware mode
+                    var darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-                        if ('dark' === newColorScheme) {
-                            document.querySelector('html').classList.add('dark-mode-active');
-                        } else {
-                            document.querySelector('html').classList.remove('dark-mode-active');
-                        }
-
-                        window.dispatchEvent(new Event('dark_mode_init'));
-
-                    });
-                } catch (e1) {
                     try {
-                        // Safari
-                        darkMediaQuery.addListener(function (e) {
+                        // Chrome & Firefox
+                        darkMediaQuery.addEventListener('change', function (e) {
                             var newColorScheme = e.matches ? 'dark' : 'light';
 
                             if ('dark' === newColorScheme) {
                                 document.querySelector('html').classList.add('dark-mode-active');
+                                DarkMode.enable();
                             } else {
                                 document.querySelector('html').classList.remove('dark-mode-active');
+                                DarkMode.disable();
                             }
 
                             window.dispatchEvent(new Event('dark_mode_init'));
 
                         });
-                    } catch (e2) {
-                        console.error(e2);
-                    }
-                }
+                    } catch (e1) {
+                        try {
+                            // Safari
+                            darkMediaQuery.addListener(function (e) {
+                                var newColorScheme = e.matches ? 'dark' : 'light';
 
-                /** check init dark theme */
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.querySelector('html').classList.add('dark-mode-active');
-                    window.dispatchEvent(new Event('dark_mode_init'));
-                }
+                                if ('dark' === newColorScheme) {
+                                    DarkMode.enable();
+                                    document.querySelector('html').classList.add('dark-mode-active');
+                                } else {
+                                    document.querySelector('html').classList.remove('dark-mode-active');
+                                    DarkMode.disable()
+                                }
+
+                                window.dispatchEvent(new Event('dark_mode_init'));
+
+                            });
+                        } catch (e2) {
+                            console.error(e2);
+                        }
+                    }
+
+                    /** check init dark theme */
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        document.querySelector('html').classList.add('dark-mode-active');
+                        DarkMode.enable();
+                        window.dispatchEvent(new Event('dark_mode_init'));
+                    }
+
+                })();
 
             </script>
 		<?php }
@@ -107,12 +203,8 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		 */
 		public function render_admin_switcher_menu() {
 
-			if ( ! is_admin() ) {
+			if ( ! wpmde_darkmode_enabled() ) {
 				return;
-			}
-
-			if(wpmd_is_gutenberg_page()){
-			    return;
             }
 
 			$light_text = __( 'Light', 'dark-mode' );
@@ -122,10 +214,10 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 			$wp_admin_bar->add_menu( array(
 				'id'    => 'dark-mode-switch',
 				'title' => sprintf( '<div class="dark-mode-switch dark-mode-ignore">
-	                                    <div class="toggle"></div>
-	                                    <div class="modes">
-	                                        <p class="light">%s</p>
-	                                        <p class="dark">%s</p>
+	                                    <div class="toggle dark-mode-ignore"></div>
+	                                    <div class="modes dark-mode-ignore">
+	                                        <p class="light dark-mode-ignore">%s</p>
+	                                        <p class="dark dark-mode-ignore">%s</p>
 	                                    </div>
 	                            	</div>', $light_text, $dark_text ),
 				'href'  => '#',

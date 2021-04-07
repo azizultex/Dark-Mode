@@ -88,12 +88,15 @@ export function assignVariables( settings ) {
 		}
 	} );
 
+
 	let fontUrl = '';
 	if (
 		typeof typography.font !== 'undefined' &&
 		typeof EditorFonts[ typography.font ] !== 'undefined'
 	) {
 		fontUrl = EditorFonts[ typography.font ].url;
+		fontUrl = fontUrl.replace('{pluginUrl}', WPMD_Settings.pluginDirUrl);
+
 	}
 
 	if ( fontUrl ) {

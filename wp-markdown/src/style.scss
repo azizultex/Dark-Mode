@@ -2,6 +2,19 @@
 @import "./styles/breakpoints.scss";
 @import "./styles/mixins.scss";
 @import "./components/shortcut-button/style.scss";
+//Components
+@import "./components/theme-switcher/style.scss";
+@import "./components/options-modal/style.scss";
+
+html.darkmode-theme body:not(.is-markdown) {
+	@import "./components/theme-switcher/style-gutenberg.scss";
+}
+
+
+//Editor Style
+@import "./styles/ui/popover.scss";
+@import "./styles/ui/color-palette.scss";
+
 
 $imageWidth: 230px;
 
@@ -9,13 +22,11 @@ $imageWidth: 230px;
 .is-markdown {
 
 	//Components
-	@import "./components/theme-switcher/style.scss";
 	@import "./components/table-of-contents/style.scss";
 	@import "./components/heading-level-indicator/style.scss";
 	@import "./components/markdown/style.scss";
 	@import "./components/shortcuts/style.scss";
 	@import "./components/more-menu/style.scss";
-	@import "./components/options-modal/style.scss";
 	@import "./components/document-info/style.scss";
 	@import "./components/settings/style.scss";
 	@import "./components/block-indicator/style.scss";
@@ -27,11 +38,9 @@ $imageWidth: 230px;
 	@import "./styles/ui/header.scss";
 	@import "./styles/ui/dropzone.scss";
 	@import "./styles/ui/snackbar.scss";
-	@import "./styles/ui/popover.scss";
 	@import "./styles/ui/placeholder.scss";
 	@import "./styles/ui/button.scss";
 	@import "./styles/ui/menu-title.scss";
-	@import "./styles/ui/color-palette.scss";
 	@import "./styles/ui/resizable.scss";
 	@import "./styles/ui/forms.scss";
 
@@ -76,4 +85,22 @@ span.wp-markdown-pro-badge {
 	padding: 3px 5px;
 	border-radius: 10px;
 	opacity: 1 !important;
+}
+
+/*------- fonts --------*/
+
+@font-face {
+	font-family: 'Open Dyslexic';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(../../assets/fonts/OpenDyslexic-Regular.woff2) format('woff2');
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(../../assets/fonts/Atkinson-Hyperlegible-Regular-102a.woff2) format('woff2');
 }

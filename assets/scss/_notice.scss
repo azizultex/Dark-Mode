@@ -1,0 +1,89 @@
+/*------------ review notice--------------*/
+.wp-markdown-editor-review-notice, .wp-markdown-editor-affiliate-notice {
+  p {
+    font-size: 1rem;
+  }
+
+  .notice-actions {
+    display: flex;
+    flex-flow: column;
+    line-height: 1.8;
+  }
+
+  .notice-overlay-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 9999;
+
+    .notice-overlay {
+      background: #fff;
+      width: max-content;
+      padding: 10px 30px;
+      border-radius: 10px;
+      position: relative;
+
+      &-actions {
+        display: flex;
+        flex-flow: column;
+        line-height: 1.8;
+
+        a {
+          text-decoration: none;
+
+          &:nth-child(2) {
+            color: #000;
+          }
+
+          &:nth-child(3) {
+            color: #777;
+          }
+        }
+      }
+
+      .close-notice{
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        border-radius: 30px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+
+}
+
+.wp-markdown-editor-affiliate-notice{
+
+  p{
+    font-size: .875rem;
+  }
+
+  .dashicons-dismiss{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: indianred;
+    cursor: pointer;
+  }
+
+  .notice-dismiss{
+    display: none;
+  }
+
+  .notice-actions{
+    a{
+      width: 115px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+}
