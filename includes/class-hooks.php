@@ -16,11 +16,11 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		 * Dark_Mode_Hooks constructor.
 		 */
 		public function __construct() {
-			add_action( 'admin_bar_menu', [ $this, 'render_admin_switcher_menu' ], 2000 );
-			add_action( 'admin_head', [ $this, 'head_scripts' ] );
+			//add_action( 'admin_bar_menu', [ $this, 'render_admin_switcher_menu' ], 2000 );
+			//add_action( 'admin_head', [ $this, 'head_scripts' ] );
+			//add_action( 'admin_footer', [ $this, 'footer_scripts' ] );
 
 			add_action( 'admin_init', [ $this, 'display_notice' ] );
-			add_action( 'admin_footer', [ $this, 'footer_scripts' ] );
 
 			add_action( 'wp_ajax_wp_markdown_editor_update_notice', [ $this, 'handle_update_notice' ] );
 			add_action( 'wp_ajax_wp_markdown_editor_review_notice', [ $this, 'handle_review_notice' ] );

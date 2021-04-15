@@ -28,6 +28,16 @@ final class Dark_Mode {
 		add_filter( 'plugin_action_links_' . plugin_basename( DARK_MODE_FILE ), array( $this, 'plugin_action_links' ) );
 
 		add_action( 'admin_notices', [ $this, 'print_notices' ], 15 );
+		add_filter( 'admin_body_class', array( $this, 'add_body_class' ), 10, 1 );
+
+	}
+
+	public static function add_body_class( $classes ) {
+		if (  wpmde_darkmode_enabled() ) {
+			$classes .= ' dark-mode ';
+		}
+
+		return $classes;
 	}
 
 	public function print_notices() {
@@ -78,17 +88,11 @@ final class Dark_Mode {
 	 * @since 1.0
 	 */
 	public function admin_scripts() {
-		wp_enqueue_style( 'p-markdown-editor-admin', DARK_MODE_URL . 'assets/css/dark-mode.css', false, DARK_MODE_VERSION );
+		wp_enqueue_style( 'wp-markdown-editor-admin', DARK_MODE_URL . 'assets/css/admin.css', false, DARK_MODE_VERSION );
 
 		wp_enqueue_script( 'wp-markdown-editor-admin', DARK_MODE_URL . 'assets/js/admin.min.js', [ 'jquery', 'wp-util' ], DARK_MODE_VERSION,
 			true );
 		wp_localize_script( 'wp-markdown-editor-admin', 'darkmode', [ 'plugin_url' => DARK_MODE_URL, ] );
-
-		if ( ! wpmde_darkmode_enabled() ) {
-			return;
-		}
-
-		wp_enqueue_script( 'wp-markdown-dark-mode', DARK_MODE_URL . 'assets/js/dark-mode.js' );
 
 	}
 
