@@ -22,7 +22,16 @@ if ( ! class_exists( 'Dark_Mode_Install' ) ) {
 		 * @since 1.0.0
 		 */
 		public function __construct() {
-			self::create_default_data();
+			if ( ! class_exists( 'WP_Markdown_Editor_Update' ) ) {
+				require_once WP_DARK_MODE_INCLUDES . '/admin/class-update.php';
+			}
+
+			$updater = new WP_Markdown_Editor_Update();
+
+			if ( ! $updater->needs_update() ) {
+				self::create_default_data();
+			}
+
 		}
 
 
