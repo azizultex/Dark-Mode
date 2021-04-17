@@ -17588,9 +17588,6 @@ var MusicList = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(MusicList, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {}
-  }, {
     key: "handlePlayPause",
     value: function handlePlayPause(e, index) {
       /*check if current item is playing*/
@@ -17666,9 +17663,10 @@ var MusicList = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this3 = this; //const sounds = 'relax' === this.state.cat ? musics.relax : musics.productivity;
 
-      var sounds = 'relax' === this.state.cat ? _musics__WEBPACK_IMPORTED_MODULE_1__.relax : _musics__WEBPACK_IMPORTED_MODULE_1__.productivity;
+
+      var sounds = [];
       return wp.element.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, wp.element.createElement("div", {
         className: "music-cat-group"
       }, wp.element.createElement("div", {
@@ -17678,8 +17676,8 @@ var MusicList = /*#__PURE__*/function (_Component) {
         }
       }, wp.element.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
-        width: "20",
-        height: "20",
+        width: "30",
+        height: "30",
         viewBox: "0 0 40 40"
       }, wp.element.createElement("g", {
         fill: "none",
@@ -17724,8 +17722,8 @@ var MusicList = /*#__PURE__*/function (_Component) {
         }
       }, wp.element.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
-        width: "20",
-        height: "20",
+        width: "30",
+        height: "30",
         viewBox: "0 0 40 40"
       }, wp.element.createElement("g", {
         fill: "none",
@@ -17751,8 +17749,8 @@ var MusicList = /*#__PURE__*/function (_Component) {
         }
       }, wp.element.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
-        width: "40",
-        height: "40",
+        width: "30",
+        height: "30",
         viewBox: "0 0 40 40"
       }, wp.element.createElement("g", {
         fill: "none",

@@ -67,7 +67,7 @@ import './comoponents/notice';
                 }
             }
         },
-        
+
     };
 
     document.addEventListener('DOMContentLoaded', app.init);
