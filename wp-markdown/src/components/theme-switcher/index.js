@@ -247,7 +247,7 @@ class ThemeSwitcher extends Component {
                                         <MenuGroup
                                             className="components-markdown-music"
                                         >
-                                            <Music/>
+                                            <Music isList={this.state.isList}/>
                                         </MenuGroup>
 
                                         <MenuGroup>
@@ -522,24 +522,13 @@ class ThemeSwitcher extends Component {
     }
 
     onExitMusic(onToggle) {
-        //const wrapper = document.querySelector('.components-markdown-theme-switcher__content');
-        //const editorWrapper = document.querySelector('.block-editor-writing-flow');
 
         this.setState({isMusic: false});
         onToggle();
 
         setTimeout(function () {
-            //wrapper.classList.add('is-editing-theme');
-            //editorWrapper.classList.add('is-editing-theme');
-
             document.querySelector('.components-markdown-theme-switcher__trigger').click();
         }, 25);
-
-        // focus manually to fix closing outside bug
-        //document.querySelector('.components-markdown-theme-switcher__content .components-popover__content').focus();
-
-        // Save theme settings
-        //this.props.updateThemeSettings(this.state.themeSettings);
     }
 
     onExitEditTheme() {
