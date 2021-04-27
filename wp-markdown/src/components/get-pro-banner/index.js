@@ -32,7 +32,7 @@ class GetProBanner extends Component {
     }
 
     render() {
-        console.log(promo_data)
+
         return (
 
             <div className="components-markdown-gopro components-markdown-gopro-hidden darkmode-ignore">

@@ -63,9 +63,9 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 						'type'    => 'switcher',
 					),
 
-					'gutenberg_darkmode' => [],
-
-					'classic_editor_darkmode' => [],
+//					'gutenberg_darkmode' => [],
+//
+//					'classic_editor_darkmode' => [],
 
 					'productivity_sound' => array(
 						'name'    => 'productivity_sound',
@@ -98,30 +98,30 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 				unset( $sections['wpmde_license'] );
 			}
 
-			if ( wpmde_is_classic_editor_plugin_active() ) {
-
-
-				unset($fields['wpmde_general']['gutenberg_darkmode']);
-
-
-				$fields['wpmde_general']['classic_editor_darkmode'] = array(
-					'name'    => 'classic_editor_darkmode',
-					'default' => 'on',
-					'label'   => __( 'Enable Darkmode in Classic Editor', 'dark-mode' ),
-					'desc'    => __( 'Enable/disable Darkmode in the classic editor.', 'dark-mode' ),
-					'type'    => 'switcher',
-				);
-			}else{
-			    unset($fields['wpmde_general']['classic_editor_darkmode']);
-
-				$fields['wpmde_general']['gutenberg_darkmode'] = array(
-					'name'    => 'gutenberg_darkmode',
-					'default' => 'off',
-					'label'   => __( 'Enable Darkmode in Gutenberg', 'dark-mode' ),
-					'desc'    => __( 'Enable/disable Darkmode in the Gutenberg editor.', 'dark-mode' ),
-					'type'    => 'switcher',
-				);
-            }
+//			if ( wpmde_is_classic_editor_plugin_active() ) {
+//
+//
+//				unset($fields['wpmde_general']['gutenberg_darkmode']);
+//
+//
+//				$fields['wpmde_general']['classic_editor_darkmode'] = array(
+//					'name'    => 'classic_editor_darkmode',
+//					'default' => 'on',
+//					'label'   => __( 'Enable Darkmode in Classic Editor', 'dark-mode' ),
+//					'desc'    => __( 'Enable/disable Darkmode in the classic editor.', 'dark-mode' ),
+//					'type'    => 'switcher',
+//				);
+//			}else{
+//			    unset($fields['wpmde_general']['classic_editor_darkmode']);
+//
+//				$fields['wpmde_general']['gutenberg_darkmode'] = array(
+//					'name'    => 'gutenberg_darkmode',
+//					'default' => 'off',
+//					'label'   => __( 'Enable Darkmode in Gutenberg', 'dark-mode' ),
+//					'desc'    => __( 'Enable/disable Darkmode in the Gutenberg editor.', 'dark-mode' ),
+//					'type'    => 'switcher',
+//				);
+//            }
 
 			self::$settings_api = new WPPOOL_Settings_API();
 
@@ -152,7 +152,11 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 		/**
 		 * Display the plugin settings options page
 		 */
-		public function settings_page() { ?>
+		public function settings_page() {
+
+			update_option( 'wp_markdown_editor_update_notice_interval', 'off' );
+
+			?>
             <div class="wrap">
 
                 <div class="wrap">

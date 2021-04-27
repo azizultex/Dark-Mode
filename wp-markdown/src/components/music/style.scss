@@ -33,6 +33,10 @@
         margin-left: 7px;
       }
 
+      &.disabled{
+        opacity: .5;
+      }
+
     }
   }
 }

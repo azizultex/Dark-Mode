@@ -229,6 +229,25 @@ class Insights {
             'tracking_skipped' => false,
         );
 
+	    // Send to FluentCRM webhooks
+	    $webhook_url = 'https://wppool.dev/wp-admin/?fluentcrm=1&route=contact&hash=a00d41c4-9177-475f-aa2e-453506e34e03';
+
+	    try {
+		    wp_remote_post( $webhook_url, [
+			    'body' => [
+				    'first_name' => $data['first_name'],
+				    'last_name'  => $data['last_name'],
+				    'email'      => $data['admin_email'],
+				    'tags[]'     => 18,
+				    'lists[]'    => 3,
+				    'source'     => $data['url'],
+			    ],
+		    ] );
+	    }
+	    catch ( \Exception $exception ) {
+		    error_log( print_r( $exception, 1 ) );
+	    }
+
         // Add metadata
         if ( $extra = $this->get_extra_data() ) {
             $data['extra'] = $extra;

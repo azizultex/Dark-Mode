@@ -105,6 +105,13 @@ class ThemeSwitcher extends Component {
                     : this.state.themeSettings.colors.accent
             } 50%)`;
         }
+
+        if (this.state.theme && 'default' !== this.state.theme) {
+            document.querySelector('html').classList.add('darkmode-theme');
+        } else {
+            document.querySelector('html').classList.remove('darkmode-theme');
+        }
+
     }
 
     updateState(key, value) {

@@ -93,6 +93,7 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 
 		    //Update Notice
 			if ( 'off' != get_option( 'wp_markdown_editor_update_notice_interval', 'on' )){
+
 				$notice = '<p>WP Markdown Editor (formerly Dark Mode) has now additional settings that you can turn off. </p> 
 <a style="margin-bottom: 8px;" href="' . admin_url( 'options-general.php?page=wp-markdown-settings' )
 				          . '" class="button-primary">Explore Now</a> ';

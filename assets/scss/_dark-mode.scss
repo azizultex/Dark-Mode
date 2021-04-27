@@ -35,7 +35,7 @@ $editor-lavender: #c678dd;
 $editor-sunglo:   #e06c75;
 $editor-olivine:  #98c379;
 
-body.dark-mode:not(.gutenberg-editor-page) {
+body.dark-mode:not(.block-editor-page) {
 
   background-color: $base-grey;
   color: $light-grey;
@@ -2426,8 +2426,31 @@ body.dark-mode:not(.gutenberg-editor-page) {
 
   }
 
-  .wppool-settings-content{
+  .wppool-settings-content, .wppool-settings-sidebar {
     background: $base-grey;
+  }
+
+  .wppool-settings-sidebar {
+    li {
+      a {
+        &, i {
+          color: $light-grey;
+        }
+      }
+
+      &.active {
+        a {
+          &, i {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+
+  .appsero-license-settings {
+    background: $base-grey;
+    border: 1px solid;
   }
 
 }

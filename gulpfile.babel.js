@@ -57,8 +57,6 @@ const paths = {
             '!wp-markdown/package.json',
             '!wp-markdown/package-lock.json',
             '!wp-markdown/webpack.config.js',
-
-            '!assets/musics/**',
             '!assets/scss/**',
             '!build/**',
             '!src/**',
@@ -130,32 +128,6 @@ export const js = () => {
                     }
                 ]
             },
-            plugins: [
-                new ReplaceInFileWebpackPlugin([
-                    {
-                        files: ['dark-mode.php'],
-                        rules: [
-                            {
-                                search: /Version:(\s*?)[a-zA-Z0-9\.\-\+]+$/m,
-                                replace: 'Version:$1' + pkg.version,
-                            },
-                            {
-                                search: /define\(\s*'DARK_MODE_VERSION',\s*'(.*)'\s*\);/,
-                                replace: `define( 'DARK_MODE_VERSION', '${pkg.version}' );`,
-                            },
-                        ],
-                    },
-                    {
-                        files: ['readme.txt'],
-                        rules: [
-                            {
-                                search: /^(\*\*|)Stable tag:(\*\*|)(\s*?)[a-zA-Z0-9.-]+(\s*?)$/im,
-                                replace: '$1Stable tag:$2$3' + pkg.version,
-                            },
-                        ],
-                    },
-                ]),
-            ],
 
             devtool: !PRODUCTION ? 'inline-source-map' : false
         }))

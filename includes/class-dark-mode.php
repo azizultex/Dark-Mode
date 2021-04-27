@@ -61,9 +61,12 @@ final class Dark_Mode {
 		include DARK_MODE_PATH . '/includes/class-settings.php';
 		include DARK_MODE_PATH . '/includes/class-hooks.php';
 
-		if ( 'off' == wpmde_get_settings( 'only_darkmode', 'off' )
-		     && 'on' == wpmde_get_settings( 'markdown_editor', 'on' ) ) {
+		if ( 'off' == wpmde_get_settings( 'only_darkmode', 'off' ) && 'on' == wpmde_get_settings( 'markdown_editor', 'on' ) ) {
 			include DARK_MODE_PATH . '/wp-markdown/plugin.php';
+		}
+
+		if ( is_admin() ) {
+			include DARK_MODE_PATH . '/includes/class-admin.php';
 		}
 
 	}
@@ -109,8 +112,11 @@ final class Dark_Mode {
 	 */
 	public function plugin_action_links( $links ) {
 
+		$links[] = sprintf( '<a href="%1$s" target="_blank" >%2$s</a>', admin_url( 'options-general.php?page=wp-markdown-settings' ),
+			__( 'Settings', 'dark-mode' ) );
+
 		if ( ! $this->is_pro_active() ) {
-			$links[] = sprintf( '<a href="%1$s" target="_blank" style="color: orangered;font-weight: bold;">%2$s</a>',
+			$links[] = sprintf( '<a href="%1$s" style="color: orangered;font-weight: bold;">%2$s</a>',
 				'https://wppool.dev/wp-markdown-editor', __( 'GET PRO', 'dark-mode' ) );
 		}
 

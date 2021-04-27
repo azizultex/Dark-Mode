@@ -35,7 +35,7 @@ class MusicList extends Component {
                 this.state.audio[index].pause();
             }
 
-            const mp3 = `${WPMD_Settings.pluginDirUrl}assets/musics/${musics[this.state.cat][index]['name']}.mp3`;
+            const mp3 = musics[this.state.cat][index]['url'];
 
             const audio = new Audio(mp3);
             audio.loop = true;
@@ -60,6 +60,7 @@ class MusicList extends Component {
 
         const isCat = cat === this.state.cat;
 
+        //Pause all music
         this.state.audio.map((audio, index) => {
 
             if (this.state.audio[index]) {
@@ -79,7 +80,7 @@ class MusicList extends Component {
             this.setState({isList: false});
 
             this.state.audio.map((audio, index) => {
-                const mp3 = `${WPMD_Settings.pluginDirUrl}assets/musics/${musics[cat][index]['name']}.mp3`;
+                const mp3 = musics[cat][index]['url'];
 
                 audio = new Audio(mp3);
                 audio.loop = true;
@@ -103,8 +104,8 @@ class MusicList extends Component {
 
             this.setState({cat: ''});
             window.wpMarkdownCat = '';
-            window.wpMarkdownPlaying = [false, false, false];
-            window.wpMarkdownAudio = [null, null, null];
+            window.wpMarkdownPlaying = [false, false, false, false, false, false];
+            window.wpMarkdownAudio = [null, null, null, null, null, null];
         }
 
     }
@@ -135,8 +136,12 @@ class MusicList extends Component {
                             <span>Productivity</span>
                         </div>
 
-                        <div className={`music-cat ${'relax' === this.state.cat ? 'active' : ''}`} onClick={() => {
-                            this.playPauseAll('relax');
+                        <div className={`music-cat ${!WPMD_Settings.is_pro ? 'disabled' : ''} ${'relax' === this.state.cat ? 'active' : ''}`} onClick={() => {
+                            if (!WPMD_Settings.is_pro) {
+                                document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
+                            } else {
+                                this.playPauseAll('relax');
+                            }
                         }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 40">
                                 <g fill="none" fill-rule="evenodd">
@@ -149,8 +154,12 @@ class MusicList extends Component {
                             <span>Relax</span>
                         </div>
 
-                        <div className={`music-cat ${'custom' === this.state.cat ? 'active' : ''}`} onClick={() => {
-                            this.playPauseAll('custom');
+                        <div className={`music-cat ${!WPMD_Settings.is_pro ? 'disabled' : ''} ${'custom' === this.state.cat ? 'active' : ''}`} onClick={() => {
+                            if (!WPMD_Settings.is_pro) {
+                                document.querySelector('.components-markdown-gopro').classList.remove('components-markdown-gopro-hidden');
+                            } else {
+                                this.playPauseAll('custom');
+                            }
                         }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 40">
                                 <g fill="none" fill-rule="evenodd">

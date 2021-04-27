@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || exit();
+
 class WP_Markdown_Editor_Update_4_0_7 {
 
 	private static $instance = null;
@@ -10,6 +12,11 @@ class WP_Markdown_Editor_Update_4_0_7 {
 	}
 
 	private function update_settings() {
+
+		if ( defined( 'WPMDE_PRO_VERSION' ) ) {
+			return;
+		}
+
 		$settings = (array) get_option( 'wpmde_general' );
 
 		$settings['only_darkmode']      = 'on';

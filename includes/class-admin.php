@@ -16,9 +16,11 @@ if(!class_exists('Dark_Mode_Admin')){
 		}
 
 		public function init_update() {
+
 			if ( ! class_exists( 'WP_Markdown_Editor_Update' ) ) {
 				require_once DARK_MODE_INCLUDES . '/class-update.php';
 			}
+
 			$updater = new WP_Markdown_Editor_Update();
 
 			if ( $updater->needs_update() ) {

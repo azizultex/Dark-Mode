@@ -13,15 +13,19 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: includes/class-dark-mode.php:104
+#: includes/class-dark-mode.php:116
+msgid "Settings"
+msgstr ""
+
+#: includes/class-dark-mode.php:120
 msgid "GET PRO"
 msgstr ""
 
-#: includes/class-hooks.php:207
+#: includes/class-hooks.php:211
 msgid "Light"
 msgstr ""
 
-#: includes/class-hooks.php:208
+#: includes/class-hooks.php:212
 msgid "Dark"
 msgstr ""
 
@@ -61,42 +65,22 @@ msgstr ""
 msgid "Enable/disable Darkmode in the admin dashboard."
 msgstr ""
 
-#: includes/class-settings.php:72
-msgid "Upcoming Features"
-msgstr ""
-
-#: includes/class-settings.php:79
+#: includes/class-settings.php:73
 msgid "Enable Productivity Sounds"
 msgstr ""
 
-#: includes/class-settings.php:80
+#: includes/class-settings.php:74
 msgid "Enable/disable productivity sounds in the admin dashboard."
 msgstr ""
 
-#: includes/class-settings.php:87
+#: includes/class-settings.php:81
 msgid "Enable New Fonts"
 msgstr ""
 
-#: includes/class-settings.php:88
+#: includes/class-settings.php:82
 msgid "Enable/disable new fonts for Gutenberg and Markdown editor."
 msgstr ""
 
-#: includes/class-settings.php:126
-msgid "Enable Darkmode in Gutenberg"
-msgstr ""
-
-#: includes/class-settings.php:127
-msgid "Enable/disable Darkmode in the Gutenberg editor."
-msgstr ""
-
-#: includes/class-settings.php:116
-msgid "Enable Darkmode in Classic Editor"
-msgstr ""
-
-#: includes/class-settings.php:117
-msgid "Enable/disable Darkmode in the classic editor."
-msgstr ""
-
-#: includes/class-settings.php:165
+#: includes/class-settings.php:163
 msgid "WP Markdown Editor Settings"
 msgstr ""

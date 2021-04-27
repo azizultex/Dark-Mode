@@ -1,8 +1,7 @@
 /**
  * External dependencies
  */
-import { map, merge } from 'lodash';
-
+import {map, merge} from 'lodash';
 /**
  * Internal dependencies
  */
@@ -12,18 +11,17 @@ import EditorThemes from './editor-themes';
 import EditorFonts from './fonts';
 import ColorPalette from './color-palette';
 import UpdateTitleHeight from '../utils/title-height';
-
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { Fragment, Component } from '@wordpress/element';
-import { withDispatch } from '@wordpress/data';
-import { compose, withInstanceId } from '@wordpress/compose';
+import {__} from '@wordpress/i18n';
+import {Component, Fragment} from '@wordpress/element';
+import {withDispatch} from '@wordpress/data';
+import {compose, withInstanceId} from '@wordpress/compose';
 import {
+	BaseControl,
 	MenuGroup,
 	MenuItem,
-	BaseControl,
 	RangeControl,
 	SelectControl,
 	withSpokenMessages,
@@ -31,8 +29,6 @@ import {
 
 class ThemeEditor extends Component {
 	constructor() {
-
-		console.log(EditorFonts)
 
 		super( ...arguments );
 
@@ -87,12 +83,19 @@ class ThemeEditor extends Component {
 		};
 
 		const selectOptions = () => {
+
+			if (!WPMD_Settings.new_fonts) {
+				delete EditorFonts['atkinson-hyperlegible'];
+				delete EditorFonts['open-dyslexic'];
+			}
+
 			return [
 				{
 					label: __( 'Select font', 'dark-mode' ),
 					value: '',
 					disabled: true,
 				},
+
 				...map( EditorFonts, ( { name }, key ) => ( {
 					value: key,
 					label: name,
