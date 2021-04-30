@@ -1,6 +1,6 @@
 import './comoponents/notice';
 
-;(function () {
+;(function ($) {
     const app = {
         init: () => {
 
@@ -15,30 +15,62 @@ import './comoponents/notice';
             }
 
             //Only Darkmode Settings Toggle
-            const onlyDarkmode = document.querySelector('.only_darkmode input[type=checkbox]');
-            if (onlyDarkmode) {
-                onlyDarkmode.addEventListener('change', app.checkOnlyDarkmode);
+            $('.only_darkmode input[type=checkbox]').on('change', app.checkOnlyDarkmode);
+
+            app.checkMarkdownEditor();
+            $('.markdown_editor input[type=checkbox]').on('change', app.checkMarkdownEditor);
+
+            //darkmode switch
+            app.checkDarkmode();
+            $('.dark-mode-switch').on('click', function () {
+                $('body').toggleClass('dark-mode');
+
+                app.checkDarkmode();
+
+                localStorage.setItem('dark_mode_active', $('body').hasClass('dark-mode') ? 1 : 0)
+            });
+
+            //license button
+            $('.button.activate-license').on('click', function () {
+                $('#wpmde_license-tab').trigger('click');
+            });
+
+
+        },
+
+        checkDarkmode: function () {
+            const enabled = $('body').hasClass('dark-mode');
+
+            if (enabled) {
+                $('.dark-mode-switch').addClass('active');
+            } else {
+                $('.dark-mode-switch').removeClass('active');
+            }
+        },
+
+        checkMarkdownEditor: function () {
+            const checked = $('.markdown_editor input[type=checkbox]').is(':checked');
+
+            if (checked) {
+                $('.only_darkmode input[type=checkbox]').prop('checked', false).change();
+
+                $('.productivity_sound, .new_fonts').css('display', 'revert');
+            } else {
+                $('.productivity_sound, .new_fonts').css('display', 'none');
             }
 
         },
 
         checkOnlyDarkmode: function () {
-            const checkBox = document.querySelector('.only_darkmode input[type=checkbox]');
-            if (!checkBox) {
-                return;
-            }
-            const is_darkmode_enabled = checkBox.checked;
 
-            if (is_darkmode_enabled) {
-                document.querySelector('.admin_darkmode').style.display = 'none';
-                document.querySelector('.markdown_editor').style.display = 'none';
-                document.querySelector('.productivity_sound').style.display = 'none';
-                document.querySelector('.new_fonts').style.display = 'none';
+            const checked = $('.only_darkmode input[type=checkbox]').is(':checked');
+
+            if (checked) {
+                $('.admin_darkmode, .productivity_sound, .new_fonts').css('display', 'none');
+
+                $('.markdown_editor input[type=checkbox]').prop('checked', false).change();
             } else {
-                document.querySelector('.admin_darkmode').style.display = 'revert';
-                document.querySelector('.markdown_editor').style.display = 'revert';
-                document.querySelector('.productivity_sound').style.display = 'revert';
-                document.querySelector('.new_fonts').style.display = 'revert';
+                $('.admin_darkmode').css('display', 'revert');
             }
         },
 
@@ -72,4 +104,4 @@ import './comoponents/notice';
 
     document.addEventListener('DOMContentLoaded', app.init);
 
-})();
+})(jQuery);

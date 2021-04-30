@@ -2398,7 +2398,8 @@ body.dark-mode:not(.block-editor-page) {
   ::-webkit-input-placeholder,
   ::-moz-placeholder,
   :-ms-input-placeholder,
-  :-moz-placeholder {
+  :-moz-placeholder,
+  ::placeholder {
 
     color: $white;
     opacity: 1;
@@ -2451,6 +2452,10 @@ body.dark-mode:not(.block-editor-page) {
   .appsero-license-settings {
     background: $base-grey;
     border: 1px solid;
+
+    ::placeholder {
+      color: $white;
+    }
   }
 
 }

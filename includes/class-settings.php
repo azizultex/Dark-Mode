@@ -166,6 +166,7 @@ if ( ! class_exists( 'WPMDE_Settings' ) ) {
 
             </div>
 			<?php
+
 		}
 
 		/**

@@ -28,7 +28,7 @@ final class Dark_Mode {
 		add_filter( 'plugin_action_links_' . plugin_basename( DARK_MODE_FILE ), array( $this, 'plugin_action_links' ) );
 
 		add_action( 'admin_notices', [ $this, 'print_notices' ], 15 );
-		add_filter( 'admin_body_class', array( $this, 'add_body_class' ), 10, 1 );
+		//add_filter( 'admin_body_class', array( $this, 'add_body_class' ), 10, 1 );
 
 	}
 
@@ -112,7 +112,7 @@ final class Dark_Mode {
 	 */
 	public function plugin_action_links( $links ) {
 
-		$links[] = sprintf( '<a href="%1$s" target="_blank" >%2$s</a>', admin_url( 'options-general.php?page=wp-markdown-settings' ),
+		$links[] = sprintf( '<a href="%1$s" >%2$s</a>', admin_url( 'options-general.php?page=wp-markdown-settings' ),
 			__( 'Settings', 'dark-mode' ) );
 
 		if ( ! $this->is_pro_active() ) {

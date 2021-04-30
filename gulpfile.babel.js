@@ -15,8 +15,6 @@ import named from 'vinyl-named';
 import del from 'del';
 import rename from 'gulp-rename';
 
-import ReplaceInFileWebpackPlugin from 'replace-in-file-webpack-plugin';
-
 const PRODUCTION = yargs.argv.prod;
 const server = browserSync.create();
 
@@ -137,9 +135,9 @@ export const js = () => {
 
 //live server
 export const serve = done => {
-    // server.init({
-    //     proxy: `localhost/test`
-    // });
+    server.init({
+        proxy: `localhost/test`
+    });
 
     done();
 };
@@ -153,7 +151,7 @@ export const reload = done => {
 //watch changes
 export const watch = () => {
     gulp.watch('assets/scss/**/*.scss', css);
-    gulp.watch(['assets/js/admin.js','assets/js/components/**.js'], reload);
+    gulp.watch(['assets/js/admin.js', 'assets/js/components/**.js'], gulp.series(js, reload));
     gulp.watch('**/*.php', reload);
 };
 

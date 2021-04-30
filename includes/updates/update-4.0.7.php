@@ -22,7 +22,6 @@ class WP_Markdown_Editor_Update_4_0_7 {
 		$settings['only_darkmode']      = 'on';
 		$settings['markdown_editor']    = 'off';
 		$settings['admin_darkmode']     = 'on';
-		$settings['gutenberg_darkmode'] = 'off';
 		$settings['productivity_sound'] = 'off';
 		$settings['new_fonts']          = 'off';
 

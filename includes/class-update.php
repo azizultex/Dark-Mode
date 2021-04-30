@@ -10,7 +10,7 @@ class WP_Markdown_Editor_Update {
 	 *
 	 * @var array
 	 */
-	private static $upgrades = [ '4.0.7'];
+	private static $upgrades = [];
 
 
 	public function installed_version() {
