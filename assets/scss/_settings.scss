@@ -1,0 +1,95 @@
+/** dark-mode switch **/
+#wp-admin-bar-dark-mode-switch {
+
+  .ab-item {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .dark-mode-switch {
+    position: relative !important;
+    width: 90px !important;
+    background: #eee;
+    display: flex;
+    align-items: center;
+
+    &, .toggle {
+      height: 25px !important;
+      border-radius: 100px !important;
+    }
+
+    .modes {
+      margin-top: -3px;
+      position: absolute !important;
+      display: flex;
+      align-items: center;
+
+      p {
+        margin: 0 8px;
+        line-height: 1;
+      }
+
+      .light {
+        color: #000;
+      }
+
+      .dark {
+        color: #555;
+      }
+    }
+
+    .toggle {
+      position: absolute !important;
+      width: 53% !important;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, .15) !important;
+      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+      background: #fff;
+    }
+
+    &.active {
+      .toggle {
+        transform: translateX(87%);
+        background: #000;
+      }
+      .dark{
+        color: #fff;
+      }
+    }
+
+  }
+
+}
+
+/**---- Settings  -----**/
+.wppool-settings-content {
+  .license {
+    th {
+      display: none;
+    }
+
+    h1{
+      display: none;
+    }
+  }
+
+  .upcoming_features{
+    th{
+      display: none;
+    }
+
+    td{
+      position: relative;
+      left: 30px;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .form-table tr.disabled {
+    opacity: .6;
+
+    input, select, textarea, button, label {
+      pointer-events: none;
+    }
+  }
+}

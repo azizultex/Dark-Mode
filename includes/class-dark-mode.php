@@ -28,6 +28,16 @@ final class Dark_Mode {
 		add_filter( 'plugin_action_links_' . plugin_basename( DARK_MODE_FILE ), array( $this, 'plugin_action_links' ) );
 
 		add_action( 'admin_notices', [ $this, 'print_notices' ], 15 );
+		//add_filter( 'admin_body_class', array( $this, 'add_body_class' ), 10, 1 );
+
+	}
+
+	public static function add_body_class( $classes ) {
+		if (  wpmde_darkmode_enabled() ) {
+			$classes .= ' dark-mode ';
+		}
+
+		return $classes;
 	}
 
 	public function print_notices() {
@@ -51,9 +61,8 @@ final class Dark_Mode {
 		include DARK_MODE_PATH . '/includes/class-settings.php';
 		include DARK_MODE_PATH . '/includes/class-hooks.php';
 
-		if ( 'off' == wpmde_get_settings( 'only_darkmode', 'off' )
-		     && 'on' == wpmde_get_settings( 'markdown_editor', 'on' ) ) {
-			include DARK_MODE_PATH . '/wp-markdown/plugin.php';
+		if ( is_admin() ) {
+			include DARK_MODE_PATH . '/includes/class-admin.php';
 		}
 
 	}
@@ -78,17 +87,12 @@ final class Dark_Mode {
 	 * @since 1.0
 	 */
 	public function admin_scripts() {
-		wp_enqueue_style( 'p-markdown-editor-admin', DARK_MODE_URL . 'assets/css/dark-mode.css', false, DARK_MODE_VERSION );
+		wp_enqueue_style( 'wp-markdown-editor-admin', DARK_MODE_URL . 'assets/css/admin.css', false, DARK_MODE_VERSION );
 
+		wp_enqueue_script( 'jquery.syotimer', DARK_MODE_URL . 'assets/js/jquery.syotimer.min.js', array('jquery'), '2.1.2', true );
 		wp_enqueue_script( 'wp-markdown-editor-admin', DARK_MODE_URL . 'assets/js/admin.min.js', [ 'jquery', 'wp-util' ], DARK_MODE_VERSION,
 			true );
 		wp_localize_script( 'wp-markdown-editor-admin', 'darkmode', [ 'plugin_url' => DARK_MODE_URL, ] );
-
-		if ( ! wpmde_darkmode_enabled() ) {
-			return;
-		}
-
-		wp_enqueue_script( 'wp-markdown-dark-mode', DARK_MODE_URL . 'assets/js/dark-mode.js' );
 
 	}
 
@@ -105,8 +109,11 @@ final class Dark_Mode {
 	 */
 	public function plugin_action_links( $links ) {
 
+		$links[] = sprintf( '<a href="%1$s" >%2$s</a>', admin_url( 'options-general.php?page=wp-markdown-settings' ),
+			__( 'Settings', 'dark-mode' ) );
+
 		if ( ! $this->is_pro_active() ) {
-			$links[] = sprintf( '<a href="%1$s" target="_blank" style="color: orangered;font-weight: bold;">%2$s</a>',
+			$links[] = sprintf( '<a href="%1$s" style="color: orangered;font-weight: bold;">%2$s</a>',
 				'https://wppool.dev/wp-markdown-editor', __( 'GET PRO', 'dark-mode' ) );
 		}
 

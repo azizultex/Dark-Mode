@@ -18,14 +18,20 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		public function __construct() {
 			add_action( 'admin_bar_menu', [ $this, 'render_admin_switcher_menu' ], 2000 );
 			add_action( 'admin_head', [ $this, 'head_scripts' ] );
+			add_action( 'admin_footer', [ $this, 'footer_scripts' ] );
 
 			add_action( 'admin_init', [ $this, 'display_notice' ] );
-			add_action( 'admin_footer', [ $this, 'footer_scripts' ] );
 
 			add_action( 'wp_ajax_wp_markdown_editor_update_notice', [ $this, 'handle_update_notice' ] );
 			add_action( 'wp_ajax_wp_markdown_editor_review_notice', [ $this, 'handle_review_notice' ] );
 			add_action( 'wp_ajax_wp_markdown_editor_affiliate_notice', [ $this, 'handle_affiliate_notice' ] );
 
+			add_action( 'wppool_after_settings', [ $this, 'pro_promo' ] );
+
+		}
+
+		public function pro_promo() {
+			include_once DARK_MODE_INCLUDES . '/promo.php';
 		}
 
 		/**
@@ -33,7 +39,7 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		 */
 		public function handle_review_notice() {
 
-			$value = ! empty( $_REQUEST['value'] ) ? wp_unslash( $_REQUEST['value'] ) : 7;
+			$value = ! empty( $_REQUEST['value'] ) ? sanitize_text_field( $_REQUEST['value'] ) : 7;
 
 			if ( 'hide_notice' == $value ) {
 				update_option( 'wp_markdown_editor_review_notice_interval', 'off' );
@@ -49,7 +55,7 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		 * handle affiliate notice
 		 */
 		public function handle_affiliate_notice() {
-			$value = ! empty( $_REQUEST['value'] ) ? wp_unslash( $_REQUEST['value'] ) : 7;
+			$value = ! empty( $_REQUEST['value'] ) ? sanitize_text_field( $_REQUEST['value'] ) : 7;
 
 			if ( 'hide_notice' == $value ) {
 				update_option( 'wp_markdown_editor_affiliate_notice_interval', 'off' );
@@ -63,18 +69,23 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 
 		public function footer_scripts() { ?>
             <script>
-                var is_saved = localStorage.getItem('dark_mode_active');
+                ;(function () {
+                    var is_saved = localStorage.getItem('dark_mode_active');
 
-                if (!is_saved) {
-                    is_saved = 1;
-                }
+                    if (!is_saved) {
+                        is_saved = 1;
+                    }
 
-                var is_gutenberg = document.querySelector('body').classList.contains('block-editor-page');
+                    var is_gutenberg = document.querySelector('body').classList.contains('block-editor-page');
 
-                if (is_saved && is_saved != 0) {
-                    document.querySelector('html').classList.add('dark-mode-active');
-                    //DarkMode.enable();
-                }
+                    if(is_gutenberg) return;
+
+
+                    if (is_saved && is_saved != 0) {
+                        document.querySelector('body').classList.add('dark-mode');
+                    }
+                })();
+
             </script>
 		<?php }
 
@@ -93,8 +104,9 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 
 		    //Update Notice
 			if ( 'off' != get_option( 'wp_markdown_editor_update_notice_interval', 'on' )){
+
 				$notice = '<p>WP Markdown Editor (formerly Dark Mode) has now additional settings that you can turn off. </p> 
-<a style="margin-bottom: 8px;" href="' . admin_url( 'options-general.php?page=wp-markdown-settings' )
+                <a style="margin-bottom: 8px;" href="' . admin_url( 'options-general.php?page=wp-markdown-settings' )
 				          . '" class="button-primary">Explore Now</a> ';
 
 				wpmd_add_notice( 'info is-dismissible wp-markdown-editor-update-notice', $notice );
@@ -154,11 +166,9 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
                             var newColorScheme = e.matches ? 'dark' : 'light';
 
                             if ('dark' === newColorScheme) {
-                                document.querySelector('html').classList.add('dark-mode-active');
-                                DarkMode.enable();
+                                document.querySelector('body').classList.add('dark-mode');
                             } else {
-                                document.querySelector('html').classList.remove('dark-mode-active');
-                                DarkMode.disable();
+                                document.querySelector('body').classList.remove('dark-mode');
                             }
 
                             window.dispatchEvent(new Event('dark_mode_init'));
@@ -171,11 +181,9 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
                                 var newColorScheme = e.matches ? 'dark' : 'light';
 
                                 if ('dark' === newColorScheme) {
-                                    DarkMode.enable();
-                                    document.querySelector('html').classList.add('dark-mode-active');
+                                    document.querySelector('body').classList.add('dark-mode');
                                 } else {
-                                    document.querySelector('html').classList.remove('dark-mode-active');
-                                    DarkMode.disable()
+                                    document.querySelector('body').classList.remove('dark-mode');
                                 }
 
                                 window.dispatchEvent(new Event('dark_mode_init'));
@@ -188,8 +196,7 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 
                     /** check init dark theme */
                     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                        document.querySelector('html').classList.add('dark-mode-active');
-                        DarkMode.enable();
+                        document.querySelector('body').classList.add('dark-mode');
                         window.dispatchEvent(new Event('dark_mode_init'));
                     }
 

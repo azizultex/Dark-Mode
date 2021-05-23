@@ -34,8 +34,7 @@ if ( ! class_exists( 'WPPOOL_Settings_API' ) ) {
 			wp_enqueue_script( 'jquery' );
 
 			wp_enqueue_script( 'jquery-ui-slider' );
-			$wp_scripts = wp_scripts();
-			wp_enqueue_style( 'wp-radio-jquery-ui-css', 'https://ajax.googleapis.com/ajax/libs/jqueryui/' . $wp_scripts->registered['jquery-ui-core']->ver . '/themes/smoothness/jquery-ui.css' );
+
 		}
 
 		/**

@@ -12,14 +12,20 @@ if(!class_exists('Dark_Mode_Admin')){
 		 * Dark_Mode_Admin constructor.
 		 */
 		public function __construct() {
-			add_action('admin_menu', [$this, 'add_menu']);
+			add_action( 'admin_init', [ $this, 'init_update' ] );
 		}
 
-		public function add_menu(){
-		}
+		public function init_update() {
 
-		public function render_settings_page(){
-			
+			if ( ! class_exists( 'WP_Markdown_Editor_Update' ) ) {
+				require_once DARK_MODE_INCLUDES . '/class-update.php';
+			}
+
+			$updater = new WP_Markdown_Editor_Update();
+
+			if ( $updater->needs_update() ) {
+				$updater->perform_updates();
+			}
 		}
 
 		/**

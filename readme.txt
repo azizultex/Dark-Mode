@@ -1,9 +1,9 @@
 === WP Markdown Editor (Formerly Dark Mode) ===
-Contributors: wppool, azizultex, princeahmed, foysalremon, emrikol, danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad, loumray, bueltge, dingo_bastard, yuanhao, leetaylor5455
+Contributors: wppool, azizultex, princeahmed, foysalremon
 Tags: markdown, editor, dashboard, dark, markdown editor
 Requires at least: 5.0.0
 Tested up to: 5.7
-Stable tag: 4.0.6
+Stable tag: 4.0.9
 Requires PHP: 5.6
 License: GNU GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -87,6 +87,17 @@ WP Markdown is a developer's way of writing content. Developers or coding folks 
 == Changelog ==
 
 = Version History =
+
+= 4.0.9 =
+* Fix: Fixed sanitization using proper sanitize, escaping functions
+
+= 4.0.8 =
+* Update: Removing Markdown functionality from the plugin. Giving proper credits to Iceberg plugin which we forked to enable the Markdown functionality. Markdown functionality has been moved to premium version only because of the WordPress plugin team's guideline
+
+= 4.0.7 =
+* Update: Restore old darkmode algorithm
+* New: Added new fonts
+* New: Added music components
 
 = 4.0.6 =
 * New: Added Settings Page

@@ -80,6 +80,14 @@ function wpmde_darkmode_enabled() {
 		return false;
 	}
 
+	if ( ! wpmd_is_pro_active() ) {
+		return 'on' == wpmde_get_settings( 'admin_darkmode', 'on' );
+	}
+
+	if ( 'on' == wpmde_get_settings( 'only_darkmode', 'off' ) ) {
+		return true;
+	}
+
 	// Check if admin darkmode enabled
 	if ( 'on' != wpmde_get_settings( 'admin_darkmode', 'on' ) ) {
 		return false;
@@ -95,6 +103,7 @@ function wpmde_darkmode_enabled() {
 	     && wpmde_is_classic_editor_page() ) {
 		return false;
 	}
+
 
 	return true;
 }
