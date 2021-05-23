@@ -1,0 +1,18 @@
+{
+  "exclude": [
+    "appsero.json",
+    "note.md",
+    ".babelrc",
+    ".gitignore",
+    "gulpfile.babel.js",
+    "package.json",
+    "package-lock.json",
+    "build",
+    "assets/js/admin.js",
+    "assets/js/frontend.js",
+    "assets/scss",
+    "block/package.json",
+    "block/webpack.config.js",
+    "block/src"
+  ]
+}
