@@ -84,4 +84,12 @@
       margin: 0;
     }
   }
+
+  .form-table tr.disabled {
+    opacity: .6;
+
+    input, select, textarea, button, label {
+      pointer-events: none;
+    }
+  }
 }

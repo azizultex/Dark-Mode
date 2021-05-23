@@ -61,10 +61,6 @@ final class Dark_Mode {
 		include DARK_MODE_PATH . '/includes/class-settings.php';
 		include DARK_MODE_PATH . '/includes/class-hooks.php';
 
-		if ( 'off' == wpmde_get_settings( 'only_darkmode', 'off' ) && 'on' == wpmde_get_settings( 'markdown_editor', 'on' ) ) {
-			include DARK_MODE_PATH . '/wp-markdown/plugin.php';
-		}
-
 		if ( is_admin() ) {
 			include DARK_MODE_PATH . '/includes/class-admin.php';
 		}
@@ -93,6 +89,7 @@ final class Dark_Mode {
 	public function admin_scripts() {
 		wp_enqueue_style( 'wp-markdown-editor-admin', DARK_MODE_URL . 'assets/css/admin.css', false, DARK_MODE_VERSION );
 
+		wp_enqueue_script( 'jquery.syotimer', DARK_MODE_URL . 'assets/js/jquery.syotimer.min.js', array('jquery'), '2.1.2', true );
 		wp_enqueue_script( 'wp-markdown-editor-admin', DARK_MODE_URL . 'assets/js/admin.min.js', [ 'jquery', 'wp-util' ], DARK_MODE_VERSION,
 			true );
 		wp_localize_script( 'wp-markdown-editor-admin', 'darkmode', [ 'plugin_url' => DARK_MODE_URL, ] );

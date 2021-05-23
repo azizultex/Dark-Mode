@@ -751,7 +751,7 @@ class Insights {
 
         $data                = $this->get_tracking_data();
         $data['reason_id']   = sanitize_text_field( $_POST['reason_id'] );
-        $data['reason_info'] = isset( $_REQUEST['reason_info'] ) ? trim( stripslashes( $_REQUEST['reason_info'] ) ) : '';
+        $data['reason_info'] = isset( $_REQUEST['reason_info'] ) ? trim( sanitize_text_field( $_REQUEST['reason_info'] ) ) : '';
 
         $this->client->send_request( $data, 'deactivate' );
 

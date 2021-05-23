@@ -26,6 +26,12 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 			add_action( 'wp_ajax_wp_markdown_editor_review_notice', [ $this, 'handle_review_notice' ] );
 			add_action( 'wp_ajax_wp_markdown_editor_affiliate_notice', [ $this, 'handle_affiliate_notice' ] );
 
+			add_action( 'wppool_after_settings', [ $this, 'pro_promo' ] );
+
+		}
+
+		public function pro_promo() {
+			include_once DARK_MODE_INCLUDES . '/promo.php';
 		}
 
 		/**
@@ -33,7 +39,7 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		 */
 		public function handle_review_notice() {
 
-			$value = ! empty( $_REQUEST['value'] ) ? wp_unslash( $_REQUEST['value'] ) : 7;
+			$value = ! empty( $_REQUEST['value'] ) ? sanitize_text_field( $_REQUEST['value'] ) : 7;
 
 			if ( 'hide_notice' == $value ) {
 				update_option( 'wp_markdown_editor_review_notice_interval', 'off' );
@@ -49,7 +55,7 @@ if ( ! class_exists( 'Dark_Mode_Hooks' ) ) {
 		 * handle affiliate notice
 		 */
 		public function handle_affiliate_notice() {
-			$value = ! empty( $_REQUEST['value'] ) ? wp_unslash( $_REQUEST['value'] ) : 7;
+			$value = ! empty( $_REQUEST['value'] ) ? sanitize_text_field( $_REQUEST['value'] ) : 7;
 
 			if ( 'hide_notice' == $value ) {
 				update_option( 'wp_markdown_editor_affiliate_notice_interval', 'off' );

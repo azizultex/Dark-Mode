@@ -1,4 +1,0 @@
-// Text indent option, scoped with .is-markdown
-&.has-text-indent p:not(.markdown-markdown-comments) {
-	text-indent: var(--markdown--typography--text-indent, 25px);
-}
