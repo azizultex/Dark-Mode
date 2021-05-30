@@ -9,11 +9,11 @@ import './comoponents/notice';
             //darkmode switch
             app.checkDarkmode();
             $('.dark-mode-switch').on('click', function () {
-                $('body').toggleClass('dark-mode');
+                $('html').toggleClass('dark-mode');
 
                 app.checkDarkmode();
 
-                localStorage.setItem('dark_mode_active', $('body').hasClass('dark-mode') ? 1 : 0)
+                localStorage.setItem('dark_mode_active', $('html').hasClass('dark-mode') ? 1 : 0)
             });
 
         },
@@ -23,7 +23,7 @@ import './comoponents/notice';
         },
 
         checkDarkmode: function () {
-            const enabled = $('body').hasClass('dark-mode');
+            const enabled = $('html').hasClass('dark-mode');
 
             if (enabled) {
                 $('.dark-mode-switch').addClass('active');

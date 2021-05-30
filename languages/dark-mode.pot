@@ -21,11 +21,11 @@ msgstr ""
 msgid "GET PRO"
 msgstr ""
 
-#: includes/class-hooks.php:217
+#: includes/class-hooks.php:237
 msgid "Light"
 msgstr ""
 
-#: includes/class-hooks.php:218
+#: includes/class-hooks.php:238
 msgid "Dark"
 msgstr ""
 

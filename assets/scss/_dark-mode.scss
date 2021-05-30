@@ -35,7 +35,7 @@ $editor-lavender: #c678dd;
 $editor-sunglo:   #e06c75;
 $editor-olivine:  #98c379;
 
-body.dark-mode:not(.block-editor-page) {
+html.dark-mode body:not(.block-editor-page) {
 
   background-color: $base-grey;
   color: $light-grey;
